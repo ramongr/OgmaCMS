@@ -1,8 +1,4 @@
 OgmaCMS::Application.routes.draw do
-  namespace :admin do
-    resources :static_pages
-  end
-
   devise_for :users
   get "static/index"
 
@@ -11,6 +7,7 @@ OgmaCMS::Application.routes.draw do
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
+    resources :static_pages
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

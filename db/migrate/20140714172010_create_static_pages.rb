@@ -1,6 +1,6 @@
-class CreateAdminStaticPages < ActiveRecord::Migration
+class CreateStaticPages < ActiveRecord::Migration
   def change
-    create_table :admin_static_pages do |t|
+    create_table :static_pages do |t|
       t.string :title
       t.string :slug
       t.text :body
