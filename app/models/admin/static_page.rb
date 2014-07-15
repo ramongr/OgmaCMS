@@ -5,8 +5,8 @@ class Admin::StaticPage < ActiveRecord::Base
 
   private
     def set_slug
-     if self.slug.blank?
+      if self.slug.blank?
        self.slug = ActiveSupport::Inflector.transliterate(self.title).gsub(/[^a-z_ ]/i, '').downcase.tr(" ","_")
-     end
+      end
     end
 end
