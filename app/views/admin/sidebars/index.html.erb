@@ -15,7 +15,7 @@
     <% @sidebars.each do |sidebar| %>
       <tr>
         <td><%= sidebar.title %></td>
-        <td><%= sidebar.type_mask %></td>
+        <td><%= sidebar.type_mask_name %></td>
         <td><%= link_to 'Show', [:admin,sidebar] %></td>
         <td><%= link_to 'Edit', edit_admin_sidebar_path(sidebar) %></td>
         <td><%= link_to 'Destroy', [:admin,sidebar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
