@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sidebar.title %>
+</p>
+
+<p>
+  <strong>Type mask:</strong>
+  <%= @sidebar.type_mask_name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_sidebar_path(@sidebar) %> |
+<%= link_to 'Back', admin_sidebars_path %>

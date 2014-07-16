@@ -1,0 +1,29 @@
+<h1>Listing sidebars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type mask</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sidebars.each do |sidebar| %>
+      <tr>
+        <td><%= sidebar.title %></td>
+        <td><%= sidebar.type_mask %></td>
+        <td><%= link_to 'Show', [:admin,sidebar] %></td>
+        <td><%= link_to 'Edit', edit_admin_sidebar_path(sidebar) %></td>
+        <td><%= link_to 'Destroy', [:admin,sidebar], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sidebar2', new_admin_sidebar_path %>
