@@ -1,4 +1,8 @@
 OgmaCMS::Application.routes.draw do
+  namespace :admin do
+    resources :blogs
+  end
+
   devise_for :users
   get "static/index"
 
