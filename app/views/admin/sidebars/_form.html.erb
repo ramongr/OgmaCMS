@@ -1,0 +1,25 @@
+<%= form_for([:admin,@sidebar]) do |f| %>
+  <% if @sidebar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:</h2>
+
+      <ul>
+      <% @sidebar.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :type_mask %><br>
+    <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]]) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

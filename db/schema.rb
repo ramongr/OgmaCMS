@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714172010) do
+ActiveRecord::Schema.define(version: 20140716105427) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "sidebars", force: true do |t|
+    t.string   "title"
+    t.integer  "type_mask"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "static_pages", force: true do |t|
     t.string   "title"
