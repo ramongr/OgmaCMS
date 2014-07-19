@@ -19,7 +19,7 @@
       <tr>
         <td><%= admin_blog.title %></td>
         <td><%= admin_blog.content %></td>
-        <td><%= admin_blog.user %></td>
+        <td><%= admin_blog.user.email %></td>
         <td><%= admin_blog.date_created_human %></td>
         <td><%= admin_blog.date_updated_human %></td>
         <td><%= link_to 'Show', [:admin,admin_blog] %></td>
