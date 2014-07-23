@@ -1,9 +1,14 @@
 OgmaCMS::Application.routes.draw do
+
+  mount Forem::Engine, :at => '/forum'
+
   devise_for :users
   get "static/index"
 
   root 'static#index'
 
+  resources :public_pages, only: [:show]
+  
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'

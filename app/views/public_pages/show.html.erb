@@ -1,0 +1,29 @@
+<head>
+  <title><%= @public_page.title %></title>
+</head>
+
+<body>
+  <header>
+    <h1><%= @public_page.title %></h1>
+  </header>
+
+  <p>
+    <strong>Slug:</strong>
+    <%= @public_page.slug %>
+  </p>
+
+  <p>
+    <strong>Body:</strong>
+  </p>
+
+  <%= @public_page.body %>
+
+  <br/>
+  <br/>
+
+  <%= link_to 'Back', root_path %>
+
+</body>
+
+
+

@@ -1,4 +1,3 @@
-<% user_locale = I18n.locale %>
 <ul class="tabs" data-tab>
   <% LANGUAGES.each_with_index do |l,index| %>
     <% if index == 0 %>
@@ -11,16 +10,42 @@
 
 <div class="tabs-content">
   <% LANGUAGES.each_with_index do |l, index| %>
-    <% I18n.locale = l.second %>
     <% if index == 0 %>
       <div class="content active" id="langtab0">
-        <p><%= render 'form' %></p>
-      </div>
     <% else %>
       <div class="content" id="langtab<%= index %>">
-        <p><%= render 'form' %></p>
+    <% end %>
+    <% I18n.locale = l.second %>
+    <%= form_for([:admin,@admin_static_page]) do |f| %>
+      <% if @admin_static_page.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@admin_static_page.errors.count, "error") %> prohibited this admin_static_page from being saved:</h2>
+
+          <ul>
+          <% @admin_static_page.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :slug %><br>
+        <%= f.text_field :slug %>
+      </div>
+      <div class="field">
+        <%= f.label :body %><br>
+        <%= f.text_area :body, rows: 6 %>
+      </div>
+      <%= hidden_field_tag :set_locale, l.second %>
+      <div class="actions">
+        <%= f.submit %>
       </div>
     <% end %>
+    </div>
   <% end %>
 </div>
-<% I18n.locale = user_locale %>

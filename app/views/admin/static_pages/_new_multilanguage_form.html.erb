@@ -12,7 +12,7 @@
   <% end %>
  
   <div class="field">
-    <%= select_tag 'set_locale', options_for_select(LANGUAGES,I18n.locale.to_s) %>
+    <%= select_tag :set_locale, options_for_select(LANGUAGES,I18n.locale.to_s) %>
   </div> 
   <div class="field">
     <%= f.label :title %><br>

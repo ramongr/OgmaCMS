@@ -24,17 +24,13 @@ class Admin::StaticPagesController < ApplicationController
   # POST /admin/static_pages
   # POST /admin/static_pages.json
   def create
-    user_locale = I18n.locale
-    I18n.locale = params[:set_locale]
     @admin_static_page = StaticPage.new(admin_static_page_params)
 
     respond_to do |format|
       if @admin_static_page.save
-        I18n.locale = user_locale
         format.html { redirect_to admin_static_pages_path, notice: 'Static page was successfully created.' }
         format.json { render action: 'show', status: :created, location: admin_static_pages_path }
       else
-        I18n.locale = user_locale
         format.html { render action: 'new' }
         format.json { render json: @admin_static_page.errors, status: :unprocessable_entity }
       end
@@ -44,15 +40,11 @@ class Admin::StaticPagesController < ApplicationController
   # PATCH/PUT /admin/static_pages/1
   # PATCH/PUT /admin/static_pages/1.json
   def update
-    user_locale = I18n.locale
-    I18n.locale = params[:set_locale]
     respond_to do |format|
       if @admin_static_page.update(admin_static_page_params)
-        I18n.locale = user_locale
         format.html { redirect_to admin_static_pages_path, notice: 'Static page was successfully updated.' }
         format.json { head :no_content }
       else
-        I18n.locale = user_locale
         format.html { render action: 'edit' }
         format.json { render json: @admin_static_page.errors, status: :unprocessable_entity }
       end
@@ -77,6 +69,6 @@ class Admin::StaticPagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_static_page_params
-      params.require(:static_page).permit(:title, :slug, :body, :set_locale)
+      params.require(:static_page).permit(:title, :slug, :body)
     end
 end
