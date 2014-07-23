@@ -1,4 +1,7 @@
 OgmaCMS::Application.routes.draw do
+
+  mount Forem::Engine, :at => '/forum'
+
   devise_for :users
   get "static/index"
 

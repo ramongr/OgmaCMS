@@ -12,7 +12,7 @@
 puts "Adding users"
 
 if User.where(email: 'admin@example.com').empty?
-  admin = User.new email: 'admin@example.com', password: 'password', password_confirmation: 'password'
+  admin = User.new email: 'admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true'
   admin.save!
   puts "Created User Admin, admin@example.com"
 end
