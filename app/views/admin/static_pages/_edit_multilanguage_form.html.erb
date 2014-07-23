@@ -1,0 +1,26 @@
+<% user_locale = I18n.locale %>
+<ul class="tabs" data-tab>
+  <% LANGUAGES.each_with_index do |l,index| %>
+    <% if index == 0 %>
+      <li class="tab-title active"><a href="#langtab0"><%= l.first %></a></li>
+    <% else %>
+      <li class="tab-title"><a href="#langtab<%= index %>"><%= l.first %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div class="tabs-content">
+  <% LANGUAGES.each_with_index do |l, index| %>
+    <% I18n.locale = l.second %>
+    <% if index == 0 %>
+      <div class="content active" id="langtab0">
+        <p><%= render 'form' %></p>
+      </div>
+    <% else %>
+      <div class="content" id="langtab<%= index %>">
+        <p><%= render 'form' %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<% I18n.locale = user_locale %>

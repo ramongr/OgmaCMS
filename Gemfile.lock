@@ -59,6 +59,9 @@ GEM
     foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    globalize (4.0.2)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (1.5.3)
@@ -159,6 +162,7 @@ DEPENDENCIES
   devise
   devise-i18n
   foundation-rails
+  globalize (~> 4.0.2)
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks

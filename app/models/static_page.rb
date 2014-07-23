@@ -1,4 +1,5 @@
 class StaticPage < ActiveRecord::Base
+  translates :title, :body
   before_validation :set_slug
   validates :title, :slug, :body, presence: true
   validates :slug, uniqueness: true, format: { with: /\A[a-z_]+\z/ }
