@@ -7,6 +7,8 @@ OgmaCMS::Application.routes.draw do
 
   root 'static#index'
 
+  resources :public_pages, only: [:show]
+  
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
