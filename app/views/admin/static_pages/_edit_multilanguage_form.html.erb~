@@ -21,4 +21,3 @@
     </div>
   <% end %>
 </div>
-<% I18n.locale = user_locale %>

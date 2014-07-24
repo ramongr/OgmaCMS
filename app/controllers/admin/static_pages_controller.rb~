@@ -48,11 +48,9 @@ class Admin::StaticPagesController < ApplicationController
     I18n.locale = params[:set_locale]
     respond_to do |format|
       if @admin_static_page.update(admin_static_page_params)
-        I18n.locale = user_locale
         format.html { redirect_to admin_static_pages_path, notice: 'Static page was successfully updated.' }
         format.json { head :no_content }
       else
-        I18n.locale = user_locale
         format.html { render action: 'edit' }
         format.json { render json: @admin_static_page.errors, status: :unprocessable_entity }
       end
