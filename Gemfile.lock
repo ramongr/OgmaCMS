@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/globalize/globalize-accessors.git
+  revision: 153cd2f3f99f79a64e66486766e50c81fa7eac16
+  branch: master
+  specs:
+    globalize-accessors (0.1.3)
+      globalize (>= 3)
+
+GIT
   remote: git://github.com/radar/forem.git
   revision: cc6e884c64a0be5aa64647235ff604b42a04a51f
   branch: rails4
@@ -203,6 +211,7 @@ DEPENDENCIES
   forem!
   foundation-rails
   globalize (~> 4.0.2)
+  globalize-accessors!
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
