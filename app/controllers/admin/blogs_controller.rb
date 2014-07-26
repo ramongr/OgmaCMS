@@ -68,6 +68,7 @@ class Admin::BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_blog_params
-      params.require(:blog).permit(:title, :content, :user_id)
+      permitted = Blog.globalize_attribute_names + [:user_id]
+      params.require(:blog).permit(*permitted)
     end
 end
