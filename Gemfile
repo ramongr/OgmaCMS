@@ -38,6 +38,12 @@ gem 'foundation-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Globalize builds on the I18n API in Ruby on Rails to add model translations to ActiveRecord models.
+gem 'globalize', '~> 4.0.2'
+
+# Easily access (read and write) globalize translated fields without fiddling with locale 
+gem 'globalize-accessors', :github => "globalize/globalize-accessors", :branch => "master"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -65,3 +71,4 @@ end
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 
 gem 'will_paginate', '3.0.5'
+
