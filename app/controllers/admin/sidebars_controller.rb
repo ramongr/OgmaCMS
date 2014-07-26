@@ -23,6 +23,11 @@ class Admin::SidebarsController < ApplicationController
   # POST /sidebar2s.json
   def create
     @sidebar = Sidebar.new(sidebar_params)
+    @links = Link.where(:id => params[:selected_links])
+    @sidebar.links << @links
+
+    @static_pages = StaticPage.where(:id => params[:selected_pages])
+    @sidebar.static_pages << @static_pages
 
     respond_to do |format|
       if @sidebar.save
@@ -39,6 +44,13 @@ class Admin::SidebarsController < ApplicationController
   # PATCH/PUT /sidebars/1
   # PATCH/PUT /sidebars/1.json
   def update
+    @links = Link.where(:id => params[:selected_links])
+    #@sidebar.links.destroy_all
+    @sidebar.links << @links
+    
+    @static_pages = StaticPage.where(:id => params[:selected_pages])
+    @sidebar.static_pages << @static_pages
+
     respond_to do |format|
       if @sidebar.update(sidebar_params)
         format.html { redirect_to [:admin,@sidebar], notice: 'Sidebar was successfully updated.' }

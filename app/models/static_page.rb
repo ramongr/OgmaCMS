@@ -4,6 +4,7 @@ class StaticPage < ActiveRecord::Base
   before_validation :set_slug
   validates :title, :slug, :body, presence: true
   validates :slug, uniqueness: true, format: { with: /\A[a-z_]+\z/ }
+  has_and_belongs_to_many :sidebars
 
   private
     def set_slug

@@ -1,5 +1,8 @@
 class Sidebar < ActiveRecord::Base
 
+  has_and_belongs_to_many :links
+  has_and_belongs_to_many :static_pages
+  
   validates :title, :type_mask, presence: true
   
   # only in last version of rails
