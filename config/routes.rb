@@ -1,5 +1,7 @@
 OgmaCMS::Application.routes.draw do
 
+  resources :comments
+
   mount Forem::Engine, :at => '/forum'
 
   devise_for :users
