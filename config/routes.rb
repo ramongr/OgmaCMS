@@ -8,7 +8,6 @@ OgmaCMS::Application.routes.draw do
   root 'static#index'
 
   resources :public_pages, only: [:show]
-  resources :links
   
   # User roots
   namespace :admin do
@@ -16,6 +15,7 @@ OgmaCMS::Application.routes.draw do
     resources :sidebars
     resources :static_pages
     resources :blogs
+    resources :links
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,4 @@
-class LinksController < ApplicationController
+class Admin::LinksController < ApplicationController
 
   before_action :set_link, only: [:show, :edit, :update, :destroy]
 

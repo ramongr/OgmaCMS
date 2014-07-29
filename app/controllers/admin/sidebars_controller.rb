@@ -45,7 +45,6 @@ class Admin::SidebarsController < ApplicationController
   # PATCH/PUT /sidebars/1.json
   def update
     @links = Link.where(:id => params[:selected_links])
-    #@sidebar.links.destroy_all
     @sidebar.links << @links
     
     @static_pages = StaticPage.where(:id => params[:selected_pages])
