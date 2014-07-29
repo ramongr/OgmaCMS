@@ -1,2 +1,2 @@
-module LinksHelper
+module Admin::LinksHelper
 end
