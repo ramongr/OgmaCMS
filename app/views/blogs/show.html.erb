@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="blog">
+  <div class="title">
+    Title: <%= @blog.title %>
+  </div>
+  <div class="author">
+    Author: <%= @blog.user.email %>
+  </div>
+  <div class="created_updated">
+    Created at: <%= @blog.date_created_human %>
+    Updated at: <%= @blog.date_updated_human %>
+  </div>
+  <div class="content">
+    <%= @blog.content %>
+  </div>
+</div>
+
+<%= link_to 'Back', blogs_path %>

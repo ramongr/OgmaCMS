@@ -7,7 +7,8 @@ OgmaCMS::Application.routes.draw do
 
   root 'static#index'
 
-  resources :public_pages, only: [:show]
+  resources :pages, only: [:show]
+  resources :blogs, only: [:index,:show]
   
   # User roots
   namespace :admin do
