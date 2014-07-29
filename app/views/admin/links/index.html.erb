@@ -15,9 +15,9 @@
       <% @links.each do |link| %>
         <tr>
           <td><%= link.value %></td>
-          <td><%= link_to 'Show', link %></td>
-          <td><%= link_to 'Edit', edit_link_path(link) %></td>
-          <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Show', [:admin,link] %></td>
+          <td><%= link_to 'Edit', edit_admin_link_path(link) %></td>
+          <td><%= link_to 'Destroy', [:admin,link], method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -25,4 +25,4 @@
 <% end %>
 <br>
 
-<%= link_to 'New Sidebar', new_link_path %>
+<%= link_to 'New Link', new_admin_link_path %>

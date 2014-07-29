@@ -11,24 +11,24 @@ class Admin::LinksController < ApplicationController
   def show
   end
 
-  # GET /link2s/new
+  # GET /links/new
   def new
     @link = Link.new
   end
 
-  # GET /link2s/1/edit
+  # GET /links/1/edit
   def edit
   end
 
-  # POST /link2s
-  # POST /link2s.json
+  # POST /links
+  # POST /links.json
   def create
     @link = Link.new(link_params)
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @link }
+        format.html { redirect_to [:admin,@link], notice: 'Link was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [:admin,@link] }
       else
         format.html { render action: 'new' }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class Admin::LinksController < ApplicationController
 
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to [:admin,@link], notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class Admin::LinksController < ApplicationController
   def destroy
     @link.destroy
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to admin_links_url }
       format.json { head :no_content }
     end
   end
