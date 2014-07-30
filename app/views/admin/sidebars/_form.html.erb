@@ -12,14 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %><br/>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :type_mask %><br>
+    <%= f.label :type_mask %><br/>
     <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]]) %>
   </div>
+
+  <div class="field">
+    <%= f.label :links %><br/>
+    <%= select_tag "selected_links", options_from_collection_for_select(Link.all, 'id', 'value'), { :prompt => default_link_option }%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :static_pages %><br/>
+    <%= select_tag "selected_pages", options_from_collection_for_select(StaticPage.all, 'id', 'title'), { :prompt => default_link_option }%>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
+  </div>
+
+
+  <br/><br/>
+  <p> Shortcuts</p>
+  <div class="field">
+    <%= link_to 'Create New Link', new_admin_link_path %> <br/><br/>
   </div>
 <% end %>
