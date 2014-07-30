@@ -28,5 +28,20 @@ class Sidebar < ActiveRecord::Base
     TYPES[type_mask]
   end
 
+  def is_left
+    type_mask == LEFT
+  end
+
+  def is_right
+    type_mask == RIGHT
+  end
+
+  def is_top
+    type_mask == TOP
+  end
+
+  def is_bottom
+    type_mask == BOTTOM
+  end
   
 end
