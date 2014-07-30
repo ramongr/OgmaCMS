@@ -1,0 +1,26 @@
+<h1>Listing posts</h1>
+
+<% unless @posts.empty? %>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="title">
+        <%= link_to post.title, post %>
+      </div>
+      <div class="author">
+        by <%= post.user.email %>
+      </div>
+      <div class="created_updated">
+        created: <%= post.date_created_human %> last updated: <%= post.date_updated_human %>
+      </div>
+      <div class="content">
+        <%= truncate(post.content, length: 300) %>
+      </div>
+      <div class="read_more">
+        <%= link_to 'Read more', post %>
+      </div>
+    </div>
+  <% end %>
+  <div class="pagination">
+    <%= will_paginate @posts %>
+  </div>
+<% end %>

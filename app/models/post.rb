@@ -1,4 +1,4 @@
-class Blog < ActiveRecord::Base
+class Post < ActiveRecord::Base
   translates :title, :content
   globalize_accessors
   belongs_to :user

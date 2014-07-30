@@ -1,7 +1,5 @@
 OgmaCMS::Application.routes.draw do
 
-  resources :comments
-
   mount Forem::Engine, :at => '/forum'
 
   devise_for :users
@@ -10,14 +8,16 @@ OgmaCMS::Application.routes.draw do
   root 'static#index'
 
   resources :pages, only: [:show]
-  resources :blogs, only: [:index,:show]
-  
+  resources :posts, only: [:index,:show]
+  resources :comments
+
+   
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :sidebars
     resources :static_pages
-    resources :blogs
+    resources :posts
     resources :links
   end
   # The priority is based upon order of creation: first created -> highest priority.
