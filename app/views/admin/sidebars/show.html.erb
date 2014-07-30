@@ -10,5 +10,25 @@
   <%= @sidebar.type_mask_name %>
 </p>
 
+<p>
+  <strong>External Links</strong>
+</p>
+
+<% @sidebar.links.each do |link| %>
+  <%= link_to link.value, link.url_with_protocol() %><br/>
+<% end %>
+
+<br/>
+
+<p>
+  <strong>Internal Pages</strong>
+</p>
+
+<% @sidebar.static_pages.each do |static_page| %>
+  <%= link_to static_page.title, [:admin,static_page] %><br/>
+<% end %>
+
+<br/>
+<br/>
 <%= link_to 'Edit', edit_admin_sidebar_path(@sidebar) %> |
 <%= link_to 'Back', admin_sidebars_path %>
