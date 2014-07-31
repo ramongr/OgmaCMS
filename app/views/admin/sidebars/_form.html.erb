@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :type_mask %><br/>
-    <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]]) %>
+    <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]], @sidebar.type_mask) %>
   </div>
 
   <div class="field">
