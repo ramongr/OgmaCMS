@@ -27,13 +27,13 @@
         <div class="content">
           <%= comment.content %>          
           <% if current_user == comment.user %>
-            <td><%= link_to 'Edit', edit_comment_path(comment, post_id: @post.id) %></td>
+            <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
           <% end %>
         </div>
       <% end %>
     <% end %>
   </div>
-  <%= link_to 'Add Comment', new_comment_path(post_id: @post.id) %>
+  <%= link_to 'Add Comment', new_post_comment_path(@post) %>
   <p></p>
   <%= link_to 'Back', posts_path %>
 </div>

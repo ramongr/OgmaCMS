@@ -8,8 +8,9 @@ OgmaCMS::Application.routes.draw do
   root 'static#index'
 
   resources :pages, only: [:show]
-  resources :posts, only: [:index,:show]
-  resources :comments
+  resources :posts, only: [:index,:show] do
+    resources :comments, shallow: true
+  end
 
    
   # User roots
