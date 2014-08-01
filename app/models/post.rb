@@ -12,4 +12,10 @@ class Post < ActiveRecord::Base
   def date_updated_human
     self.updated_at.strftime("%e %B %Y %H:%M")
   end
+
+  def self.search(search)
+    search_condition = "%" + search.downcase + "%"
+    Post.joins(:user)
+    .where("lower(email) like ? or lower(title) like ? or lower(content) like ? ", search_condition, search_condition, search_condition) 
+  end
 end
