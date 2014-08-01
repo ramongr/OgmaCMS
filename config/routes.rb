@@ -11,7 +11,6 @@ OgmaCMS::Application.routes.draw do
   resources :posts, only: [:index,:show] do
     resources :comments, shallow: true
   end
-  resources :search, only: [:index]
   
   # User roots
   namespace :admin do
