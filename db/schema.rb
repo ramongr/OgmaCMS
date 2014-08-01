@@ -11,32 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726143302) do
+ActiveRecord::Schema.define(version: 20140726212315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blog_translations", force: true do |t|
-    t.integer  "blog_id",    null: false
-    t.string   "locale",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.text     "content"
-  end
-
-  add_index "blog_translations", ["blog_id"], name: "index_blog_translations_on_blog_id", using: :btree
-  add_index "blog_translations", ["locale"], name: "index_blog_translations_on_locale", using: :btree
-
-  create_table "blogs", force: true do |t|
-    t.string   "title"
+  create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "user_id"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "forem_categories", force: true do |t|
     t.string   "name",       null: false
@@ -143,6 +132,28 @@ ActiveRecord::Schema.define(version: 20140726143302) do
     t.integer "link_id"
     t.integer "sidebar_id"
   end
+
+  create_table "post_translations", force: true do |t|
+    t.integer  "post_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "content"
+  end
+
+  add_index "post_translations", ["locale"], name: "index_post_translations_on_locale", using: :btree
+  add_index "post_translations", ["post_id"], name: "index_post_translations_on_post_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "sidebars", force: true do |t|
     t.string   "title"

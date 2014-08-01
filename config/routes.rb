@@ -8,14 +8,16 @@ OgmaCMS::Application.routes.draw do
   root 'static#index'
 
   resources :pages, only: [:show]
-  resources :blogs, only: [:index,:show]
+  resources :posts, only: [:index,:show] do
+    resources :comments, shallow: true
+  end
   
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :sidebars
     resources :static_pages
-    resources :blogs
+    resources :posts
     resources :links
     resources :users
   end

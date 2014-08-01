@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @admin_post.title %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @admin_post.date_created_human %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @admin_post.date_updated_human %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @admin_post.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @admin_post.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_admin_post_path(@admin_post) %> |
+<%= link_to 'Back', admin_posts_path %>

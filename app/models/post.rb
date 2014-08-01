@@ -1,7 +1,8 @@
-class Blog < ActiveRecord::Base
+class Post < ActiveRecord::Base
   translates :title, :content
   globalize_accessors
   belongs_to :user
+  has_many :comments, dependent: :destroy
   validates :title, :content, :user, presence: true
   
   def date_created_human
