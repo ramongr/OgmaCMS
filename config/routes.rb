@@ -9,7 +9,6 @@ OgmaCMS::Application.routes.draw do
 
   resources :pages, only: [:show]
   resources :blogs, only: [:index,:show]
-  resources :search, only: [:index]
   
   # User roots
   namespace :admin do

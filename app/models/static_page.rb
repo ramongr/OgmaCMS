@@ -6,12 +6,6 @@ class StaticPage < ActiveRecord::Base
   validates :slug, uniqueness: true, format: { with: /\A[a-z_]+\z/ }
   has_and_belongs_to_many :sidebars
 
-
-  def self.search(search)
-    search_condition = "%" + search.downcase + "%"
-    where("lower(title) like ? or lower(body) like ? ", search_condition, search_condition)
-  end
-
   private
     def set_slug
       if self.slug.blank?
