@@ -11,8 +11,8 @@ OgmaCMS::Application.routes.draw do
   resources :posts, only: [:index,:show] do
     resources :comments, shallow: true
   end
-
-   
+  resources :search, only: [:index]
+  
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
@@ -20,6 +20,7 @@ OgmaCMS::Application.routes.draw do
     resources :static_pages
     resources :posts
     resources :links
+    resources :users
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
