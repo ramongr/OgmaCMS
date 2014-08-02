@@ -60,9 +60,9 @@ RSpec.describe Admin::SidebarsController, :type => :controller do
 
   describe "POST #create" do
 
-  	before :each do
-  	  @static_pages = [attributes_for(:static_page)]
-  	end
+    before :each do
+      @static_pages = [attributes_for(:static_page)]
+    end
 
     context "with valid attributes" do
       it "saves the new sidebar in the database" do
