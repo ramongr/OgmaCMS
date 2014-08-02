@@ -205,6 +205,7 @@ DEPENDENCIES
   better_errors (~> 1.0.1)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.6.0)
+  cancancan (~> 1.9)
   coffee-rails (~> 4.0.0)
   devise
   devise-i18n

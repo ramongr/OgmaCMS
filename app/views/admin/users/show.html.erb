@@ -3,6 +3,7 @@
 <h1>User</h1>
 
 <p><strong>Email:</strong> <%= @admin_user.email %></p>
+<p><strong>Role:</strong> <%= @admin_user.role.humanize %></p>
 
 <%= link_to 'All Users', admin_users_path %> |
 <%= link_to 'Edit User', edit_admin_user_path(@admin_user) %> |

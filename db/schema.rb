@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726212315) do
+ActiveRecord::Schema.define(version: 20140802223924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blog_translations", force: true do |t|
+    t.integer  "blog_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "content"
+  end
+
+  add_index "blog_translations", ["blog_id"], name: "index_blog_translations_on_blog_id", using: :btree
+  add_index "blog_translations", ["locale"], name: "index_blog_translations_on_locale", using: :btree
+
+  create_table "blogs", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "content"
@@ -133,28 +155,6 @@ ActiveRecord::Schema.define(version: 20140726212315) do
     t.integer "sidebar_id"
   end
 
-  create_table "post_translations", force: true do |t|
-    t.integer  "post_id",    null: false
-    t.string   "locale",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.text     "content"
-  end
-
-  add_index "post_translations", ["locale"], name: "index_post_translations_on_locale", using: :btree
-  add_index "post_translations", ["post_id"], name: "index_post_translations_on_post_id", using: :btree
-
-  create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
   create_table "sidebars", force: true do |t|
     t.string   "title"
     t.integer  "type_mask"
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 20140726212315) do
     t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

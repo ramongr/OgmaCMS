@@ -23,6 +23,10 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
