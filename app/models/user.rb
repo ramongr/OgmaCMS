@@ -13,6 +13,22 @@ class User < ActiveRecord::Base
     email
   end
 
+  def super_admin?
+    self.roles == 'super_admin'
+  end
+
+  def admin?
+    self.roles == 'admin'
+  end
+
+  def author?
+    self.roles == 'author'
+  end
+
+  def registered?
+    self.roles == 'registered'
+  end
+
   private
     def set_default_role
       if self.role.blank?

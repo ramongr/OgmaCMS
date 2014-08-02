@@ -4,14 +4,14 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     
-    if user.role == "super_admin"
+    if user.super_admin?
       can :manage, :all
-    elsif user.role == "admin"
+    elsif user.admin?
       can :manage, [Comment, Post, Sidebar, StaticPage, Link]
-    elsif user.role == "author"
+    elsif user.author?
       can :manage, [Comment, Post]
       can :read, [Sidebar, StaticPage, Link]
-    elsif user.role == "registered"
+    elsif user.registered?
       can :read, [Comment, Post, Sidebar, StaticPage, Link]
       can [:show, :create, :update], Comment
     else
