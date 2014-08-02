@@ -59,7 +59,6 @@ RSpec.describe Admin::SidebarsController, :type => :controller do
   end
 
   describe "POST #create" do
-
     before :each do
       @static_pages = [attributes_for(:static_page)]
     end
