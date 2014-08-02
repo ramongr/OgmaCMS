@@ -13,8 +13,8 @@ RSpec.describe StaticPage, :type => :model do
   end
 
   it "two pages have different slugs" do
-    static_page = StaticPage.create(title: "Ola Mundo", body: "coisas")
-    static_page2 = StaticPage.create(title: "Ola Mundo", body: "mais coisas")
+    static_page = StaticPage.create(title: "Hello World", body: "Things")
+    static_page2 = StaticPage.create(title: "Hello World", body: "More Things")
     expect(static_page2).to have(1).errors_on(:slug)
   end
 
@@ -31,5 +31,9 @@ RSpec.describe StaticPage, :type => :model do
   it "is invalid without body" do
     static_page = build(:static_page, body: nil)
     expect(static_page).to have(1).errors_on(:body)
+  end
+
+  it "has sidebars" do
+    expect(create(:static_page).sidebars.count).to eq 4
   end
 end
