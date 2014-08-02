@@ -14,19 +14,19 @@ class User < ActiveRecord::Base
   end
 
   def super_admin?
-    self.roles == 'super_admin'
+    self.role == 'super_admin'
   end
 
   def admin?
-    self.roles == 'admin'
+    self.role == 'admin'
   end
 
   def author?
-    self.roles == 'author'
+    self.role == 'author'
   end
 
   def registered?
-    self.roles == 'registered'
+    self.role == 'registered'
   end
 
   private
