@@ -1,4 +1,4 @@
-class Admin::SidebarsController < ApplicationController
+class Admin::SidebarsController < Admin::AdminController
   before_action :set_sidebar, only: [:show, :edit, :update, :destroy]
 
   # GET /sidebars
