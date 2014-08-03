@@ -33,10 +33,10 @@ RSpec.describe Sidebar, :type => :model do
     right_sidebar = build(:right_sidebar, type_mask: nil)
     top_sidebar = build(:top_sidebar, type_mask: nil)
     bottom_sidebar = build(:bottom_sidebar, type_mask: nil)
-    expect(left_sidebar).to have(1).errors_on(:type_mask)
-    expect(right_sidebar).to have(1).errors_on(:type_mask)
-    expect(top_sidebar).to have(1).errors_on(:type_mask)
-    expect(bottom_sidebar).to have(1).errors_on(:type_mask)
+    expect(left_sidebar).to_not have(0).errors_on(:type_mask)
+    expect(right_sidebar).to_not have(0).errors_on(:type_mask)
+    expect(top_sidebar).to_not have(0).errors_on(:type_mask)
+    expect(bottom_sidebar).to_not have(0).errors_on(:type_mask)
   end
 
 end

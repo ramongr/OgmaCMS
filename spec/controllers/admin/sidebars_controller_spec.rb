@@ -66,12 +66,12 @@ RSpec.describe Admin::SidebarsController, :type => :controller do
     context "with valid attributes" do
       it "saves the new sidebar in the database" do
         expect{
-          post :create, sidebar: attributes_for(:left_sidebar, static_pages: @static_pages)
+          post :create, sidebar: attributes_for(:left_sidebar)
         }.to change(Sidebar, :count).by(1)
       end
 
       it "redirects to sidebar#show" do
-        post :create, sidebar: attributes_for(:left_sidebar, static_pages: @static_pages)
+        post :create, sidebar: attributes_for(:left_sidebar)
         expect(response).to redirect_to admin_sidebar_path(assigns(:sidebar))
       end
     end

@@ -12,7 +12,7 @@ FactoryGirl.define do
       title nil
     end
 
-    #commet to test sidebars
+    #comment to test sidebars
     #after(:build) do |static_page|
     #  static_page.sidebars << FactoryGirl.build(:left_sidebar)
     #  static_page.sidebars << FactoryGirl.build(:right_sidebar)
