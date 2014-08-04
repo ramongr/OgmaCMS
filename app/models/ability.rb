@@ -13,8 +13,9 @@ class Ability
       can :read, [Sidebar, StaticPage, Link]
     elsif user.registered?
       can :read, [Comment, Post, Sidebar, StaticPage, Link]
-      can [:show, :create, :update], Comment
+      can [:show, :create, :update], Comment, :user_id => user.id
     else
       can :read, [Comment, Post, Sidebar, StaticPage, Link]
+    end
   end
 end
