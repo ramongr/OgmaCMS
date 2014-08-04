@@ -18,7 +18,7 @@
         <tr>
           <td><%= admin_static_page.title %></td>
           <td><%= admin_static_page.slug %></td>
-          <td><%= admin_static_page.body %></td>
+          <td><%= admin_static_page.body.truncate(100) %></td>
           <td><%= link_to 'Show', [:admin,admin_static_page] %></td>
           <td><%= link_to 'Edit', edit_admin_static_page_path(admin_static_page) %></td>
           <td><%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' } %></td>
