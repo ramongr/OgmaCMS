@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Admin::PostsController, :type => :controller do
 
+  before :each do
+    @user = create(:super_admin, email: "admin@admins.com")
+    sign_in @user
+  end
+
   describe "GET #index" do
     it "populates an array of all posts" do
       post1 = create(:post)
@@ -57,11 +62,6 @@ RSpec.describe Admin::PostsController, :type => :controller do
   end
 
   describe "POST #create" do
-  	before :each do
-      @user = create(:user, email: "admin@admins.com")
-      sign_in @user
-    end
-
     context "with valid attributes" do
       it "saves the new post in the database" do
         expect{

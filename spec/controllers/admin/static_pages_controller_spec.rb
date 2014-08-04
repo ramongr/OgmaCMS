@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Admin::StaticPagesController, :type => :controller do
 
+  before :each do
+    @user = create(:super_admin, email: "admin@admins.com")
+    sign_in @user
+  end
+
   describe "GET #index" do
     it "populates an array of all static pages" do
       static_page1 = create(:static_page)

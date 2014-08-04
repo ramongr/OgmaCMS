@@ -1,4 +1,4 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < Admin::AdminController
   before_action :set_admin_post, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/posts

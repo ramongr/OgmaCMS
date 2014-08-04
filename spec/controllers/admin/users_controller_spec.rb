@@ -2,12 +2,17 @@ require 'rails_helper'
 
 RSpec.describe Admin::UsersController, :type => :controller do
   
+  before :each do
+    @user = create(:super_admin, email: "admin@admins.com")
+    sign_in @user
+  end
+
   describe "GET #index" do
     it "populates an array of all users" do
-      user1 = create(:user)
-      user2 = create(:user)
+      user1 = create(:admin)
+      user2 = create(:author)
       get :index
-      expect(assigns(:admin_users)).to match_array([user1, user2])
+      expect(assigns(:admin_users)).to match_array([@user,user1, user2])
     end
 
     it "renders the :index template" do
@@ -18,13 +23,13 @@ RSpec.describe Admin::UsersController, :type => :controller do
 
   describe "GET #show" do
     it "assigns the requested user to @admin_user" do
-      user = create(:user)
+      user = create(:admin)
       get :show, id: user
       expect(assigns(:admin_user)).to eq user
     end
 
     it "renders the :show template" do
-      user = create(:user)
+      user = create(:admin)
       get :show, id: user
       expect(response).to render_template :show
     end
@@ -44,13 +49,13 @@ RSpec.describe Admin::UsersController, :type => :controller do
 
   describe "GET #edit" do
     it "assigns the requested user to @admin_user" do
-      user = create(:user)
+      user = create(:admin)
       get :edit, id: user
       expect(assigns(:admin_user)).to eq user
     end
 
     it "renders the :edit template" do
-      user = create(:user)
+      user = create(:admin)
       get :edit, id: user
       expect(response).to render_template :edit
     end
@@ -60,12 +65,12 @@ RSpec.describe Admin::UsersController, :type => :controller do
     context "with valid attributes" do
       it "saves the new user in the database" do
         expect{
-          post :create, user: attributes_for(:user)
+          post :create, user: attributes_for(:admin)
         }.to change(User, :count).by(1)
       end
 
       it "redirects to users#index" do
-        post :create, user: attributes_for(:user)
+        post :create, user: attributes_for(:admin)
         expect(response).to redirect_to admin_users_path
       end
     end
@@ -85,25 +90,20 @@ RSpec.describe Admin::UsersController, :type => :controller do
   end
 
   describe "PATCH #update" do
-    before :each do
-      @user = create(:user, email: "admin@admins.com")
-      sign_in @user
-    end
-
     context "with valid attributes" do
       it "located the requested @admin_user" do
-        patch :update, id: @user, user: attributes_for(:user)
+        patch :update, id: @user, user: attributes_for(:super_admin)
         expect(assigns(:admin_user)).to eq(@user)
       end
 
       it "changes the @user attributes" do
-        patch :update, id: @user, user: attributes_for(:user, email: "admin_novo@admins.com")
+        patch :update, id: @user, user: attributes_for(:super_admin, email: "admin_novo@admins.com")
         @user.reload
         expect(@user.email).to eq("admin_novo@admins.com")
       end
 
       it "redirects to users#index" do
-        patch :update, id: @user, user: attributes_for(:user)
+        patch :update, id: @user, user: attributes_for(:super_admin)
         expect(response).to redirect_to admin_users_path
       end
     end
@@ -124,17 +124,17 @@ RSpec.describe Admin::UsersController, :type => :controller do
 
   describe "DELETE #destroy" do
     before :each do
-      @user = create(:user)
+      @user2 = create(:admin)
     end
 
     it "deletes the user" do
       expect{
-        delete :destroy, id: @user
+        delete :destroy, id: @user2
       }.to change(User, :count).by(-1)
     end
 
     it "redirects to users#index" do
-      delete :destroy, id: @user
+      delete :destroy, id: @user2
       expect(response).to redirect_to admin_users_url
     end
   end

@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :post do
     title { Faker::Name.title }
     content { Faker::Lorem.paragraph }
-    user { create(:user) }
+    user { create(:admin) }
 
     factory :invalid_post do
       title nil
