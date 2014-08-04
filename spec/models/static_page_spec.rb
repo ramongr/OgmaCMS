@@ -4,6 +4,7 @@ RSpec.describe StaticPage, :type => :model do
   #pending "add some examples to (or delete) #{__FILE__}"
   it "has a valid factory" do
     expect(build(:static_page)).to be_valid
+    expect(build(:static_page_sidebars)).to be_valid
   end
 
   it "creates a slug from title" do
@@ -34,6 +35,6 @@ RSpec.describe StaticPage, :type => :model do
   end
 
   it "has sidebars" do
-    expect(create(:static_page).sidebars.count).to eq 4
+    expect(create(:static_page_sidebars).sidebars.count).to eq 4
   end
 end
