@@ -75,6 +75,22 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 
 gem 'will_paginate', '3.0.5'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'rspec-collection_matchers', '~> 1.0.0'
+  gem 'guard-rspec', '~> 4.3.1'
+  #gem 'shoulda-matchers', '~> 2.6.2'
+end
+
+group :test do
+  gem 'faker' , '~> 1.4.2'
+  gem 'capybara', '~> 2.4.1'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'launchy', '~> 2.4.2'
+  gem 'selenium-webdriver','~> 2.42.0'
+end
+
 #ready-for-use HTML text editor
 #https://github.com/tsechingho/ckeditor-rails
 gem 'ckeditor_rails'
