@@ -14,8 +14,6 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
-      #authorize! :update, @comment
-      #can? :update, @comment
   end
 
   # POST /comments
