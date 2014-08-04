@@ -2,8 +2,8 @@
   <title><%= @page.title %></title>
 </head>
 
-<body>
-  <header>
+<body class="bodyclass">
+  <header class="headerclass">
     <h1><%= @page.title %></h1>
   </header>
 
@@ -16,7 +16,7 @@
     <strong>Body:</strong>
   </p>
 
-  <%= @page.body %>
+  <%= @page.body.html_safe %>
 
   <br/>
   <br/>

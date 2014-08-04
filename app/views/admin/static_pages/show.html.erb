@@ -1,19 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @admin_static_page.title %>
-</p>
+<head>
+  <title><%= @admin_static_page.title %></title>
+</head>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @admin_static_page.slug %>
-</p>
+<body class="bodyclass">
+  <header class="headerclass">
+    <h1><%= @admin_static_page.title %></h1>
+  </header>
 
-<p>
-  <strong>Body:</strong>
-  <%= @admin_static_page.body %>
-</p>
+  <p>
+    <strong>Slug:</strong>
+    <%= @admin_static_page.slug %>
+  </p>
 
-<%= link_to 'Edit', edit_admin_static_page_path(@admin_static_page) %> |
-<%= link_to 'Back', admin_static_pages_path %>
+  <p>
+    <strong>Body:</strong>
+  </p>
+
+  <%= @admin_static_page.body.html_safe %>
+
+  <br/>
+  <br/>
+  <%= link_to 'Edit', edit_admin_static_page_path(@admin_static_page) %> |
+  <%= link_to 'Back', admin_static_pages_path %>
+</body>
+
