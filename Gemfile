@@ -13,9 +13,6 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'devise'
 gem 'devise-i18n'
 
-#CanCanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access. 
-gem 'cancancan', '~> 1.9'
-
 #Web-server
 gem 'thin'
 
@@ -75,3 +72,6 @@ gem 'forem', :github => "radar/forem", :branch => "rails4"
 
 gem 'will_paginate', '3.0.5'
 
+#ready-for-use HTML text editor
+#https://github.com/tsechingho/ckeditor-rails
+gem 'ckeditor_rails'
