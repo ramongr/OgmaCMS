@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
     email
   end
 
+  def role?(base_role)
+    ROLES.index(base_role.to_s) >= ROLES.index(role)
+  end
+
   def super_admin?
     self.role == 'super_admin'
   end
