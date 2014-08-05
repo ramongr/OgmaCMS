@@ -1,0 +1,2 @@
+module VisitorCommentsHelper
+end
