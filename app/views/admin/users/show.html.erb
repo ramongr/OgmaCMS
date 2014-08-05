@@ -2,7 +2,11 @@
 
 <h1>User</h1>
 
+<p><strong>Name:</strong> <%= @admin_user.name %></p>
 <p><strong>Email:</strong> <%= @admin_user.email %></p>
+<p><strong>Date of Birth:</strong> <%= @admin_user.dob %></p>
+<p><strong>Nationality:</strong> <%= @admin_user.nationality %></p>
+<p><strong>Gender:</strong> <%= @admin_user.gender %></p>
 <p><strong>Role:</strong> <%= @admin_user.role.humanize %></p>
 
 <%= link_to 'All Users', admin_users_path %> |

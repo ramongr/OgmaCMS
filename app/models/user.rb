@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   before_validation :set_default_role
   has_many :posts
   has_many :comments
+  validate :name, presence: true
 
   ROLES = %w[super_admin admin author registered]
 
