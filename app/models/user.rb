@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   before_validation :set_default_role
+  before_save :set_forem_role
   has_many :posts
   has_many :comments
   validate :name, presence: true
@@ -38,6 +39,12 @@ class User < ActiveRecord::Base
     def set_default_role
       if self.role.blank?
         self.role = 'registered'
+      end
+    end
+
+    def set_forem_role
+      if self.role? :admin
+        self.forem_admin = true
       end
     end
 end
