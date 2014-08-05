@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def registered?
-    self.role? :registered
+    self.role == 'registered'
   end
 
   private
