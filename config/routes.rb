@@ -12,7 +12,8 @@ OgmaCMS::Application.routes.draw do
     resources :comments, shallow: true
   end
   resources :search, only: [:index]
-
+  resources :visitor_comments
+  
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
