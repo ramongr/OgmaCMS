@@ -12,8 +12,27 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
     <%= f.label :email %>
     <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Date of Birth" %>
+    <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %>
+    <%= f.radio_button :gender, "m", required: '' %>
+    <%= f.label "M" %>
+    <%= f.radio_button :gender, "f", required: '' %>
+    <%= f.label "F" %>
+  </div>
+  <div class="nationality">
+    <%= f.label :nationality %>
+    <%= f.select :nationality, options_for_select(LANGUAGES, I18n.locale.to_s) %>
   </div>
   <div class="field">
     <%= f.label :password, "Password" %>

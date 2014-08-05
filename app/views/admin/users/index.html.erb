@@ -3,7 +3,11 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Email</th>
+      <th>Date of Birth</th>
+      <th>Nationality</th>
+      <th>Gender</th>
       <th>Role</th>
       <th></th>
       <th></th>
@@ -13,7 +17,11 @@
   <tbody>
     <% @admin_users.each do |user| %>
       <tr>
+        <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.dob %></td>
+        <td><%= user.nationality %></td>
+        <td><%= user.gender %></td>
         <td><%= user.role.humanize %></td>
         <td><%= link_to 'Show', [:admin,user] %></td>
         <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
