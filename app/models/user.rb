@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   ROLES = %w[super_admin admin author registered]
 
   def forem_name
-    email
+    name
   end
 
   def role?(base_role)
