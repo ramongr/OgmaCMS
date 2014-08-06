@@ -1,6 +1,10 @@
 <h1>Editing visitor_comment</h1>
 
-<%= render 'form' %>
+<% if user_signed_in? %>
+  <%= render 'signed_in_form' %>
+<% else %>
+  <% render 'form' %>
+<% end %>
 
 <%= link_to 'Show', @visitor_comment %> |
 <%= link_to 'Back', visitor_comments_path %>
