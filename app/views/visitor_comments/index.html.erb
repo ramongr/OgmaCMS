@@ -1,5 +1,7 @@
 <h1>Listing visitor comments</h1>
 
+<p id="notice"><%= notice %></p>
+
 <% unless @visitor_comments.empty? %>
   <% @visitor_comments.each do |visitor_comment| %>
 
@@ -30,19 +32,19 @@
 
     <% else %>
       <div class="visitor_comments">
-      <div class="subject">
-        <strong>Subject:</strong> <%= link_to visitor_comment.subject, visitor_comment %>
-      </div>
-      <div class="name">
-        <strong>Name:</strong> <%= visitor_comment.name %>
-      </div>
-      <div class="created_updated">
-        <%= visitor_comment.created_at %> / <%= visitor_comment.updated_at %>
-      </div>
-      <div class="content">
-        <%= visitor_comment.content %>
-      </div>
-    </div>    
+        <div class="subject">
+          <strong>Subject:</strong> <%= link_to visitor_comment.subject, visitor_comment %>
+        </div>
+        <div class="name">
+          <strong>Name:</strong> <%= visitor_comment.name %>
+        </div>
+        <div class="created_updated">
+          <%= visitor_comment.created_at %> / <%= visitor_comment.updated_at %>
+        </div>
+        <div class="content">
+          <%= visitor_comment.content %>
+        </div>
+      </div>    
     <% end %>
 
     <p>

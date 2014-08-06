@@ -25,6 +25,17 @@ class VisitorCommentsController < ApplicationController
   # POST /visitor_comments.json
   def create
     @visitor_comment = VisitorComment.new(visitor_comment_params)
+    unless (User.find_by_email @visitor_comment.email).nil?
+      if user_signed_in? 
+        if current_user.email != @visitor_comment.email
+          @visitor_comment.email = current_user.email
+          @visitor_comment.name = current_user.name
+        end
+      else 
+        redirect_to visitor_comments_path, notice: 'You need to be logged in to post a comment under that email.'
+        return
+      end
+    end
 
     respond_to do |format|
       if @visitor_comment.save
