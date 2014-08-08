@@ -10,15 +10,15 @@ class Ability
       can :manage, [Comment, Post, Sidebar, StaticPage, Link, VisitorComment]
       can :read, :all
     elsif user.author?
-      can [:create, :update], [Post, Comment, VisitorComment], :user_id => user.id    
+      can :create, [Post, Comment, VisitorComment]
+      can :update, [Post, Comment, VisitorComment], :user_id => user.id    
       can :read, [Post, Comment, VisitorComment, Sidebar, StaticPage, Link]        
     elsif user.registered?
-      can [:create, :update], Comment, :user_id => user.id
-      can [:create, :update], VisitorComment, :email => user.email
+      can :create, [Comment, VisitorComment]
+      can :update, [Comment, VisitorComment], :user_id => user.id
       can :read, [Post, Comment, VisitorComment, Sidebar, StaticPage, Link]      
     else
       can :read, [Post, Comment, VisitorComment, Sidebar, StaticPage, Link]
-      can :create, VisitorComment
     end
   end
 end

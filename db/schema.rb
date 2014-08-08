@@ -215,11 +215,12 @@ ActiveRecord::Schema.define(version: 20140805052801) do
 
   create_table "visitor_comments", force: true do |t|
     t.string   "subject"
-    t.string   "name"
-    t.string   "email"
     t.text     "content"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "visitor_comments", ["user_id"], name: "index_visitor_comments_on_user_id", using: :btree
 
 end
