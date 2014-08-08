@@ -1,4 +1,5 @@
 class VisitorCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_visitor_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /visitor_comments
