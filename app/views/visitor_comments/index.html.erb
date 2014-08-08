@@ -1,52 +1,37 @@
 <h1>Listing visitor comments</h1>
 
+<p id="notice"><%= notice %></p>
+
 <% unless @visitor_comments.empty? %>
   <% @visitor_comments.each do |visitor_comment| %>
-
-    <% if user_signed_in? %>
-      <div class="visitor_comments">
-        <div class="subject">
-          <strong>Subject:</strong> <%= link_to visitor_comment.subject, visitor_comment %>
-        </div>
-        <div class="name">
-          <strong>Name:</strong> <%= visitor_comment.name %>
-        </div>
-        <% if can? :update, visitor_comment %>
-          <strong>Email:</strong> <%= visitor_comment.email %>
-        <% end %>
-        <div class="created_updated">
-          <%= visitor_comment.created_at %> / <%= visitor_comment.updated_at %>
-        </div>
-        <div class="content">
-          <%= visitor_comment.content %>
-        </div>
-      </div>
-      <% if can? :update, visitor_comment %>
-        <%= link_to 'Edit', edit_visitor_comment_path(visitor_comment) %>
-        <% if can? :destroy, visitor_comment %>
-        | <%= link_to 'Destroy', visitor_comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      <% end %>
-
-    <% else %>
-      <div class="visitor_comments">
+    <div class="visitor_comments">
       <div class="subject">
         <strong>Subject:</strong> <%= link_to visitor_comment.subject, visitor_comment %>
       </div>
-      <div class="name">
-        <strong>Name:</strong> <%= visitor_comment.name %>
-      </div>
+      <% if can? :read, User %>
+        <div class="name">
+          <strong>Name:</strong> <%= link_to visitor_comment.user.name, [:admin,visitor_comment.user] %>
+        </div>
+      <% else %>
+        <div class="name">
+          <strong>Name:</strong> <%= visitor_comment.user.name %>
+        </div>
+      <% end %>
       <div class="created_updated">
         <%= visitor_comment.created_at %> / <%= visitor_comment.updated_at %>
       </div>
       <div class="content">
         <%= visitor_comment.content %>
       </div>
-    </div>    
+    </div>
+    <% if can? :update, visitor_comment %>
+      <%= link_to 'Edit', edit_visitor_comment_path(visitor_comment) %>
+      <% if can? :destroy, visitor_comment %>
+      | <%= link_to 'Destroy', visitor_comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
-
-    <p>
-  <% end %>
+  <p>
+<% end %>
 
   <div class="pagination">
     <%= will_paginate @visitor_comments %>
@@ -54,4 +39,6 @@
 <% end %>
 
 <br>
-<%= link_to 'New visitor comment', new_visitor_comment_path %>
+<% if can? :create, VisitorComment %>
+  <%= link_to 'New visitor comment', new_visitor_comment_path %>
+<% end %>
