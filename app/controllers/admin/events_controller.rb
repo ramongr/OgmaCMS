@@ -25,11 +25,7 @@ class Admin::EventsController < Admin::AdminController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-    #@startDate = DateTime.new(params[:startY],params[:startM],params[:startD]+1,params[:startH]+1,params[:startm],'+7')
-    #@endDate = DateTime.new(params[:startY],params[:startM],params[:startD]+1,params[:startH]+1,params[:startm])
-    #@event = Event.new(title: params[:title], body: params[:body], start_time: params[:start_time]*1000, end_time: params[:end_time])
-    #@event = Event.new(title: params[:title], body: params[:body], start_time: @startDate)#, end_time: @endDate)
-    
+
     respond_to do |format|
       if @event.save
         format.html { redirect_to [:admin,@event], notice: 'Event was successfully created.' }
