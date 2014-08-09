@@ -1,0 +1,8 @@
+<% if can? :create, Event %>
+  <h4>You Are an Admin - You Can Manage Events </h4>
+  <%= link_to "Manage Events", admin_events_path %>
+<%else%>
+  <h4>You Are Not an Admin - You Can Only See Events </h4>
+<% end %>
+
+<div id='calendar'></div>

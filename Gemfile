@@ -94,3 +94,9 @@ end
 #ready-for-use HTML text editor
 #https://github.com/tsechingho/ckeditor-rails
 gem 'ckeditor_rails'
+
+# Calendar javascript lib
+gem 'fullcalendar-rails'
+
+# Use jquery-ui library
+gem 'jquery-ui-rails', '~> 5.0.0'
