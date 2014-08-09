@@ -151,8 +151,6 @@ $(document).ready(function(){
        center: 'title',
        right: 'month,agendaWeek,agendaDay'
     },
-    selectable: true,
-    selectHelper: true,
     firstDay: 0,
     timeFormat: 'HH:mm', // uppercase H for 24-hour clock
 
