@@ -5,9 +5,9 @@ class Event < ActiveRecord::Base
   private
     def validate_dates
       if self.end_time
-	      if (self.end_time < self.start_time)
-	        errors.add(:end_time, 'must be a after the start_time') 
-	      end
-	  end
+        if (self.end_time < self.start_time)
+          errors.add(:end_time, 'must be a after the start_time') 
+        end
+    end
     end
 end
