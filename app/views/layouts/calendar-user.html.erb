@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OgmaCMS</title>
+    <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application.css" %>
+    <%= javascript_include_tag "jquery.js" %>
+    <%= javascript_include_tag "jquery-ui.js" %>
+    <%= javascript_include_tag "fullcalendar.js" %>
+    <%= javascript_include_tag "application.js" %>
+    <%= javascript_include_tag "calendar.js" %>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+
+          // page is now ready, initialize the calendar...
+          $('#calendar').fullCalendar({
+            header: {
+              left: 'prev,next today',
+               center: 'title',
+               right: 'month,basicWeek,basicDay'
+            },
+            firstDay: 0,
+            timeFormat: 'HH:mm', // uppercase H for 24-hour clock
+            events: '/events.json'
+
+          })
+
+
+      });
+    </script>
+
+  </head>
+  <body>
+    <nav class="top-bar admin-top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">OgmaCMS</a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <ul class="right">
+          <li>     <%= link_to 'Forums', forem.forums_path %> </li>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.email, main_app.edit_user_registration_path %></li>
+            <li><%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %><li>
+          <% else %>
+            <li><%= link_to "Register", main_app.new_user_registration_path %></li>
+          <% end %>
+        </ul>
+        <ul class="left">
+        </ul>
+      </section>
+    </nav>
+
+    <%= yield %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  </body>
+</html>
