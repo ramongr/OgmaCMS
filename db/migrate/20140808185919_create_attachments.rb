@@ -4,6 +4,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.attachment :file
+      t.references :user, index: true
 
       t.timestamps
     end

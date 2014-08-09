@@ -23,9 +23,12 @@ ActiveRecord::Schema.define(version: 20140808185919) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "attachments", ["user_id"], name: "index_attachments_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "content"

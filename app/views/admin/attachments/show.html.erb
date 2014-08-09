@@ -20,5 +20,20 @@
   <%= @attachment.file_content_type %>
 </p>
 
+<p>
+  <strong>Uploaded by: </strong>
+  <%= @attachment.user.name %>
+</p>
+
+<p>
+  <strong>Created at: </strong>
+  <%= @attachment.created_at %>
+</p>
+
+<p>
+  <strong>Last Updated at:</strong>
+  <%= @attachment.updated_at %>
+</p>
+
 <%= link_to 'Edit', edit_admin_attachment_path(@attachment) %> |
 <%= link_to 'Back', admin_attachments_path %>

@@ -24,7 +24,7 @@ class Admin::AttachmentsController < Admin::AdminController
   # POST /admin/attachments
   # POST /admin/attachments.json
   def create
-    @attachment = Attachment.new(attachment_params)
+    @attachment = current_user.attachments.create(attachment_params)
 
     respond_to do |format|
       if @attachment.save
@@ -41,7 +41,7 @@ class Admin::AttachmentsController < Admin::AdminController
   # PATCH/PUT /admin/attachments/1.json
   def update
     respond_to do |format|
-      if @attachment.update(admin_attachment_params)
+      if @attachment.update(attachment_params)
         format.html { redirect_to admin_attachments_url, notice: 'Attachment was successfully updated.' }
         format.json { head :no_content }
       else

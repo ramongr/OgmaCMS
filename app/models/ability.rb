@@ -7,11 +7,11 @@ class Ability
     if user.super_admin?
       can :manage, :all
     elsif user.admin?
-      can :manage, [Comment, Post, Sidebar, StaticPage, Link, VisitorComment]
+      can :manage, [Attachment, Comment, Post, Sidebar, StaticPage, Link, VisitorComment]
       can :read, :all
     elsif user.author?
-      can :create, [Post, Comment, VisitorComment]
-      can :update, [Post, Comment, VisitorComment], :user_id => user.id    
+      can :create, [Attachment, Post, Comment, VisitorComment]
+      can :update, [Attachment, Post, Comment, VisitorComment], :user_id => user.id    
       can :read, [Post, Comment, VisitorComment, Sidebar, StaticPage, Link]        
     elsif user.registered?
       can :create, [Comment, VisitorComment]
