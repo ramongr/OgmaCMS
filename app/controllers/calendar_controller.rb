@@ -2,7 +2,7 @@
 # simply have a url like calendar/index to get the one and only calendar
 # this demo serves up.
 class CalendarController < ApplicationController
-  layout :calendar_layout
+  #layout :calendar_layout
 
   def index
   end
