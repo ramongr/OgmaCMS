@@ -68,7 +68,6 @@ class Admin::PostsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_post_params
-      permitted = Post.globalize_attribute_names + [:user_id]
-      params.require(:post).permit(*permitted)
+      params.require(:post).permit(*Post.globalize_attribute_names)
     end
 end

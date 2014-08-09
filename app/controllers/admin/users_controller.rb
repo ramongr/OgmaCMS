@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::AdminController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     @admin_users = User.all
@@ -63,6 +63,6 @@ class Admin::UsersController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :dob, :nationality, :gender, :password,:password_confirmation, :role)
+      params.require(:user).permit(:name, :email, :dob, :nationality, :gender, :password, :password_confirmation, :role)
     end
 end

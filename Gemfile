@@ -95,6 +95,9 @@ end
 #https://github.com/tsechingho/ckeditor-rails
 gem 'ckeditor_rails'
 
+#Paperclip file attachment library
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 # Calendar javascript lib
 gem 'fullcalendar-rails'
 

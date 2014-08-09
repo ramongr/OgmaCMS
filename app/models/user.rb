@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :visitor_comments
+  has_many :attachments
   validate :name, presence: true
 
   ROLES = %w[super_admin admin author registered]
