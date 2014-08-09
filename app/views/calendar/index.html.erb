@@ -1,8 +1,25 @@
 <% if can? :create, Event %>
   <h4>You Are an Admin - You Can Manage Events </h4>
   <%= link_to "Manage Events", admin_events_path %>
+  <br>
+  <div id="admin-flag"></div>
+  <div id="dialog-form" title="Create New Event" style="display:none">
+    <p class="validateTips">Title field is required.</p>
+    <p id="alert-miss"></p>
+    <form>
+    <fieldset>
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" value="Event Title" class="text ui-widget-content ui-corner-all">
+      <label for="body">Description</label>
+      <input type="text" name="body" id="body" value="Description" class="text ui-widget-content ui-corner-all">
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+    </form>
+  </div>
 <%else%>
   <h4>You Are Not an Admin - You Can Only See Events </h4>
 <% end %>
 
 <div id='calendar'></div>
+
