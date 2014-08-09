@@ -23,6 +23,7 @@ OgmaCMS::Application.routes.draw do
     resources :posts
     resources :links
     resources :users
+    resources :attachments
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

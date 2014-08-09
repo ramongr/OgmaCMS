@@ -69,6 +69,6 @@ class VisitorCommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visitor_comment_params
-      params.require(:visitor_comment).permit(:subject, :name, :email, :content)
+      params.require(:visitor_comment).permit(:subject, :content)
     end
 end
