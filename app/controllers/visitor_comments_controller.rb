@@ -1,4 +1,5 @@
 class VisitorCommentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_visitor_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /visitor_comments
@@ -24,7 +25,7 @@ class VisitorCommentsController < ApplicationController
   # POST /visitor_comments
   # POST /visitor_comments.json
   def create
-    @visitor_comment = VisitorComment.new(visitor_comment_params)
+    @visitor_comment = current_user.visitor_comments.create(visitor_comment_params)
 
     respond_to do |format|
       if @visitor_comment.save

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save :set_forem_role
   has_many :posts
   has_many :comments
+  has_many :visitor_comments
   validate :name, presence: true
 
   ROLES = %w[super_admin admin author registered]

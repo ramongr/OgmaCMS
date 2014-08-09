@@ -7,13 +7,13 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @visitor_comment.name %>
+  <%= @visitor_comment.user.name %>
 </p>
 
 <p>
   <% if user_signed_in? %>
     <% if can? :update, @visitor_comment %>
-      <strong>Email:</strong> <%= @visitor_comment.email %>
+      <strong>Email:</strong> <%= @visitor_comment.user.email %>
     <% end %>
   <% end %>
 </p>
