@@ -8,6 +8,6 @@ class Event < ActiveRecord::Base
         if (self.end_time < self.start_time)
           errors.add(:end_time, 'must be a after the start_time') 
         end
-    end
+      end
     end
 end
