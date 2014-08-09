@@ -97,3 +97,9 @@ gem 'ckeditor_rails'
 
 #Paperclip file attachment library
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
+# Calendar javascript lib
+gem 'fullcalendar-rails'
+
+# Use jquery-ui library
+gem 'jquery-ui-rails', '~> 5.0.0'

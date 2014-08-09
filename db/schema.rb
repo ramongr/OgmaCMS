@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 20140808185919) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "forem_categories", force: true do |t|
     t.string   "name",       null: false
     t.datetime "created_at"
