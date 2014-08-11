@@ -18,6 +18,14 @@
       <div class="read_more">
         <%= link_to 'Read more', post %>
       </div>
+      <div class="edit_destroy">
+      <% if can? :update, post %>
+        <%= link_to 'Edit', edit_admin_post_path(post) %>
+        <% if can? :destroy, post %>
+          <%= link_to 'Destroy', [:admin,post], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
+      </div>
     </div>
   <% end %>
   <div class="pagination">
