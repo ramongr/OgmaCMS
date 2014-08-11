@@ -32,6 +32,8 @@
         </div>
         <div class="content">
           <%= comment.content %>
+        </div>
+        <div class="edit_destroy">
           <% if can? :update, comment %>
             <%= link_to 'Edit', edit_comment_path(comment) %>
             <% if can? :destroy, comment %>
