@@ -14,12 +14,14 @@
   <div class="content">
     <%= @post.content %>
   </div>
+  <div class="edit_destroy">
   <% if can? :update, @post %>
     <td><%= link_to 'Edit', edit_admin_post_path(@post) %></td>
     <% if can? :destroy, @post %>
       <td><%= link_to 'Destroy', [:admin,@post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   <% end %>
+  </div>
   <div class="comments">
     <% unless @postcomments.empty? %>
       <% @postcomments.each do |comment| %>
