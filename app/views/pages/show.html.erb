@@ -19,8 +19,14 @@
   <%= @page.body.html_safe %>
 
   <br/>
-  <br/>
 
+  <% if can? :update, @page %>
+    <%= link_to 'Edit', edit_admin_static_page_path(@page) %>
+    <% if can? :destroy, @page %>
+      <%= link_to 'Destroy', [:admin,@page], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% end %>
+  <br/>
   <%= link_to 'Back', root_path %>
 
 </body>
