@@ -103,3 +103,6 @@ gem 'fullcalendar-rails'
 
 # Use jquery-ui library
 gem 'jquery-ui-rails', '~> 5.0.0'
+
+# Handle settings with caching, manages a table of global key, value pairs.
+gem "rails-settings-cached", "0.4.1"

@@ -1,5 +1,5 @@
 <ul class="tabs" data-tab>
-  <% LANGUAGES.each_with_index do |l,index| %>
+  <% Setting.selected_languages.each_with_index do |l,index| %>
     <% if index == 0 %>
       <li class="tab-title active"><a href="#langtab0"><%= l.first %></a></li>
     <% else %>
@@ -20,7 +20,7 @@
     </div>
   <% end %>
   <div class="tabs-content"> 
-    <% LANGUAGES.each_with_index do |l, index| %>
+    <% Setting.selected_languages.each_with_index do |l, index| %>
       <% if index == 0 %>
       <div class="content active" id="langtab0">
       <% else %>
