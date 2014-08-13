@@ -8,13 +8,13 @@ OgmaCMS::Application.routes.draw do
 
   root 'static#index'
   
-  resources :calendar, only: [:index]
+  resources :calendar, only: :index
   resources :events, only: [:index,:show]
-  resources :pages, only: [:show]
+  resources :pages, only: :show
   resources :posts, only: [:index,:show] do
     resources :comments, shallow: true
   end
-  resources :search, only: [:index]
+  resources :search, only: :index
   resources :visitor_comments
   
   # User roots
@@ -26,9 +26,12 @@ OgmaCMS::Application.routes.draw do
     resources :links
     resources :users
     resources :events
-    resources :attachments    
-
+    resources :attachments
+    resources :settings, only: [:index]
+    get 'settings', to: 'settings#index'
+    put 'settings_update', to: 'settings#update_all'
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

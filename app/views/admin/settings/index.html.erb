@@ -1,0 +1,41 @@
+<h1>Listing settings</h1>
+
+<ul class="tabs" data-tab>
+  <li class="tab-title active"><a href="#site">Site</a></li>
+  <li class="tab-title"><a href="#internationalization">Internationalization</a></li>
+</ul>
+
+<%= form_tag [:admin_settings_update], method: :put %>
+  <div class="tabs-content">
+    <div class="content active" id="site">
+      <div class="field">
+        <%= label_tag 'Site Name' %><br>
+        <%= text_field_tag :site_name, Setting.site_name %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Site Subtitle' %><br>
+        <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Site Description' %><br>
+        <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
+      </div>
+      <div class="field">
+        <%= label_tag 'Site Logo' %><br>
+        <%= text_field_tag :site_logo, Setting.site_logo %>
+      </div>
+    </div>
+    <div class="content" id="internationalization">
+      <div class="field">
+        <%= label_tag 'Available languages' %><br>
+        <% Setting.available_languages.each do |l| %>
+          <%= check_box_tag 'i18n_' + l.second, 'yes', l.in?(Setting.selected_languages) %>
+          <%= l.first %>
+          <br />
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
