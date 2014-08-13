@@ -26,7 +26,11 @@ OgmaCMS::Application.routes.draw do
     resources :links
     resources :users
     resources :events
-    resources :attachments
+    resources :attachments do
+      member do
+        get 'download'
+      end
+    end   
     resources :settings, only: [:index]
     get 'settings', to: 'settings#index'
     put 'settings_update', to: 'settings#update_all'

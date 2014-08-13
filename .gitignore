@@ -17,3 +17,6 @@
 
 # Ignore DB
 /config/database.yml
+
+# Ignore all uploaded files/attachments.
+/uploads

@@ -19,7 +19,7 @@
       <% @admin_posts.each do |admin_post| %>
         <tr>
           <td><%= admin_post.title %></td>
-          <td><%= admin_post.content %></td>
+          <td><%= admin_post.content.truncate(100) %></td>
           <td><%= admin_post.user.email %></td>
           <td><%= admin_post.date_created_human %></td>
           <td><%= admin_post.date_updated_human %></td>
