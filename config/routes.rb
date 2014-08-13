@@ -26,7 +26,11 @@ OgmaCMS::Application.routes.draw do
     resources :links
     resources :users
     resources :events
-    resources :attachments    
+    resources :attachments do
+      member do
+        get 'download'
+      end
+    end   
 
   end
   # The priority is based upon order of creation: first created -> highest priority.

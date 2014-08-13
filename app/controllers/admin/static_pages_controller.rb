@@ -15,16 +15,19 @@ class Admin::StaticPagesController < Admin::AdminController
   # GET /admin/static_pages/new
   def new
     @admin_static_page = StaticPage.new
+    @attachments = Attachment.all
   end
 
   # GET /admin/static_pages/1/edit
   def edit
+    @attachments = Attachment.all
   end
 
   # POST /admin/static_pages
   # POST /admin/static_pages.json
   def create
     @admin_static_page = StaticPage.new(admin_static_page_params)
+    @attachments = Attachment.all
 
     respond_to do |format|
       if @admin_static_page.save

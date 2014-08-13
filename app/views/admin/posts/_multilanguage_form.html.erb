@@ -35,12 +35,24 @@
         </div>
         <div class="field">
           <%= f.label content_locale %><br>
-          <%= f.text_area content_locale, rows: 6 %>
+          <%= f.text_area content_locale, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
         </div>
+        <br>
+        <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
       </div>
     <% end %>
+    
     <div class="actions">
       <%= f.submit %>
     </div>
   </div>
 <% end %>
+
+<div id="dialog" title="Insert Attachment" style="display:none">
+  <p class="validateTips">Select Attachment.</p>
+  <ol id="selectable">
+    <% @attachments.each do |attachment| %>
+      <li class="ui-widget-content" data-attachment-link='"<%= request.protocol + request.host_with_port %>/admin/attachments/<%= attachment.id %>/download"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
+    <% end %>
+  </ol>
+</div>

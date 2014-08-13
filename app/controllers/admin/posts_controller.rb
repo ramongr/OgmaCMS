@@ -15,16 +15,20 @@ class Admin::PostsController < Admin::AdminController
   # GET /admin/posts/new
   def new
     @admin_post = Post.new
+    @attachments = Attachment.all
   end
 
   # GET /admin/posts/1/edit
   def edit
+    @attachments = Attachment.all
   end
 
   # POST /admin/posts
   # POST /admin/posts.json
   def create
     @admin_post = current_user.posts.create(admin_post_params)
+    @attachments = Attachment.all
+    
     respond_to do |format|
       if @admin_post.save
         format.html { redirect_to admin_posts_url, notice: 'post was successfully created.' }

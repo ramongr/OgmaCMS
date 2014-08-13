@@ -92,8 +92,7 @@ group :test do
 end
 
 #ready-for-use HTML text editor
-#https://github.com/tsechingho/ckeditor-rails
-gem 'ckeditor_rails'
+gem 'ckeditor', '4.1.0'
 
 #Paperclip file attachment library
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
