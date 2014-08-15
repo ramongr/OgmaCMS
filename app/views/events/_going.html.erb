@@ -4,8 +4,23 @@
   </p>
 
   <p>
-    Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true %>
-         | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true  %>
-         | <%= link_to 'Maybe', event_maybe_path(@event), method: :put, remote: true %>
+    <% attend = Attending.find_by(event: @event, user: current_user) %>
+    <% if attend.nil? %>
+      Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true %>
+           | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true  %>
+           | <%= link_to 'Maybe', event_maybe_path(@event), method: :put, remote: true %>
+    <% elsif attend.going == 'yes' %>
+      You are going!
+      Changed your mind? <%= link_to 'Not going', event_not_going_path(@event), method: :put, remote: true  %>
+                       | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
+    <% elsif attend.going == 'no' %>
+      You are not going.
+      Changed your mind? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
+                       | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
+    <% else %>
+      You are indecisive.
+      Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
+           | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true %>
+    <% end %>
   </p>
 </div>
