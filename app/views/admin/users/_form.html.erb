@@ -32,7 +32,7 @@
   </div>
   <div class="nationality">
     <%= f.label :nationality %>
-    <%= f.select :nationality, options_for_select(LANGUAGES, I18n.locale.to_s) %>
+    <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
   </div>
   <div class="field">
     <%= f.label :password, "Password" %>
