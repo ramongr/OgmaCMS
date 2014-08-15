@@ -16,6 +16,11 @@ OgmaCMS::Application.routes.draw do
   end
   resources :search, only: :index
   resources :visitor_comments
+  resources :attachments, only: [] do
+    member do
+      get 'download'
+    end
+  end   
   
   # User roots
   namespace :admin do
