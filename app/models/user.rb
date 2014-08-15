@@ -3,12 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, 
          :rememberable, :trackable, :validatable, :confirmable
-  before_validation :set_default_role
-  before_save :set_forem_role
+         
   has_many :posts
   has_many :comments
   has_many :visitor_comments
   has_many :attachments
+  has_many :events, through: :attendings
+
+  before_validation :set_default_role
+  before_save :set_forem_role
   validate :name, presence: true
 
   ROLES = %w[super_admin admin author registered]

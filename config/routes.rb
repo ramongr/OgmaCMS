@@ -9,14 +9,18 @@ OgmaCMS::Application.routes.draw do
   root 'static#index'
   
   resources :calendar, only: :index
-  resources :events, only: [:index,:show]
+  resources :events, only: [:index,:show] do
+    put 'going' => 'attendings#going', :as => 'user_going'
+    put 'not_going' => 'attendings#not_going', :as => 'user_not_going'
+    put 'maybe' => 'attendings#maybe', :as => 'user_maybe'
+  end
   resources :pages, only: :show
   resources :posts, only: [:index,:show] do
     resources :comments, shallow: true
   end
   resources :search, only: :index
   resources :visitor_comments
-  
+
   # User roots
   namespace :admin do
     get '/', to: 'dashboard#index'
