@@ -24,7 +24,6 @@
   <strong>31 going | 2 not going | 3 maybe</strong>
 <p>
 
-<div id="going">
   <p><strong>
     Going? <%= link_to 'Yes', event_user_going_path(@event.id), method: :put, remote: true %>
          | <%= link_to 'No', event_user_not_going_path(@event.id), method: :put, remote: true  %>
