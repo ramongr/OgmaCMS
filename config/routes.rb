@@ -10,9 +10,9 @@ OgmaCMS::Application.routes.draw do
   
   resources :calendar, only: :index
   resources :events, only: [:index,:show] do
-    put 'going' => 'attendings#going', :as => 'user_going'
-    put 'not_going' => 'attendings#not_going', :as => 'user_not_going'
-    put 'maybe' => 'attendings#maybe', :as => 'user_maybe'
+    put 'going' => 'events#going', :as => 'going'
+    put 'not_going' => 'events#not_going', :as => 'not_going'
+    put 'maybe' => 'events#maybe', :as => 'maybe'
   end
   resources :pages, only: :show
   resources :posts, only: [:index,:show] do
