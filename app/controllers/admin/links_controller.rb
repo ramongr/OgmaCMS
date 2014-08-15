@@ -23,7 +23,7 @@ class Admin::LinksController < Admin::AdminController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
+    @link = Link.new(link_params.merge :type_mask => 1)
 
     respond_to do |format|
       if @link.save
@@ -72,7 +72,7 @@ class Admin::LinksController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:value)
+      params.require(:link).permit(:title,:value)
     end
 
 

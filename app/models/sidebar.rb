@@ -5,6 +5,11 @@ class Sidebar < ActiveRecord::Base
   
   validates :title, :type_mask, presence: true
   
+  scope :left, -> { where(type_mask: LEFT) }
+  scope :right, -> { where(type_mask: RIGHT) }
+  scope :top, -> { where(type_mask: TOP) }
+  scope :bottom, -> { where(type_mask: BOTTOM) }
+
   # only in last version of rails
   #enum type_mask: { left: 0, right: 1, top: 2, bottom: 3 }
 

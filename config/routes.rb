@@ -10,7 +10,7 @@ OgmaCMS::Application.routes.draw do
   
   resources :calendar, only: :index
   resources :events, only: [:index,:show]
-  resources :pages, only: :show
+  resources :static_pages, only: [:index,:show]
   resources :posts, only: [:index,:show] do
     resources :comments, shallow: true
   end
