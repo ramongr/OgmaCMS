@@ -10,6 +10,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @going = [Attending.yes.count, Attending.no.count, Attending.maybe.count]
   end
+
+
 
 end

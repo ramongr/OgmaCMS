@@ -10,6 +10,7 @@ class Admin::EventsController < Admin::AdminController
   # GET /events/1
   # GET /events/1.json
   def show
+    @going = [Attending.yes.count, Attending.no.count, Attending.maybe.count]
   end
 
   # GET /events/new
