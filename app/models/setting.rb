@@ -12,4 +12,10 @@ class Setting < RailsSettings::CachedSettings
                                    ]
 
   defaults[:selected_languages] = [['English','en']]
+
+
+  defaults[:confirmation_instructions] = '<p>Welcome *name*!</p>' \
+                                         '<p>You can confirm your account email through the link below:</p>' \
+                                         '<p>*confirmation_link*</p>'
+
 end

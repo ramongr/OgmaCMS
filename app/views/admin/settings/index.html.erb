@@ -3,10 +3,12 @@
 <ul class="tabs" data-tab>
   <li class="tab-title active"><a href="#site">Site</a></li>
   <li class="tab-title"><a href="#internationalization">Internationalization</a></li>
+  <li class="tab-title"><a href="#mailer">Mailer</a></li>
 </ul>
 
-<%= form_tag [:admin_settings_update], method: :put %>
+<%= form_tag [:admin_settings_update], method: :put do -%>
   <div class="tabs-content">
+
     <div class="content active" id="site">
       <div class="field">
         <%= label_tag 'Site Name' %><br>
@@ -25,6 +27,7 @@
         <%= text_field_tag :site_logo, Setting.site_logo %>
       </div>
     </div>
+
     <div class="content" id="internationalization">
       <div class="field">
         <%= label_tag 'Available languages' %><br>
@@ -35,7 +38,17 @@
         <% end %>
       </div>
     </div>
+
+    <div class="content" id="mailer">
+      <div class="field">
+      <p>Confirmation Instructions - Use *name* to refer to the user's name and *confirmation_link* to insert the confirmation link into the e-mail.</p>
+        <%= text_area_tag :confirmation_instructions, Setting.confirmation_instructions, class: "ckeditor", input_html: {ckeditor: { toolbar: 'Full'} } %>
+      </div>
+    </div>
+
+
   </div>
   <div class="actions">
     <%= submit_tag %>
   </div>
+<% end -%>

@@ -4,6 +4,7 @@ class Admin::SettingsController < Admin::AdminController
   end
 
   def update_all
+    # SITE SETTINGS
     if Setting.site_name != params[:site_name]
       Setting.site_name = params[:site_name]
     end
@@ -16,6 +17,13 @@ class Admin::SettingsController < Admin::AdminController
     if Setting.site_logo != params[:site_logo]
       Setting.site_logo = params[:site_logo]
     end
+
+    # MAILER SETTINGS
+    if Setting.confirmation_instructions != params[:confirmation_instructions]
+      Setting.confirmation_instructions = params[:confirmation_instructions]
+    end
+
+    # INTERNATIONALIZATION SETTINGS
     selected_languages = []
     Setting.available_languages.each do |l|
       if params.has_key?('i18n_' + l.second) 
