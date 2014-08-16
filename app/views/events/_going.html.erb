@@ -1,0 +1,55 @@
+<div id="going">
+  <p>
+    <%= Attending.yes.count %> going | <%= Attending.no.count %> not going | <%= Attending.maybe.count %> maybe
+  </p>
+
+  <% if user_signed_in? %>
+    <p>
+      <% attend = Attending.find_by(event: @event, user: current_user) %>
+      <% if attend.nil? %>
+        Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true %>
+             | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true  %>
+             | <%= link_to 'Maybe', event_maybe_path(@event), method: :put, remote: true %>
+      <% elsif attend.yes? %>
+        You are going!
+        <p>
+        Changed your mind? <%= link_to 'Not going', event_not_going_path(@event), method: :put, remote: true  %>
+                         | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
+        </p>
+      <% elsif attend.no? %>
+        You are not going.
+        <p>
+          Changed your mind? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
+                           | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
+        </p>
+      <% else %>
+        You are indecisive.
+        <p>
+          Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
+               | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true %>
+        </p>
+      <% end %>
+    </p>
+  <% end %>
+
+  <% unless Attending.yes.empty? %>
+    <strong>Going:</strong>
+    <% Attending.yes.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>
+
+  <% unless Attending.no.empty? %>
+    <strong>Not going:</strong>
+    <% Attending.no.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>
+
+  <% unless Attending.maybe.empty? %>
+    <strong>Indecisive:</strong>
+    <% Attending.maybe.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>      
+</div>
