@@ -1,4 +1,4 @@
-<div style="display: inline" id="going">
+<div id="going">
   <p>
     <%= Attending.yes.count %> going | <%= Attending.no.count %> not going | <%= Attending.maybe.count %> maybe
   </p>
@@ -29,4 +29,26 @@
       </p>
     <% end %>
   </p>
+
+  <% unless Attending.yes.empty? %>
+    <strong>Going:</strong>
+    <% Attending.yes.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>
+
+  <% unless Attending.no.empty? %>
+    <strong>Not going:</strong>
+    <% Attending.no.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>
+
+  <% unless Attending.maybe.empty? %>
+    <strong>Indecisive:</strong>
+    <% Attending.maybe.each do |a| %>
+      <p><%= a.user.name %></p>
+    <% end %>
+  <% end %>
+    
 </div>
