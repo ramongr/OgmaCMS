@@ -4,7 +4,9 @@
   <table>
     <thead>
       <tr>
+        <th>Title</th>
         <th>Value</th>
+        <th>Type</th>
         <th></th>
         <th></th>
         <th></th>
@@ -14,7 +16,9 @@
     <tbody>
       <% @links.each do |link| %>
         <tr>
+          <td><%= link.title %></td>
           <td><%= link.value %></td>
+          <td><%= link.type_mask %></td>
           <td><%= link_to 'Show', [:admin,link] %></td>
           <td><%= link_to 'Edit', edit_admin_link_path(link) %></td>
           <td><%= link_to 'Destroy', [:admin,link], method: :delete, data: { confirm: 'Are you sure?' } %></td>

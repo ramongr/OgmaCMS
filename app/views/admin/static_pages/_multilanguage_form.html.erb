@@ -55,7 +55,7 @@
   <p class="validateTips">Select Attachment.</p>
   <ol id="selectable">
     <% @attachments.each do |attachment| %>
-      <li class="ui-widget-content" data-attachment-link='"<%= download_admin_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
+      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
     <% end %>
   </ol>
 </div>
