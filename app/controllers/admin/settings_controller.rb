@@ -23,6 +23,10 @@ class Admin::SettingsController < Admin::AdminController
       Setting.confirmation_instructions = params[:confirmation_instructions]
     end
 
+    if Setting.event_update != params[:event_update]
+      Setting.event_update = params[:event_update]
+    end
+
     # INTERNATIONALIZATION SETTINGS
     selected_languages = []
     Setting.available_languages.each do |l|
@@ -36,6 +40,7 @@ class Admin::SettingsController < Admin::AdminController
       redirect_to admin_settings_url, notice: 'You have to select at least one language'
       return
     end
+
     redirect_to admin_settings_url, notice: 'Settings saved successfully'
   end
 

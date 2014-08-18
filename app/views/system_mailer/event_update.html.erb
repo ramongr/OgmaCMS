@@ -1,0 +1,4 @@
+<%= Setting.event_update.gsub(/[*]user_name[*]/,@user.name)
+                        .gsub(/[*]event_title[*]/,@event.title)
+                        .gsub(/[*]event_description[*]/,@event.body)
+                        .html_safe %> 
