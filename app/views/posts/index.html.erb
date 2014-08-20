@@ -13,7 +13,7 @@
         created: <%= post.date_created_human %> last updated: <%= post.date_updated_human %>
       </div>
       <div class="content">
-        <%= truncate(post.content, length: 300) %>
+        <%= post.content.html_safe.truncate(300) %>
       </div>
       <div class="read_more">
         <%= link_to 'Read more', post %>
