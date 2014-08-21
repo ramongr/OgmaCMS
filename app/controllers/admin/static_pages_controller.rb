@@ -1,5 +1,6 @@
 class Admin::StaticPagesController < Admin::AdminController
   before_action :set_admin_static_page, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /admin/static_pages
   # GET /admin/static_pages.json
@@ -65,14 +66,14 @@ class Admin::StaticPagesController < Admin::AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_static_page
-      @admin_static_page = StaticPage.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_static_page
+    @admin_static_page = StaticPage.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_static_page_params
-      permitted = StaticPage.globalize_attribute_names + [:slug]
-      params.require(:static_page).permit(*permitted)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_static_page_params
+    permitted = StaticPage.globalize_attribute_names + [:slug]
+    params.require(:static_page).permit(*permitted)
+  end
 end

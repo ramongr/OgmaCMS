@@ -1,6 +1,6 @@
 class Admin::LinksController < Admin::AdminController
-
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /links
   # GET /links.json
@@ -65,15 +65,15 @@ class Admin::LinksController < Admin::AdminController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_link
-      @link = Link.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_link
+    @link = Link.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def link_params
-      params.require(:link).permit(:title,:value)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def link_params
+    params.require(:link).permit(:title,:value)
+  end
 
 
 end
