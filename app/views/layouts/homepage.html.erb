@@ -9,81 +9,22 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= controller.controller_name %>">
-
-
- <!-- 
-    /**
-    *  Deixado em comment para ver o formato dos links caso sejam necessários
-    *  LogOut Não funcionar ao por na seed, pois o link_to precisa além do path do method: : delete
-    **/
-
-    <nav class="top-bar admin-top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">OgmaCMS</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <li> <%= link_to 'Forum', forem.forums_path %> </li>
-          <li> <%= link_to 'Visiting Book', main_app.visitor_comments_path %> </li>
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.email, main_app.edit_user_registration_path %></li>
-            <li><%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %><li>
-          <% else %>
-            <li><%= link_to "Login", main_app.new_user_session_path %></li>
-            <li><%= link_to "Register", main_app.new_user_registration_path %></li>
-          <% end %>
-          <li><%= link_to "Posts", main_app.posts_path %></li>
-          <li><%= link_to "Public Pages", main_app.static_pages_path %></li>          
-        </ul>
-        <ul class="left">
-        </ul>
-      </section>
-    </nav>
--->
-
-    <% @top_sidebars.each do |sidebar| %>
-      <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1><a href="#"><%= sidebar.title %></a></h1>
-          </li>
-           <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-        </ul>
-
-        <section class="top-bar-section">
-          <!-- Right Nav Section -->
-          <ul class="right">
-            <% sidebar.links.each do |link| %>
-              <li><%= link_to link.title, link.url_with_protocol() %></li>
-            <% end %>
-          </ul>
-
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <% sidebar.static_pages.each do |static_page| %>
-              <li><%= link_to static_page.title, [:admin,static_page] %></li>
-            <% end %>
-          </ul>
-        </section>
-      </nav>
-    <% end %>
-
-
+    <%= render 'layouts/topbar' %>
     <div class="row">
       <div class="medium-3 columns">
         <% @left_sidebars.each do |sidebar| %>
           <h3><%=sidebar.title%></h3>
-          <p> Links </p>
+          <p>
+            Links
+          </p>
           <ul class="side-nav">
             <% sidebar.links.each do |link| %>
               <li><%= link_to link.title, link.url_with_protocol() %></li>
             <% end %>
           </ul>
-
-          <p> Internal Pages </p>
+          <p>
+            Internal Pages
+          </p>
           <ul class="side-nav">
             <% sidebar.static_pages.each do |static_page| %>
               <li><%= link_to static_page.title, [:admin,static_page] %></li>
@@ -91,37 +32,36 @@
           </ul>
         <% end %>
       </div>
-
       <div class="medium-6 columns">
         <%= yield :content %>
       </div>
-
       <div class="medium-3 columns">
         <% @right_sidebars.each do |sidebar| %>
           <div class="row">
-          <div class="medium-3 push-9 columns">
-            <h3><%=sidebar.title%></h3>
-            <p> Links </p>
-            <ul class="side-nav">
-              <% sidebar.links.each do |link| %>
-                <li><%= link_to link.title, link.url_with_protocol() %></li>
-              <% end %>
-            </ul>
-
-            <p> Internal Pages </p>
-            <ul class="side-nav">
-              <% sidebar.static_pages.each do |static_page| %>
-                <li><%= link_to static_page.title, [:admin,static_page] %></li>
-              <% end %>
-            </ul>
+            <div class="medium-3 push-9 columns">
+              <h3><%=sidebar.title%></h3>
+              <p>
+                Links
+              </p>
+              <ul class="side-nav">
+                <% sidebar.links.each do |link| %>
+                  <li><%= link_to link.title, link.url_with_protocol() %></li>
+                <% end %>
+              </ul>
+              <p>
+                Internal Pages
+              </p>
+              <ul class="side-nav">
+                <% sidebar.static_pages.each do |static_page| %>
+                  <li><%= link_to static_page.title, [:admin,static_page] %></li>
+                <% end %>
+              </ul>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-
     <%= yield %>
-
     <% @bottom_sidebars.each do |sidebar| %>
       <footer class="row">
         <div class="large-12 columns">
@@ -146,8 +86,6 @@
         </div>
       </footer>
     <% end %>
-
-
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>

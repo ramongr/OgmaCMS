@@ -1,4 +1,5 @@
 class Admin::SettingsController < Admin::AdminController
+  load_and_authorize_resource
 
   def index
   end
@@ -30,7 +31,7 @@ class Admin::SettingsController < Admin::AdminController
     # INTERNATIONALIZATION SETTINGS
     selected_languages = []
     Setting.available_languages.each do |l|
-      if params.has_key?('i18n_' + l.second) 
+      if params.has_key?('i18n_' + l.second)
         selected_languages << l
       end
     end
