@@ -1,12 +1,10 @@
 GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: e8c1dc8a26183cf10e5eac7fb29eb7bdcf51d01f
+  remote: git://github.com/globalize/globalize-accessors.git
+  revision: 3f1b87faed1897cda921be1ef81d142f48e2884c
+  branch: master
   specs:
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
+    globalize-accessors (0.1.4)
+      globalize (>= 3)
 
 GIT
   remote: git://github.com/radar/forem.git
@@ -25,12 +23,14 @@ GIT
       workflow (= 1.0.0)
 
 GIT
-  remote: git://github.com/globalize/globalize-accessors.git
-  revision: 3f1b87faed1897cda921be1ef81d142f48e2884c
-  branch: master
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: e8c1dc8a26183cf10e5eac7fb29eb7bdcf51d01f
   specs:
-    globalize-accessors (0.1.4)
-      globalize (>= 3)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
 
 GEM
   remote: https://rubygems.org/
