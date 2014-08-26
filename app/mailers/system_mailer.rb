@@ -10,6 +10,8 @@ class SystemMailer < ActionMailer::Base
   def newsletter_send(newsletter, user)
     @user = user
     @newsletter = newsletter
-    mail(to: @user.email, subject: Setting.site_name + ': ' + @newsletter.title, body: @newsletter.body)
+    mail(to: @user.email, subject: Setting.site_name + ': ' + @newsletter.title) do |format|
+      format.html { render text: @newsletter.body }
+    end
   end
 end
