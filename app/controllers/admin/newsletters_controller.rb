@@ -19,13 +19,12 @@ class Admin::NewslettersController < ApplicationController
   def edit
   end
 
-  # GET /admin/newsletters/1/send
-  
+  # GET /admin/newsletters/1/send_newsletter
   def send_newsletter
     render :show
     @newsletter = Newsletter.find(params[:id])
     @newsletter.users.each do |user|
-     SystemMailer.newsletter_send(@newsletter,user).deliver
+      SystemMailer.newsletter_send(@newsletter,user).deliver
     end
   end
   
@@ -35,7 +34,7 @@ class Admin::NewslettersController < ApplicationController
   def create
     @newsletter = Newsletter.new(newsletter_params)
 
-  	params[:newsletter][:user_ids] ||= []
+    params[:newsletter][:user_ids] ||= []
     @newsletter.user_ids = params[:newsletter][:user_ids]
 
     respond_to do |format|
@@ -53,7 +52,7 @@ class Admin::NewslettersController < ApplicationController
   # PATCH/PUT /admin/newsletters/1.json
   def update
 
-  	params[:newsletter][:user_ids] ||= []
+    params[:newsletter][:user_ids] ||= []
     @newsletter.user_ids = params[:newsletter][:user_ids]
 
     respond_to do |format|
