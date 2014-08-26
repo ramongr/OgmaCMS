@@ -17,7 +17,7 @@
       <% @newsletters.each do |newsletter| %>
         <tr>
           <td><%= newsletter.title %></td>
-          <td><%= newsletter.body.truncate(100) %></td>
+          <td><%= strip_tags(newsletter.body).truncate(100) %></td>
           <td><%= link_to 'Send', send_newsletter_admin_newsletter_path(newsletter) %></td>
           <td><%= link_to 'Show', [:admin,newsletter] %></td>
           <td><%= link_to 'Edit', edit_admin_newsletter_path(newsletter) %></td>
