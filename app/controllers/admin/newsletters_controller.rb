@@ -22,10 +22,12 @@ class Admin::NewslettersController < ApplicationController
   # GET /admin/newsletters/1/send_newsletter
   def send_newsletter
     render :show
+
     @newsletter = Newsletter.find(params[:id])
     @newsletter.users.each do |user|
       SystemMailer.newsletter_send(@newsletter,user).deliver
     end
+
   end
   
 
