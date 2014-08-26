@@ -20,27 +20,16 @@
     <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]], @sidebar.type_mask) %>
   </div>
 
-  <div>
-    <p> Links</p>
-    <% for link in Link.all %>
-    <div>
-      <%= check_box_tag "sidebar[link_ids][]", link.id, @sidebar.links.include?(link) %>
-      <%= link.title %>
-    </div>
-    <% end %>
+  <div class="field">
+    <%= f.label :links %><br/>
+    <%= select_tag "selected_links", options_from_collection_for_select(Link.all, 'id', 'value'), { :prompt => default_link_option }%>
   </div>
 
-  <div>
-    <p> Static Pages</p>
-    <% for static_page in StaticPage.all %>
-    <div>
-      <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
-      <%= static_page.title %>
-    </div>
-    <% end %>
-  </div>
-  
 
+  <div class="field">
+    <%= f.label :static_pages %><br/>
+    <%= select_tag "selected_pages", options_from_collection_for_select(StaticPage.all, 'id', 'title'), { :prompt => default_link_option }%>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

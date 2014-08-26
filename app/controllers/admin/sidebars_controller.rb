@@ -24,12 +24,11 @@ class Admin::SidebarsController < Admin::AdminController
   # POST /sidebar2s.json
   def create
     @sidebar = Sidebar.new(sidebar_params)
-    
-    params[:sidebar][:link_ids] ||= []
-    params[:sidebar][:static_page_ids] ||= []
+    @links = Link.where(:id => params[:selected_links])
+    @sidebar.links << @links
 
-    @sidebar.link_ids = params[:sidebar][:link_ids]
-    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
+    @static_pages = StaticPage.where(:id => params[:selected_pages])
+    @sidebar.static_pages << @static_pages
 
     respond_to do |format|
       if @sidebar.save
@@ -46,11 +45,11 @@ class Admin::SidebarsController < Admin::AdminController
   # PATCH/PUT /sidebars/1
   # PATCH/PUT /sidebars/1.json
   def update
-    params[:sidebar][:link_ids] ||= []
-    params[:sidebar][:static_page_ids] ||= []
+    @links = Link.where(:id => params[:selected_links])
+    @sidebar.links << @links
 
-    @sidebar.link_ids = params[:sidebar][:link_ids]
-    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
+    @static_pages = StaticPage.where(:id => params[:selected_pages])
+    @sidebar.static_pages << @static_pages
 
     respond_to do |format|
       if @sidebar.update(sidebar_params)
