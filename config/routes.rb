@@ -40,7 +40,12 @@ OgmaCMS::Application.routes.draw do
       member do
         get 'download'
       end
-    end   
+    end
+    resources :newsletters do
+      member do
+        get 'send_newsletter'
+      end
+    end
     resources :settings, only: [:index]
     get 'settings', to: 'settings#index'
     put 'settings_update', to: 'settings#update_all'
