@@ -46,7 +46,7 @@ $(document).ready(function(){
         title: s_title,
         start: start,
         end: end,
-        allDay: true
+        allDay: e_all_day
       };
       $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
 
@@ -96,9 +96,65 @@ $(document).ready(function(){
     $('#calendar').fullCalendar('unselect');
 
 
-    return valid;
   }
 
+
+  function updateEvent(event, delta) {
+
+    var start = event.start;
+    var end = event.start;
+    if(event.end)
+    {
+      end = event.end;
+    }
+
+    var eventData;    
+    eventData =
+    {
+      title: event.title,
+      start: start,
+      end: end,
+      allDay: event.allDay
+    };
+
+    // if multiple days are selected, the end hour needs to be changed (default = 00h) or the full calendar won't include the last day
+    var multipleDays = start.getDate() != end.getDate()
+
+    // Format for rails compatibility
+    //2014-08-07 22:17:18.530962
+    var sDateString = '' + start.getFullYear() + '-' + (start.getMonth()+1) + '-' + start.getDate() + ' ' + start.getHours() + ':' + start.getMinutes() + ':' + start.getSeconds() + '.' + start.getMilliseconds();
+
+    var eDateString = '' + end.getFullYear() + '-' + (end.getMonth()+1) + '-' + end.getDate() + ' ' + ( (multipleDays) ? end.getHours()+1 : end.getHours() ) + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds();
+
+    /**
+     * ajax call to store event in DB
+     */
+    deferred = $.ajax({
+          url: "admin/events/"+event.id ,
+          type: 'PUT',    
+          data: {
+          event:
+          {
+            start_time: sDateString,
+            end_time: eDateString
+          }    
+        },
+        dataType: 'json'
+    });
+
+    deferred.success(function () {
+      //alert("Updated");
+    });
+
+    deferred.error(function () {
+      //alert("Error");
+    });
+
+
+    $('#calendar').fullCalendar('unselect');
+
+
+  }
   
 
 
@@ -113,9 +169,11 @@ $(document).ready(function(){
        center: 'title',
        right: 'month,agendaWeek,agendaDay'
     },
+    allDaySlot: true,
     selectable: true,
     selectHelper: true,
     editable: true,
+    droppable: true,
     firstDay: 0,
     timeFormat: 'HH:mm', // uppercase H for 24-hour clock
 
@@ -124,22 +182,31 @@ $(document).ready(function(){
       // store start and end time to process after the dialog form
       sTime = start;
       eTime = end;
-
+      e_all_day = allDay;
       dialog.dialog( "open" );
 
     },
 
-    /*
+    
     // To drag events if needed
     eventDrop: function(event, delta, revertFunc) {
-
-        alert(event.title + " was dropped on " + event.start.format());
-
         if (!confirm("Are you sure about this change?")) {
             revertFunc();
         }
-
-    },*/
+        else
+        {
+          updateEvent(event,delta);
+        }
+    },
+    eventResize: function(event, delta, revertFunc) {
+        if (!confirm("Are you sure about this change?")) {
+            revertFunc();
+        }
+        else
+        {
+          updateEvent(event,delta);
+        }
+    },
 
     events: '/admin/events.json'
   }
@@ -157,7 +224,5 @@ $(document).ready(function(){
     events: '/events.json'
   }
   );
-
-
 
 });
