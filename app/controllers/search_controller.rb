@@ -9,5 +9,4 @@ class SearchController < ApplicationController
       @posts = Post.all
     end
   end
-  
 end

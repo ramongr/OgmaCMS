@@ -71,6 +71,21 @@
       </nav>
     <% end %>
 
+    <!-- Search -->
+    <li class="has-form">
+      <div class="row collapse">
+        <div class="large-8 small-9 columns">
+          <%= form_tag search_index_path, method: :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>              
+            </p>
+        </div>
+        <div class="large-4 small-3 columns">
+          <%= submit_tag "Search", name: nil, class: 'alert button expand' %>
+        </div>
+      </div>
+    </li>
+    <% end %>
 
     <div class="row">
       <div class="medium-3 columns">
