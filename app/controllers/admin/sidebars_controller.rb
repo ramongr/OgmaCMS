@@ -1,5 +1,6 @@
 class Admin::SidebarsController < Admin::AdminController
   before_action :set_sidebar, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /sidebars
   # GET /sidebars.json
@@ -23,11 +24,12 @@ class Admin::SidebarsController < Admin::AdminController
   # POST /sidebar2s.json
   def create
     @sidebar = Sidebar.new(sidebar_params)
-    @links = Link.where(:id => params[:selected_links])
-    @sidebar.links << @links
+    
+    params[:sidebar][:link_ids] ||= []
+    params[:sidebar][:static_page_ids] ||= []
 
-    @static_pages = StaticPage.where(:id => params[:selected_pages])
-    @sidebar.static_pages << @static_pages
+    @sidebar.link_ids = params[:sidebar][:link_ids]
+    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
 
     respond_to do |format|
       if @sidebar.save
@@ -44,11 +46,11 @@ class Admin::SidebarsController < Admin::AdminController
   # PATCH/PUT /sidebars/1
   # PATCH/PUT /sidebars/1.json
   def update
-    @links = Link.where(:id => params[:selected_links])
-    @sidebar.links << @links
-    
-    @static_pages = StaticPage.where(:id => params[:selected_pages])
-    @sidebar.static_pages << @static_pages
+    params[:sidebar][:link_ids] ||= []
+    params[:sidebar][:static_page_ids] ||= []
+
+    @sidebar.link_ids = params[:sidebar][:link_ids]
+    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
 
     respond_to do |format|
       if @sidebar.update(sidebar_params)
@@ -75,14 +77,14 @@ class Admin::SidebarsController < Admin::AdminController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sidebar
-      @sidebar = Sidebar.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sidebar
+    @sidebar = Sidebar.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sidebar_params
-      params.require(:sidebar).permit(:title, :type_mask)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sidebar_params
+    params.require(:sidebar).permit(:title, :type_mask)
+  end
 
 end

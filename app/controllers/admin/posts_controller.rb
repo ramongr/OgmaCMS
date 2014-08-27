@@ -1,5 +1,6 @@
 class Admin::PostsController < Admin::AdminController
   before_action :set_admin_post, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /admin/posts
   # GET /admin/posts.json
@@ -28,7 +29,7 @@ class Admin::PostsController < Admin::AdminController
   def create
     @admin_post = current_user.posts.create(admin_post_params)
     @attachments = Attachment.all
-    
+
     respond_to do |format|
       if @admin_post.save
         format.html { redirect_to admin_posts_url, notice: 'post was successfully created.' }
@@ -65,13 +66,13 @@ class Admin::PostsController < Admin::AdminController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin_post
-      @admin_post = Post.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin_post
+    @admin_post = Post.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_post_params
-      params.require(:post).permit(*Post.globalize_attribute_names)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_post_params
+    params.require(:post).permit(*Post.globalize_attribute_names)
+  end
 end
