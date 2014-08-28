@@ -27,7 +27,7 @@ class Admin::PostsController < Admin::AdminController
   # POST /admin/posts
   # POST /admin/posts.json
   def create
-    @admin_post = current_user.posts.create(admin_post_params)
+    @admin_post = current_user.posts.create(post_params)
     @attachments = Attachment.all
 
     respond_to do |format|
@@ -45,7 +45,7 @@ class Admin::PostsController < Admin::AdminController
   # PATCH/PUT /admin/posts/1.json
   def update
     respond_to do |format|
-      if @admin_post.update(admin_post_params)
+      if @admin_post.update(post_params)
         format.html { redirect_to admin_posts_url, notice: 'post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -72,7 +72,7 @@ class Admin::PostsController < Admin::AdminController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def admin_post_params
+  def post_params
     params.require(:post).permit(*Post.globalize_attribute_names)
   end
 end
