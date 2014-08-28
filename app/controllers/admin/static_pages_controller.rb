@@ -27,7 +27,7 @@ class Admin::StaticPagesController < Admin::AdminController
   # POST /admin/static_pages
   # POST /admin/static_pages.json
   def create
-    @admin_static_page = StaticPage.new(admin_static_page_params)
+    @admin_static_page = StaticPage.new(static_page_params)
     @attachments = Attachment.all
 
     respond_to do |format|
@@ -45,7 +45,7 @@ class Admin::StaticPagesController < Admin::AdminController
   # PATCH/PUT /admin/static_pages/1.json
   def update
     respond_to do |format|
-      if @admin_static_page.update(admin_static_page_params)
+      if @admin_static_page.update(static_page_params)
         format.html { redirect_to admin_static_pages_path, notice: 'Static page was successfully updated.' }
         format.json { head :no_content }
       else
@@ -72,7 +72,7 @@ class Admin::StaticPagesController < Admin::AdminController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def admin_static_page_params
+  def static_page_params
     permitted = StaticPage.globalize_attribute_names + [:slug]
     params.require(:static_page).permit(*permitted)
   end
