@@ -1,4 +1,5 @@
 class SystemMailer < ActionMailer::Base
+  include Admin::NewslettersHelper
   default from: "from@example.com"
 
   def event_update(event, user)
@@ -11,7 +12,7 @@ class SystemMailer < ActionMailer::Base
     @user = user
     @newsletter = newsletter
     mail(to: @user.email, subject: Setting.site_name + ': ' + @newsletter.title) do |format|
-      format.html { render text: @newsletter.body }
+      format.html { render text: parse(@newsletter.body,@user) }
     end
   end
 end
