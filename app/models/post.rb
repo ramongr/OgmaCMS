@@ -5,6 +5,12 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :title, :content, :user, presence: true
   
+  include PgSearch
+  pg_search_scope :search, against: [:title, :content],
+    using: { tsearch: {prefix: true} },
+    associated_against: {user: :name, comments: :content},
+    ignoring: :accents
+
   def date_created_human
     self.created_at.strftime("%e %B %Y %H:%M")
   end
@@ -13,9 +19,4 @@ class Post < ActiveRecord::Base
     self.updated_at.strftime("%e %B %Y %H:%M")
   end
 
-  def self.search(search)
-    search_condition = "%" + search.downcase + "%"
-    Post.joins(:user)
-    .where("lower(email) like ? or lower(title) like ? or lower(content) like ? ", search_condition, search_condition, search_condition) 
-  end
 end

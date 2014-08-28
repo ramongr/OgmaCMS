@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140825231329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "attachments", force: true do |t|
     t.string   "name"

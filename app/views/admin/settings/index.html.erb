@@ -42,7 +42,7 @@
       <p>Confirmation Instructions - Use *name* to refer to the user's name and *confirmation_link* to insert the confirmation link into the e-mail.</p>
       <%= text_area_tag :confirmation_instructions, Setting.confirmation_instructions, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
       <br><br>
-      <p>Event update - *user_name*, *event_name*, *event_description*, etc..</p>
+      <p>Event update - *user_name*, *event_title*, *event_description*, etc..</p>
       <%= text_area_tag :event_update, Setting.event_update, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
     </div>
 

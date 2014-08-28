@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -14,7 +14,7 @@ gem 'devise'
 gem 'devise-i18n'
 
 #CanCanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access. 
-gem 'cancancan', '~> 1.9'
+gem 'cancancan'
 
 #Web-server
 gem 'thin'
@@ -42,7 +42,7 @@ gem 'foundation-rails'
 gem 'jbuilder', '~> 1.2'
 
 # Globalize builds on the I18n API in Ruby on Rails to add model translations to ActiveRecord models.
-gem 'globalize', '~> 4.0.2'
+gem 'globalize'
 
 # Easily access (read and write) globalize translated fields without fiddling with locale 
 gem 'globalize-accessors', :github => "globalize/globalize-accessors", :branch => "master"
@@ -73,7 +73,7 @@ end
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 
-gem 'will_paginate', '3.0.5'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -104,4 +104,7 @@ gem 'fullcalendar-rails'
 gem 'jquery-ui-rails', '~> 5.0.0'
 
 # Handle settings with caching, manages a table of global key, value pairs.
-gem "rails-settings-cached", "0.4.1"
+gem "rails-settings-cached"
+
+# PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
+gem 'pg_search'

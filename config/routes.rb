@@ -47,7 +47,6 @@ OgmaCMS::Application.routes.draw do
       end
     end
     resources :settings, only: [:index]
-    get 'settings', to: 'settings#index'
     put 'settings_update', to: 'settings#update_all'
   end
 
