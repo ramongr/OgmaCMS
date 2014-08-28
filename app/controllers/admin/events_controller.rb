@@ -1,5 +1,4 @@
 class Admin::EventsController < Admin::AdminController
-  helper :all #ApplicationHelper
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
