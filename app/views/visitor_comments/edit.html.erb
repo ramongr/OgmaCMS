@@ -1,6 +1,9 @@
-<h1>Editing visitor_comment</h1>
+<h1 class="text-center">Editing visitor_comment</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @visitor_comment %> |
-<%= link_to 'Back', visitor_comments_path %>
+<div class="row">
+  <%= link_to 'Show', @visitor_comment, class: "button tiny" %>
+  <%= link_to 'Back', visitor_comments_path, class: "button tiny" %>
+  <div class="small-12">
+    <%= render 'form' %>
+  </div>
+</div>

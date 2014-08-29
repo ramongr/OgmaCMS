@@ -13,20 +13,18 @@
     <div id="error_explanation">
       <h2><%= pluralize(@admin_post.errors.count, "error") %> prohibited this admin_post from being saved:</h2>
 
-      <ul>
-      <% @admin_post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+      <ul id="post-error-message">
+        <% @admin_post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
   <div class="tabs-content"> 
     <% Setting.selected_languages.each_with_index do |l, index| %>
-      <% if index == 0 %>
-      <div class="content active" id="langtab0">
-      <% else %>
-      <div class="content" id="langtab<%= index %>">
-      <% end %>
+      
+      <%= content_tag :div, class: "content "+ (index == 0 ? "active": ""), id: "langtab"+index.to_s do %> 
+      
         <% title_locale = ("title_" + l.second).to_sym %>
         <% content_locale = ("content_" + l.second).to_sym %>
         <div class="field">
@@ -39,11 +37,12 @@
         </div>
         <br>
         <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
-      </div>
+      <% end %>
+
     <% end %>
     
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Confirm", class: "button right" %>
     </div>
   </div>
 <% end %>

@@ -1,22 +1,23 @@
-<h1>Listing pages</h1>
-
-<% unless @pages.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @pages.each do |page| %>
+<h1 class="text-center">Listing pages</h1>
+<div class="row">
+  <% unless @pages.empty? %>
+    <table>
+      <thead>
         <tr>
-          <td><%= page.title %></td>
-          <td><%= link_to 'Show', page %></td>
+          <th>Title</th>
+          <th></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
-<br>
+      </thead>
+
+      <tbody>
+        <% @pages.each do |page| %>
+          <tr>
+            <td><%= page.title %></td>
+            <td><%= link_to 'Show', page %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+</div>

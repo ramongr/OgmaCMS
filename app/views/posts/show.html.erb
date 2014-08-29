@@ -1,52 +1,67 @@
 <p id="notice"><%= notice %></p>
 
-<div class="post">
-  <div class="title">
-    Title: <%= @post.title %>
-  </div>
-  <div class="author">
-    Author: <%= @post.user.email %>
-  </div>
-  <div class="created_updated">
-    Created at: <%= @post.date_created_human %>
-    Updated at: <%= @post.date_updated_human %>
-  </div>
-  <div class="content">
-    <%= @post.content.html_safe %>
-  </div>
-  <div class="edit_destroy">
-  <% if can? :update, @post %>
-    <td><%= link_to 'Edit', edit_admin_post_path(@post) %></td>
-    <% if can? :destroy, @post %>
-      <td><%= link_to 'Destroy', [:admin,@post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  <% end %>
-  </div>
-  <div class="comments">
-    <% unless @postcomments.empty? %>
-      <% @postcomments.each do |comment| %>
-        <div class="user">
-          <%= comment.user.email %>
-        </div>
-        <div class="created_updated">
-          Created at: <%= comment.date_created_human %>
-          Updated at: <%= comment.date_updated_human %>
-        </div>
-        <div class="content">
-          <%= comment.content %>
-        </div>
-        <div class="edit_destroy">
-          <% if can? :update, comment %>
-            <%= link_to 'Edit', edit_comment_path(comment) %>
-            <% if can? :destroy, comment %>
-              <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
+<div class="row">
+  <%= link_to 'Back', posts_path, class: "button tiny" %>
+  <%= link_to 'Add Comment', new_post_comment_path(@post), class: "button tiny" %>
+  <div class="small-12" id="post-container">
+    <!-- Title and author -->
+    <h3 class="text-center"><%= @post.title %></h3>
+    <p class="text-center">by <%= @post.user.email %></p>
+    <!-- Content -->
+    <div class="small-10" id="post-text">
+      <p class="text-justify"><%= @post.content.html_safe %></p>
+    </div>
+    <p class="text-right">
+      <small>
+          <% if @post.created_at.to_i == @post.updated_at.to_i %>
+            Created: <%= @post.date_created_human %>
+          <% else %>
+            Last updated: <%= @post.date_updated_human %>
           <% end %>
-        </div>
+      </small>
+    </p>
+    <!-- Edition -->
+    <%= link_to 'Add Comment', new_post_comment_path(@post), class: "button tiny" %>
+    <% if can? :update, @post %>
+      <%= link_to 'Edit', edit_admin_post_path(@post), class: "button tiny" %>
+      <% if can? :destroy, @post %>
+        <%= link_to 'Destroy', [:admin,@post], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
       <% end %>
     <% end %>
+
+    <!-- Comments -->
+    <% unless @postcomments.empty? %>
+      <hr>
+      <div class="small-7 small-offset-2" id="comments-container">
+
+        <h5 class="text-center">Comments</h5>
+        <br><br>
+      
+        <% @postcomments.each do |comment| %>
+          <div class="small-12">
+            <%= comment.user.email %> wrote:
+            <br><br>
+            <%= comment.content %>
+            <p class="text-right">
+              <small>
+                <% if comment.created_at.to_i == comment.updated_at.to_i %>
+                  Created: <%= comment.date_created_human %>
+                <% else %>
+                  Last updated: <%= comment.date_updated_human %>
+                <% end %>
+              </small>
+            </p>
+            <div id="button-container">
+              <% if can? :update, comment %>
+                <%= link_to 'Edit', edit_comment_path(comment), class: "button tiny" %>
+                <% if can? :destroy, comment %>
+                  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <%= link_to 'Add Comment', new_post_comment_path(@post) %>
-  <p></p>
-  <%= link_to 'Back', posts_path %>
 </div>

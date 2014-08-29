@@ -123,3 +123,14 @@ if Post.where(title: 'Test Post').empty?
   super_admin.posts.create title: 'Test Post', content: '<p>This is a <strong>test</strong> post created from seed</p>'
   puts "Created Test Post"
 end
+
+#####################
+# Forum Data
+#####################
+
+
+if Forem::Category.where(name: 'Default').empty?
+  fc = Forem::Category.new name: 'Default'
+  fc.save!
+  puts "Created forum category"
+end

@@ -1,29 +1,25 @@
-<h2><%= t("forem.admin.category.index") %></h2>
-<%= link_to t('back_to_admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
-<%= link_to t("forem.admin.category.new_link"), forem.new_admin_category_path, :class => "btn btn-primary" %><br><br>
+<h2 class="text-center"><%= t("forem.admin.category.index") %></h2>
 
-<table id='forums' class='forums table-striped table' cellspacing='0'>
-  <thead>
-    <tr>
-      <th><%= t('edit', :scope => 'forem.admin.categories') %></th>
-      <th><%= t('delete', :scope => 'forem.admin.categories') %></th>
-      <th><%= t('category', :scope => 'forem.admin.categories') %></th>
+<div class="row">
+  <%= link_to t('back_to_admin'), forem.admin_root_path, class: "button tiny" %><br><br>
+  <div class="small-12">
+    <div class="small-6">
+      <%= link_to t("forem.admin.category.new_link"), forem.new_admin_category_path, class: "button tiny left" %>
+      <h3 class="text-center">Forum Categories</h3>
+    </div>
+    <br><br>
+    <% unless @categories.empty? %>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr class="forum <%= cycle("odd", "even") %>">
-        <td><%= link_to t('edit', :scope => 'forem.admin.categories'), forem.edit_admin_category_path(category), :class => "btn btn-info" %></td>
-        <td><%= link_to t('delete', :scope => 'forem.admin.categories'), forem.admin_category_path(category), :method => :delete, 
-        data: { :confirm => t("delete_confirm", :scope => 'forem.admin.categories') }, :class => "btn btn-danger" %></td>
-        <td>
-          <%= forem_emojify(category.name) %>
-        </td>
-      </tr>
+      <% @categories.each_with_index do |category,index| %>
+        <div class="small-12">
+          <%= index > 0 ? "<hr>".html_safe : "" %>
+          <p><%= forem_emojify category.name %></p>
+          <%= link_to t('edit'), forem.edit_admin_category_path(category), class: "button tiny" %>
+          <%= link_to t('delete'), forem.admin_category_path(category), method: :delete,  data: { confirm: "Are you sure?" }, class: "button tiny alert" %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<%= link_to t('forem.admin.forum.index'), forem.admin_forums_path %>
+  </div>
+  <%= link_to t('forem.admin.forum.index'), forem.admin_forums_path, class: "button tiny" %>
+</div>
 
