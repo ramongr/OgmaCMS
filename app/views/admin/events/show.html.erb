@@ -20,6 +20,11 @@
   <%= @event.end_time %>
 </p>
 
+<p>
+  <strong>All Day:</strong>
+  <%= @event.all_day ? 'Yes' : 'No' %>
+</p>
+
 <%= link_to 'Edit', edit_admin_event_path(@event) %> |
 <%= link_to 'Events', admin_events_path %> |
 <%= link_to 'Calendar', calendar_index_path %>

@@ -36,20 +36,9 @@ $(document).ready(function(){
     var s_body = body.val();
     var start = sTime;
     var end = eTime;
-    
-    var eventData;
-    
+        
     if(s_title)
     {
-      eventData =
-      {
-        title: s_title,
-        start: start,
-        end: end,
-        allDay: e_all_day
-      };
-      $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-
       // if multiple days are selected, the end hour needs to be changed (default = 00h) or the full calendar won't include the last day
       var multipleDays = start.getDate() != end.getDate()
 
@@ -63,28 +52,37 @@ $(document).ready(function(){
        * ajax call to store event in DB
        */
       deferred = jQuery.post(
-          "admin/events" // your url
+          "admin/events.json" // your url
           , 
           { // re-use event's data
-            // { event: { title: title, body: "whatever", start_time: start, end_time end } },
             event:
             {
               title: s_title,
               body: s_body,
               start_time: sDateString,
-              end_time: eDateString
+              end_time: eDateString,
+              all_day: e_all_day
             }
               
-          }
-            
+          } 
       );
 
-      deferred.success(function () {
-          dialog.dialog( "close" );
+      deferred.success(function (object) {
+        dialog.dialog( "close" );
+        var eventData =
+        {
+          id: object.id,
+          title: s_title,
+          start: start,
+          end: end,
+          allDay: e_all_day
+        };
+        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
       });
-
-      deferred.error(function () {
-          // Handle any errors here.
+      
+      deferred.error(function (object) {
+        dialog.dialog( "close" );
+        alert("Error Adding Event");
       });
 
     }
@@ -136,24 +134,14 @@ $(document).ready(function(){
           event:
           {
             start_time: sDateString,
-            end_time: eDateString
+            end_time: eDateString,
+            all_day: event.allDay
           }    
         },
         dataType: 'json'
     });
 
-    deferred.success(function () {
-      //alert("Updated");
-    });
-
-    deferred.error(function () {
-      //alert("Error");
-    });
-
-
     $('#calendar').fullCalendar('unselect');
-
-
   }
   
 
