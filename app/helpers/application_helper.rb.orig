@@ -1,4 +1,21 @@
 module ApplicationHelper
+<<<<<<< HEAD
+
+  def date_created_human
+    self.created_at.strftime("%e %B %Y %H:%M")
+  end
+    
+  def date_updated_human
+    self.updated_at.strftime("%e %B %Y %H:%M")
+  end
+
+  def start_time_human
+    self.start_time.strftime("%e %B %Y %H:%M")
+  end
+    
+  def end_time_human
+    self.end_time.strftime("%e %B %Y %H:%M")
+=======
   def parseNewsletter(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
     result = body
 
@@ -21,21 +38,6 @@ module ApplicationHelper
     end
 
     result
-  end
-
-def date_created_human
-    self.created_at.strftime("%e %B %Y %H:%M")
-  end
-    
-  def date_updated_human
-    self.updated_at.strftime("%e %B %Y %H:%M")
-  end
-
-  def start_time_human
-    self.start_time.strftime("%e %B %Y %H:%M")
-  end
-    
-  def end_time_human
-    self.end_time.strftime("%e %B %Y %H:%M")
+>>>>>>> develop
   end
 end

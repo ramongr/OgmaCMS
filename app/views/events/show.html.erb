@@ -20,6 +20,11 @@
   <%= @event.end_time %>
 </p>
 
+<p>
+  <strong>All Day:</strong>
+  <%= @event.all_day ? 'Yes' : 'No' %>
+</p>
+
 <%= render('going') %>
 
 <%= link_to 'Events', events_path %> |

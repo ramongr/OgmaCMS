@@ -1,0 +1,36 @@
+<%= form_for([:admin,@newsletter]) do |f| %>
+  <% if @newsletter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newsletter.errors.count, "error") %> prohibited this newsletter from being saved:</h2>
+
+      <ul>
+      <% @newsletter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+  </div>
+
+  <div>
+    <p> To:</p>
+    <% for user in User.all %>
+    <div>
+      <%= check_box_tag "newsletter[user_ids][]", user.id, @newsletter.users.include?(user) %>
+      <%= user.email %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

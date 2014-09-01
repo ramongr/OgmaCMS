@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820163053) do
+ActiveRecord::Schema.define(version: 20140825231329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140820163053) do
     t.text     "body"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -165,6 +166,18 @@ ActiveRecord::Schema.define(version: 20140820163053) do
   create_table "links_sidebars", force: true do |t|
     t.integer "link_id"
     t.integer "sidebar_id"
+  end
+
+  create_table "newsletters", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "newsletters_users", force: true do |t|
+    t.integer "newsletter_id"
+    t.integer "user_id"
   end
 
   create_table "post_translations", force: true do |t|

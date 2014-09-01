@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<head>
+  <title><%= @newsletter.title %></title>
+</head>
+
+<body class="bodyclass">
+  <header class="headerclass">
+    <h1><%= @newsletter.title %></h1>
+  </header>
+
+  <p>
+    <strong>Body:</strong>
+  </p>
+
+  <%= @newsletter.body.html_safe %>
+
+  <br/>
+
+  <div>
+    <p>
+      <strong>To:</strong>
+    </p>
+    <ul>
+      <% @newsletter.users.each do |user| %>
+        <li><%= link_to user.email, [:admin,user] %></li>
+      <% end %>
+    </ul>
+  </div>
+  
+  <br/>
+
+  <%= if !@newsletter.users.empty?
+        link_to 'Send', send_newsletter_admin_newsletter_path(@newsletter)
+      else
+        'Cant Send - Add Users Before Sending'
+      end
+  %> <br>
+  <%= link_to 'Edit', edit_admin_newsletter_path(@newsletter) %> |
+  <%= link_to 'Back', admin_newsletters_path %>
+</body>
+
