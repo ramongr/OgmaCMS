@@ -1,5 +1,8 @@
 <h1>New admin_static_page</h1>
 
-<%= render 'multilanguage_form' %>
-
-<%= link_to 'Back', admin_static_pages_path %>
+<div class="row">
+  <%= link_to 'Back', admin_static_pages_path, class: "button tiny" %>
+  <div class="small-9">
+    <%= render 'multilanguage_form' %>
+  </div>
+</div>

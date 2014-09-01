@@ -1,111 +1,109 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
 
-<% if(@sidebar.is_top) %>
-  <nav class="top-bar" data-topbar>
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">My Site</a></h1>
-      </li>
-       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <% @sidebar.links.each do |link| %>
-          <li><%= link_to link.value, link.url_with_protocol() %></li>
-        <% end %>
+  <%= link_to 'Edit', edit_admin_sidebar_path(@sidebar), class: "button tiny" %>
+  <%= link_to 'Back', admin_sidebars_path, class: "button tiny" %>
+  
+  <h1 class="text-center">Sidebar</h1>
+  
+  <% if(@sidebar.is_top) %>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">My Site</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
 
-      <!-- Left Nav Section -->
-      <ul class="left">
-        <% @sidebar.static_pages.each do |static_page| %>
-          <li><%= link_to static_page.title, [:admin,static_page] %></li>
-        <% end %>
-      </ul>
-    </section>
-  </nav>
-<% end %>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <% @sidebar.links.each do |link| %>
+            <li><%= link_to link.value, link.url_with_protocol() %></li>
+          <% end %>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <% @sidebar.static_pages.each do |static_page| %>
+            <li><%= link_to static_page.title, [:admin,static_page] %></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+  <% end %>
 
 
-<% if(@sidebar.is_bottom) %>
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr>
-      <div class="row">
-        <div class="large-6 columns">
-          <ul class="inline-list left">
-            <% @sidebar.static_pages.each do |static_page| %>
-              <li><%= link_to static_page.title, [:admin,static_page] %></li>
-            <% end %>
-          </ul>
-          <br/>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <% @sidebar.links.each do |link| %>
-              <li><%= link_to link.value, link.url_with_protocol() %></li>
-            <% end %>
-          </ul>
+  <% if(@sidebar.is_bottom) %>
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr>
+        <div class="row">
+          <div class="large-6 columns">
+            <ul class="inline-list left">
+              <% @sidebar.static_pages.each do |static_page| %>
+                <li><%= link_to static_page.title, [:admin,static_page] %></li>
+              <% end %>
+            </ul>
+            <br/>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <% @sidebar.links.each do |link| %>
+                <li><%= link_to link.value, link.url_with_protocol() %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-<% end %>
+    </footer>
+  <% end %>
 
 
-<% if(@sidebar.is_left) %>
-  
-  <h3> Links </h3>
-  <ul class="side-nav">
-    <% @sidebar.links.each do |link| %>
-      <li><%= link_to link.value, link.url_with_protocol() %></li>
-    <% end %>
-  </ul>
-
-  <h3> Internal Pages </h3>
-  <ul class="side-nav">
-    <% @sidebar.static_pages.each do |static_page| %>
-      <li><%= link_to static_page.title, [:admin,static_page] %></li>
-    <% end %>
-  </ul>
-  
-<% end %>
-
-<% if(@sidebar.is_right) %>
-  <div class="row">
-  <div class="large-3 push-9 columns">
+  <% if(@sidebar.is_left) %>
+    
     <h3> Links </h3>
-      <ul class="side-nav">
-        <% @sidebar.links.each do |link| %>
-          <li><%= link_to link.value, link.url_with_protocol() %></li>
-        <% end %>
-      </ul>
+    <ul class="side-nav">
+      <% @sidebar.links.each do |link| %>
+        <li><%= link_to link.value, link.url_with_protocol() %></li>
+      <% end %>
+    </ul>
 
-      <h3> Internal Pages </h3>
-      <ul class="side-nav">
-        <% @sidebar.static_pages.each do |static_page| %>
-          <li><%= link_to static_page.title, [:admin,static_page] %></li>
-        <% end %>
-      </ul>
+    <h3> Internal Pages </h3>
+    <ul class="side-nav">
+      <% @sidebar.static_pages.each do |static_page| %>
+        <li><%= link_to static_page.title, [:admin,static_page] %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if(@sidebar.is_right) %>
+    <div class="row">
+    <div class="large-3 push-9 columns">
+      <h3> Links </h3>
+        <ul class="side-nav">
+          <% @sidebar.links.each do |link| %>
+            <li><%= link_to link.value, link.url_with_protocol() %></li>
+          <% end %>
+        </ul>
+
+        <h3> Internal Pages </h3>
+        <ul class="side-nav">
+          <% @sidebar.static_pages.each do |static_page| %>
+            <li><%= link_to static_page.title, [:admin,static_page] %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+  <p>
+    <strong>Title:</strong>
+    <%= @sidebar.title %>
+  </p>
 
-
-
-<p>
-  <strong>Title:</strong>
-  <%= @sidebar.title %>
-</p>
-
-<p>
-  <strong>Type mask:</strong>
-  <%= @sidebar.type_mask_name %>
-</p>
-
-
-<%= link_to 'Edit', edit_admin_sidebar_path(@sidebar) %> |
-<%= link_to 'Back', admin_sidebars_path %>
-
+  <p>
+    <strong>Type mask:</strong>
+    <%= @sidebar.type_mask_name %>
+  </p>
+</div>

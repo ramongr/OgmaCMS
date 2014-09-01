@@ -1,5 +1,8 @@
-<h1>New sidebar</h1>
+<h1 class="text-center">New sidebar</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', admin_sidebars_path %>
+<div class="row">
+  <%= link_to 'Back', admin_sidebars_path, class: "button tiny" %>
+  <div class="small-6">
+    <%= render 'form' %>
+  </div>
+</div>

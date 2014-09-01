@@ -1,6 +1,8 @@
 <% if can? :create, Event %>
-  <h4>You Are an Admin - You Can Manage Events </h4>
-  <%= link_to "Manage Events", admin_events_path %>
+  <div class="row">
+    <h4>You Are an Admin - You Can Manage Events </h4>
+    <%= link_to "Manage Events", admin_events_path %>
+  </div>
   <br>
   <div id="admin-flag"></div>
   <div id="dialog-form" title="Create New Event" style="display:none">

@@ -1,6 +1,13 @@
-<h1>Editing admin_post</h1>
+<h1 class="text-center">Editing admin_post</h1>
 
-<%= render 'multilanguage_form' %>
+<div class="row">
+  <div class="small-9 columns">
+    <%= render 'multilanguage_form' %>
+  </div>
+  <div class="small-3 columns">
+    
+    <%= link_to 'Show', [:admin,@admin_post], class: "button small" %>
+    <%= link_to 'Back', admin_posts_path, class: "button small" %>
+  </div>
+</div>
 
-<%= link_to 'Show', [:admin,@admin_post] %> |
-<%= link_to 'Back', admin_posts_path %>
