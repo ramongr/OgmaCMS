@@ -1,5 +1,13 @@
 OgmaCMS::Application.routes.draw do
 
+  namespace :admin do
+  get 'gallery/index'
+  end
+
+  namespace :admin do
+  get 'gallery/show'
+  end
+
   mount Forem::Engine, :at => '/forum'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
@@ -46,6 +54,13 @@ OgmaCMS::Application.routes.draw do
         get 'send_newsletter'
       end
     end
+    resources :galleries do
+      member do
+       post 'add_photo'
+       post 'reorder'       
+      end
+    end
+
     resources :settings, only: [:index]
     put 'settings_update', to: 'settings#update_all'
   end

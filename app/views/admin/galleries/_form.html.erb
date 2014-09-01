@@ -1,0 +1,55 @@
+<%= form_for([:admin,@gallery]) do |f| %>
+  <% if @gallery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this admin_gallery from being saved:</h2>
+
+      <ul>
+      <% @gallery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.datetime_select :date %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<button class="attachment-btn" id="add-image">Add Image</button>
+
+<div id="dialog" title="Add Image" style="display:none">
+  <p class="validateTips">Select Image.</p>
+  <ol id="selectable">
+    <% @images.each do |image| %>
+      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(image)%>"' data-attachment-id="<%= image.id %>" data-gallery-id="<%= @gallery.id %>"><%= image.file_file_name %></li>
+    <% end %>
+  </ol>
+</div>
+
+
+<ul id="sortable">
+  <% @images.each do |image| %>
+    <li class="ui-state-default"><img alt="default" src="<%= download_attachment_url(image)%>">
+  <% end %>
+  <li class="ui-state-default">1</li>
+  <li class="ui-state-default">2</li>
+  <li class="ui-state-default">3</li>
+  <li class="ui-state-default">4</li>
+  <li class="ui-state-default">5</li>
+  <li class="ui-state-default">6</li>
+</ul>
