@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140825231329) do
     t.text     "body"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
