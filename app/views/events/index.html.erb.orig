@@ -1,0 +1,58 @@
+<h1 class="text-center">Listing events</h1>
+
+<<<<<<< HEAD
+<div class="row">
+  <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @events.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Start time</th>
+            <th>End time</th>
+            <th colspan="1"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= event.title %></td>
+              <td><%= event.body %></td>
+              <td><%= event.start_time %></td>
+              <td><%= event.end_time %></td>
+              <td><%= link_to 'Show', event %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
+=======
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>All Day</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.body %></td>
+        <td><%= event.start_time %></td>
+        <td><%= event.end_time %></td>
+        <td><%= event.all_day ? 'Yes' : 'No' %></td>
+        <td><%= link_to 'Show', event %></td>
+      </tr>
+>>>>>>> develop
+    <% end %>
+  </div>
+</div>

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140901161219) do
     t.text     "body"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -165,6 +166,18 @@ ActiveRecord::Schema.define(version: 20140901161219) do
   create_table "links_sidebars", force: true do |t|
     t.integer "link_id"
     t.integer "sidebar_id"
+  end
+
+  create_table "newsletters", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "newsletters_users", force: true do |t|
+    t.integer "newsletter_id"
+    t.integer "user_id"
   end
 
   create_table "post_translations", force: true do |t|

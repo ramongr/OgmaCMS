@@ -1,28 +1,24 @@
-<h2><%= t('forem.admin.group.index') %></h2>
-<%= link_to t('back_to_admin', :scope => "forem.admin"), forem.admin_root_path %><br><br>
-<%= link_to t('forem.admin.group.new'), forem.new_admin_group_path, :class => "btn btn-primary" %>
+<h2 class="text-center"><%= t('forem.admin.group.index') %></h2>
+<br><br>
+<div class="row">
+  <div class="small-12" id="forum-group-container">
+    <%= link_to t('back_to_admin'), forem.admin_root_path, class: "button small" %>
+    <%= link_to t('forem.admin.group.new'), forem.new_admin_group_path, class: "button small" %>
+    <br><br>
+    <% unless @groups.empty? %>
+      <% @groups.each_with_index do |group, index| %>
 
-<table id='groups' class='index table table-striped' cellspacing='0'>
-  <thead>
-    <tr>
-      <th><%= t('edit', :scope => 'forem.admin.groups') %></th>
-      <th><%= t('delete', :scope => 'forem.admin.groups') %></th>
-      <th><%= t('name', :scope => 'forem.admin.groups') %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @groups.each do |group| %>
-      <tr>
-        <td>
-          <%= link_to t('edit', :scope => 'forem.admin.groups'), forem.admin_group_path(group) %>
-        </td>
-        <td>
-          <%= link_to t('delete', :scope => 'forem.admin.groups'), forem.admin_group_path(group), :method => :delete %>
-        </td>
-        <td>
-          <%= link_to forem_emojify(group.name), forem.admin_group_path(group) %>
-        </td>
-      </tr>
+        <%= index > 0 ? "<hr>".html_safe : "" %>
+        <div class="small-7" id="group-details">
+          <div class="small-3 columns" id="group-name">
+            <p><%= forem_emojify group.name %></p>
+          </div>
+          <div class="small-3 columns" id="group-actions">
+            <%= link_to t('edit'), forem.admin_group_path(group), class: "button tiny" %>
+            <%= link_to t('delete'), forem.admin_group_path(group), method: :delete, class: "button tiny alert" %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>

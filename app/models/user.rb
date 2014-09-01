@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
   has_many :visitor_comments
   has_many :attachments
   has_many :events, through: :attendings
-
+  has_and_belongs_to_many :newsletters 
+  
   before_validation :set_default_role
   before_validation :set_language
   before_save :set_forem_role

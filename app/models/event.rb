@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  include ApplicationHelper
+  
   has_many :users, through: :attendings
 
   before_validation :validate_dates

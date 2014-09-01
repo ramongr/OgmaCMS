@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<<<<<<< HEAD
+<div class="row">
+  <%= link_to 'Edit', edit_admin_event_path(@event), class: "button tiny" %>
+  <%= link_to 'Events', admin_events_path, class: "button tiny" %>
+  <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
+
+  <div class="small-12">
+    <h1 class="text-center"><%= @event.title %></h1>
+    <h4>Begins :</h4>
+    <p><%= @event.start_time_human %></p>
+    <h4>Ends :</h4>
+    <p><%= @event.end_time_human %></p>
+  </div>
+</div>
+=======
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @event.body %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <strong>All Day:</strong>
+  <%= @event.all_day ? 'Yes' : 'No' %>
+</p>
+
+<%= link_to 'Edit', edit_admin_event_path(@event) %> |
+<%= link_to 'Events', admin_events_path %> |
+<%= link_to 'Calendar', calendar_index_path %>
+>>>>>>> develop

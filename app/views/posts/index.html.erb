@@ -1,34 +1,42 @@
-<h1>Listing posts</h1>
+<h1 class="text-center">Listing posts</h1>
 
-<% unless @posts.empty? %>
-  <% @posts.each do |post| %>
-    <div class="post">
-      <div class="title">
-        <%= link_to post.title, post %>
-      </div>
-      <div class="author">
-        by <%= post.user.email %>
-      </div>
-      <div class="created_updated">
-        created: <%= post.date_created_human %> last updated: <%= post.date_updated_human %>
-      </div>
-      <div class="content">
-        <%= post.content.html_safe.truncate(300) %>
-      </div>
-      <div class="read_more">
-        <%= link_to 'Read more', post %>
-      </div>
-      <div class="edit_destroy">
-      <% if can? :update, post %>
-        <%= link_to 'Edit', edit_admin_post_path(post) %>
-        <% if can? :destroy, post %>
-          <%= link_to 'Destroy', [:admin,post], method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      <% end %>
-      </div>
+<div class="row">
+  <!-- New post -->
+  <% if can? :create, Post %>
+    <div class="small-5">
+      <%= link_to "New post", new_admin_post_path, class: "button small" %>
+      <br><br>
     </div>
   <% end %>
-  <div class="pagination">
-    <%= will_paginate @posts %>
+  <div class="small-12" id="post-list-container">
+    <% unless @posts.empty? %>
+      <% @posts.each do |post| %>
+        <div class="small-6 post" <%= "id=post-"+post.id.to_s %> >
+          <h3 class="text-center"><%= link_to post.title, post %></h3>
+          by <%= post.user.email %>
+          <small>created: <%= post.date_created_human %>, last updated: <%= post.date_updated_human %></small>
+          <br><br>
+          <div class="small-12" id="truncated-content">
+            <%= post.content.truncate(300).html_safe %>
+          </div>
+          <%= link_to 'Read more', post, class: "tiny button" %>
+          <div class="small-12 edit_destroy">
+          <% if can? :update, post %>
+            <div class="small-3">
+              <hr>
+            </div>
+            <%= link_to 'Edit', edit_admin_post_path(post), class: "tiny button" %>
+            <% if can? :destroy, post %>
+              <%= link_to 'Destroy', [:admin,post], method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button alert" %>
+            <% end %>
+          <% end %>
+          </div>
+          <hr>
+        </div>
+      <% end %>
+      <div class="pagination">
+        <%= will_paginate @posts %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>

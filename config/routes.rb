@@ -20,7 +20,7 @@ OgmaCMS::Application.routes.draw do
     resources :comments, shallow: true
   end
   resources :search, only: :index
-  resources :visitor_comments
+  resources :visitor_comments, except: :show
   resources :attachments, only: [] do
     member do
       get 'download'
@@ -40,7 +40,12 @@ OgmaCMS::Application.routes.draw do
       member do
         get 'download'
       end
-    end   
+    end
+    resources :newsletters do
+      member do
+        get 'send_newsletter'
+      end
+    end
     resources :settings, only: [:index]
     put 'settings_update', to: 'settings#update_all'
   end
