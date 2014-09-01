@@ -11,17 +11,18 @@ class User < ActiveRecord::Base
   has_many :events, through: :attendings
 
   before_validation :set_default_role
+  before_validation :set_language
   before_save :set_forem_role
-  validate :name, presence: true
+  validate :name, :role, presence: true
 
-  ROLES = %w[super_admin admin author registered]
+  ROLES = %w[registered author admin super_admin]
 
   def forem_name
     email
   end
 
   def role?(base_role)
-    ROLES.index(base_role.to_s) >= ROLES.index(role)
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
 
   def super_admin?
@@ -44,6 +45,12 @@ class User < ActiveRecord::Base
     def set_default_role
       if self.role.blank?
         self.role = 'registered'
+      end
+    end
+
+    def set_language
+      if self.language.blank?
+        self.language = I18n.locale.to_s
       end
     end
 

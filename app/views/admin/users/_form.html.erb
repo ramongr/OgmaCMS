@@ -34,6 +34,10 @@
     <%= f.label :nationality %>
     <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
   </div>
+  <div class="language">
+    <%= f.label :language %>
+    <%= f.select :language, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
+  </div>
   <div class="field">
     <%= f.label :password, "Password" %>
     <%= f.password_field :password %>

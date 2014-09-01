@@ -45,7 +45,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'globalize'
 
 # Easily access (read and write) globalize translated fields without fiddling with locale 
-gem 'globalize-accessors', :github => "globalize/globalize-accessors", :branch => "master"
+gem 'globalize-accessors', github: "globalize/globalize-accessors", branch: "master"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -71,7 +71,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'forem', :github => "radar/forem", :branch => "rails4"
+gem 'forem', github: "radar/forem", branch: "rails4"
 
 gem 'will_paginate'
 
@@ -95,7 +95,7 @@ end
 gem 'ckeditor', '4.1.0'
 
 #Paperclip file attachment library
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # Calendar javascript lib
 gem 'fullcalendar-rails'
@@ -108,3 +108,6 @@ gem "rails-settings-cached"
 
 # PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
 gem 'pg_search'
+
+# A gem which helps you detect the users preferred language, as sent by the "Accept-Language" HTTP header.
+gem "http_accept_language", git: "https://github.com/iain/http_accept_language"
