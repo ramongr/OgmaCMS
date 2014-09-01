@@ -39,17 +39,16 @@
     </div>
     <% end %>
   </div>
-  
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-
-  <br/><br/>
+  <br><br>
   <p> Shortcuts</p>
   <div class="field">
-    <%= link_to 'Create New Link', new_admin_link_path %> <br/><br/>
+    <%= link_to 'Create New Link', new_admin_link_path %> <br><br>
+  </div>
+  <hr>
+  <br><br>
+  <div class="actions">
+    <%= f.submit "Confirm", class: "button small" %>
   </div>
 <% end %>

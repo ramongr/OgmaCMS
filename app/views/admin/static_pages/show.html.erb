@@ -6,23 +6,21 @@
 
 <body class="bodyclass">
   <header class="headerclass">
-    <h1><%= @admin_static_page.title %></h1>
+    <h1 class="text-center"><%= @admin_static_page.title %></h1>
   </header>
 
-  <p>
-    <strong>Slug:</strong>
-    <%= @admin_static_page.slug %>
-  </p>
-
-  <p>
-    <strong>Body:</strong>
-  </p>
-
-  <%= @admin_static_page.body.html_safe %>
-
-  <br/>
-  <br/>
-  <%= link_to 'Edit', edit_admin_static_page_path(@admin_static_page) %> |
-  <%= link_to 'Back', admin_static_pages_path %>
+  <div class="row">
+    <%= link_to 'Back', admin_static_pages_path, class: "button tiny alert" %>
+    <%= link_to 'Edit', edit_admin_static_page_path(@admin_static_page), class: "button tiny" %>
+    
+    <div class="small-12">
+      <strong>Slug:</strong>
+      <p><%= @admin_static_page.slug %></p>
+    </div>
+    <div class="small-12">
+      <h4 class="text-center">Body</h4>
+      <%= @admin_static_page.body.html_safe %>      
+    </div>
+  </div>
 </body>
 

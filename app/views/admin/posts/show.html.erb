@@ -1,29 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @admin_post.title %>
-</p>
+<div class="row">
+  <%= link_to 'Edit', edit_admin_post_path(@admin_post), class: "button tiny" %>
+  <%= link_to 'Back', admin_posts_path, class: "button tiny" %>
+  <div class="small-12">
+    <h1 class="text-center"><%= @admin_post.title %></h1>
+    <p class="text-center"><%= @admin_post.user.email %></p>
+    <p class="text-right">
+      <small>
+        <%= @admin_post.created_at.to_i == @admin_post.updated_at.to_i ? "Created at: "+@admin_post.date_created_human : "Updated at: "+@admin_post.date_updated_human %>
+      </small>
+    </p>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @admin_post.date_created_human %>
-</p>
+    <h4 class="text-center">Content:</h4>
+    <%= @admin_post.content.html_safe %>
+  </div>
+</div>
 
-<p>
-  <strong>Updated at:</strong>
-  <%= @admin_post.date_updated_human %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @admin_post.content.html_safe %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @admin_post.user.email %>
-</p>
-
-<%= link_to 'Edit', edit_admin_post_path(@admin_post) %> |
-<%= link_to 'Back', admin_posts_path %>
