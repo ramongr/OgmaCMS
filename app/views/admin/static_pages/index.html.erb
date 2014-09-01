@@ -1,31 +1,33 @@
-<h1>Listing admin_static_pages</h1>
+<h1 class="row">Listing admin_static_pages</h1>
+<div class="row">
+  <%= link_to 'New Static page', new_admin_static_page_path, class: "button small" %>
+  <div class="small-9">
+    <% unless @admin_static_pages.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Slug</th>
+            <th>Body</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-<% unless @admin_static_pages.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Slug</th>
-        <th>Body</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @admin_static_pages.each do |admin_static_page| %>
-        <tr>
-          <td><%= admin_static_page.title %></td>
-          <td><%= admin_static_page.slug %></td>
-          <td><%= admin_static_page.body.truncate(100) %></td>
-          <td><%= link_to 'Show', [:admin,admin_static_page] %></td>
-          <td><%= link_to 'Edit', edit_admin_static_page_path(admin_static_page) %></td>
-          <td><%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
-<br>
-<%= link_to 'New Static page', new_admin_static_page_path %>
+        <tbody>
+          <% @admin_static_pages.each do |admin_static_page| %>
+            <tr>
+              <td><%= admin_static_page.title %></td>
+              <td><%= admin_static_page.slug %></td>
+              <td><%= admin_static_page.body.truncate(100) %></td>
+              <td><%= link_to 'Show', [:admin,admin_static_page] %></td>
+              <td><%= link_to 'Edit', edit_admin_static_page_path(admin_static_page) %></td>
+              <td><%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
