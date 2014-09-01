@@ -20,7 +20,7 @@ OgmaCMS::Application.routes.draw do
     resources :comments, shallow: true
   end
   resources :search, only: :index
-  resources :visitor_comments
+  resources :visitor_comments, except: :show
   resources :attachments, only: [] do
     member do
       get 'download'

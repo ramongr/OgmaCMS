@@ -29,7 +29,7 @@ class VisitorCommentsController < ApplicationController
 
     respond_to do |format|
       if @visitor_comment.save
-        format.html { redirect_to @visitor_comment, notice: 'Visitor comment was successfully created.' }
+        format.html { redirect_to visitor_comments_path, notice: 'Visitor comment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @visitor_comment }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class VisitorCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @visitor_comment.update(visitor_comment_params)
-        format.html { redirect_to @visitor_comment, notice: 'Visitor comment was successfully updated.' }
+        format.html { redirect_to visitor_comments_path, notice: 'Visitor comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

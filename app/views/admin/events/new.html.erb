@@ -1,5 +1,7 @@
-<h1>New event</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', admin_events_path %>
+<h1 class="text-center">New event</h1>
+<div class="row">
+  <%= link_to 'Back', admin_events_path, class: "button tiny" %>
+  <div class="small-6">
+    <%= render 'form' %>
+  </div>
+</div>

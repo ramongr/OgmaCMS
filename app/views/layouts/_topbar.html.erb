@@ -1,7 +1,7 @@
 <nav class="top-bar admin-top-bar" data-topbar>
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#">OgmaCMS</a></h1>
+      <h1><%= link_to "OgmaCMS", main_app.root_path %></a></h1>
     </li>
   </ul>
   <section class="top-bar-section">
@@ -11,6 +11,9 @@
       </li>
       <li>
         <%= link_to 'Visitor Comment', main_app.visitor_comments_path %>
+      </li>
+      <li>
+        <%= link_to 'Posts', main_app.posts_path %>
       </li>
       <li>
         <%= link_to 'Forums', forem.forums_path %>
