@@ -5,5 +5,7 @@
 
   <h3><%= t('forem.admin.forum.moderator_groups') %></h3>
   <%= f.association :moderators, :as => :check_boxes %>
-  <%= f.submit :class => "btn btn-primary" %>
+  <div class="small-6">
+    <%= f.submit class: "button expand" %>
+  </div>
 <% end %>
