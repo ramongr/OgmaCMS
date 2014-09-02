@@ -5,8 +5,8 @@ OgmaCMS::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   devise_scope :user do
-  get 'registrations/unsubscribe', :to => 'registrations#unsubscribe'
-end
+    get 'registrations/unsubscribe', :to => 'registrations#unsubscribe'
+  end
 
   get "static/index"
 
