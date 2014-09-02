@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   before_save :set_forem_role
   validate :name, presence: true
 
+  before_create :add_unsubscribe_token, :set_newsletter_subscribed
+
   ROLES = %w[super_admin admin author registered]
 
   def forem_name
@@ -52,5 +54,15 @@ class User < ActiveRecord::Base
       if self.role? :admin
         self.forem_admin = true
       end
+    end
+
+    def set_newsletter_subscribed
+      self.newsletter_subscribed = true
+    end
+
+    def add_unsubscribe_token
+      begin
+        self.unsubscribe_token = SecureRandom.hex[0,10].upcase
+      end while self.class.exists?(unsubscribe_token: unsubscribe_token)
     end
 end
