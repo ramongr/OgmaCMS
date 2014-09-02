@@ -57,6 +57,7 @@ OgmaCMS::Application.routes.draw do
     resources :galleries do
       member do
        post 'add_photo'
+       post 'remove_photo'
        post 'reorder'       
       end
     end

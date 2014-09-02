@@ -27,6 +27,26 @@ $(document).ready(function(){
       return false;
     });
 
+
+    function remove_image() {
+      rem_photo_id = ( $(this).data("photo-id"));
+      deferred = jQuery.post(
+        "remove_photo"
+        , 
+        {
+            photo_id: rem_photo_id                  
+        } 
+      ); 
+
+      deferred.success(function (object) {
+        alert(rem_photo_id)
+        var id =("#"+rem_photo_id);
+        $( ("#sortable > "+id) ).remove();
+      });
+
+      return false;
+    }
+
     $( "#selectable" ).selectable({
       stop: function() {
         $( ".ui-selected", this ).each(function() {
@@ -45,20 +65,29 @@ $(document).ready(function(){
           );
 
           deferred.success(function (object) {
-	        var html_string;
+  	        var html_string;
             html_img_string = '<img alt="default" src='+attachment_link+'>';
-	        $( "#sortable" ).append( '<li class="ui-state-default">'+html_img_string+'</li>');
-	      });
-	      
-	      deferred.error(function (object) {
-	        alert("Error Adding Photo");
-	      });
+            rem_button_id = ("remove-image"+object.id);
+
+            var $button = $("<button>", {id: rem_button_id, text: 'Remove Image', class: "ui-state-default small"});
+            $button.data('photo-id', object.id); //setter
+            $button.click(remove_image);
+
+            $( "#sortable" ).append( '<li class="ui-state-default" id='+object.id+'>'+html_img_string+'</li>');
+            $( "#sortable > "+("#"+object.id) ).append($button);
+  	      });
+  	      
+  	      deferred.error(function (object) {
+  	        alert("Error Adding Photo");
+  	      });
 
           dialog.dialog( "close" );
         });
       }
     });
 
+    var rem_photo_id;
+    $('[id^=remove-image]').button().on( "click", remove_image );
 
     $('form').submit(function() { 
       var itm_arr = $("#sortable").sortable('toArray');

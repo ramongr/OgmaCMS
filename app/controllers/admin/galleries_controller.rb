@@ -37,10 +37,17 @@ class Admin::GalleriesController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
-      render json: nil, status: :ok
+      render json: {id: @photo.id}, status: :ok
     else
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
+  end
+
+  # POST /admin/galleries/1/remove_photo
+  def remove_photo
+    @photo = Photo.find(params[:photo_id])
+    @photo.destroy
+    render json: nil, status: :ok
   end
 
   # Assuming Photos already created (just updates positions)
