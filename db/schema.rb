@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902145553) do
+ActiveRecord::Schema.define(version: 20140902214225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,7 +189,8 @@ ActiveRecord::Schema.define(version: 20140902145553) do
   end
 
   create_table "photos", force: true do |t|
-    t.integer  "gallery_id"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.integer  "attachment_id"
     t.integer  "position"
     t.datetime "created_at"
@@ -197,7 +198,7 @@ ActiveRecord::Schema.define(version: 20140902145553) do
   end
 
   add_index "photos", ["attachment_id"], name: "index_photos_on_attachment_id", using: :btree
-  add_index "photos", ["gallery_id"], name: "index_photos_on_gallery_id", using: :btree
+  add_index "photos", ["imageable_id", "imageable_type"], name: "index_photos_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "post_translations", force: true do |t|
     t.integer  "post_id",    null: false
@@ -242,6 +243,12 @@ ActiveRecord::Schema.define(version: 20140902145553) do
   create_table "sidebars_static_pages", force: true do |t|
     t.integer "sidebar_id"
     t.integer "static_page_id"
+  end
+
+  create_table "sliders", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "static_page_translations", force: true do |t|

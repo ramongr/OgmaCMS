@@ -32,7 +32,7 @@ class Admin::GalleriesController < Admin::AdminController
     @attachment_id = params[:attachment_id]
     @attachment = Attachment.find(@attachment_id)
 
-    @photo.gallery = @gallery
+    @photo.imageable = @gallery
     @photo.attachment = @attachment
     @photo.position = 1
 

@@ -57,6 +57,13 @@ OgmaCMS::Application.routes.draw do
        post 'reorder'       
       end
     end
+    resources :sliders do
+      member do
+       post 'add_photo'
+       post 'remove_photo'
+       post 'reorder'       
+      end
+    end
 
     resources :settings, only: [:index]
     put 'settings_update', to: 'settings#update_all'

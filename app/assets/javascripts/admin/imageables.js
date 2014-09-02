@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('body.galleries').length ) {
+  if ($('body.galleries').length || $('body.sliders').length ) {
   
     $("#sortable").sortable();
     $("#sortable").disableSelection();
