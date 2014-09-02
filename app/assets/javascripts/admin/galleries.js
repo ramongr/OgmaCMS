@@ -3,7 +3,7 @@ $(document).ready(function(){
   if ($('body.galleries').length ) {
   
     $("#sortable").sortable();
-    $( "#sortable" ).disableSelection();
+    $("#sortable").disableSelection();
 
     var dialog;
  
