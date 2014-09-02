@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::GalleryController, :type => :controller do
+RSpec.describe Admin::GalleriesController, :type => :controller do
 
   describe "GET index" do
     it "returns http success" do

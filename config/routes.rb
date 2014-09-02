@@ -1,13 +1,5 @@
 OgmaCMS::Application.routes.draw do
 
-  namespace :admin do
-  get 'gallery/index'
-  end
-
-  namespace :admin do
-  get 'gallery/show'
-  end
-
   mount Forem::Engine, :at => '/forum'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
