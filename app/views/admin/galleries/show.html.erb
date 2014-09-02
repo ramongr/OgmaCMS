@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gallery.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gallery.description %>
+</p>
+
+<p>
+  <strong>Date: </strong>
+  <%= @gallery.date %>
+</p>
+
+
+<ul id="sortable-show">
+  <% @added_images.each do |image| %>
+    <li class="ui-state-default" id="<%= image.id %>">
+      <a href="<%= download_attachment_url(image.attachment)%>">
+        <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+      </a> 
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_admin_gallery_path(@gallery) %> |
+<%= link_to 'Back', admin_galleries_path %>
