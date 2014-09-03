@@ -2,10 +2,9 @@ OgmaCMS::Application.routes.draw do
 
   mount Forem::Engine, :at => '/forum'
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
-
-
   scope '(:locale)' do
+    devise_for :users, :controllers => { registrations: 'registrations' }
+
     get "static/index"
 
     root 'static#index'
