@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('body.posts').length) {
+  if ($('#posts').length) {
   
     var dialog, editorLangSelected, image_data;
 
@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
  
 
-    $( ".attachment-btn" ).button().on( "click", function() {
+    $('[id^=insert-attachment]').button().on( "click", function() {
       dialog.dialog( "open" );
       var myId = $(this).attr("id");
       editorLangSelected = myId.split("-")[2];

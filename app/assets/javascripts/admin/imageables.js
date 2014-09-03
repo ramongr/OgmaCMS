@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-  if ($('body.galleries').length || $('body.sliders').length ) {
-  
+  if ($("#galleries").length || $("#sliders").length ) {
+
     $("#sortable").sortable();
     $("#sortable").disableSelection();
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
     });
  
 
-    $( ".attachment-btn" ).button().on( "click", function() {
+    $( "#add-image" ).button().on( "click", function() {
       dialog.dialog( "open" );
       return false;
     });
