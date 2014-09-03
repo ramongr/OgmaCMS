@@ -5,12 +5,22 @@ class ApplicationController < ActionController::Base
     unless current_user.try(:language).nil?
       current_user.language.to_sym
     else
-      http_accept_language.compatible_language_from(Setting.available_languages.map(&:second))
+      http_accept_language.compatible_language_from(Setting.selected_languages.map(&:second))
     end
   end
 
   def set_i18n_locale
-    I18n.locale = params[:locale] || user_language
+    if params[:locale]
+      if Setting.selected_languages.map(&:second).include?(params[:locale])
+        I18n.locale = params[:locale]
+      else
+        I18n.locale = user_language
+      end
+    end
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
   end
 
   helper ApplicationHelper

@@ -4,52 +4,55 @@ OgmaCMS::Application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  get "static/index"
 
-  root 'static#index'
-  
-  resources :calendar, only: :index
-  resources :static_pages, only: [:index,:show]
-  resources :events, only: [:index,:show] do
-    put 'going' => 'events#going', :as => 'going'
-    put 'not_going' => 'events#not_going', :as => 'not_going'
-    put 'maybe' => 'events#maybe', :as => 'maybe'
-  end
+  scope '(:locale)' do
+    get "static/index"
 
-  resources :posts, only: [:index,:show] do
-    resources :comments, shallow: true
-  end
-  resources :search, only: :index
-  resources :visitor_comments, except: :show
-  resources :attachments, only: [] do
-    member do
-      get 'download'
+    root 'static#index'
+    
+    resources :calendar, only: :index
+    resources :static_pages, only: [:index,:show]
+    resources :events, only: [:index,:show] do
+      put 'going' => 'events#going', :as => 'going'
+      put 'not_going' => 'events#not_going', :as => 'not_going'
+      put 'maybe' => 'events#maybe', :as => 'maybe'
     end
-  end   
-  
-  # User roots
-  namespace :admin do
-    get '/', to: 'dashboard#index'
-    resources :sidebars
-    resources :static_pages
-    resources :posts
-    resources :links
-    resources :users
-    resources :events
-    resources :attachments do
+
+    resources :posts, only: [:index,:show] do
+      resources :comments, shallow: true
+    end
+    resources :search, only: :index
+    resources :visitor_comments, except: :show
+    resources :attachments, only: [] do
       member do
         get 'download'
       end
-    end
-    resources :newsletters do
-      member do
-        get 'send_newsletter'
+    end   
+    
+    # User roots
+    namespace :admin do
+      get '/', to: 'dashboard#index'
+      resources :sidebars
+      resources :static_pages
+      resources :posts
+      resources :links
+      resources :users
+      resources :events
+      resources :attachments do
+        member do
+          get 'download'
+        end
       end
+      resources :newsletters do
+        member do
+          get 'send_newsletter'
+        end
+      end
+      resources :settings, only: [:index]
+      put 'settings_update', to: 'settings#update_all'
     end
-    resources :settings, only: [:index]
-    put 'settings_update', to: 'settings#update_all'
   end
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

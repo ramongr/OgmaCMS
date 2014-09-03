@@ -43,13 +43,13 @@ puts "Adding links"
 
 
 if Link.where(value: (Rails.application.routes.url_helpers.new_user_session_path)).empty?
-  logout_link = Link.new title: 'LogIn', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
+  logout_link = Link.new title: 'Sign In', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
   logout_link.save!
   puts "\tCreated Login Link, "+ Rails.application.routes.url_helpers.new_user_session_path
 end
 
 if Link.where(value: (Rails.application.routes.url_helpers.new_user_registration_path)).empty?
-  signin_link = Link.new title: 'SignIn', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_registration_path)
+  signin_link = Link.new title: 'Register', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_registration_path)
   signin_link.save!
   puts "\tCreated SignIn Link, "+ Rails.application.routes.url_helpers.new_user_registration_path
 end

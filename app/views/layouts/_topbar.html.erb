@@ -6,8 +6,31 @@
   </ul>
   <section class="top-bar-section">
     <ul class="right">
-      <li>
-        <%= link_to 'Search', main_app.search_index_path %>
+      <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <%= form_tag search_index_path, method: :get do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>              
+            </p>
+          </div>
+          <div class="large-4 small-3 columns">
+            <%= submit_tag "Search", name: nil, class: 'alert button expand' %>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <li class="has-dropdown">
+        <a href="#">Language</a>
+        <ul class="dropdown">
+          <% Setting.selected_languages.each do |l| %>
+            <% if l.second == I18n.locale.to_s %>
+              <li class="active"><%= link_to l.first, locale: l.second %></li>
+            <% else %>
+              <li><%= link_to l.first, locale: l.second %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </li>
       <li>
         <%= link_to 'Visitor Comment', main_app.visitor_comments_path %>
@@ -22,7 +45,7 @@
         <li><%= link_to current_user.email, main_app.edit_user_registration_path %></li>
         <li><%= link_to "Log Out", main_app.destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to "LogIn", main_app.new_user_session_path %></li>
+        <li><%= link_to "Log In", main_app.new_user_session_path %></li>
         <li><%= link_to "Register", main_app.new_user_registration_path %></li>
       <% end %>
     </ul>
