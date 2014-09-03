@@ -14,7 +14,7 @@
   <% end %>
 
   <div><%= f.label :language %>
-    <%= f.select :language, options_for_select(Setting.selected_languages, :language) %>
+    <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
   </div>
 
   <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
