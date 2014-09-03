@@ -1,0 +1,119 @@
+class Admin::SlidersController < Admin::AdminController
+  before_action :set_slider, only: [:show, :edit, :update, :destroy, :add_photo]
+  load_and_authorize_resource
+
+  # GET /admin/sliders
+  # GET /admin/sliders.json
+  def index
+    @sliders = Slider.all
+  end
+
+  # GET /admin/sliders/1
+  # GET /admin/sliders/1.json
+  def show
+    @added_images = @slider.photos.order(position: :asc)
+  end
+
+  # GET /admin/sliders/new
+  def new
+    @slider = Slider.new
+  end
+
+  # GET /admin/sliders/1/edit
+  def edit
+  	@images = Attachment.images
+  	@added_images = @slider.photos.order(position: :asc)
+  end
+
+  # POST /admin/sliders/1/add_photo
+  def add_photo
+    @photo = Photo.new
+
+    @attachment_id = params[:attachment_id]
+    @attachment = Attachment.find(@attachment_id)
+
+    @photo.imageable = @slider
+    @photo.attachment = @attachment
+    @photo.position = 1
+
+    if @photo.save
+      render json: {id: @photo.id}, status: :ok
+    else
+      format.json { render json: @photo.errors, status: :unprocessable_entity }
+    end
+  end
+
+  # POST /admin/sliders/1/remove_photo
+  def remove_photo
+    @photo = Photo.find(params[:photo_id])
+    @photo.destroy
+    render json: nil, status: :ok
+  end
+
+  # Assuming Photos already created (just updates positions)
+  # POST /admin/sliders/1/reorder
+  def reorder
+    @photo_ids = params[:photos]
+    n = 0
+    ActiveRecord::Base.transaction do
+      @photo_ids.each do |id|
+        photo = Photo.find(id)
+        photo.position = n
+        n += 1
+        photo.save
+      end
+    end
+    render json: nil, status: :ok
+  end
+
+  # POST /admin/sliders
+  # POST /admin/sliders.json
+  def create
+    @slider = Slider.new(slider_params)
+
+    respond_to do |format|
+      if @slider.save
+        format.html { redirect_to edit_admin_slider_path(@slider), notice: 'Slider was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @slider }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @slider.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /admin/sliders/1
+  # PATCH/PUT /admin/sliders/1.json
+  def update
+    respond_to do |format|
+      if @slider.update(slider_params)
+        format.html { redirect_to admin_sliders_url, notice: 'Slider was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @slider.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /admin/sliders/1
+  # DELETE /admin/sliders/1.json
+  def destroy
+    @slider.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_sliders_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_slider
+    @slider = Slider.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def slider_params
+    params.require(:slider).permit(:title)
+  end
+end

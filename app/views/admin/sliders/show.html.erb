@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @slider.title %>
+</p>
+
+<ul data-orbit data-options="animation:slide;
+              pause_on_hover:false;
+              timer_speed:5000;
+              animation_speed:1500;
+              navigation_arrows:true;
+              bullets:true;">
+  <% @added_images.each do |image| %>
+    <li data-orbit-slide="headline-1">
+      <div>
+        <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_admin_slider_path(@slider) %> |
+<%= link_to 'Back', admin_sliders_path %>

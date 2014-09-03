@@ -1,10 +1,10 @@
-<%= form_for([:admin,@gallery]) do |f| %>
-  <% if @gallery.errors.any? %>
+<%= form_for([:admin,@slider]) do |f| %>
+  <% if @slider.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this admin_gallery from being saved:</h2>
+      <h2><%= pluralize(@slider.errors.count, "error") %> prohibited this admin_slider from being saved:</h2>
 
       <ul>
-      <% @gallery.errors.full_messages.each do |message| %>
+      <% @slider.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,14 +14,6 @@
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
   </div>
 
   <button id="add-image">Add Image</button>

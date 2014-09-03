@@ -7,8 +7,9 @@
     <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
+
   </head>
-  <body class="<%= controller.controller_name %>">
+  <body id="<%= controller.controller_name %>">
     <%= render 'layouts/topbar' %>
 
     <!-- Search -->
@@ -26,6 +27,23 @@
       </div>
     </li>
     <% end %>
+
+    <!-- Main Slider -->
+    <% @main_slider = Slider.first %>
+    <ul data-orbit data-options="animation:slide;
+              pause_on_hover:false;
+              timer_speed:7000;
+              animation_speed:1500;
+              navigation_arrows:true;
+              bullets:true;">
+      <% @main_slider.photos.order(position: :asc).each do |image| %>
+        <li data-orbit-slide="headline">
+          <div>
+            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+          </div>
+        </li>
+      <% end %>
+    </ul>
 
     <div class="row">
       <div class="medium-3 columns">
