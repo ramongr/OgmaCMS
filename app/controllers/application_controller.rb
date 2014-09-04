@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     if params[:locale]
       if Setting.selected_languages.map(&:second).include?(params[:locale])
         I18n.locale = params[:locale]
+        if user_signed_in?
+          current_user.language = I18n.locale
+          current_user.save
+        end
       else
         I18n.locale = user_language
       end

@@ -1,9 +1,9 @@
 OgmaCMS::Application.routes.draw do
 
-  mount Forem::Engine, :at => '/forum'
+  mount Forem::Engine, at: '/forum'
 
   scope '(:locale)' do
-    devise_for :users, :controllers => { registrations: 'registrations' }
+    devise_for :users, controllers: { registrations: 'registrations' }
 
     get "static/index"
 
@@ -12,9 +12,9 @@ OgmaCMS::Application.routes.draw do
     resources :calendar, only: :index
     resources :static_pages, only: [:index,:show]
     resources :events, only: [:index,:show] do
-      put 'going' => 'events#going', :as => 'going'
-      put 'not_going' => 'events#not_going', :as => 'not_going'
-      put 'maybe' => 'events#maybe', :as => 'maybe'
+      put 'going' => 'events#going', as: 'going'
+      put 'not_going' => 'events#not_going', as: 'not_going'
+      put 'maybe' => 'events#maybe', as: 'maybe'
     end
 
     resources :posts, only: [:index,:show] do
