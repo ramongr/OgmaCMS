@@ -1,0 +1,49 @@
+<head>
+  <title><%= @gallery.title %></title>
+</head>
+
+<div class="row">
+  <body class="bodyclass">
+    <header class="headerclass">
+      <h1 class="text-center"><%= @gallery.title %></h1>
+    </header>
+    
+    <div class="small-12">
+      <div class="small-9 columns">
+        <p>
+          <strong>Description:</strong>
+        </p>
+
+        <%= @gallery.description %>
+
+        <br/>
+
+        <ul class="clearing-thumbs small-block-grid-4 my-grid" data-clearing>
+          <% @added_images.each do |image| %>
+            <li id="<%= image.id %>">
+              <a href="<%= download_attachment_url(image.attachment)%>">
+                <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+              </a> 
+            </li>
+          <% end %>
+        </ul>
+
+      </div>
+      <div class="small-3 columns">
+        <% if can? :update, @gallery %>
+          <%= link_to 'Edit', edit_admin_gallery_path(@gallery), class: "button small" %>
+          <% if can? :destroy, @gallery %>
+            <%= link_to 'Destroy', [:admin,@gallery], method: :delete, data: { confirm: 'Are you sure?' }, class: "button small alert" %>
+          <% end %>
+        <% end %>
+        <br/>
+      </div>
+      <div class="small-12 columns">
+        <%= link_to 'Back', root_path, class: "button small" %> 
+      </div>
+    </div>
+  </body>
+</div>
+
+
+
