@@ -10,16 +10,14 @@ class ApplicationController < ActionController::Base
   end
 
   def set_i18n_locale
-    if params[:locale]
-      if Setting.selected_languages.map(&:second).include?(params[:locale])
-        I18n.locale = params[:locale]
-        if user_signed_in?
-          current_user.language = I18n.locale
-          current_user.save
-        end
-      else
-        I18n.locale = user_language
+    if params[:locale] && params[:locale] != I18n.locale && Setting.selected_languages.map(&:second).include?(params[:locale])
+      I18n.locale = params[:locale]
+      if user_signed_in? && current_user.language != I18n.locale
+        current_user.language = I18n.locale
+        current_user.save
       end
+    else
+      I18n.locale = user_language
     end
   end
 
