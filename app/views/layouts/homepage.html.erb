@@ -29,21 +29,25 @@
     <% end %>
 
     <!-- Main Slider -->
-    <% @main_slider = Slider.first %>
-    <ul data-orbit data-options="animation:slide;
-              pause_on_hover:false;
-              timer_speed:7000;
-              animation_speed:1500;
-              navigation_arrows:true;
-              bullets:true;">
-      <% @main_slider.photos.order(position: :asc).each do |image| %>
-        <li data-orbit-slide="headline">
-          <div>
-            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
-          </div>
-        </li>
+    <div id="main-slider">
+      <% @main_slider = Slider.first %>
+      <% if @main_slider %>
+        <ul data-orbit data-options="animation:slide;
+                  pause_on_hover:false;
+                  timer_speed:7000;
+                  animation_speed:1500;
+                  navigation_arrows:true;
+                  bullets:true;">
+          <% @main_slider.photos.order(position: :asc).each do |image| %>
+            <li data-orbit-slide="headline">
+              <div>
+                <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+              </div>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
+    </div>
 
     <div class="row">
       <div class="medium-3 columns">

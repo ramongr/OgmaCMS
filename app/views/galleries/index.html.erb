@@ -1,0 +1,24 @@
+<h1 class="text-center">Listing Galleries</h1>
+<div class="row">
+
+<% unless @galleries.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @galleries.each do |gallery| %>
+          <tr>
+            <td><%= gallery.title %></td>
+            <td><%= link_to 'Show', gallery %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+</div>

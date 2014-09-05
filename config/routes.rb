@@ -30,6 +30,9 @@ OgmaCMS::Application.routes.draw do
       get 'download'
     end
   end   
+
+  resources :galleries, only: [:index,:show]
+
   
   # User roots
   namespace :admin do
