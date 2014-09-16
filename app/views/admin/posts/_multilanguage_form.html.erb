@@ -27,16 +27,18 @@
       
         <% title_locale = ("title_" + l.second).to_sym %>
         <% content_locale = ("content_" + l.second).to_sym %>
-        <div class="field">
+        <div id="post_title" class="field">
           <%= f.label title_locale %><br>
           <%= f.text_field title_locale %>
         </div>
-        <div class="field">
+        <div id="post_body" class="field">
           <%= f.label content_locale %><br>
           <%= f.text_area content_locale, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
         </div>
         <br>
-        <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
+        <div id="insert-attachment">
+          <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
+        </div>
       <% end %>
 
     <% end %>
@@ -53,5 +55,20 @@
     <% @attachments.each do |attachment| %>
       <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
     <% end %>
+  </ol>
+</div>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="post_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the title of the Post.</p>
+    </li>  
+    <li data-id="post_body" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the body of the Post.</p>
+    </li>
+    <li data-id="insert-attachment" data-text="Ok" data-options="tip_location: top; prev_button: false">
+      <p>Attachments can be loaded into the body using this button.</p>
+    </li> 
   </ol>
 </div>

@@ -23,7 +23,7 @@ module ApplicationHelper
     result
   end
 
-def date_created_human
+  def date_created_human
     self.created_at.strftime("%e %B %Y %H:%M")
   end
     

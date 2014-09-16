@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('#posts').length) {
+  if ($('[id^=posts]').length) {
   
     var dialog, editorLangSelected, image_data;
 

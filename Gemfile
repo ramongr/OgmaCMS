@@ -108,3 +108,5 @@ gem "rails-settings-cached"
 
 # PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
 gem 'pg_search'
+
+gem 'jquery-cookie-rails'

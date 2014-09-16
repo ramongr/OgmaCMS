@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('#static_pages').length ) {
+  if ($('[id^=static_pages]').length) {
   
     var dialog, editorLangSelected, image_data;
  

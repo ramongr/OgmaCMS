@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="sidebar_title" class="field">
     <%= f.label :title %><br/>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div id="sidebar_type_mask" class="field">
     <%= f.label :type_mask %><br/>
     <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]], @sidebar.type_mask) %>
   </div>
 
-  <div>
+  <div id="sidebar_links_list">
     <p> Links</p>
     <% for link in Link.all %>
     <div>
@@ -30,7 +30,7 @@
     <% end %>
   </div>
 
-  <div>
+  <div id="sidebar_static_pages_list">
     <p> Static Pages</p>
     <% for static_page in StaticPage.all %>
     <div>
@@ -52,3 +52,22 @@
     <%= f.submit "Confirm", class: "button small" %>
   </div>
 <% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="sidebar_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the title of the Sidebar.</p>
+    </li>  
+    <li data-id="sidebar_type_mask" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Select the type of the Sidebar.</p>
+    </li>
+    <li data-id="sidebar_links_list" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Select all links you want to add to the sidebar.</p>
+      <p>You can add links in the admin links page.</p>
+    </li>
+    <li data-id="sidebar_static_pages_list" data-text="Ok" data-options="tip_location: top; prev_button: false">
+      <p>Select from your created pages the ones you want to add to the sidebar.</p>
+    </li>
+  </ol>
+</div>

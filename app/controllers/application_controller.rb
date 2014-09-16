@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
+  include ApplicationHelper
   helper ApplicationHelper
-
+  
   def forem_user
     current_user
   end

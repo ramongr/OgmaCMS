@@ -25,20 +25,22 @@
       <%= content_tag :div, class: "content "+ (index == 0 ? "active": ""), id: "langtab"+index.to_s do %> 
         <% title_locale = ("title_" + l.second).to_sym %>
         <% body_locale = ("body_" + l.second).to_sym %>
-        <div class="field">
+        <div id="page_title" class="field">
           <%= f.label title_locale %><br>
           <%= f.text_field title_locale %>
         </div>
-        <div class="field">
+        <div id="page_slug" class="field">
           <%= f.label :slug %><br>
           <%= f.text_field :slug %>
         </div>
-        <div class="field">
+        <div id="page_body" class="field">
           <%= f.label body_locale %><br>
           <%= f.text_area body_locale, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
         </div>
         <br>
-        <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
+        <div id="insert-attachment">
+          <button class="attachment-btn" id="insert-attachment-<%=l.second%>">Insert Attachement</button>
+        </div>
       <% end %>
     <% end %>
 
@@ -54,5 +56,26 @@
     <% @attachments.each do |attachment| %>
       <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
     <% end %>
+  </ol>
+</div>
+
+
+<!-- At the bottom of your page but inside of the body tag -->
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="page_title" data-text="Next" data-options="tip_location: top; prev_button: false; cookieMonster: true;
+      cookieName: 'JoyRide';
+      cookieDomain: false">
+      <p>Enter the title of the Static Page.</p>
+    </li>  
+    <li data-id="page_slug" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>This field is optional. </p>
+    </li>
+    <li data-id="page_body" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the body of the Static Page.</p>
+    </li>
+    <li data-id="insert-attachment" data-text="Ok" data-options="tip_location: top; prev_button: false">
+      <p>Attachments can be loaded into the body using this button.</p>
+    </li> 
   </ol>
 </div>
