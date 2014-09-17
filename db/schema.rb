@@ -296,6 +296,7 @@ ActiveRecord::Schema.define(version: 20140902214225) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "language"
     t.string   "unsubscribe_token"
     t.boolean  "newsletter_subscribed"
   end
