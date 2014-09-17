@@ -30,7 +30,7 @@
 
     <!-- Main Slider -->
     <div id="main-slider">
-      <% @main_slider = Slider.first %>
+      <% @main_slider = Slider.selected %>
       <% if @main_slider %>
         <ul data-orbit data-options="animation:slide;
                   pause_on_hover:false;
