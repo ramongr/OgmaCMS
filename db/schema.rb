@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901161219) do
+ActiveRecord::Schema.define(version: 20140902214225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,14 @@ ActiveRecord::Schema.define(version: 20140901161219) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id", using: :btree
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id", using: :btree
 
+  create_table "galleries", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "links", force: true do |t|
     t.string   "value"
     t.datetime "created_at"
@@ -179,6 +187,18 @@ ActiveRecord::Schema.define(version: 20140901161219) do
     t.integer "newsletter_id"
     t.integer "user_id"
   end
+
+  create_table "photos", force: true do |t|
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.integer  "attachment_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["attachment_id"], name: "index_photos_on_attachment_id", using: :btree
+  add_index "photos", ["imageable_id", "imageable_type"], name: "index_photos_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "post_translations", force: true do |t|
     t.integer  "post_id",    null: false
@@ -223,6 +243,12 @@ ActiveRecord::Schema.define(version: 20140901161219) do
   create_table "sidebars_static_pages", force: true do |t|
     t.integer "sidebar_id"
     t.integer "static_page_id"
+  end
+
+  create_table "sliders", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "static_page_translations", force: true do |t|
@@ -270,12 +296,18 @@ ActiveRecord::Schema.define(version: 20140901161219) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+<<<<<<< HEAD
     t.string   "language"
+=======
+    t.string   "unsubscribe_token"
+    t.boolean  "newsletter_subscribed"
+>>>>>>> develop
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["unsubscribe_token"], name: "index_users_on_unsubscribe_token", unique: true, using: :btree
 
   create_table "visitor_comments", force: true do |t|
     t.string   "subject"

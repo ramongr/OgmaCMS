@@ -1,4 +1,4 @@
-class Admin::NewslettersController < ApplicationController
+class Admin::NewslettersController < Admin::AdminController
   before_action :set_admin_newsletter, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
@@ -41,7 +41,7 @@ class Admin::NewslettersController < ApplicationController
 
     respond_to do |format|
       if @newsletter.save
-        format.html { redirect_to [:admin,@newsletter], notice: 'Static page was successfully created.' }
+        format.html { redirect_to [:admin,@newsletter], notice: 'Newsletter was successfully created.' }
         format.json { render action: 'show', status: :created, location: newsletters_path }
       else
         format.html { render action: 'new' }

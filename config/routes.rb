@@ -1,9 +1,13 @@
 OgmaCMS::Application.routes.draw do
 
-  mount Forem::Engine, at: '/forum'
+  mount Forem::Engine, :at => '/forum'
 
   scope '(:locale)' do
-    devise_for :users, controllers: { registrations: 'registrations' }
+    devise_for :users, :controllers => { registrations: 'registrations' }
+
+    devise_scope :user do
+      get 'registrations/unsubscribe', to: 'registrations#unsubscribe'
+    end
 
     get "static/index"
 
@@ -27,6 +31,9 @@ OgmaCMS::Application.routes.draw do
         get 'download'
       end
     end   
+
+    resources :galleries, only: [:index,:show]
+
     
     # User roots
     namespace :admin do
@@ -47,11 +54,26 @@ OgmaCMS::Application.routes.draw do
           get 'send_newsletter'
         end
       end
+      resources :galleries do
+        member do
+         post 'add_photo'
+         post 'remove_photo'
+         post 'reorder'       
+        end
+      end
+      resources :sliders do
+        member do
+         post 'add_photo'
+         post 'remove_photo'
+         post 'reorder'       
+        end
+      end
+
       resources :settings, only: [:index]
       put 'settings_update', to: 'settings#update_all'
     end
   end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
