@@ -2,7 +2,7 @@ OgmaCMS::Application.routes.draw do
 
   mount Forem::Engine, :at => '/forum'
 
-  scope '(:locale)' do
+  scope '(:locale)', locale: /[a-zA-Z]{2}/ do
     devise_for :users, :controllers => { registrations: 'registrations' }
 
     devise_scope :user do

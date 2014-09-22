@@ -20,20 +20,20 @@
         </div>
         <% end %>
       </li>
+      <% if Setting.selected_languages.length > 1 %>
       <li class="has-dropdown">
         <a href="#">Language</a>
-        <ul class="dropdown">
-          <% if Setting.selected_languages.length > 1 %>
-            <% Setting.selected_languages.each do |l| %>
-              <% if l.second == I18n.locale.to_s %>
-                <li class="active"><%= link_to l.first, locale: l.second %></li>
-              <% else %>
-                <li><%= link_to l.first, locale: l.second %></li>
-              <% end %>
-            <% end %>
+        <ul class="dropdown">          
+          <% Setting.selected_languages.each do |l| %>
+            <% if l.second == I18n.locale.to_s %>
+              <li class="active"><%= link_to l.first, locale: l.second %></li>
+            <% else %>
+              <li><%= link_to l.first, locale: l.second %></li>
+            <% end %>          
           <% end %>
         </ul>
       </li>
+      <% end %>
       <li>
         <%= link_to 'Visitor Comment', main_app.visitor_comments_path %>
       </li>
