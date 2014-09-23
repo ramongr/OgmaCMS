@@ -23,6 +23,15 @@ GIT
       workflow (= 1.0.0)
 
 GIT
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: ef4b73623bfe0131ab27bcac92a6ba30f40bd124
+  branch: master
+  specs:
+    rails-i18n (4.0.3)
+      i18n (~> 0.6)
+      railties (~> 4.0)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 56c30229cdaeb5a9fcbcd1d3758b2496684c3e88
   specs:
@@ -342,6 +351,7 @@ DEPENDENCIES
   pg
   pg_search
   rails
+  rails-i18n!
   rails-settings-cached
   rspec-collection_matchers (~> 1.0.0)
   rspec-rails (~> 3.0.0)

@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 #####################
 # Users
 #####################
@@ -86,25 +78,25 @@ end
 puts "Adding links"
 
 if Sidebar.where(type_mask: 0).empty?
-  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Left Sidebar"
 end
 
 if Sidebar.where(type_mask: 1).empty?
-  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Right Sidebar"
 end
 
 if Sidebar.where(type_mask: 2).empty?
-  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Top Sidebar"
 end
 
 if Sidebar.where(type_mask: 3).empty?
-  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Bottom Sidebar"
 end

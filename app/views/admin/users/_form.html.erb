@@ -21,13 +21,13 @@
   </div>
   <div class="field">
     <%= f.label "Date of Birth" %>
-    <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
+    <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true, locale: I18n.locale}, {class: "small-4 columns"} %>
   </div>
   <div class="field">
     <%= f.label :gender %>
-    <%= f.radio_button :gender, "m", required: '' %>
+    <%= f.radio_button :gender, "m" %>
     <%= f.label "M" %>
-    <%= f.radio_button :gender, "f", required: '' %>
+    <%= f.radio_button :gender, "f" %>
     <%= f.label "F" %>
   </div>
   <div class="nationality">
