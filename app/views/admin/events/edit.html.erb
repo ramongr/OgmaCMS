@@ -1,6 +1,9 @@
-<h1>Editing event</h1>
+<h1 class="text-center">Editing event</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', admin_events_path %>
+<div class="row">
+  <div class="small-6">
+    <%= render 'form' %>
+  </div>
+  <%= link_to 'Show', [:admin,@user] %> |
+  <%= link_to 'Back', admin_users_path %>
+</div>
