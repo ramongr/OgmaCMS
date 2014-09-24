@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field small-12">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div class="field small-12">
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-  <div class="field">
+  <div class="field small-12">
+    <%= f.check_box :all_day %> All day
+  </div>
+  <br>
+  <div class="field small-12" id="start-time">
     <%= f.label :start_time %><br>
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :start_time, { date_separator: '', time_separator: '', datetime_separator: ''} %>
   </div>
-  <div class="field">
+  <div class="field small-12" id="end-time">
     <%= f.label :end_time %><br>
-    <%= f.datetime_select :end_time %>
-  </div>
-  <div class="field">
-    <%= f.label :all_day %><br>
-    <%= f.check_box :all_day %>
+    <%= f.datetime_select :end_time, { date_separator: '', time_separator: '', datetime_separator: ''} %>
   </div>
   <div class="actions">
     <%= f.submit "Confirm", class: "button small" %>
