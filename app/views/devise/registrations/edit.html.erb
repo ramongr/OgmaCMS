@@ -43,11 +43,6 @@
         <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
       </div>
 
-      <div>
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
       <div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %></div>
 
@@ -62,8 +57,7 @@
       </div>
 
       <div class="field">
-        <%= f.label "Receive Newsletters" %> <br />
-        <%= f.check_box :newsletter_subscribed %> <br />
+        <%= f.label "Receive Newsletters" %><%= f.check_box :newsletter_subscribed %> <br />
       </div>
       
       <div><%= f.submit "Update" %></div><br />
