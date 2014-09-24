@@ -16,14 +16,18 @@
         <%= f.email_field :email, autofocus: true %>
       </div>
 
+<<<<<<< HEAD
+  <div><%= f.label :language %>
+    <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
+  </div>
+
+  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %></div>
+=======
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>  
-
-      <div>
-        <%= f.label :language %>
-        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
-      </div>
+      <% end %>
+>>>>>>> develop
 
       <div class="field">
         <%= f.label "Date of Birth" %>
@@ -43,11 +47,6 @@
         <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
       </div>
 
-      <div>
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
       <div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "off" %></div>
 
@@ -62,8 +61,8 @@
       </div>
 
       <div class="field">
-        <%= f.label "Receive Newsletters" %> <br />
-        <%= f.check_box :newsletter_subscribed %> <br />
+          <%= f.label "Receive Newsletters" %> <br />
+          <%= f.check_box :newsletter_subscribed %> <br />
       </div>
       
       <div><%= f.submit "Update" %></div><br />
