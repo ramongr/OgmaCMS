@@ -18,7 +18,12 @@
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
+      <% end %>  
+
+      <div>
+        <%= f.label :language %>
+        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
+      </div>
 
       <div class="field">
         <%= f.label "Date of Birth" %>
@@ -52,8 +57,7 @@
       </div>
 
       <div class="field">
-          <%= f.label "Receive Newsletters" %> <br />
-          <%= f.check_box :newsletter_subscribed %> <br />
+        <%= f.label "Receive Newsletters" %><%= f.check_box :newsletter_subscribed %> <br />
       </div>
       
       <div><%= f.submit "Update" %></div><br />
