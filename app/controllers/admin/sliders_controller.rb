@@ -70,6 +70,7 @@ class Admin::SlidersController < Admin::AdminController
   # POST /admin/sliders.json
   def create
     @slider = Slider.new(slider_params)
+    selection_handler(params[:slider][:selected])
 
     respond_to do |format|
       if @slider.save
@@ -85,6 +86,8 @@ class Admin::SlidersController < Admin::AdminController
   # PATCH/PUT /admin/sliders/1
   # PATCH/PUT /admin/sliders/1.json
   def update
+    selection_handler(params[:slider][:selected])
+
     respond_to do |format|
       if @slider.update(slider_params)
         format.html { redirect_to admin_sliders_url, notice: 'Slider was successfully updated.' }
@@ -114,6 +117,17 @@ class Admin::SlidersController < Admin::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def slider_params
-    params.require(:slider).permit(:title)
+    params.require(:slider).permit(:title, :selected)
   end
+
+  # Verify the selected param and unselect the old slider if needed.
+  def selection_handler(selected)
+    if( selected == '1')
+      previous_selected = Slider.selected
+      if(previous_selected)
+        previous_selected.update(selected: false)
+      end
+    end
+  end
+
 end

@@ -247,6 +247,7 @@ ActiveRecord::Schema.define(version: 20140902214225) do
 
   create_table "sliders", force: true do |t|
     t.string   "title"
+    t.boolean  "selected"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
