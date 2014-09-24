@@ -17,9 +17,7 @@ class SystemMailer < ActionMailer::Base
     @user = user
     @newsletter = newsletter
 
-    mail(to: @user.email, subject: Setting.site_name + ': ' + @newsletter.title) do |format|
-      format.html { render text: parseNewsletter(@newsletter.body, user: @user) }
-    end
+    mail(to: @user.email, subject: Setting.site_name + ': ' + @newsletter.title)
   end
 
   def check_subscription
