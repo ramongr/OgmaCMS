@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902214225) do
+ActiveRecord::Schema.define(version: 20140924221257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20140902214225) do
     t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   create_table "forem_categories", force: true do |t|
@@ -247,6 +250,7 @@ ActiveRecord::Schema.define(version: 20140902214225) do
 
   create_table "sliders", force: true do |t|
     t.string   "title"
+    t.boolean  "selected"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -298,6 +302,7 @@ ActiveRecord::Schema.define(version: 20140902214225) do
     t.string   "unconfirmed_email"
     t.string   "unsubscribe_token"
     t.boolean  "newsletter_subscribed"
+    t.string   "language"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 #####################
 # Users
 #####################
@@ -43,13 +35,13 @@ puts "Adding links"
 
 
 if Link.where(value: (Rails.application.routes.url_helpers.new_user_session_path)).empty?
-  logout_link = Link.new title: 'LogIn', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
+  logout_link = Link.new title: 'Sign In', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
   logout_link.save!
   puts "\tCreated Login Link, "+ Rails.application.routes.url_helpers.new_user_session_path
 end
 
 if Link.where(value: (Rails.application.routes.url_helpers.new_user_registration_path)).empty?
-  signin_link = Link.new title: 'SignIn', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_registration_path)
+  signin_link = Link.new title: 'Register', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_registration_path)
   signin_link.save!
   puts "\tCreated SignIn Link, "+ Rails.application.routes.url_helpers.new_user_registration_path
 end
@@ -86,25 +78,25 @@ end
 puts "Adding links"
 
 if Sidebar.where(type_mask: 0).empty?
-  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Left Sidebar"
 end
 
 if Sidebar.where(type_mask: 1).empty?
-  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Right Sidebar"
 end
 
 if Sidebar.where(type_mask: 2).empty?
-  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Top Sidebar"
 end
 
 if Sidebar.where(type_mask: 3).empty?
-  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, :links => Link.where(:title => ['LogIn', 'SignIn', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, :links => Link.where(:title => ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
   top_sidebar.save!
   puts "\tCreated Bottom Sidebar"
 end

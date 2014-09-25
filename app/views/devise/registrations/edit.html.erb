@@ -1,37 +1,73 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1 class="text-center">Edit <%= resource_name.to_s.humanize %></h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row">
+  <div class="small-6">
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>  
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <div>
+        <%= f.label :language %>
+        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
+      </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+      <div class="field">
+        <%= f.label "Date of Birth" %>
+        <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
+      </div>
 
-  <div class="field">
-      <%= f.label "Receive Newsletters" %> <br />
-      <%= f.check_box :newsletter_subscribed %> <br />
+      <div class="field">
+        <%= f.label :gender %>
+        <%= f.radio_button :gender, "m" %>
+        <%= f.label "M" %>
+        <%= f.radio_button :gender, "f" %>
+        <%= f.label "F" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :nationality %>
+        <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
+      </div>
+
+      <div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %></div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Receive Newsletters" %><%= f.check_box :newsletter_subscribed %> <br />
+      </div>
+      
+      <div><%= f.submit "Update" %></div><br />
+    <% end %>
+
+    <h3>Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to "Back", :back %>
+
   </div>
-  
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

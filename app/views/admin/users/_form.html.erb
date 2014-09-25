@@ -21,18 +21,22 @@
   </div>
   <div id="user_birth_date" class="field">
     <%= f.label "Date of Birth" %>
-    <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
+    <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true, locale: I18n.locale}, {class: "small-4 columns"} %>
   </div>
   <div id="user_gender" class="field">
     <%= f.label :gender %>
-    <%= f.radio_button :gender, "m", required: '' %>
+    <%= f.radio_button :gender, "m" %>
     <%= f.label "M" %>
-    <%= f.radio_button :gender, "f", required: '' %>
+    <%= f.radio_button :gender, "f" %>
     <%= f.label "F" %>
   </div>
   <div id="user_nationality" class="nationality">
     <%= f.label :nationality %>
     <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
+  </div>
+  <div id="user_language" class="language">
+    <%= f.label :language %>
+    <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale.to_s) %>
   </div>
   <div id="user_password" class="field">
     <%= f.label :password, "Password" %>
@@ -68,6 +72,9 @@
     </li>
     <li data-id="user_nationality" data-text="Ok" data-options="tip_location: top; prev_button: true">
       <p>Select nationality.</p>
+    </li>
+    <li data-id="user_language" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select language.</p>
     </li>
     <li data-id="user_password" data-text="Ok" data-options="tip_location: top; prev_button: true">
       <p>Password to LogIn.</p>
