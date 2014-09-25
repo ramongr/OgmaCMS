@@ -16,6 +16,7 @@
         <% @sliders.each do |slider| %>
           <tr>
             <td><%= slider.title %></td>
+            <td><%= slider.selected %></td>
             <td><%= link_to 'Show', [:admin,slider], class: "button tiny" %></td>
             <td><%= link_to 'Edit', edit_admin_slider_path(slider), class: "button tiny" %></td>
             <td><%= link_to 'Destroy', [:admin,slider], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
