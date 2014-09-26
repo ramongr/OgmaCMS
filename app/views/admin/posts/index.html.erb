@@ -9,10 +9,7 @@
           <tr>
             <th>Title</th>
             <th>Author</th>
-            <th>Created at</th>
             <th>Last updated</th>
-            <th></th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -22,11 +19,12 @@
             <tr>
               <td><%= admin_post.title %></td>
               <td><%= admin_post.user.name %></td>
-              <td><%= admin_post.date_created_human %></td>
               <td><%= admin_post.date_updated_human %></td>
-              <td><%= link_to 'Show', [:admin,admin_post], class: "button tiny" %></td>
-              <td><%= link_to 'Edit', edit_admin_post_path(admin_post), class: "button tiny" %></td>
-              <td><%= link_to 'Destroy', [:admin,admin_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+              <td>
+                <%= link_to 'Show', [:admin,admin_post], class: "button tiny" %>
+                <%= link_to 'Edit', edit_admin_post_path(admin_post), class: "button tiny" %>
+                <%= link_to 'Destroy', [:admin,admin_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

@@ -13,7 +13,7 @@
         <% @pages.each do |page| %>
           <tr>
             <td><%= page.title %></td>
-            <td><%= link_to 'Show', page %></td>
+            <td><%= link_to 'Show', page, class: "button tiny" %></td>
           </tr>
         <% end %>
       </tbody>
