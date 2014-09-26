@@ -13,19 +13,19 @@
 
       <div class="content active" id="site">
         <div class="field">
-          <%= label_tag 'Site Name' %><br>
+          <%= label_tag 'Site Name' %>
           <%= text_field_tag :site_name, Setting.site_name %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Subtitle' %><br>
+          <%= label_tag 'Site Subtitle' %>
           <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Description' %><br>
+          <%= label_tag 'Site Description' %>
           <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Logo' %><br>
+          <%= label_tag 'Site Logo' %>
           <%= text_field_tag :site_logo, Setting.site_logo %>
         </div>
       </div>
@@ -50,7 +50,7 @@
 
     </div>
     <div class="actions">
-      <%= submit_tag "Confirm", class: "button tiny" %>
+      <%= submit_tag "Update Settings", class: "button right" %>
     </div>
   </div>
 </div>

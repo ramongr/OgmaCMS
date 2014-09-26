@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, rows: 6 %>
   </div>
   <div class="field">
     <%= f.check_box :all_day %> All day
@@ -33,6 +33,6 @@
     <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "time_select small-6 columns"}  %>
   </div>
   <div class="actions">
-    <%= f.submit "Confirm", class: "button small" %>
+    <%= f.submit class: "button right" %>
   </div>
 <% end %>

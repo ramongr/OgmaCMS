@@ -12,18 +12,18 @@
   <% end %>
  
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :slug %><br>
+    <%= f.label :slug %>
     <%= f.text_field :slug %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button right" %>
   </div>
 <% end %>
