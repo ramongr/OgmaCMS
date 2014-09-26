@@ -17,6 +17,6 @@
  */
 
 td {
-  /* word-wrap: break-word; */
-  overflow-x: auto;
+  word-wrap: break-word;
+  /*overflow-x: auto;*/
 }

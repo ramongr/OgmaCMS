@@ -25,12 +25,12 @@
   <div class="field">
     <%= f.label :start_time %>
     <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
-    <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "time_select small-6 columns"}  %>
+    <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
   </div>
   <div class="field">
     <%= f.label :end_time %>
     <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
-    <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "time_select small-6 columns"}  %>
+    <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
   </div>
   <div class="actions">
     <%= f.submit class: "button right" %>
