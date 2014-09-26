@@ -12,16 +12,17 @@
   <% end %>
  
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
+    <%= f.label :body %>
     <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
   </div>
 
+  <br>
   <div>
-    <p> To:</p>
+    <p>To:</p>
     <% for user in User.all %>
     <div>
       <%= check_box_tag "newsletter[user_ids][]", user.id, @newsletter.users.include?(user) %>
@@ -31,6 +32,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button right" %>
   </div>
 <% end %>

@@ -15,3 +15,8 @@
  *= require jquery-ui
  *= require_tree .
  */
+
+td {
+  word-wrap: break-word;
+  /*overflow-x: auto;*/
+}

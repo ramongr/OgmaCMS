@@ -1,38 +1,30 @@
-<h1>Listing Newsletters</h1>
+<h1 class="text-center">Listing newsletters</h1>
 
-<% unless @newsletters.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Body</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
+<div class="row">
+  <%= link_to 'New newsletter', new_admin_newsletter_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @newsletters.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @newsletters.each do |newsletter| %>
-        <tr>
-          <td><%= newsletter.title %></td>
-          <td><%= strip_tags(newsletter.body).truncate(100) %></td>
-          <td>
-            <%= if !newsletter.users.empty?
-                  link_to 'Send', send_newsletter_admin_newsletter_path(newsletter)
-                else
-                  'Cant Send'
-                end
-            %>
-          </td>
-          <td><%= link_to 'Show', [:admin,newsletter] %></td>
-          <td><%= link_to 'Edit', edit_admin_newsletter_path(newsletter) %></td>
-          <td><%= link_to 'Destroy', [:admin,newsletter], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
-<br>
-<%= link_to 'New Newsletter', new_admin_newsletter_path %>
+        <tbody>
+          <% @newsletters.each do |newsletter| %>
+            <tr>
+              <td><%= newsletter.title %></td>
+              <td><%= link_to 'Show', [:admin,newsletter], class: "button tiny" %></td>
+              <td><%= link_to 'Edit', edit_admin_newsletter_path(newsletter), class: "button tiny" %></td>
+              <td><%= link_to 'Destroy', [:admin,newsletter], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

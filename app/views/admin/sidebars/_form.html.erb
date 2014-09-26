@@ -12,16 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br/>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :type_mask %><br/>
+    <%= f.label :type_mask %>
     <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]], @sidebar.type_mask) %>
   </div>
 
   <div>
-    <p> Links</p>
+    <p>Links</p>
     <% for link in Link.all %>
     <div>
       <%= check_box_tag "sidebar[link_ids][]", link.id, @sidebar.links.include?(link) %>
@@ -31,7 +31,7 @@
   </div>
 
   <div>
-    <p> Static Pages</p>
+    <p>Static Pages</p>
     <% for static_page in StaticPage.all %>
     <div>
       <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
@@ -41,14 +41,13 @@
   </div>
 
 
-  <br><br>
-  <p> Shortcuts</p>
+  <br>
+  <p>Shortcuts</p>
   <div class="field">
     <%= link_to 'Create New Link', new_admin_link_path %> <br><br>
   </div>
-  <hr>
-  <br><br>
+
   <div class="actions">
-    <%= f.submit "Confirm", class: "button small" %>
+    <%= f.submit class: "button right" %>
   </div>
 <% end %>
