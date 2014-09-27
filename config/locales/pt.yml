@@ -1,0 +1,22 @@
+pt:
+  activerecord:
+    models:
+      attachment: anexo
+    attributes:
+      attachment:
+        name: Nome
+        description: Descrição
+
+  admin:
+    attachments:
+      index:
+        title: Anexos
+        attr_name: Nome
+        attr_description: Descrição
+        attr_uploaded_by: Carregado por
+      new: 
+        title: Novo anexo
+      edit:
+        title: Editar anexo
+
+
