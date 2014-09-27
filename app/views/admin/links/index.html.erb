@@ -1,7 +1,7 @@
 <h1 class="text-center">Listing Links</h1>
 
 <div class="row">
-  <%= link_to 'New newsletter', new_admin_link_path, class: "button tiny" %>
+  <%= link_to 'New link', new_admin_link_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @links.empty? %>
       <table>
@@ -10,8 +10,6 @@
             <th>Title</th>
             <th>Value</th>
             <th>Type</th>
-            <th></th>
-            <th></th>
             <th></th>
           </tr>
         </thead>
@@ -22,9 +20,11 @@
               <td><%= link.title %></td>
               <td><%= link.value %></td>
               <td><%= link.type_mask %></td>
-              <td><%= link_to 'Show', [:admin,link], class: "button tiny" %></td>
-              <td><%= link_to 'Edit', edit_admin_link_path(link), class: "button tiny" %></td>
-              <td><%= link_to 'Destroy', [:admin,link], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+              <td>
+                <%= link_to 'Show', [:admin,link], class: "button tiny" %>
+                <%= link_to 'Edit', edit_admin_link_path(link), class: "button tiny" %>
+                <%= link_to 'Destroy', [:admin,link], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

@@ -9,8 +9,6 @@
           <tr>
             <th>Title</th>
             <th></th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
 
@@ -18,9 +16,10 @@
           <% @newsletters.each do |newsletter| %>
             <tr>
               <td><%= newsletter.title %></td>
-              <td><%= link_to 'Show', [:admin,newsletter], class: "button tiny" %></td>
-              <td><%= link_to 'Edit', edit_admin_newsletter_path(newsletter), class: "button tiny" %></td>
-              <td><%= link_to 'Destroy', [:admin,newsletter], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+              <td>
+                <%= link_to 'Show', [:admin,newsletter], class: "button tiny" %>
+                <%= link_to 'Edit', edit_admin_newsletter_path(newsletter), class: "button tiny" %>
+                <%= link_to 'Destroy', [:admin,newsletter], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
             </tr>
           <% end %>
         </tbody>

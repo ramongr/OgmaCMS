@@ -9,10 +9,8 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
-          <th>Attachment</th>
-          <th>Content type</th>
           <th>Uploaded by</th>
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
 
@@ -21,12 +19,12 @@
           <tr>
             <td><%= attachment.name %></td>
             <td><%= attachment.description %></td>
-            <td><%= attachment.file_file_name %></td>
-            <td><%= attachment.file_content_type %></td>
             <td><%= attachment.user.name %></td>
-            <td><%= link_to 'Show', [:admin,attachment], class: "button tiny" %></td>
-            <td><%= link_to 'Edit', edit_admin_attachment_path(attachment), class: "button tiny" %></td>
-            <td><%= link_to 'Destroy', [:admin,attachment], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+            <td>
+              <%= link_to 'Show', [:admin,attachment], class: "button tiny" %>
+              <%= link_to 'Edit', edit_admin_attachment_path(attachment), class: "button tiny" %>
+              <%= link_to 'Destroy', [:admin,attachment], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+            </td>
           </tr>
         <% end %>
       </tbody>

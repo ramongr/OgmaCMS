@@ -10,8 +10,6 @@
             <th>Title</th>
             <th>Slug</th>
             <th></th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
 
@@ -20,9 +18,11 @@
             <tr>
               <td><%= admin_static_page.title %></td>
               <td><%= admin_static_page.slug %></td>
-              <td><%= link_to 'Show', [:admin,admin_static_page], class: "button tiny" %></td>
-              <td><%= link_to 'Edit', edit_admin_static_page_path(admin_static_page), class: "button tiny" %></td>
-              <td><%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+              <td>
+                <%= link_to 'Show', [:admin,admin_static_page], class: "button tiny" %>
+                <%= link_to 'Edit', edit_admin_static_page_path(admin_static_page), class: "button tiny" %>
+                <%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

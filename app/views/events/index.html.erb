@@ -1,6 +1,6 @@
 <h1 class="text-center">Listing events</h1>
-
 <div class="row">
+  <%= link_to 'New Event', new_admin_event_path, class: "button tiny" %>
   <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @events.empty? %>
@@ -8,11 +8,8 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th>Body</th>
-            <th>Start time</th>
-            <th>End time</th>
-            <th>All Day</th>
-            <th colspan="1"></th>
+            <th>Date</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -20,16 +17,23 @@
           <% @events.each do |event| %>
             <tr>
               <td><%= event.title %></td>
-              <td><%= event.body %></td>
-              <td><%= event.start_time %></td>
-              <td><%= event.end_time %></td>
-              <td><%= event.all_day ? 'Yes' : 'No' %></td>
-              <td><%= link_to 'Show', event %></td>
+              <% if event.all_day %>
+                <td>
+                    From: <%= event.start_date_human %><br>
+                    To:   <%= event.end_date_human %><br>
+                    All Day
+                </td>                
+              <% else %>
+                <td>
+                    From: <%= event.start_time_human %><br>
+                    To:   <%= event.end_time_human %>
+                </td>
+              <% end %>
+              <td><%= link_to 'Show', event, class: "button tiny" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
     <% end %>
   </div>
 </div>

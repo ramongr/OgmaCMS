@@ -4,7 +4,7 @@ module ApplicationHelper
 
     if(user)
       result = result.gsub(/[*]user_name[*]/,user.name)
-                     .gsub(/[*]user_email[*]/,user.email)
+      .gsub(/[*]user_email[*]/,user.email)
     else
       if(email)
         result = result.gsub(/[*]name[*]/,email)
@@ -13,7 +13,7 @@ module ApplicationHelper
 
     if(event)
       result = result.gsub(/[*]event_title[*]/,event.title)
-                     .gsub(/[*]event_description[*]/,event.body)
+      .gsub(/[*]event_description[*]/,event.body)
     end
     
     if(resource and token)
@@ -23,19 +23,31 @@ module ApplicationHelper
     result
   end
 
-def date_created_human
-    self.created_at.strftime("%e %B %Y %H:%M")
+  def date_created_human
+    self.created_at.strftime("%e %b %Y %H:%M")
   end
-    
+
   def date_updated_human
-    self.updated_at.strftime("%e %B %Y %H:%M")
+    self.updated_at.strftime("%e %b %Y %H:%M")
   end
 
   def start_time_human
-    self.start_time.strftime("%e %B %Y %H:%M")
+    self.start_time.strftime("%e %b %Y %H:%M")
   end
-    
+
   def end_time_human
-    self.end_time.strftime("%e %B %Y %H:%M")
+    self.end_time.strftime("%e %b %Y %H:%M")
+  end
+
+  def start_date_human
+    self.start_time.strftime("%e %b %Y")
+  end
+
+  def end_date_human
+    self.end_time.strftime("%e %b %Y")
+  end
+
+  def date_human
+    self.date.strftime("%e %b %Y")
   end
 end
