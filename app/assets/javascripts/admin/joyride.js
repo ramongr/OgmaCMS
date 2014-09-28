@@ -1,7 +1,8 @@
 $(document).ready(function(){
   var username = $.cookie('user_name');
   var page_id = $('body').attr('id');
-  var cookie_id = username +'_'+ page_id;
+  var page_action = $('body').attr('action');
+  var cookie_id = username +'_'+ page_id +'_'+ page_action;
   
   if($.cookie(cookie_id) === null)
   { 

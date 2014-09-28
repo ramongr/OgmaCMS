@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-  if ($('[id^=static_pages]').length) {
-  
+  if ($('#static_pages').length) {
+
     var dialog, editorLangSelected, image_data;
  
     dialog = $( "#dialog" ).dialog({
@@ -19,7 +19,7 @@ $(document).ready(function(){
     });
  
 
-    $('[id^=insert-attachment]').button().on( "click", function() {
+    $('[id^=insert-attachment]').on( "click", function() {
       dialog.dialog( "open" );
       var myId = $(this).attr("id");
       editorLangSelected = myId.split("-")[2];
