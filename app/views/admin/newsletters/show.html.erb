@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <head>
   <title><%= @newsletter.title %></title>
@@ -30,12 +29,15 @@
   
   <br/>
 
-  <%= if !@newsletter.users.empty?
-        link_to 'Send', send_newsletter_admin_newsletter_path(@newsletter)
-      else
-        'Cant Send - Add Users Before Sending'
-      end
-  %> <br>
+  <div id="send_newsletter">
+    <%= if !@newsletter.users.empty?
+          link_to 'Send', send_newsletter_admin_newsletter_path(@newsletter), remote: true
+        else
+          'Cant Send - Add Users Before Sending'
+        end
+    %>
+  </div>
+  <br>
   <%= link_to 'Edit', edit_admin_newsletter_path(@newsletter) %> |
   <%= link_to 'Back', admin_newsletters_path %>
 </body>

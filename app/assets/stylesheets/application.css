@@ -15,3 +15,8 @@
  *= require jquery-ui
  *= require_tree .
  */
+
+td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

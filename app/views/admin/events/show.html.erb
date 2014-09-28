@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
+<br>
 <div class="row">
-  <%= link_to 'Edit', edit_admin_event_path(@event), class: "button tiny" %>
-  <%= link_to 'Events', admin_events_path, class: "button tiny" %>
-  <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
+  <%= link_to 'Edit', edit_admin_event_path(@event), class: "button small" %>
+  <%= link_to 'Calendar', calendar_index_path, class: "button small" %>
 
   <div class="small-12">
     <h1 class="text-center"><%= @event.title %></h1>

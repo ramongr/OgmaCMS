@@ -9,13 +9,7 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
-          <th>Date of Birth</th>
-          <th>Nationality</th>
-          <th>Language</th>
-          <th>Gender</th>
           <th>Role</th>
-          <th></th>
-          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -24,14 +18,10 @@
           <tr>
             <td><%= user.name %></td>
             <td><%= user.email %></td>
-            <td><%= user.dob %></td>
-            <td><%= user.nationality %></td>
-            <td><%= user.language %></td>
-            <td><%= user.gender %></td>
             <td><%= user.role.humanize %></td>
-            <td><%= link_to 'Show', [:admin,user], class: "button tiny" %></td>
-            <td><%= link_to 'Edit', edit_admin_user_path(user), class: "button tiny" %></td>
-            <td><%= link_to 'Destroy', [:admin,user], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+            <td><%= link_to 'Show', [:admin,user], class: "button tiny" %>
+            <%= link_to 'Edit', edit_admin_user_path(user), class: "button tiny" %>
+            <%= link_to 'Destroy', [:admin,user], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
           </tr>
         <% end %>
       </tbody>

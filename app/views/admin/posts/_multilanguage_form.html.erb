@@ -28,12 +28,12 @@
         <% title_locale = ("title_" + l.second).to_sym %>
         <% content_locale = ("content_" + l.second).to_sym %>
         <div id="post_title" class="field">
-          <%= f.label title_locale %><br>
+          <%= f.label title_locale %>
           <%= f.text_field title_locale %>
         </div>
         <div id="post_body" class="field">
-          <%= f.label content_locale %><br>
-          <%= f.text_area content_locale, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+          <%= f.label content_locale %>
+          <%= f.text_area content_locale, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
         </div>
         <br>
         <div id="insert-attachment">
@@ -44,7 +44,7 @@
     <% end %>
     
     <div class="actions">
-      <%= f.submit "Confirm", class: "button right" %>
+      <%= f.submit class: "button right" %>
     </div>
   </div>
 <% end %>
@@ -56,6 +56,7 @@
       <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
     <% end %>
   </ol>
+<<<<<<< HEAD
 </div>
 
 
@@ -71,4 +72,6 @@
       <p>Attachments can be loaded into the body using this button.</p>
     </li> 
   </ol>
+=======
+>>>>>>> develop
 </div>

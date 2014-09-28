@@ -1,33 +1,34 @@
-<h1>Listing admin_attachments</h1>
+<h1 class="text-center">Listing attachments</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Attachment</th>
-      <th>Content type</th>
-      <th>Uploaded by</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <%= link_to 'New attachment', new_admin_attachment_path, class: "button tiny" %>
+  <div class="small-12">
+  <% unless @attachments.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Uploaded by</th>
+          <th></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @attachments.each do |attachment| %>
-      <tr>
-        <td><%= attachment.name %></td>
-        <td><%= attachment.description %></td>
-        <td><%= attachment.file_file_name %></td>
-        <td><%= attachment.file_content_type %></td>
-        <td><%= attachment.user.name %></td>
-        <td><%= link_to 'Show', [:admin,attachment] %></td>
-        <td><%= link_to 'Edit', edit_admin_attachment_path(attachment) %></td>
-        <td><%= link_to 'Destroy', [:admin,attachment], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Attachment', new_admin_attachment_path %>
+      <tbody>
+        <% @attachments.each do |attachment| %>
+          <tr>
+            <td><%= attachment.name %></td>
+            <td><%= attachment.description %></td>
+            <td><%= attachment.user.name %></td>
+            <td>
+              <%= link_to 'Show', [:admin,attachment], class: "button tiny" %>
+              <%= link_to 'Edit', edit_admin_attachment_path(attachment), class: "button tiny" %>
+              <%= link_to 'Destroy', [:admin,attachment], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  </div>
+</div>

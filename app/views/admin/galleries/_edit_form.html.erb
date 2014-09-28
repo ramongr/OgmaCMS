@@ -17,11 +17,12 @@
   </div>
   <div id="gallery_description" class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, rows: 6 %>
   </div>
   <div id="gallery_date" class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :date %>
+    <%= f.date_select :date, {}, {class: "small-4 columns"} %>
+    <%= f.time_select :date, { time_separator: "", ignore_date: true }, {class: "small-6 columns"} %>
   </div>
 
   <button id="add-image">Add Image</button>
@@ -39,7 +40,7 @@
   <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button right" %>
   </div>
 
 <% end %>

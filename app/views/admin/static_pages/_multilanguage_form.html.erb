@@ -26,16 +26,16 @@
         <% title_locale = ("title_" + l.second).to_sym %>
         <% body_locale = ("body_" + l.second).to_sym %>
         <div id="page_title" class="field">
-          <%= f.label title_locale %><br>
+          <%= f.label title_locale %>
           <%= f.text_field title_locale %>
         </div>
         <div id="page_slug" class="field">
-          <%= f.label :slug %><br>
+          <%= f.label :slug %>
           <%= f.text_field :slug %>
         </div>
         <div id="page_body" class="field">
-          <%= f.label body_locale %><br>
-          <%= f.text_area body_locale, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+          <%= f.label body_locale %>
+          <%= f.text_area body_locale, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
         </div>
         <br>
         <div id="insert-attachment-<%=l.second%>">
@@ -45,7 +45,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Confirm", class: "button right" %>
+      <%= f.submit class: "button right" %>
     </div>
   </div>
 <% end %>

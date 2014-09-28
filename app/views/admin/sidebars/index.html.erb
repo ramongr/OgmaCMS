@@ -11,8 +11,6 @@
             <th>Title</th>
             <th>Type mask</th>
             <th></th>
-            <th></th>
-            <th></th>
           </tr>
         </thead>
 
@@ -21,9 +19,12 @@
             <tr>
               <td><%= sidebar.title %></td>
               <td><%= sidebar.type_mask_name %></td>
-              <td><%= link_to 'Show', [:admin,sidebar], class: "button tiny" %></td>
-              <td><%= link_to 'Edit', edit_admin_sidebar_path(sidebar), class: "button tiny" %></td>
-              <td><%= link_to 'Destroy', [:admin,sidebar], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+              <td>
+                <%= link_to 'Show', [:admin,sidebar], class: "button tiny" %>
+                <%= 
+                link_to 'Edit', edit_admin_sidebar_path(sidebar), class: "button tiny" %>
+                <%= link_to 'Destroy', [:admin,sidebar], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

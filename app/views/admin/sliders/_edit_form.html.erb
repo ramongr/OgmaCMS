@@ -12,12 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :selected %><br>
-    <%= f.check_box :selected %>
+  <div class="field">    
+    <%= f.check_box :selected %> Selected
   </div>
   
   <button id="add-image">Add Image</button>
@@ -35,7 +34,7 @@
   <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button right" %>
   </div>
 
 <% end %>

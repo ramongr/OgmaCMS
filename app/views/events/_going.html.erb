@@ -1,6 +1,9 @@
 <div id="going">
+  <% attending = Attending.yes.where(event: @event) %>
+  <% not_attending = Attending.no.where(event: @event) %>
+  <% indecisive = Attending.maybe.where(event: @event) %>
   <p>
-    <%= Attending.yes.count %> going | <%= Attending.no.count %> not going | <%= Attending.maybe.count %> maybe
+    <%= attending.count %> going | <%= not_attending.count %> not going | <%= indecisive.count %> maybe
   </p>
 
   <% if user_signed_in? %>
@@ -32,24 +35,25 @@
     </p>
   <% end %>
 
-  <% unless Attending.yes.empty? %>
+  <% unless attending.empty? %>
     <strong>Going:</strong>
-    <% Attending.yes.each do |a| %>
+    <% attending.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless Attending.no.empty? %>
+  <% unless not_attending.empty? %>
     <strong>Not going:</strong>
-    <% Attending.no.each do |a| %>
+    <% not_attending.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless Attending.maybe.empty? %>
+  <% unless indecisive.empty? %>
     <strong>Indecisive:</strong>
-    <% Attending.maybe.each do |a| %>
+    <% indecisive.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
-  <% end %>      
+  <% end %>
+    
 </div>
