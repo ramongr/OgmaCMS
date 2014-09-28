@@ -24,11 +24,7 @@ module ApplicationHelper
   end
 
   def date_created_human
-<<<<<<< HEAD
-    self.created_at.strftime("%e %B %Y %H:%M")
-=======
     self.created_at.strftime("%e %b %Y %H:%M")
->>>>>>> develop
   end
 
   def date_updated_human
