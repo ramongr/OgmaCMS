@@ -2,27 +2,19 @@
 <div class="row">
   <%= link_to t('newsletters.name'), admin_newsletters_path, class: "button small" %>
   <%= link_to t('common.edit'), edit_admin_newsletter_path(@newsletter), class: "button small" %>
-  
-<head>
-  <title><%= @newsletter.title %></title>
-</head>
 
-<body class="bodyclass">
-  <header class="headerclass">
-    <h1><%= @newsletter.title %></h1>
-  </header>
+  <div class="small-12">
+    <h1 class="text-center"><%= @newsletter.title %></h1>
 
   <p>
-    <strong>Body:</strong>
+    <strong><%= t('newsletters.attributes.body') %>:</strong>
   </p>
 
   <%= @newsletter.body.html_safe %>
 
-  <br/>
-
   <div>
     <p>
-      <strong>To:</strong>
+      <strong><%= t('newsletters.to') %>:</strong>
     </p>
     <ul>
       <% @newsletter.users.each do |user| %>
@@ -30,16 +22,13 @@
       <% end %>
     </ul>
   </div>
-  
-  <br/>
 
   <div id="send_newsletter">
     <%= if !@newsletter.users.empty?
-          link_to 'Send', send_newsletter_admin_newsletter_path(@newsletter), remote: true
+          link_to t('newsletters.send'), send_newsletter_admin_newsletter_path(@newsletter), remote: true
         else
-          'Cant Send - Add Users Before Sending'
+          t('newsletters.cant_send')
         end
     %>
   </div>
-</body>
-
+</div>

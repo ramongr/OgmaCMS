@@ -217,8 +217,9 @@ pt:
         title: Editar newsletter
 
     to: Para
-    sent: Newsletter enviada.
-
+    send: Enviar
+    cant_send: Adicione utilizadores antes de enviar
+    sent: Newsletter enviada
 
 #
 # Common
