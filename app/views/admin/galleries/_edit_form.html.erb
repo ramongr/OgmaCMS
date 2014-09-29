@@ -26,19 +26,21 @@
 
   <button id="add-image"><%= t('galleries.add_image') %></button>
 
-  <ul id="sortable">
-    <% @added_images.each do |image| %>
-      <li class="ui-state-default" id="<%= image.id %>">
-        <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
-        <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('galleries.remove_image') %></button>
-      </li>
-    <% end %>
-  </ul>
+  <div class="small-12 columns">
+    <ul id="sortable">
+      <% @added_images.each do |image| %>
+        <li class="ui-state-default" id="<%= image.id %>">
+          <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+          <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('galleries.remove_image') %></button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
   <br>
   <br>
 
-  <div class="actions">
+  <div class="small-12 actions">
     <%= f.submit class: "button right" %>
   </div>
 

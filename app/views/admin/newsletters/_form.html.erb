@@ -17,12 +17,12 @@
   </div>
   <div id="newsletter_body" class="field">
     <%= f.label :body %>
-    <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+    <%= f.text_area :body, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
   </div>
 
   <br>
   <div id="newsletter_destinatary">
-    <p>To:</p>
+    <p><%= t('newsletters.to') %>:</p>
     <% for user in User.all %>
     <div>
       <%= check_box_tag "newsletter[user_ids][]", user.id, @newsletter.users.include?(user) %>

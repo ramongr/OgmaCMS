@@ -40,6 +40,17 @@ pt:
         date: Data
         created_at: Criado em
         updated_at: Editado em
+      link:
+        title: Nome
+        value: Endereço
+        created_at: Criado em
+        updated_at: Editado em
+        type_mask: Tipo
+      newsletter:
+        title: Nome
+        body: Conteúdo
+        created_at: Criado em
+        updated_at: Editado em
 
 #
 # Time
@@ -146,11 +157,68 @@ pt:
 
     edit:
       admin:
-        title: Editar evento
+        title: Editar galeria
 
     add_image: Adicionar imagem
     remove_image: Remover imagem
     select_image: Seleccione uma imagem.
+
+#
+# Links
+#
+
+  links:
+    name: Links
+
+    attributes:
+      title: Nome
+      value: Endereço
+      created_at: Criado em
+      updated_at: Editado em
+      type_mask: Tipo
+
+    index:
+      admin:
+        title: Links
+        new: Novo link
+
+    new:
+      admin:
+        title: Novo link
+
+    edit:
+      admin:
+        title: Editar link
+
+#
+# Newsletters
+#
+
+  newsletters:
+    name: Newsletters
+
+    attributes:
+      title: Nome
+      body: Conteúdo
+      created_at: Criado em
+      updated_at: Editado em
+
+    index:
+      admin:
+        title: Newsletters
+        new: Nova newsletter
+
+    new:
+      admin:
+        title: Nova newsletter
+
+    edit:
+      admin:
+        title: Editar newsletter
+
+    to: Para
+    sent: Newsletter enviada.
+
 
 #
 # Common

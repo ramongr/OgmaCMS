@@ -40,7 +40,6 @@ $(document).ready(function(){
       ); 
 
       deferred.success(function (object) {
-        alert(rem_photo_id)
         var id =("#"+rem_photo_id);
         $( ("#sortable > "+id) ).remove();
       });

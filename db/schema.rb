@@ -58,9 +58,6 @@ ActiveRecord::Schema.define(version: 20140926174241) do
     t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "address"
   end
 
   create_table "forem_categories", force: true do |t|
@@ -300,9 +297,9 @@ ActiveRecord::Schema.define(version: 20140926174241) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "language"
     t.string   "unsubscribe_token"
     t.boolean  "newsletter_subscribed"
-    t.string   "language"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

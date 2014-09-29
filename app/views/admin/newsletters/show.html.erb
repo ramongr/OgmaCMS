@@ -1,4 +1,8 @@
-
+<br>
+<div class="row">
+  <%= link_to t('newsletters.name'), admin_newsletters_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_newsletter_path(@newsletter), class: "button small" %>
+  
 <head>
   <title><%= @newsletter.title %></title>
 </head>
@@ -37,8 +41,5 @@
         end
     %>
   </div>
-  <br>
-  <%= link_to 'Edit', edit_admin_newsletter_path(@newsletter) %> |
-  <%= link_to 'Back', admin_newsletters_path %>
 </body>
 
