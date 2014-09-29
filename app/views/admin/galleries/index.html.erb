@@ -1,15 +1,15 @@
-<h1 class="text-center">Listing galleries</h1>
+<h1 class="text-center"><%= t('galleries.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New gallery', new_admin_gallery_path, class: "button tiny" %>
+  <%= link_to t('galleries.index.admin.new'), new_admin_gallery_path, class: "button tiny" %>
   <div class="small-12">
   <% unless @galleries.empty? %>
     <table>
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Date</th>
+          <th><%= t('galleries.attributes.title') %></th>
+          <th><%= t('galleries.attributes.description') %></th>
+          <th><%= t('galleries.attributes.date') %></th>
           <th></th>
         </tr>
       </thead>
@@ -19,11 +19,11 @@
           <tr>
             <td><%= gallery.title %></td>
             <td><%= gallery.description %></td>
-            <td><%= gallery.date_human %></td>
+            <td><%= l gallery.date, format: :long %></td>
             <td>
-              <%= link_to 'Show', [:admin,gallery], class: "button tiny" %>
-              <%= link_to 'Edit', edit_admin_gallery_path(gallery), class: "button tiny" %>
-              <%= link_to 'Destroy', [:admin,gallery], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              <%= link_to t('common.show'), [:admin,gallery], class: "button tiny" %>
+              <%= link_to t('common.edit'), edit_admin_gallery_path(gallery), class: "button tiny" %>
+              <%= link_to t('common.destroy'), [:admin,gallery], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
             </td>
           </tr>
         <% end %>

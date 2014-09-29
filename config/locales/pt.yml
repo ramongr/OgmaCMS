@@ -1,22 +1,175 @@
+#
+# Falhas:
+#   Anexos - Selecionar o ficheiro parece ser dependente da língua do browser
+#   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
+#
+
 pt:
   activerecord:
     models:
-      attachment: anexo
+      attachment: Anexo
+      comment: Comentário
+      event: Evento      
+      gallery: Galeria
+      link: Link
+      newsletter: Newsletter
+      post: Artigo
+      setting: Definição
+      sidebar: Menu
+      slider: Painel rolante
+      static_page: Página
+      user: Utilizador
+      visitor_comment: Livro de visitas
     attributes:
       attachment:
         name: Nome
         description: Descrição
+        created_at: Criado em
+        updated_at: Editado em
+      event:
+        title: Nome
+        body: Descrição
+        start_time: Início
+        end_time: Fim
+        all_day: Todo o dia
+        created_at: Criado em
+        updated_at: Editado em
+      gallery:
+        title: Nome
+        description: Descrição
+        date: Data
+        created_at: Criado em
+        updated_at: Editado em
 
-  admin:
-    attachments:
-      index:
+#
+# Time
+#
+  time:
+    formats:
+      date_only: '%A, %e de %B de %Y'
+      time_only: '%H:%Mh'
+
+    from_date: De
+    to_date: Até
+    from_time: Das
+    to_time: Até às
+
+#
+# Admin Dashboard
+#
+
+  dashboard:
+    index:
+      title: Painel de controlo
+
+#
+# Attachments
+#
+
+  attachments:
+    name: Anexos
+
+    attributes:
+      name: Nome
+      description: Descrição
+      file_name: Nome do ficheiro
+      content_type: Tipo de conteúdo
+      uploaded_by: Carregado por
+      created_at: Criado em
+      updated_at: Editado em
+
+    index:
+      admin:
         title: Anexos
-        attr_name: Nome
-        attr_description: Descrição
-        attr_uploaded_by: Carregado por
-      new: 
+        new: Novo anexo
+
+    new:
+      admin:
         title: Novo anexo
-      edit:
+
+    edit:
+      admin:
         title: Editar anexo
 
+#
+# Events
+#
 
+  events:
+    name: Eventos
+
+    attributes:
+      title: Nome
+      body: Descrição
+      date: Data
+      start_time: Início
+      end_time: Fim
+      all_day: Todo o dia
+
+    index:
+      admin:
+        title: Eventos
+        new: Novo evento
+
+    new:
+      admin:
+        title: Novo evento
+
+    edit:
+      admin:
+        title: Editar evento
+
+    calendar: Calendário
+    
+#
+# Galleries
+#
+
+  galleries:
+    name: Galerias
+    
+    attributes:
+      title: Nome
+      description: Descrição
+      date: Data
+      created_at: Criado em
+      updated_at: Editado em
+
+    index:
+      admin:
+        title: Galerias
+        new: Nova galeria
+
+    new:
+      admin:
+        title: Nova galeria
+
+    edit:
+      admin:
+        title: Editar evento
+
+    add_image: Adicionar imagem
+    remove_image: Remover imagem
+    select_image: Seleccione uma imagem.
+
+#
+# Common
+#
+
+  common:
+    confirm: Tem a certeza?
+    show: Ver
+    edit: Editar
+    back: Retroceder
+    destroy: Apagar
+    'yes': Sim
+    'no': Não
+
+#
+# will paginate
+#
+
+will_paginate:
+    next_label: Seguinte &raquo;
+    page_gap: '&hellip;'
+    previous_label: '&laquo; Anterior'

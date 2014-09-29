@@ -1,15 +1,15 @@
-<h1 class="text-center"><%= t('.title') %></h1>
+<h1 class="text-center"><%= t('attachments.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New attachment', new_admin_attachment_path, class: "button tiny" %>
+  <%= link_to t('attachments.index.admin.new'), new_admin_attachment_path, class: "button tiny" %>
   <div class="small-12">
   <% unless @attachments.empty? %>
     <table>
       <thead>
         <tr>
-          <th><%= t('.attr_name')        %></th>
-          <th><%= t('.attr_description') %></th>
-          <th><%= t('.attr_uploaded_by') %></th>
+          <th><%= t('attachments.attributes.name')        %></th>
+          <th><%= t('attachments.attributes.description') %></th>
+          <th><%= t('attachments.attributes.uploaded_by') %></th>
           <th>                             </th>
         </tr>
       </thead>
@@ -21,9 +21,9 @@
             <td><%= attachment.description %></td>
             <td><%= attachment.user.name   %></td>
             <td>
-              <%= link_to 'Show', [:admin,attachment], class: "button tiny" %>
-              <%= link_to 'Edit', edit_admin_attachment_path(attachment), class: "button tiny" %>
-              <%= link_to 'Destroy', [:admin,attachment], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+              <%= link_to t('common.show'), [:admin,attachment], class: "button tiny" %>
+              <%= link_to t('common.edit'), edit_admin_attachment_path(attachment), class: "button tiny" %>
+              <%= link_to t('common.destroy'), [:admin,attachment], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
             </td>
           </tr>
         <% end %>

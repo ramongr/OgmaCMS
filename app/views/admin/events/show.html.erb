@@ -1,15 +1,16 @@
 <br>
 <div class="row">
-  <%= link_to 'Edit', edit_admin_event_path(@event), class: "button small" %>
-  <%= link_to 'Calendar', calendar_index_path, class: "button small" %>
+  <%= link_to t('events.name'), admin_event_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_event_path(@event), class: "button small" %>
+  <%= link_to t('events.calendar'), calendar_index_path, class: "button small" %>
 
   <div class="small-12">
     <h1 class="text-center"><%= @event.title %></h1>
-    <h4>Begins :</h4>
-    <p><%= @event.start_time_human %></p>
-    <h4>Ends :</h4>
-    <p><%= @event.end_time_human %></p>
-	<h4>All Day:</h4>
-  	<p><%= @event.all_day ? 'Yes' : 'No' %></p>
+    <h4><%= t('events.attributes.start_time') %>:</h4>
+    <p><%= l @event.start_time %></p>
+    <h4><%= t('events.attributes.end_time') %>:</h4>
+    <p><%= l @event.end_time %></p>
+    <h4><%= t('events.attributes.all_day') %>:</h4>
+  	<p><%= @event.all_day ? t('common.yes') : t('common.no') %></p>
   </div>
 </div>
