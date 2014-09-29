@@ -12,16 +12,18 @@
 
   <%= @newsletter.body.html_safe %>
 
-  <div>
-    <p>
-      <strong><%= t('newsletters.to') %>:</strong>
-    </p>
-    <ul>
-      <% @newsletter.users.each do |user| %>
-        <li><%= link_to user.email, [:admin,user] %></li>
-      <% end %>
-    </ul>
-  </div>
+  <% unless @newsletter.users.empty? %>
+    <div>
+      <p>
+        <strong><%= t('newsletters.to') %>:</strong>
+      </p>
+      <ul>
+        <% @newsletter.users.each do |user| %>
+          <li><%= link_to user.email, [:admin,user] %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div id="send_newsletter">
     <%= if !@newsletter.users.empty?
