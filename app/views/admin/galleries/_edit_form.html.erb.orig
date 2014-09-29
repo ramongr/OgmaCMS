@@ -11,12 +11,21 @@
     </div>
   <% end %>
 
-  <div id="gallery_title" class="field">
+<<<<<<< HEAD
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div id="gallery_description" class="field">
+  <div class="field">
     <%= f.label :description %>
+=======
+  <div id="gallery_title" class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div id="gallery_description" class="field">
+    <%= f.label :description %><br>
+>>>>>>> develop
     <%= f.text_area :description, rows: 6 %>
   </div>
   <div id="gallery_date" class="field">

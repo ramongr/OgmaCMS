@@ -27,8 +27,9 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  include ApplicationHelper
   helper ApplicationHelper
-
+  
   def forem_user
     current_user
   end

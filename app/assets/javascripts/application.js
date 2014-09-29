@@ -15,9 +15,13 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.cookie
 //= require foundation
 //= require ckeditor/init
 //= require fullcalendar
 //= require_tree .
-$(function(){ $(document).foundation(); });
+$(function(){
+  $(document).foundation();
+  $(document).foundation('joyride', 'start');
+});
 //= require turbolinks

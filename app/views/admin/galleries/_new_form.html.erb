@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="gallery_title" class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div id="gallery_description" class="field">
     <%= f.label :description %>
     <%= f.text_area :description, rows: 6 %>
   </div>
-  <div class="field">
+  <div id="gallery_date" class="field">
     <%= f.label :date %>
     <%= f.date_select :date, {}, {class: "small-4 columns"} %>
   </div>
@@ -28,3 +28,18 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="gallery_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the name you want for the gallery.</p>
+    </li>  
+    <li data-id="gallery_description" data-text="Next" data-options="tip_location: top">
+      <p>Describe the gallery.</p>
+    </li>
+    <li data-id="gallery_date" data-text="Ok" data-options="tip_location: top;">
+      <p>Choose the date associated with this gallery.</p>
+    </li>
+  </ol>
+</div>

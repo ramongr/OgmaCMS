@@ -114,3 +114,6 @@ gem "http_accept_language", git: "https://github.com/iain/http_accept_language"
 
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' 
+
+# Access Cookies with JQuery
+gem 'jquery-cookie-rails'
