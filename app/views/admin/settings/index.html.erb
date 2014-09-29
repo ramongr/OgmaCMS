@@ -3,9 +3,9 @@
 <div class="row">
   <div class="small-9">
     <ul class="tabs" data-tab>
-      <li class="tab-title active"><a href="#site">Site</a></li>
-      <li class="tab-title"><a href="#internationalization">Internationalization</a></li>
-      <li class="tab-title"><a href="#mailer">Mailer</a></li>
+      <li id="site-settings" class="tab-title active"><a href="#site">Site</a></li>
+      <li id="site-internationalization" class="tab-title"><a href="#internationalization">Internationalization</a></li>
+      <li id="site-newsletters" class="tab-title"><a href="#mailer">Mailer</a></li>
     </ul>
 
     <%= form_tag [:admin_settings_update], method: :put do -%>
@@ -56,3 +56,27 @@
 </div>
 
 <% end -%>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="site_name" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the Name you want for the site.</p>
+    </li>  
+    <li data-id="site_subtitle" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Enter the Subtitle you want for the site.</p>
+    </li> 
+    <li data-id="site_description" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Describe the site.</p>
+    </li> 
+    <li data-id="site_logo" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Give a logo for the site.</p>
+    </li>
+    <li data-id="site-internationalization" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Select the languages you want the site to support.</p>
+    </li>
+    <li data-id="site-newsletters" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Customize predefined Newsletter.</p>
+    </li>
+  </ol>
+</div>

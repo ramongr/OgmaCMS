@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
+  <div id="link_title" class="field">
+    <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :value %>
+  <div id="link_value" class="field">
+    <%= f.label :value %><br>
     <%= f.text_field :value %>
   </div>
 
@@ -24,3 +24,15 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="link_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the title you want for the link.</p>
+    </li>  
+    <li data-id="link_value" data-text="Ok" data-options="tip_location: top">
+      <p>Insert the value(URL) for the link.</p>
+    </li>
+  </ol>
+</div>

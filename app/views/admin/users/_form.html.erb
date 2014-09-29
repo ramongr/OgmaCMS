@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="user_name" class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div id="user_email" class="field">
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
-  <div class="field">
+  <div id="user_birth_date" class="field">
     <%= f.label "Date of Birth" %>
     <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true}, {class: "small-4 columns"} %>
   </div>
-  <div class="field">
+  <div id="user_gender" class="field">
     <%= f.label :gender %>
     <%= f.radio_button :gender, "m" %>
     <%= f.label "M" %>
     <%= f.radio_button :gender, "f" %>
     <%= f.label "F" %>
   </div>
-  <div class="nationality">
+  <div id="user_nationality" class="nationality">
     <%= f.label :nationality %>
     <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
   </div>
-  <div class="language">
+  <div id="user_language" class="language">
     <%= f.label :language %>
     <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale.to_s) %>
   </div>
-  <div class="field">
+  <div id="user_password" class="field">
     <%= f.label :password, "Password" %>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
+  <div id="user_password_confirmation" class="field">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
+  <div id="user_role" class="field">
     <%= f.label :role %>
     <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   </div>
@@ -54,3 +54,36 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="user_name" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the name of the user.</p>
+    </li>  
+    <li data-id="user_email" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Enter the email of the user.</p>
+    </li>
+    <li data-id="user_birth_date" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select the birthdate.</p>
+    </li>
+    <li data-id="user_gender" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select gender.</p>
+    </li>
+    <li data-id="user_nationality" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select nationality.</p>
+    </li>
+    <li data-id="user_language" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select language.</p>
+    </li>
+    <li data-id="user_password" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Password to LogIn.</p>
+    </li>
+    <li data-id="user_password_confirmation" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Confirm Password to LogIn.</p>
+    </li>
+    <li data-id="user_role" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select the role for this user.</p>
+    </li>
+  </ol>
+</div>

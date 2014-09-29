@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  //if ($('[id^=galleries]').length || $('[id^=sliders]').length ) {
   if ($("#galleries").length || $("#sliders").length ) {
 
     $("#sortable").sortable();
@@ -22,7 +23,7 @@ $(document).ready(function(){
     });
  
 
-    $( "#add-image" ).button().on( "click", function() {
+    $( "#add-image" ).on( "click", function() {
       dialog.dialog( "open" );
       return false;
     });

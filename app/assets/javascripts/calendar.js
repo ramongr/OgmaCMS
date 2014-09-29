@@ -77,7 +77,7 @@ $(document).ready(function(){
           end: end,
           allDay: e_all_day
         };
-        $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+        $('#calendar_content').fullCalendar('renderEvent', eventData, true); // stick? = true
       });
       
       deferred.error(function (object) {
@@ -91,7 +91,7 @@ $(document).ready(function(){
       $( "#alert-miss" ).text("- Title Required!");
     }
 
-    $('#calendar').fullCalendar('unselect');
+    $('#calendar_content').fullCalendar('unselect');
 
 
   }
@@ -141,13 +141,13 @@ $(document).ready(function(){
         dataType: 'json'
     });
 
-    $('#calendar').fullCalendar('unselect');
+    $('#calendar_content').fullCalendar('unselect');
   }
   
 
 
   // page is now ready, initialize the calendar...
-  $('#calendar').fullCalendar(
+  $('#calendar_content').fullCalendar(
 
   ($('#admin-flag').length) ?
   {

@@ -10,18 +10,18 @@
       </ul>
     </div>
   <% end %>
- 
-  <div class="field">
+
+  <div id="newsletter_title" class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div id="newsletter_body" class="field">
     <%= f.label :body %>
     <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
   </div>
 
   <br>
-  <div>
+  <div id="newsletter_destinatary">
     <p>To:</p>
     <% for user in User.all %>
     <div>
@@ -35,3 +35,22 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="newsletter_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the title of the Newsletter.</p>
+    </li>  
+    <li data-id="newsletter_body" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Fill with the content for the Newsletter.</p>
+    </li>
+    <li data-id="newsletter_destinatary" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Select the users you want to send this Newsletter.</p>
+    </li>
+    <li data-button="End" data-prev-text="Prev">
+      <h4>That's it!</h4>
+      <p>You can send it whenever you want either in the Newsletters Index or in the Newsletter specific page!</p>
+    </li>
+  </ol>
+</div>
