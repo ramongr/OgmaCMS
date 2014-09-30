@@ -1,10 +1,6 @@
 <ul class="tabs" data-tab>
   <% Setting.selected_languages.each_with_index do |l,index| %>
-    <% if index == 0 %>
-      <li class="tab-title active"><a href="#langtab0"><%= l.first %></a></li>
-    <% else %>
-      <li class="tab-title"><a href="#langtab<%= index %>"><%= l.first %></a></li>
-    <% end %>
+      <li class="tab-title <%= l.second == params[:locale] ? "active" : ""%>"><a href="#langtab<%= index %>"><%= l.first %></a></li>
   <% end %>
 </ul>
 
