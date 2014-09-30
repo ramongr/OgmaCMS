@@ -1,14 +1,14 @@
-<h1 class="text-center">Listing sliders</h1>
+<h1 class="text-center"><%= t('sliders.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New slider', new_admin_slider_path, class: "button tiny" %>
+  <%= link_to t('sliders.index.admin.new'), new_admin_slider_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @sliders.empty? %>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Selected</th>
+            <th><%= t('sliders.attributes.title') %></th>
+            <th><%= t('sliders.attributes.selected') %></th>
             <th></th>
           </tr>
         </thead>
@@ -19,9 +19,9 @@
               <td><%= slider.title %></td>
               <td><%= slider.selected %></td>
               <td>
-                <%= link_to 'Show', [:admin,slider], class: "button tiny" %>
-                <%= link_to 'Edit', edit_admin_slider_path(slider), class: "button tiny" %>
-                <%= link_to 'Destroy', [:admin,slider], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+                <%= link_to t('common.show'), [:admin,slider], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_slider_path(slider), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,slider], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               </td>
             </tr>
           <% end %>

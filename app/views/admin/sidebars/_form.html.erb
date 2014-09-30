@@ -12,16 +12,16 @@
   <% end %>
 
   <div id="sidebar_title" class="field">
-    <%= f.label :title %><br/>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div id="sidebar_type_mask" class="field">
-    <%= f.label :type_mask %><br/>
-    <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3], ["ERROR TEST", 4]], @sidebar.type_mask) %>
+    <%= f.label :type_mask %>
+    <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3]], @sidebar.type_mask) %>
   </div>
 
   <div id="sidebar_links_list">
-    <p> Links</p>
+    <%= f.label t('links.name') %>
     <% for link in Link.all %>
     <div>
       <%= check_box_tag "sidebar[link_ids][]", link.id, @sidebar.links.include?(link) %>
@@ -31,7 +31,7 @@
   </div>
 
   <div id="sidebar_static_pages_list">
-    <p> Static Pages</p>
+    <%= f.label t('pages.name') %>
     <% for static_page in StaticPage.all %>
     <div>
       <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
@@ -41,10 +41,9 @@
   </div>
 
 
-  <br>
-  <p>Shortcuts</p>
+  <%= f.label t('common.shortcuts') %>
   <div class="field">
-    <%= link_to 'Create New Link', new_admin_link_path %> <br><br>
+    <%= link_to t('links.index.admin.new'), new_admin_link_path %> <br><br>
   </div>
 
   <div class="actions">

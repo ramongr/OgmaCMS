@@ -1,15 +1,15 @@
-<h1 class="text-center">Listing posts</h1>
+<h1 class="text-center"><%= t('posts.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New post', new_admin_post_path, class: "button tiny" %>
+  <%= link_to t('posts.index.admin.new'), new_admin_post_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @admin_posts.empty? %>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Last updated</th>
+            <th><%= t('posts.attributes.title') %></th>
+            <th><%= t('posts.attributes.author') %></th>
+            <th><%= t('posts.attributes.updated_at') %></th>
             <th></th>
           </tr>
         </thead>
@@ -19,11 +19,11 @@
             <tr>
               <td><%= admin_post.title %></td>
               <td><%= admin_post.user.name %></td>
-              <td><%= admin_post.date_updated_human %></td>
+              <td><%= l admin_post.updated_at %></td>
               <td>
-                <%= link_to 'Show', [:admin,admin_post], class: "button tiny" %>
-                <%= link_to 'Edit', edit_admin_post_path(admin_post), class: "button tiny" %>
-                <%= link_to 'Destroy', [:admin,admin_post], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+                <%= link_to t('common.show'), [:admin,admin_post], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_post_path(admin_post), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,admin_post], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               </td>
             </tr>
           <% end %>
