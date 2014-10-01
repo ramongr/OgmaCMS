@@ -326,6 +326,7 @@ pt:
         new: Novo post
       public:
         title: Posts
+        new: Novo post
 
     new:
       admin:
@@ -334,6 +335,11 @@ pt:
     edit:
       admin:
         title: Modificar post
+
+    search:
+      title: Posts
+
+    add_comment: Comentar
 
 #
 # Settings
@@ -442,6 +448,8 @@ pt:
       admin:
         title: Páginas
         new: Nova página
+      public:
+        title: Páginas
 
     new:
       admin:
@@ -450,6 +458,9 @@ pt:
     edit:
       admin:
         title: Modificar página
+
+    search:
+      title: Páginas
 
 #
 # Users
@@ -491,6 +502,13 @@ pt:
       super_admin: Super Administrador
 
 #
+# Visitor comments
+#
+
+  visitor_comments:
+    
+
+#
 # Common
 #
 
@@ -512,6 +530,7 @@ pt:
     log_out: Logout
     register: Registar
     read_more: Ler mais
+    no_results_found: Não foram encontrados resultados
 
 #
 # will paginate
