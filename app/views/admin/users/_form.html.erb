@@ -20,7 +20,7 @@
     <%= f.email_field :email %>
   </div>
   <div id="user_birth_date" class="field">
-    <%= f.label "Date of Birth" %>
+    <%= f.label :dob %>
     <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true}, {class: "small-4 columns"} %>
   </div>
   <div id="user_gender" class="field">
@@ -48,7 +48,7 @@
   </div>
   <div id="user_role" class="field">
     <%= f.label :role %>
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+    <%= f.select :role, User::ROLES.collect {|r| [ t('users.roles.' + r), r ] } %>
   </div>
   <div class="actions">
     <%= f.submit class: "button right" %>

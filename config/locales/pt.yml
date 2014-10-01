@@ -3,6 +3,7 @@
 #   Anexos - Selecionar o ficheiro parece ser dependente da língua do browser
 #   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
 #   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
+#   Users - Roles
 #   Erros nos forms Ex:  <%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:
 #   Traduzir o nomes das línguas para o nome da língua no locale actual (Há gem)
 #
@@ -67,6 +68,18 @@ pt:
       slider:
         title: Nome
         selected: Seleccionado
+        created_at: Criado em
+        updated_at: Modificado em
+      user:
+        name: Nome
+        email: Email
+        dob: Data de Nascimento
+        gender: Sexo
+        nationality: Nacionalidade
+        language: Língua
+        password: Password
+        password_confirmation: Confirmação da password
+        role: Permissões
         created_at: Criado em
         updated_at: Modificado em
 
@@ -149,6 +162,7 @@ pt:
         title: Modificar evento
 
     calendar: Calendário
+    manage_events: Gerir eventos
     
 #
 # Galleries
@@ -382,6 +396,44 @@ pt:
       admin:
         title: Modificar página
 
+#
+# Users
+#
+
+  users:
+    name: Utilizadores
+
+    attributes:
+      name: Nome
+      email: Email
+      dob: Data de Nascimento
+      gender: Sexo
+      nationality: Nacionalidade
+      language: Língua
+      password: Password
+      password_confirmation: Confirmação da password
+      role: Permissões
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Utilizadores
+        new: Novo utilizador
+
+    new:
+      admin:
+        title: Novo utilizador
+
+    edit:
+      admin:
+        title: Modificar utilizador
+
+    roles:
+      registered: Registado
+      author: Autor
+      admin: Administrador
+      super_admin: Super Administrador
 
 #
 # Common

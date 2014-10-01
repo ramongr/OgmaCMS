@@ -1,30 +1,32 @@
-<h1 class="text-center">Listing users</h1>
+<h1 class="text-center"><%= t('users.index.admin.title') %></h1>
 
 <div class="row">
+  <%= link_to t('users.index.admin.new'), new_admin_user_path, class: "button tiny" %>
   <div class="small-12">
-    <%= link_to 'New User', new_admin_user_path, class: "button tiny" %>
-    <br><br>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Role</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @admin_users.each do |user| %>
+    <% unless @admin_users.empty? %>
+      <table>
+        <thead>
           <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.role.humanize %></td>
-            <td><%= link_to 'Show', [:admin,user], class: "button tiny" %>
-            <%= link_to 'Edit', edit_admin_user_path(user), class: "button tiny" %>
-            <%= link_to 'Destroy', [:admin,user], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+            <th><%= t('users.attributes.name') %></th>
+            <th><%= t('users.attributes.email') %></th>
+            <th><%= t('users.attributes.role') %></th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @admin_users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.translated_role %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,user], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_user_path(user), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,user], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
