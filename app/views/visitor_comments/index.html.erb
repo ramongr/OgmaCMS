@@ -1,59 +1,43 @@
-<h1 class="text-center">Listing visitor comments</h1>
-
-<p id="notice"><%= notice %></p>
+<h1 class="text-center"><%= t('visitor_comments.index.public.title') %></h1>
 
 <div class="row">
-  <div class="small-12">
-    <% if can? :create, VisitorComment %>
-      <%= link_to 'New visitor comment', new_visitor_comment_path, class: "button small" %>
-    <% end %>
-  </div>
+  <% if can? :create, VisitorComment %>
+    <%= link_to t('visitor_comments.index.public.new'), new_visitor_comment_path, class: "button small" %>
+  <% end %>
   <br>
-  <div class="small-12" id="visitor-comments-container">
 
+  <div class="small-9">
     <% unless @visitor_comments.empty? %>
       <% @visitor_comments.each do |visitor_comment| %>
-        <div class="small-6" id= <%= "visitor-comment-"+visitor_comment.id.to_s %> >
-          <!-- Subject -->
+
           <h3 class="text-center"><%= visitor_comment.subject %></h3>
-          
-          <!-- User name -->
+          <hr>          
           <% if can? :read, User %>
-            <p><%= link_to visitor_comment.user.name, [:admin,visitor_comment.user] %></p>
+            <%= link_to visitor_comment.user.name, [:admin,visitor_comment.user] %>
           <% else %>
-            <p><%= visitor_comment.user.name %></p>
+            <%= visitor_comment.user.name %>
           <% end %>
-
-          <!-- Content -->
-          <p><%= visitor_comment.content %></p>
-
-          <!-- Date created/updated -->
-          <p class="text-right">
-            <small>
-              <% if visitor_comment.created_at.to_i == visitor_comment.updated_at.to_i %>
-                Created: <%= visitor_comment.date_created_human %>
-              <% else %>
-                Last updated: <%= visitor_comment.date_updated_human %>
-              <% end %>
-            </small>
-          </p>
-
-          <!-- Other controls -->
-          <% if can? :update, visitor_comment %>
-            <%= link_to 'Edit', edit_visitor_comment_path(visitor_comment), class: "button tiny" %>
-            <% if can? :destroy, visitor_comment %>
-            <%= link_to 'Destroy', visitor_comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
-            <% end %>
+          <br>
+          <%= t('visitor_comments.attributes.created_at') %>: <%= l visitor_comment.created_at %><br>
+          <% if visitor_comment.created_at != visitor_comment.updated_at %>
+            <%= t('visitor_comments.attributes.updated_at') %>: <%= l visitor_comment.updated_at %><br>
           <% end %>
           <hr>
-        </div>
+          <p><%= visitor_comment.content %></p>
+          <hr>
+
+          <% if can? :update, visitor_comment %>
+            <%= link_to t('common.edit'), edit_visitor_comment_path(visitor_comment), class: "button tiny" %>
+            <% if can? :destroy, visitor_comment %>
+            <%= link_to t('common.destroy'), visitor_comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+            <% end %>
+          <% end %>
+          <br>
       <% end %>
 
-      <div class="pagination">
+      <div class="apple_pagination">
         <%= will_paginate @visitor_comments %>
       </div>
     <% end %>
   </div>
 </div>
-
-<br>
