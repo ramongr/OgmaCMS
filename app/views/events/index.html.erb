@@ -1,14 +1,14 @@
-<h1 class="text-center">Listing events</h1>
+<h1 class="text-center"><%= t('events.index.public.title') %></h1>
 <div class="row">
-  <%= link_to 'New Event', new_admin_event_path, class: "button tiny" %>
-  <%= link_to 'Calendar', calendar_index_path, class: "button tiny" %>
+  <%= link_to t('events.index.public.new'), new_admin_event_path, class: "button tiny" %>
+  <%= link_to t('events.calendar'), calendar_index_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @events.empty? %>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Date</th>
+            <th><%= t('events.attributes.title') %></th>
+            <th><%= t('events.attributes.date') %></th>
             <th></th>
           </tr>
         </thead>
@@ -18,18 +18,39 @@
             <tr>
               <td><%= event.title %></td>
               <% if event.all_day %>
-                <td>
-                    From: <%= event.start_date_human %><br>
-                    To:   <%= event.end_date_human %><br>
-                    All Day
-                </td>                
+                <% if event.start_time.day == event.end_time.day %>
+                  <td>
+                      <%= l event.start_time, format: :date_only %>
+                      <br>
+                      <%= t('events.attributes.all_day') %>
+                  </td> 
+                <% else %>
+                  <td>
+                      <%= t('time.from_date') %> <%= (l event.start_time, format: :date_only).downcase %>
+                      <br>
+                      <%= t('time.to_date') %> <%= (l event.end_time, format: :date_only).downcase %>
+                      <br>
+                      <%= t('events.attributes.all_day') %>
+                  </td> 
+                <% end %>             
               <% else %>
-                <td>
-                    From: <%= event.start_time_human %><br>
-                    To:   <%= event.end_time_human %>
-                </td>
+                <% if event.start_time.day == event.end_time.day %>
+                  <td>
+                    <%= l event.start_time, format: :date_only %>
+                    <br>
+                    <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
+                    <br>
+                    <%= t('time.to_time') %> <%= l event.end_time, format: :time_only %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= t('time.from_date') %> <%= (l event.start_time).downcase %>
+                    <br>
+                    <%= t('time.to_date') %> <%=   (l event.end_time).downcase %>
+                  </td>
+                <% end %>
               <% end %>
-              <td><%= link_to 'Show', event, class: "button tiny" %></td>
+              <td><%= link_to t('common.show'), event, class: "button tiny" %></td>
             </tr>
           <% end %>
         </tbody>

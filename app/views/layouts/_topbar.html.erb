@@ -15,14 +15,14 @@
             </p>
           </div>
           <div class="large-4 small-3 columns">
-            <%= submit_tag "Search", name: nil, class: 'alert button expand' %>
+            <%= submit_tag t('common.search'), name: nil, class: 'alert button expand' %>
           </div>
         </div>
         <% end %>
       </li>
       <% if Setting.selected_languages.length > 1 %>
       <li class="has-dropdown">
-        <a href="#">Language</a>
+        <a href="#"><%= t('common.language') %></a>
         <ul class="dropdown">          
           <% Setting.selected_languages.each do |l| %>
             <% if l.second == I18n.locale.to_s %>

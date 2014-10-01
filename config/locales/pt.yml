@@ -3,7 +3,6 @@
 #   Anexos - Selecionar o ficheiro parece ser dependente da língua do browser
 #   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
 #   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
-#   Users - Roles
 #   Erros nos forms Ex:  <%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:
 #   Traduzir o nomes das línguas para o nome da língua no locale actual (Há gem)
 #
@@ -28,6 +27,10 @@ pt:
       attachment:
         name: Nome
         description: Descrição
+        created_at: Criado em
+        updated_at: Modificado em
+      comment:
+        content: Conteúdo
         created_at: Criado em
         updated_at: Modificado em
       event:
@@ -134,6 +137,28 @@ pt:
         title: Modificar anexo
 
 #
+# Comments
+#
+
+  comments:
+    name: Comentários
+
+    attributes:
+      content: Mensagem
+      user: Autor
+      created_at: Criado em
+      updated_at: Modificado em
+
+    new:
+      public:
+        title: Novo comentário
+
+    edit:
+      public:
+        title: Modificar comentário
+
+
+#
 # Events
 #
 
@@ -152,6 +177,9 @@ pt:
       admin:
         title: Eventos
         new: Novo evento
+      public:
+        title: Eventos
+        new: Novo evento
 
     new:
       admin:
@@ -163,6 +191,29 @@ pt:
 
     calendar: Calendário
     manage_events: Gerir eventos
+    going?: 'vais?'
+    going: Vão
+    not_going: Não vão
+    indecisive: Indecididos
+    going_number:
+      zero: 0 vão
+      one: 1 vai
+      other: '%{count} vão'
+    not_going_number:
+      zero: 0 não vão
+      one: 1 não vai
+      other: '%{count} não vão'
+    indecisive_number:
+      zero: 0 indecisos
+      one: 1 indeciso
+      other: '%{count} indecisos'
+    you_are_going: Tu vais
+    you_are_not_going: Tu não vais
+    you_are_indecisive: Estás indecidido
+    changed_your_mind?: 'mudaste de ideias?'
+    im_going: Vou
+    im_not_going: Eu não vou
+    im_indecisive: Talvez vá
     
 #
 # Galleries
@@ -182,6 +233,8 @@ pt:
       admin:
         title: Galerias
         new: Nova galeria
+      public:
+        title: Galerias
 
     new:
       admin:
@@ -447,9 +500,12 @@ pt:
     destroy: Apagar
     'yes': Sim
     'no': Não
+    maybe: Talvez
     insert_attachment: Inserir anexo
     select_attachment: Seleccionar anexo
     shortcuts: Atalhos
+    language: Língua
+    search: Pesquisar
 
 #
 # will paginate
