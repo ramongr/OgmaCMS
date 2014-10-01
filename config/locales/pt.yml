@@ -324,6 +324,8 @@ pt:
       admin:
         title: Posts
         new: Novo post
+      public:
+        title: Posts
 
     new:
       admin:
@@ -459,7 +461,7 @@ pt:
     attributes:
       name: Nome
       email: Email
-      dob: Data de Nascimento
+      dob: Data de nascimento
       gender: Sexo
       nationality: Nacionalidade
       language: Língua
@@ -506,12 +508,16 @@ pt:
     shortcuts: Atalhos
     language: Língua
     search: Pesquisar
+    log_in: Login
+    log_out: Logout
+    register: Registar
+    read_more: Ler mais
 
 #
 # will paginate
 #
 
-will_paginate:
-    next_label: Seguinte &raquo;
+  will_paginate:
+    next_label: 'Seguinte &raquo;'
     page_gap: '&hellip;'
     previous_label: '&laquo; Anterior'

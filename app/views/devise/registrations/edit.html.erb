@@ -26,7 +26,7 @@
       </div>
 
       <div class="field">
-        <%= f.label "Date of Birth" %>
+        <%= f.label :dob %>
         <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
       </div>
 
