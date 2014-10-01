@@ -189,7 +189,8 @@ ActiveRecord::Schema.define(version: 20140926174241) do
   end
 
   create_table "photos", force: true do |t|
-    t.integer  "gallery_id"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
     t.integer  "attachment_id"
     t.integer  "position"
     t.datetime "created_at"
@@ -197,7 +198,7 @@ ActiveRecord::Schema.define(version: 20140926174241) do
   end
 
   add_index "photos", ["attachment_id"], name: "index_photos_on_attachment_id", using: :btree
-  add_index "photos", ["gallery_id"], name: "index_photos_on_gallery_id", using: :btree
+  add_index "photos", ["imageable_id", "imageable_type"], name: "index_photos_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "post_translations", force: true do |t|
     t.integer  "post_id",    null: false
@@ -246,6 +247,7 @@ ActiveRecord::Schema.define(version: 20140926174241) do
 
   create_table "sliders", force: true do |t|
     t.string   "title"
+    t.boolean  "selected"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
