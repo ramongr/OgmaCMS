@@ -12,8 +12,8 @@
         <hr>
         <%= post.user.name %><br>
         <%= t('posts.attributes.created_at') %>: <%= l post.created_at %><br>
-        <% if post.created_at != post.updated_at %>
-          <%= t('posts.attributes.updated_at') %>: <%= l post.updated_at %><br>
+        <% if post.created_at.to_i != post.updated_at.to_i %>
+          <%= t('posts.attributes.updated_at') %>: <%= l post.updated_at %>
         <% end %>
         <hr>
         <p><%= post.content.truncate(1550).html_safe %></p>

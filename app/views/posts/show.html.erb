@@ -37,7 +37,7 @@
           <div class="small-12">
             <hr>
             <%= comment.user.name %><br>
-            <% if comment.created_at == comment.updated_at %>
+            <% if comment.created_at.to_i == comment.updated_at.to_i %>
               <%= t('comments.attributes.created_at') %>
             <% else %>
               <%= t('comments.attributes.updated_at')%>
