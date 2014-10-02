@@ -1,0 +1,66 @@
+<h1 class="text-center"><%= t('events.index.admin.title') %></h1>
+<div class="row">
+  <%= link_to t('events.index.admin.new'), new_admin_event_path, class: "button tiny" %>
+  <%= link_to t('events.calendar'), calendar_index_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @events.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('events.attributes.title') %></th>
+            <th><%= t('events.attributes.date')  %></th>
+            <th>                                   </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= event.title %></td>
+              <% if event.all_day %>
+                <% if event.start_time.day == event.end_time.day %>
+                  <td>
+                      <%= l event.start_time, format: :date_only %>
+                      <br>
+                      <%= t('events.attributes.all_day') %>
+                  </td> 
+                <% else %>
+                  <td>
+                      <%= t('time.from_date') %> <%= (l event.start_time, format: :date_only).downcase %>
+                      <br>
+                      <%= t('time.to_date') %> <%= (l event.end_time, format: :date_only).downcase %>
+                      <br>
+                      <%= t('events.attributes.all_day') %>
+                  </td> 
+                <% end %>             
+              <% else %>
+                <% if event.start_time.day == event.end_time.day %>
+                  <td>
+                    <%= l event.start_time, format: :date_only %>
+                    <br>
+                    <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
+                    <br>
+                    <%= t('time.to_time') %> <%= l event.end_time, format: :time_only %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= t('time.from_date') %> <%= (l event.start_time).downcase %>
+                    <br>
+                    <%= t('time.to_date') %> <%=   (l event.end_time).downcase %>
+                  </td>
+                <% end %>
+              <% end %>
+
+              <td>
+                <%= link_to t('common.show'), [:admin,event], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_event_path(event), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,event], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              </td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

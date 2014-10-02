@@ -1,0 +1,33 @@
+<h1 class="text-center"><%= t('sidebars.index.admin.title') %></h1>
+
+<div class="row">
+  <%= link_to t('sidebars.index.admin.new'), new_admin_sidebar_path, class: "button tiny" %>
+  <br><br>
+  <div class="small-12">
+    <% unless @sidebars.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('sidebars.attributes.title') %></th>
+            <th><%= t('sidebars.attributes.type_mask') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @sidebars.each do |sidebar| %>
+            <tr>
+              <td><%= sidebar.title %></td>
+              <td><%= sidebar.type_mask_name %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,sidebar], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_sidebar_path(sidebar), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,sidebar], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

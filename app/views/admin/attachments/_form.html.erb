@@ -1,0 +1,41 @@
+<%= form_for([:admin,@attachment],html: { multipart: true }) do |f| %>
+  <% if @attachment.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @attachment.errors.count, model: Attachment.model_name.human %></h4>
+
+      <ul>
+      <% @attachment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="attachment_name" class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div id="attachment_description" class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 4 %>
+  </div>
+  <%= f.file_field :file %>
+  <div id="attachment_file" class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="attachment_name" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the name you want for the attachment.</p>
+    </li>  
+    <li data-id="attachment_description" data-text="Next" data-options="tip_location: top">
+      <p>Describe the attachment.</p>
+    </li>
+    <li data-id="attachment_file" data-text="Ok" data-options="tip_location: top;">
+      <p>Choose the file you want to upload as an attachment.</p>
+    </li>
+  </ol>
+</div>

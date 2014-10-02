@@ -1,0 +1,36 @@
+<%= form_for([:admin,@slider]) do |f| %>
+  <% if @slider.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @slider.errors.count, model: Slider.model_name.human %></h4>
+
+      <ul>
+      <% @slider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.check_box :selected %>
+    <%= f.label t('sliders.attributes.selected') %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="slider_title" data-text="Ok" data-options="tip_location: top; prev_button: false">
+      <p>Enter the name you want for the slider.</p>
+      <p>You will add images in the next step.</p>
+    </li>  
+  </ol>
+</div>

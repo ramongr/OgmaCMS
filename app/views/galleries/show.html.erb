@@ -1,0 +1,27 @@
+<br>
+<div class="row">
+  <% if can? :destroy, @gallery %>
+    <%= link_to t('galleries.name'), admin_galleries_path, class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_gallery_path(@gallery), class: "button small" %>
+    <%= link_to t('common.destroy'), [:admin,@gallery], method: :delete, data: { confirm: t('common.confirm') }, class: "button small alert" %>
+  <% end %>
+
+  <div class="small-12">
+    <h1 class="text-center"><%= @gallery.title %></h1>
+
+    <p>
+      <strong><%= t('galleries.attributes.description') %>:</strong>
+      <%= @gallery.description %>
+    </p>
+
+    <ul class="clearing-thumbs small-block-grid-4 my-grid" data-clearing>
+      <% @added_images.each do |image| %>
+        <li id="<%= image.id %>">
+          <a href="<%= download_attachment_url(image.attachment)%>">
+            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+          </a> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

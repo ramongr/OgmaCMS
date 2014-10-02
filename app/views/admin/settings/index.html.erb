@@ -1,0 +1,84 @@
+<h1 class="text-center"><%= t('settings.index.admin.title') %></h1>
+
+<div class="row">
+  <div class="small-9">
+    <ul class="tabs" data-tab>
+      <li id="site-settings" class="tab-title active"><a href="#site"><%= t('settings.site') %></a></li>
+      <li id="site-internationalization" class="tab-title"><a href="#internationalization"><%= t('settings.internationalization') %></a></li>
+      <li id="site-newsletters" class="tab-title"><a href="#mailer"><%= t('settings.mailer') %></a></li>
+    </ul>
+
+    <%= form_tag [:admin_settings_update], method: :put do -%>
+    <div class="tabs-content">
+
+      <div class="content active" id="site">
+        <div class="field">
+          <%= label_tag t('settings.site_title') %>
+          <%= text_field_tag :site_name, Setting.site_name %>
+        </div>
+        <div class="field">
+          <%= label_tag t('settings.site_subtitle') %>
+          <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
+        </div>
+        <div class="field">
+          <%= label_tag t('settings.site_description') %>
+          <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
+        </div>
+        <div class="field">
+          <%= label_tag t('settings.site_logo') %>
+          <%= text_field_tag :site_logo, Setting.site_logo %>
+        </div>
+      </div>
+
+      <div class="content" id="internationalization">
+        <div class="field">
+          <%= label_tag t('settings.available_languages') %>
+          <% Setting.available_languages.each do |l| %>
+            <%= check_box_tag 'i18n_' + l.second, 'yes', l.in?(Setting.selected_languages) %>
+            <%= l.first %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="content" id="mailer">
+        <%= label_tag t('settings.confirmation_instructions') %>
+        <%= label_tag t('settings.confirmation_instructions_help') %>
+        <%= text_area_tag :confirmation_instructions, Setting.confirmation_instructions, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
+        <br><br>
+        <%= label_tag t('settings.event_update') %>
+        <%= label_tag t('settings.event_update_help') %>
+        <%= text_area_tag :event_update, Setting.event_update, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
+      </div>
+
+    </div>
+    <div class="actions">
+      <%= submit_tag t('settings.update_settings'), class: "button right" %>
+    </div>
+  </div>
+</div>
+
+<% end -%>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="site_name" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the Name you want for the site.</p>
+    </li>  
+    <li data-id="site_subtitle" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Enter the Subtitle you want for the site.</p>
+    </li> 
+    <li data-id="site_description" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Describe the site.</p>
+    </li> 
+    <li data-id="site_logo" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Give a logo for the site.</p>
+    </li>
+    <li data-id="site-internationalization" data-text="Next" data-options="tip_location: top; prev_button: true">
+      <p>Select the languages you want the site to support.</p>
+    </li>
+    <li data-id="site-newsletters" data-text="Ok" data-options="tip_location: top; prev_button: true">
+      <p>Customize predefined Newsletter.</p>
+    </li>
+  </ol>
+</div>

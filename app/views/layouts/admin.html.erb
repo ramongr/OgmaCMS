@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OgmaCMS</title>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body id="<%= controller.controller_name %>" data-action="<%= controller.action_name %>">
     <nav class="top-bar admin-top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
@@ -17,8 +17,26 @@
       </ul>
       <section class="top-bar-section">
         <ul class="right">
+          <li>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
         </ul>
         <ul class="left">
+          <li>
+            <%= link_to "Public Website", root_path %>
+          </li>
+          <li>
+            <%= link_to "Static Pages", admin_static_pages_path %>
+          </li>
+          <li>
+            <%= link_to "Posts", admin_posts_path %>
+          </li>
+          <li>
+            <%= link_to "Sidebars", admin_sidebars_path %>
+          </li>
+          <li>
+            <%= link_to "Admin Users", admin_users_path %>
+          </li>
         </ul>
       </section>
     </nav>
@@ -31,6 +49,6 @@
       <% end %>
     </div>
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>

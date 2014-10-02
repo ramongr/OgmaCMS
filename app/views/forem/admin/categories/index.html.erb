@@ -1,0 +1,25 @@
+<h2 class="text-center"><%= t("forem.admin.category.index") %></h2>
+
+<div class="row">
+  <%= link_to t('back_to_admin'), forem.admin_root_path, class: "button tiny" %><br><br>
+  <div class="small-12">
+    <div class="small-6">
+      <%= link_to t("forem.admin.category.new_link"), forem.new_admin_category_path, class: "button tiny left" %>
+      <h3 class="text-center">Forum Categories</h3>
+    </div>
+    <br><br>
+    <% unless @categories.empty? %>
+
+      <% @categories.each_with_index do |category,index| %>
+        <div class="small-12">
+          <%= index > 0 ? "<hr>".html_safe : "" %>
+          <p><%= forem_emojify category.name %></p>
+          <%= link_to t('edit'), forem.edit_admin_category_path(category), class: "button tiny" %>
+          <%= link_to t('delete'), forem.admin_category_path(category), method: :delete,  data: { confirm: "Are you sure?" }, class: "button tiny alert" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to t('forem.admin.forum.index'), forem.admin_forums_path, class: "button tiny" %>
+</div>
+

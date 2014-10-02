@@ -1,23 +1,636 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      attachment: attachment
+      comment: comment
+      event: event   
+      gallery: gallery
+      link: link
+      newsletter: newsletter
+      post: post
+      setting: setting
+      sidebar: menu
+      slider: slider
+      static_page: page
+      user: user
+      visitor_comment: comment
+    attributes:
+      attachment:
+        name: Name
+        description: Description
+        file: File
+        created_at: Created at
+        updated_at: Updated at
+      comment:
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+      event:
+        title: Name
+        body: Description
+        start_time: Beginning
+        end_time: End
+        all_day: All day
+        created_at: Created at
+        updated_at: Updated at
+      gallery:
+        title: Name
+        description: Description
+        date: Date
+        created_at: Created at
+        updated_at: Updated at
+      link:
+        title: Name
+        value: Address
+        created_at: Created at
+        updated_at: Updated at
+        type_mask: Type
+      newsletter:
+        title: Name
+        body: Content
+        created_at: Created at
+        updated_at: Updated at
+      post:
+        title: Name
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+      sidebar:
+        title: Name
+        type_mask: Type
+        created_at: Created at
+        updated_at: Updated at
+      slider:
+        title: Name
+        selected: Seleccionado
+        created_at: Created at
+        updated_at: Updated at
+      user:
+        name: Name
+        email: Email
+        dob: Date of birth
+        gender: Gender
+        nationality: Nationality
+        language: Language
+        password: Password
+        password_confirmation: Password confirmation
+        role: Role
+        created_at: Created at
+        updated_at: Updated at
+      visitor_comment:
+        subject: Subject
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+
+#
+# Time
+#
+  time:
+    formats:
+      date_only: '%A, %e de %B de %Y'
+      time_only: '%H:%Mh'
+
+    from_date: From
+    to_date: To
+    from_time: From
+    to_time: To
+
+#
+# Admin Dashboard
+#
+
+  dashboard:
+    index:
+      title: Dashboard
+
+#
+# Attachments
+#
+
+  attachments:
+    name: Attachments
+
+    attributes:
+      name: Name
+      description: Description
+      file_name: File name
+      content_type: Content type
+      uploaded_by: Uploaded by
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Attachments
+        new: New attachment
+
+    new:
+      admin:
+        title: New attachment
+
+    edit:
+      admin:
+        title: Edit attachment
+
+#
+# Comments
+#
+
+  comments:
+    name: Comments
+
+    attributes:
+      content: Message
+      user: Author
+      created_at: Created at
+      updated_at: Updated at
+
+    new:
+      public:
+        title: New comment
+
+    edit:
+      public:
+        title: Edit comment
+
+
+#
+# Events
+#
+
+  events:
+    name: Events
+
+    attributes:
+      title: Name
+      body: Description
+      date: Date
+      start_time: Beginning
+      end_time: End
+      all_day: All day
+
+    index:
+      admin:
+        title: Events
+        new: New event
+      public:
+        title: Events
+        new: New event
+
+    new:
+      admin:
+        title: New event
+
+    edit:
+      admin:
+        title: Edit event
+
+    calendar: Calendar
+    manage_events: Manage events
+    going?: 'going?'
+    going: Going
+    not_going: Not going
+    indecisive: Indecisive
+    going_number:
+      zero: 0 going
+      one: 1 going
+      other: '%{count} going'
+    not_going_number:
+      zero: 0 not going
+      one: 1 not going
+      other: '%{count} not going'
+    indecisive_number:
+      zero: 0 indecisive
+      one: 1 indecisive
+      other: '%{count} indecisive'
+    you_are_going: You are going
+    you_are_not_going: You are not going
+    you_are_indecisive: You are indecisive
+    changed_your_mind?: 'changed your mind?'
+    im_going: I'm going
+    im_not_going: I'm not going
+    im_indecisive: I'm indecisive
+
+    end_time_after_start_time: date must be after start date
+    
+#
+# Galleries
+#
+
+  galleries:
+    name: Galleries
+    
+    attributes:
+      title: Name
+      description: Description
+      date: Date
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Galleries
+        new: New gallery
+      public:
+        title: Gallleries
+
+    new:
+      admin:
+        title: New gallery
+
+    edit:
+      admin:
+        title: Edit gallery
+
+    add_image: Add image
+    remove_image: Remove image
+    select_image: Select image
+
+#
+# Links
+#
+
+  links:
+    name: Links
+
+    attributes:
+      title: Name
+      value: Address
+      created_at: Created at
+      updated_at: Updated at
+      type_mask: Type
+
+    index:
+      admin:
+        title: Links
+        new: New link
+
+    new:
+      admin:
+        title: New link
+
+    edit:
+      admin:
+        title: Edit link
+
+#
+# Newsletters
+#
+
+  newsletters:
+    name: Newsletters
+
+    attributes:
+      title: Name
+      body: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Newsletters
+        new: New newsletter
+
+    new:
+      admin:
+        title: New newsletter
+
+    edit:
+      admin:
+        title: Edit newsletter
+
+    to: To
+    send: Send
+    cant_send: Add more users before sending
+    sent: Newsletter sent
+#
+# Posts
+#
+
+  posts:
+    name: Posts
+
+    attributes:
+      title: Name
+      content: Content
+      created_at: Created at
+      updated_at: Updated at
+      author: Author
+
+    index:
+      admin:
+        title: Posts
+        new: New post
+      public:
+        title: Posts
+        new: New post
+
+    new:
+      admin:
+        title: New post
+
+    edit:
+      admin:
+        title: Edit post
+
+    search:
+      title: Posts
+
+    add_comment: Comment
+
+#
+# Settings
+#
+
+  settings:
+    name: Settings
+
+    index:
+      admin:
+        title: Settings
+
+    update_settings: Updated settings
+
+    #Site
+    site: Site
+    internationalization: Internationalization
+    mailer: Email
+    site_title: Title
+    site_subtitle: Subtitle
+    site_description: Description
+    site_logo: Logo
+
+    #Internationalization
+    available_languages: Available languages
+
+    #Mailer
+    confirmation_instructions: Confirmation Instructions
+    confirmation_instructions_help: Use *name* to insert the user's name and *confirmation_link* to insert the confirmation link.
+
+    event_update: Event update
+    event_update_help: '*user_name*, *event_title*, *event_description*'
+
+#
+# Sidebars
+#
+
+  sidebars:
+    name: Menus
+
+    attributes:
+      title: Name
+      type_mask: Type
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Menus
+        new: New menu
+
+    new:
+      admin:
+        title: New menu
+
+    edit:
+      admin:
+        title: Edit menu
+
+
+#
+# Sliders
+#
+
+  sliders:
+    name: Sliders
+
+    attributes:
+      title: Name
+      selected: Selected
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Sliders
+        new: New slider
+
+    new:
+      admin:
+        title: New slider
+
+    edit:
+      admin:
+        title: Edit slider
+
+    add_image: Add image
+    remove_image: Remove image
+    select_image: Select image
+
+#
+# Static Pages
+#
+
+  pages:
+    name: Pages
+
+    attributes:
+      title: Name
+      slug: Address name
+      body: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Pages
+        new: New page
+      public:
+        title: Pages
+
+    new:
+      admin:
+        title: New page
+
+    edit:
+      admin:
+        title: Edit page
+
+    search:
+      title: Pages
+
+#
+# Users
+#
+
+  users:
+    name: Users
+
+    attributes:
+      name: Name
+      email: Email
+      dob: Date of birth
+      gender: Gender
+      nationality: Nationality
+      language: Language
+      password: Password
+      password_confirmation: Password confirmation
+      role: Role
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Users
+        new: New user
+
+    new:
+      admin:
+        title: New user
+
+    edit:
+      admin:
+        title: Edit user
+
+    roles:
+      registered: Registered
+      author: Author
+      admin: Admin
+      super_admin: Super Admin
+
+#
+# Visitor comments
+#
+
+  visitor_comments:
+    name: Visitor book
+
+    attributes:
+      subject: Subject
+      content: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      public:
+        title: Visitor book
+        new: New comment
+
+    new:
+      public:
+        title: New comment
+
+    edit:
+      public:
+        title: Edit comment
+
+
+#
+# Common
+#
+
+  common:
+    confirm: Are you sure?
+    show: Show
+    edit: Edit
+    back: Back
+    destroy: Delete
+    'yes': Yes
+    'no': No
+    maybe: Maybe
+    insert_attachment: Insert atttachment
+    select_attachment: Select attachment
+    shortcuts: Shortcuts
+    language: Language
+    search: Search
+    log_in: Login
+    log_out: Logout
+    register: Register
+    read_more: Read more
+    no_results_found: No results found
+    error_save: 
+      one: '1 error prohibited %{model} from being saved'
+      other: '%{count} errors prohibited %{model} from being saved'
+
+#
+# will paginate
+#
+
+  will_paginate:
+    next_label: Next &#8594;
+    page_entries_info:
+      multi_page: Displaying %{model} %{from} - %{to} of %{count} in total
+      multi_page_html: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> in total
+      single_page:
+        one: Displaying 1 %{model}
+        other: Displaying all %{count} %{model}
+        zero: No %{model} found
+      single_page_html:
+        one: Displaying <b>1</b> %{model}
+        other: Displaying <b>all&nbsp;%{count}</b> %{model}
+        zero: No %{model} found
+    page_gap: "&hellip;"
+    previous_label: "&#8592; Previous"
+
+#
+# Devise
+#
+
+  devise:
+    confirmations:
+      confirmed: Your email address has been successfully confirmed.
+      send_instructions: You will receive an email with instructions for how to confirm your email address in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes.
+    failure:
+      already_authenticated: You are already signed in.
+      inactive: Your account is not activated yet.
+      invalid: Invalid email or password.
+      last_attempt: You have one more attempt before your account is locked.
+      locked: Your account is locked.
+      not_found_in_database: Invalid email address or password.
+      timeout: Your session expired. Please sign in again to continue.
+      unauthenticated: You need to sign in or sign up before continuing.
+      unconfirmed: You have to confirm your email address before continuing.
+    mailer:
+      confirmation_instructions:
+        subject: Confirmation instructions
+      reset_password_instructions:
+        subject: Reset password instructions
+      unlock_instructions:
+        subject: Unlock instructions
+    omniauth_callbacks:
+      failure: Could not authenticate you from %{kind} because "%{reason}".
+      success: Successfully authenticated from %{kind} account.
+    passwords:
+      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
+      send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
+      updated: Your password has been changed successfully. You are now signed in.
+      updated_not_active: Your password has been changed successfully.
+    registrations:
+      destroyed: Bye! Your account has been successfully cancelled. We hope to see you again soon.
+      signed_up: Welcome! You have signed up successfully.
+      signed_up_but_inactive: You have signed up successfully. However, we could not sign you in because your account is not yet activated.
+      signed_up_but_locked: You have signed up successfully. However, we could not sign you in because your account is locked.
+      signed_up_but_unconfirmed: A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.
+      update_needs_confirmation: You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address.
+      updated: Your account has been updated successfully.
+    sessions:
+      already_signed_out: Signed out successfully.
+      signed_in: Signed in successfully.
+      signed_out: Signed out successfully.
+    unlocks:
+      send_instructions: You will receive an email with instructions for how to unlock your account in a few minutes.
+      send_paranoid_instructions: If your account exists, you will receive an email with instructions for how to unlock it in a few minutes.
+      unlocked: Your account has been unlocked successfully. Please sign in to continue.
+  errors:
+    messages:
+      already_confirmed: was already confirmed, please try signing in
+      confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
+      expired: has expired, please request a new one
+      not_found: not found
+      not_locked: was not locked
+      not_saved:
+        one: '1 error prohibited this %{resource} from being saved:'
+        other: '%{count} errors prohibited this %{resource} from being saved:'

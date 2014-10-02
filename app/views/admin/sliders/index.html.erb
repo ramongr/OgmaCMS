@@ -1,0 +1,32 @@
+<h1 class="text-center"><%= t('sliders.index.admin.title') %></h1>
+
+<div class="row">
+  <%= link_to t('sliders.index.admin.new'), new_admin_slider_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @sliders.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('sliders.attributes.title') %></th>
+            <th><%= t('sliders.attributes.selected') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @sliders.each do |slider| %>
+            <tr>
+              <td><%= slider.title %></td>
+              <td><%= slider.selected %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,slider], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_slider_path(slider), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,slider], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

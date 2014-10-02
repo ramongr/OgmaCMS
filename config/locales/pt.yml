@@ -1,0 +1,638 @@
+#
+# Falta:
+#   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
+#   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
+#   Traduzir o nomes das línguas para o nome da língua no locale actual
+#
+
+pt:
+  activerecord:
+    models:
+      attachment: anexo
+      comment: comentário
+      event: evento      
+      gallery: galeria
+      link: link
+      newsletter: newsletter
+      post: artigo
+      setting: definição
+      sidebar: menu
+      slider: painel rolante
+      static_page: página
+      user: utilizador
+      visitor_comment: comentário
+    attributes:
+      attachment:
+        name: Nome
+        description: Descrição
+        file: Ficheiro
+        created_at: Criado em
+        updated_at: Modificado em
+      comment:
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+      event:
+        title: Nome
+        body: Descrição
+        start_time: Início
+        end_time: Fim
+        all_day: Todo o dia
+        created_at: Criado em
+        updated_at: Modificado em
+      gallery:
+        title: Nome
+        description: Descrição
+        date: Data
+        created_at: Criado em
+        updated_at: Modificado em
+      link:
+        title: Nome
+        value: Endereço
+        created_at: Criado em
+        updated_at: Modificado em
+        type_mask: Tipo
+      newsletter:
+        title: Nome
+        body: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+      post:
+        title: Nome
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+      sidebar:
+        title: Nome
+        type_mask: Tipo
+        created_at: Criado em
+        updated_at: Modificado em
+      slider:
+        title: Nome
+        selected: Seleccionado
+        created_at: Criado em
+        updated_at: Modificado em
+      user:
+        name: Nome
+        email: Email
+        dob: Data de Nascimento
+        gender: Sexo
+        nationality: Nacionalidade
+        language: Língua
+        password: Password
+        password_confirmation: Confirmação da password
+        role: Permissões
+        created_at: Criado em
+        updated_at: Modificado em
+      visitor_comment:
+        subject: Assunto
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+
+#
+# Time
+#
+  time:
+    formats:
+      date_only: '%A, %e de %B de %Y'
+      time_only: '%H:%Mh'
+
+    from_date: De
+    to_date: Até
+    from_time: Das
+    to_time: Até às
+
+#
+# Admin Dashboard
+#
+
+  dashboard:
+    index:
+      title: Painel de controlo
+
+#
+# Attachments
+#
+
+  attachments:
+    name: Anexos
+
+    attributes:
+      name: Nome
+      description: Descrição
+      file_name: Nome do ficheiro
+      content_type: Tipo de conteúdo
+      uploaded_by: Carregado por
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Anexos
+        new: Novo anexo
+
+    new:
+      admin:
+        title: Novo anexo
+
+    edit:
+      admin:
+        title: Modificar anexo
+
+#
+# Comments
+#
+
+  comments:
+    name: Comentários
+
+    attributes:
+      content: Mensagem
+      user: Autor
+      created_at: Criado em
+      updated_at: Modificado em
+
+    new:
+      public:
+        title: Novo comentário
+
+    edit:
+      public:
+        title: Modificar comentário
+
+
+#
+# Events
+#
+
+  events:
+    name: Eventos
+
+    attributes:
+      title: Nome
+      body: Descrição
+      date: Data
+      start_time: Início
+      end_time: Fim
+      all_day: Todo o dia
+
+    index:
+      admin:
+        title: Eventos
+        new: Novo evento
+      public:
+        title: Eventos
+        new: Novo evento
+
+    new:
+      admin:
+        title: Novo evento
+
+    edit:
+      admin:
+        title: Modificar evento
+
+    calendar: Calendário
+    manage_events: Gerir eventos
+    going?: 'vais?'
+    going: Vão
+    not_going: Não vão
+    indecisive: Indecididos
+    going_number:
+      zero: 0 vão
+      one: 1 vai
+      other: '%{count} vão'
+    not_going_number:
+      zero: 0 não vão
+      one: 1 não vai
+      other: '%{count} não vão'
+    indecisive_number:
+      zero: 0 indecisos
+      one: 1 indeciso
+      other: '%{count} indecisos'
+    you_are_going: Tu vais
+    you_are_not_going: Tu não vais
+    you_are_indecisive: Estás indecidido
+    changed_your_mind?: 'mudaste de ideias?'
+    im_going: Vou
+    im_not_going: Eu não vou
+    im_indecisive: Talvez vá
+
+    end_time_after_start_time: tem que ser depois de início
+    
+#
+# Galleries
+#
+
+  galleries:
+    name: Galerias
+    
+    attributes:
+      title: Nome
+      description: Descrição
+      date: Data
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Galerias
+        new: Nova galeria
+      public:
+        title: Galerias
+
+    new:
+      admin:
+        title: Nova galeria
+
+    edit:
+      admin:
+        title: Modificar galeria
+
+    add_image: Adicionar imagem
+    remove_image: Remover imagem
+    select_image: Seleccione uma imagem.
+
+#
+# Links
+#
+
+  links:
+    name: Links
+
+    attributes:
+      title: Nome
+      value: Endereço
+      created_at: Criado em
+      updated_at: Modificado em
+      type_mask: Tipo
+
+    index:
+      admin:
+        title: Links
+        new: Novo link
+
+    new:
+      admin:
+        title: Novo link
+
+    edit:
+      admin:
+        title: Modificar link
+
+#
+# Newsletters
+#
+
+  newsletters:
+    name: Newsletters
+
+    attributes:
+      title: Nome
+      body: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Newsletters
+        new: Nova newsletter
+
+    new:
+      admin:
+        title: Nova newsletter
+
+    edit:
+      admin:
+        title: Modificar newsletter
+
+    to: Para
+    send: Enviar
+    cant_send: Adicione utilizadores antes de enviar
+    sent: Newsletter enviada
+
+#
+# Posts
+#
+
+  posts:
+    name: Posts
+
+    attributes:
+      title: Nome
+      content: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+      author: Autor
+
+    index:
+      admin:
+        title: Posts
+        new: Novo post
+      public:
+        title: Posts
+        new: Novo post
+
+    new:
+      admin:
+        title: Novo post
+
+    edit:
+      admin:
+        title: Modificar post
+
+    search:
+      title: Posts
+
+    add_comment: Comentar
+
+#
+# Settings
+#
+
+  settings:
+    name: Definições
+
+    index:
+      admin:
+        title: Definições
+
+    update_settings: Actualizar definições
+
+    #Site
+    site: Site
+    internationalization: Internacionalização
+    mailer: Email
+    site_title: Título
+    site_subtitle: Subtítulo
+    site_description: Descrição
+    site_logo: Logo
+
+    #Internationalization
+    available_languages: Línguas disponíveis
+
+    #Mailer
+    confirmation_instructions: Instruções de confirmação de e-mail
+    confirmation_instructions_help: Use *name* para referir ao nome do utilizador e *confirmation_link* para inserir o link de confirmação no e-mail.
+
+    event_update: Actualizações de eventos
+    event_update_help: '*user_name*, *event_title*, *event_description*'
+
+#
+# Sidebars
+#
+
+  sidebars:
+    name: Menus
+
+    attributes:
+      title: Nome
+      type_mask: Tipo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Menus
+        new: Novo menu
+
+    new:
+      admin:
+        title: Novo menu
+
+    edit:
+      admin:
+        title: Modificar menu
+
+
+#
+# Sliders
+#
+
+  sliders:
+    name: Painéis rolantes
+
+    attributes:
+      title: Nome
+      selected: Seleccionado
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Painéis rolantes
+        new: Novo painel
+
+    new:
+      admin:
+        title: Novo painel
+
+    edit:
+      admin:
+        title: Modificar painel
+
+    add_image: Adicionar imagem
+    remove_image: Remover imagem
+    select_image: Seleccione uma imagem.
+
+#
+# Static Pages
+#
+
+  pages:
+    name: Páginas
+
+    attributes:
+      title: Nome
+      slug: Nome no endereço
+      body: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Páginas
+        new: Nova página
+      public:
+        title: Páginas
+
+    new:
+      admin:
+        title: Nova página
+
+    edit:
+      admin:
+        title: Modificar página
+
+    search:
+      title: Páginas
+
+#
+# Users
+#
+
+  users:
+    name: Utilizadores
+
+    attributes:
+      name: Nome
+      email: Email
+      dob: Data de nascimento
+      gender: Sexo
+      nationality: Nacionalidade
+      language: Língua
+      password: Password
+      password_confirmation: Confirmação da password
+      role: Permissões
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Utilizadores
+        new: Novo utilizador
+
+    new:
+      admin:
+        title: Novo utilizador
+
+    edit:
+      admin:
+        title: Modificar utilizador
+
+    roles:
+      registered: Registado
+      author: Autor
+      admin: Admin
+      super_admin: Super Admin
+
+#
+# Visitor comments
+#
+
+  visitor_comments:
+    name: Livro de visitas
+
+    attributes:
+      subject: Assunto
+      content: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      public:
+        title: Livro de visitas
+        new: Novo comentário
+
+    new:
+      public:
+        title: Novo comentário
+
+    edit:
+      public:
+        title: Modificar comentário
+
+
+#
+# Common
+#
+
+  common:
+    confirm: Tem a certeza?
+    show: Ver
+    edit: Modificar
+    back: Retroceder
+    destroy: Apagar
+    'yes': Sim
+    'no': Não
+    maybe: Talvez
+    insert_attachment: Inserir anexo
+    select_attachment: Seleccionar anexo
+    shortcuts: Atalhos
+    language: Língua
+    search: Pesquisar
+    log_in: Login
+    log_out: Logout
+    register: Registar
+    read_more: Ler mais
+    no_results_found: Não foram encontrados resultados
+    error_save: 
+      one: '1 erro não permitiu criar o %{model}'
+      other: '%{count} erros não permitiram criar o %{model}'
+
+#
+# will paginate
+#
+
+  will_paginate:
+    next_label: próximo →
+    page_entries_info:
+      multi_page: Mostrando %{model} %{from} - %{to} de %{count} no total
+      multi_page_html: Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> no total
+      single_page: 
+      single_page_html: 
+    page_gap: "&hellip;"
+    previous_label: "← anterior"
+
+#
+# Devise
+#
+
+  devise:
+    confirmations:
+      confirmed: A sua conta foi confirmada com sucesso.
+      send_instructions: Dentro de alguns minutos irá receber um email com instruções para confirmar a sua conta.
+      send_paranoid_instructions: Se o seu email existir na nossa base de dados, irá receber dentro de alguns minutos um email com instruções para confirmar a sua conta.
+    failure:
+      already_authenticated: Já se encontra autenticado.
+      inactive: A sua conta ainda não foi activada.
+      invalid: O endereço de email ou a palavra-passe são inválidos.
+      last_attempt: Tem mais uma tentativa antes da sua conta ser bloqueada.
+      locked: A sua conta está bloqueada.
+      not_found_in_database: O endereço de email ou a palavra-passe são inválidos.
+      timeout: A sua sessão expirou, por favor autentique-se novamente para continuar.
+      unauthenticated: Antes de continuar tem de se autenticar ou efectuar um registo.
+      unconfirmed: Tem de confirmar a sua conta antes de continuar.
+    mailer:
+      confirmation_instructions:
+        subject: Instruções de confirmação
+      reset_password_instructions:
+        subject: Instruções de recuperação de palavra-passe
+      unlock_instructions:
+        subject: Instruções de desbloqueio
+    omniauth_callbacks:
+      failure: Não foi possível autenticar a sua conta por %{kind} porque "%{reason}".
+      success: A sua conta foi autenticada por %{kind} com sucesso.
+    passwords:
+      no_token: Não pode aceder a esta página sem vir do email de redefinição da senha. Se vem dum email para redefinir a senha, por favor certifique-se que usou o URL completo que foi enviado.
+      send_instructions: Dentro de alguns minutos irá receber um email com instruções de reinicialização da palavra-passe.
+      send_paranoid_instructions: Se o seu e-mail existir na nossa base de dados, irá receber dentro de alguns minutos um e-mail com instruções para recuperar a sua senha.
+      updated: A sua palavra-passe foi alterada com sucesso. Agora está autenticado.
+      updated_not_active: A sua password foi alterada com sucesso.
+    registrations:
+      destroyed: A sua conta foi cancelada com sucesso.
+      signed_up: Bemvindo! A autenticação foi efectuada com sucesso.
+      signed_up_but_inactive: Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque ainda não confirmou a sua conta.
+      signed_up_but_locked: Registou-se com sucesso. No entanto, não podemos iniciar a sua sessão porque a sua conta encontra-se bloqueada.
+      signed_up_but_unconfirmed: Foi enviado um email com um link para confirmar o seu email. Por favor abra o link para activar a sua conta.
+      update_needs_confirmation: A sua conta foi actualizada com sucesso, mas precisamos de confirmar o seu email. Por favor veja o seu email e clique no link para finalizar a confirmação do seu email.
+      updated: A sua conta foi actualizada com sucesso.
+    sessions:
+      already_signed_out: 
+      signed_in: Autenticação efectuada com sucesso.
+      signed_out: Saiu da sessão com sucesso.
+    unlocks:
+      send_instructions: Dentro de alguns minutos irá receber um email com as instruções para desbloquear a sua conta.
+      send_paranoid_instructions: Se a sua conta existir, irá receber dentro de alguns minutos um email com instruções para a desbloquear.
+      unlocked: A sua conta foi desbloqueada com sucesso. Por favor autentique-se para continuar.
+  errors:
+    messages:
+      already_confirmed: já foi confirmado, por favor tente efectuar a autenticação
+      confirmation_period_expired: necessitava de confirmação até %{period}, por favor faça um novo pedido
+      expired: expirou, por favor solicite um novo
+      not_found: não foi encontrado
+      not_locked: não foi bloqueado
+      not_saved:
+        one: '1 erro impediu %{resource} de ser gravado:'
+        other: '%{count} erros impediram %{resource} de ser gravado:'

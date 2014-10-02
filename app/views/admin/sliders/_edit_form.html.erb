@@ -1,0 +1,69 @@
+<%= form_for([:admin,@slider]) do |f| %>
+  <% if @slider.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @slider.errors.count, model: Slider.model_name.human %></h4>
+
+      <ul>
+      <% @slider.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="slider_title" class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div id="slider_selected" class="field">    
+    <%= f.label t('sliders.attributes.selected') %>
+  </div>
+  
+  <button id="add-image"><%= t('sliders.add_image') %></button>
+
+  <ul id="sortable">
+    <% @added_images.each do |image| %>
+      <li class="ui-state-default" id="<%= image.id %>">
+        <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+        <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('sliders.remove_image') %></button>
+      </li>
+    <% end %>
+  </ul>
+
+  <br>
+  <br>
+
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+
+<% end %>
+
+
+<div id="dialog" title="<%= t('sliders.add_image') %>" style="display:none">
+  <p class="validateTips"><%= t('sliders.select_image') %></p>
+  <ol id="selectable">
+    <% @images.each do |image| %>
+      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(image)%>"' data-attachment-id="<%= image.id %>" ><%= image.file_file_name %></li>
+    <% end %>
+  </ol>
+</div>
+
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="slider_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>You can edit the name you want for the slider.</p>
+    </li>
+    <li data-id="slider_selected" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>You can select wich slider should appear Only one will remain active.</p>
+    </li>  
+    <li data-id="add-image" data-text="Next" data-options="tip_location: top;">
+      <p>Add images from attachments to this slider.</p>
+    </li>
+    <li data-button="End" data-options="tip_location: top;">
+      <p>After images are added, you can reorder them by dragging and drop.</p>
+    </li>
+  </ol>
+</div>

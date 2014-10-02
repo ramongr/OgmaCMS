@@ -1,0 +1,80 @@
+<ul class="tabs" data-tab>
+  <% Setting.selected_languages.each_with_index do |l,index| %>
+    <% if index == 0 %>
+      <li class="tab-title active"><a href="#langtab0"><%= l.first %></a></li>
+    <% else %>
+      <li class="tab-title"><a href="#langtab<%= index %>"><%= l.first %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= form_for([:admin,@admin_static_page]) do |f| %>
+  <% if @admin_static_page.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @admin_static_page.errors.count, model: StaticPage.model_name.human %></h4>
+      <ul>
+      <% @admin_static_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="tabs-content"> 
+    <% Setting.selected_languages.each_with_index do |l, index| %>
+      
+      <%= content_tag :div, class: "content "+ (index == 0 ? "active": ""), id: "langtab"+index.to_s do %> 
+        <% title_locale = ("title_" + l.second).to_sym %>
+        <% body_locale = ("body_" + l.second).to_sym %>
+        <div id="page_title" class="field">
+          <%= f.label t('pages.attributes.title') %>
+          <%= f.text_field title_locale %>
+        </div>
+        <div id="page_slug" class="field">
+          <%= f.label t('pages.attributes.slug') %>
+          <%= f.text_field :slug %>
+        </div>
+        <div id="page_body" class="field">
+          <%= f.label t('pages.attributes.body') %>
+          <%= f.text_area body_locale, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+        </div>
+        <br>
+        <div id="insert-attachment-<%=l.second%>">
+          <button><%= t('common.insert_attachment') %></button>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
+  </div>
+<% end %>
+
+<div id="dialog" title="<%= t('common.select_attachment') %>" style="display:none">
+  <ol id="selectable">
+    <% @attachments.each do |attachment| %>
+      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
+    <% end %>
+  </ol>
+</div>
+
+
+<!-- At the bottom of your page but inside of the body tag -->
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="page_title" data-text="Next" data-options="tip_location: top; prev_button: false; cookieMonster: true;
+      cookieName: 'JoyRide';
+      cookieDomain: false">
+      <p>Enter the title of the Static Page.</p>
+    </li>  
+    <li data-id="page_slug" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>This field is optional. </p>
+    </li>
+    <li data-id="page_body" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the body of the Static Page.</p>
+    </li>
+    <li data-id="insert-attachment" data-text="Ok" data-options="tip_location: top; prev_button: false">
+      <p>Attachments can be loaded into the body using this button.</p>
+    </li> 
+  </ol>
+</div>

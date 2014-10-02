@@ -1,0 +1,46 @@
+<%= form_for([:admin,@event]) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @event.errors.count, model: Event.model_name.human %></h4>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 6 %>
+  </div>
+  <div class="field">
+    <%= f.check_box :all_day %> <%= t('events.attributes.all_day') %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %>
+    <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
+    <% if @event.all_day %>
+      <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "time_hide small-6 columns", id: "time_select"}  %>
+    <% else %>
+      <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %>
+    <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
+    <% if @event.all_day %>
+      <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "time_hide small-6 columns", id: "time_select"} %>
+    <% else %>
+      <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>

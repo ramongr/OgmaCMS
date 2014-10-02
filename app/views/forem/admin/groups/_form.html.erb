@@ -1,0 +1,5 @@
+<%= simple_form_for([forem, :admin, @group]) do |f| %>
+  <%= f.input :name %>
+  <%= link_to "Back", :back, class: "button small" %>
+  <%= f.submit class: "button small right" %>
+<% end %>

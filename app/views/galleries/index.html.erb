@@ -1,0 +1,24 @@
+<h1 class="text-center"><%= t('galleries.index.public.title') %></h1>
+<div class="row">
+
+<% unless @galleries.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('galleries.attributes.title') %></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @galleries.each do |gallery| %>
+          <tr>
+            <td><%= gallery.title %></td>
+            <td><%= link_to t('common.show'), gallery, class: "button tiny" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br>
+</div>

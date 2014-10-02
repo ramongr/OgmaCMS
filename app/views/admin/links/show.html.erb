@@ -1,0 +1,17 @@
+<br>
+<div class="row">
+  <%= link_to t('links.name'), admin_links_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_link_path(@link), class: "button small" %>
+  
+  <div class="small-12">
+    <h1 class="text-center"><%= @link.title %></h1>
+
+      <p>
+        <strong><%= t('links.attributes.value') %>:</strong>
+        <%= @link.value %>
+      </p>
+  </div>
+</div>
+
+
+

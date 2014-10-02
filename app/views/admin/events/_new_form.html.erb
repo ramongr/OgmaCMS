@@ -1,0 +1,47 @@
+<%= form_for([:admin,@event]) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @event.errors.count, model: Event.model_name.human %></h4>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 6 %>
+  </div>
+  <div class="field">
+    <%= f.check_box :all_day %> <%= t('events.attributes.all_day') %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %>
+    <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
+    <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %>
+    <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
+    <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-button="End" data-options="prev_button: false">
+      <h4>Events and Calendar</h4>
+      <p>You can create and manage Events in the calendar view! Go there and see that's easier to create or change an Event</p>
+    </li>
+  </ol>
+</div>

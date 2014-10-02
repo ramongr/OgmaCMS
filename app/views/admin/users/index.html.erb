@@ -1,0 +1,32 @@
+<h1 class="text-center"><%= t('users.index.admin.title') %></h1>
+
+<div class="row">
+  <%= link_to t('users.index.admin.new'), new_admin_user_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @admin_users.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('users.attributes.name') %></th>
+            <th><%= t('users.attributes.email') %></th>
+            <th><%= t('users.attributes.role') %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @admin_users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.translated_role %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,user], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_user_path(user), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,user], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<%= form_for([:admin,@admin_post]) do |f| %>
+  <% if @admin_post.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @admin_post.errors.count, model: Post.model_name.human %></h4>
+
+      <ul>
+      <% @admin_post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, rows: 6 %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>

@@ -1,0 +1,67 @@
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+
+<h1><%= t('pages.search.title') %></h1>
+  <% unless @static_pages.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('pages.attributes.title') %></th>
+          <th><%= t('pages.attributes.body') %></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @static_pages.each do |static_page| %>
+          <tr>
+            <td><%= static_page.title %></td>
+            <td><%= strip_tags(static_page.body.truncate(300)) %></td>
+            <td>
+              <%= link_to t('common.show'), [:admin,static_page], class: "button tiny" %>
+              <%= link_to t('common.edit'), edit_admin_static_page_path(static_page), class: "button tiny" %>
+              <%= link_to t('common.destroy'), [:admin,static_page], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t('common.no_results_found') %></p>
+  <% end %>
+  <br>
+
+
+  <h1><%= t('posts.search.title') %></h1>
+
+  <% unless @posts.empty? %>
+    <table>
+      <thead>
+        <tr>
+          <th><%= t('posts.attributes.title') %></th>
+          <th><%= t('posts.attributes.content') %></th>
+          <th><%= t('posts.attributes.author') %></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= strip_tags(post.content.truncate(200)) %></td>
+            <td><%= post.user.name %></td>
+            <td>
+              <%= link_to t('common.show'), [:admin,post], class: "button tiny" %>
+              <%= link_to t('common.edit'), edit_admin_post_path(post), class: "button tiny" %>
+              <%= link_to t('common.destroy'), [:admin,post], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%= t('common.no_results_found') %></p>
+  <% end %>
+

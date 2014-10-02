@@ -1,0 +1,24 @@
+<h2 class="text-center"><%= t('forem.admin.group.index') %></h2>
+<br><br>
+<div class="row">
+  <div class="small-12" id="forum-group-container">
+    <%= link_to t('back_to_admin'), forem.admin_root_path, class: "button small" %>
+    <%= link_to t('forem.admin.group.new'), forem.new_admin_group_path, class: "button small" %>
+    <br><br>
+    <% unless @groups.empty? %>
+      <% @groups.each_with_index do |group, index| %>
+
+        <%= index > 0 ? "<hr>".html_safe : "" %>
+        <div class="small-7" id="group-details">
+          <div class="small-3 columns" id="group-name">
+            <p><%= forem_emojify group.name %></p>
+          </div>
+          <div class="small-3 columns" id="group-actions">
+            <%= link_to t('edit'), forem.admin_group_path(group), class: "button tiny" %>
+            <%= link_to t('delete'), forem.admin_group_path(group), method: :delete, class: "button tiny alert" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

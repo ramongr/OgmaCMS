@@ -1,0 +1,31 @@
+<br>
+<div class="row">
+  <%= link_to t('sliders.name'), admin_sliders_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_slider_path(@slider), class: "button small" %> 
+  
+  <div class="small-12">
+    <h1 class="text-center"><%= @slider.title %></h1>
+    <p>
+      <strong><%= t('sliders.attributes.selected') %>:</strong>
+      <%= @slider.selected %>
+    </p>
+
+    <ul data-orbit data-options="animation:slide;
+                  pause_on_hover:false;
+                  timer_speed:5000;
+                  animation_speed:1500;
+                  navigation_arrows:true;
+                  bullets:true;">
+      <% @added_images.each do |image| %>
+        <li data-orbit-slide="headline-1">
+          <div>
+            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+

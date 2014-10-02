@@ -4,25 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>OgmaCMS</title>
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <nav class="top-bar admin-top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">OgmaCMS</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-        </ul>
-        <ul class="left">
-        </ul>
-      </section>
-    </nav>
+  <body id="<%= controller.controller_name %>" data-action="<%= controller.action_name %>">
+    <%= render 'layouts/topbar' %>
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>
 </html>

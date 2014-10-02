@@ -1,0 +1,38 @@
+<%= form_for([:admin,@link]) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @link.errors.count, model: Link.model_name.human %></h4>
+
+      <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="link_title" class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div id="link_value" class="field">
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>
+
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="link_title" data-text="Next" data-options="tip_location: top; prev_button: false">
+      <p>Enter the title you want for the link.</p>
+    </li>  
+    <li data-id="link_value" data-text="Ok" data-options="tip_location: top">
+      <p>Insert the value(URL) for the link.</p>
+    </li>
+  </ol>
+</div>

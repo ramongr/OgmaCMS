@@ -1,0 +1,29 @@
+<%= form_for([:admin,@admin_static_page]) do |f| %>
+  <% if @admin_static_page.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @admin_static_page.errors.count, model: StaticPage.model_name.human %></h4>
+
+      <ul>
+      <% @admin_static_page.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :slug %>
+    <%= f.text_field :slug %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "button right" %>
+  </div>
+<% end %>

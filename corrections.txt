@@ -1,0 +1,727 @@
+Inspecting 226 files
+..C.......C.C....CC.C.C..C..CC..CCCCC.C..CCCCC...CC.C..CCCC..C..CC.C..CCCCC.CCC.CC....CCCCC.....CCCC.CC..................WCCCCCCCWCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC..C.......WW..................C........C...C
+
+Offenses:
+
+config/application.rb:10:3: C: Missing top-level class documentation comment.
+  class Application < Rails::Application
+  ^^^^^
+config/initializers/secret_token.rb:12:116: C: Line is too long. [176/115]
+OgmaCMS::Application.config.secret_key_base = 'b727a47d75a1a013ed74072e52f7aca052a20bd4c7df6dacfbeba01fa1d00f7edc8b1204a1d82c602730885116b7a639e44049603567b18fd45879c74fbf6e64'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config/initializers/devise.rb:12:116: C: Line is too long. [154/115]
+  # config.secret_key = '75a8e96d2db054e03624730084f727110548c6d6f466d524d41c1a6c249dc74f09438bc187c267d347e955a2f05e8282559983f824474aa337503d57ea023754'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config/initializers/devise.rb:105:116: C: Line is too long. [150/115]
+  # config.pepper = '4a589ca75df64be5a2b4211d1c014e098aed26627b769ad11da3b283e6784ddc19712f6ea38d3a1c10eeaf6c392ff6c5c33981324e29e29a234e1f2e5f27e0bc'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:8:116: C: Line is too long. [217/115]
+  super_admin = User.new name: 'Super Admin', email: 'super_admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'super_admin', confirmed_at: Time.now, language: 'pt'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:14:116: C: Line is too long. [193/115]
+  admin = User.new name: 'Admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'admin', confirmed_at: Time.now, language: 'pt'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:20:116: C: Line is too long. [198/115]
+  author = User.new name: 'Author', email: 'author@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'author', confirmed_at: Time.now, language: 'pt'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:26:116: C: Line is too long. [214/115]
+  registered = User.new name: 'Registered', email: 'registered@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'registered', confirmed_at: Time.now, language: 'pt'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:37:116: C: Line is too long. [124/115]
+  logout_link = Link.new title: 'Sign In', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
+                                                                                                                   ^^^^^^^^^
+db/seeds.rb:43:116: C: Line is too long. [130/115]
+  signin_link = Link.new title: 'Register', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_registration_path)
+                                                                                                                   ^^^^^^^^^^^^^^^
+db/seeds.rb:49:116: C: Line is too long. [130/115]
+  signin_link = Link.new title: 'Visitors Book', type_mask: 0, value: (Rails.application.routes.url_helpers.visitor_comments_path)
+                                                                                                                   ^^^^^^^^^^^^^^^
+db/seeds.rb:55:116: C: Line is too long. [125/115]
+  signin_link = Link.new title: 'Public Pages', type_mask: 0, value: (Rails.application.routes.url_helpers.static_pages_path)
+                                                                                                                   ^^^^^^^^^^
+db/seeds.rb:78:116: C: Line is too long. [162/115]
+  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:84:116: C: Line is too long. [163/115]
+  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:90:116: C: Line is too long. [161/115]
+  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:96:116: C: Line is too long. [164/115]
+  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:105:116: C: Line is too long. [497/115]
+test_text = 'O caminho do homem justo é rodeado por todos os lados pelas iniquidades dos egoístas e pela tirania dos homens maus. Abençoado é aquele que, em nome da caridade e da boa vontade, pastoreia os fracos pelo vale da escuridão, pois ele é verdadeiramente o guardião de seu irmão e salvador dos filhos perdidos. E eu atacarei, com grande vingança e raiva furiosa aqueles que tentam envenenar e destruir meus irmãos. E você saberá que meu nome é o Senhor quando minha vingança cair sobre ti.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:107:116: C: Line is too long. [549/115]
+Você acha que a água se move rápido? Você deverá ver o gelo. Move-se como ele tem uma mente. Como ele sabe que matou o mundo de uma vez tem um gosto para o assassinato. Após a avalanche, levamos uma semana para sair. Agora, eu não sei exatamente quando ligamos um ao outro, mas eu sei que sete de nós sobrevivemos o slide ... e apenas cinco conseguiram sair. Agora, fiz um juramento, que eu estou quebrando agora. Dissemos que diria que foi a neve que matou os outros dois, mas não foi. A natureza é letal, mas ele não segurar uma vela para o homem.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:109:116: C: Line is too long. [484/115]
+O caminho do homem justo é rodeado por todos os lados pelas iniquidades dos egoístas e pela tirania dos homens maus. Abençoado é aquele que, em nome da caridade e da boa vontade, pastoreia os fracos pelo vale da escuridão, pois ele é verdadeiramente o guardião de seu irmão e salvador dos filhos perdidos. E eu atacarei, com grande vingança e raiva furiosa aqueles que tentam envenenar e destruir meus irmãos. E você saberá que meu nome é o Senhor quando minha vingança cair sobre ti.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:111:116: C: Line is too long. [314/115]
+Agora que há a Tec-9, uma pistola de baixa qualidade a partir de South Miami. Esta arma é anunciado como a arma mais popular em crime americano. Você acredita nessa merda? Na verdade, diz que, no pequeno livro que vem com ele: a arma mais popular em crime americano. Como eles são realmente orgulhosos dessa merda.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:113:116: C: Line is too long. [370/115]
+Normalmente, ambos os seus traseiros seria morto como porra frango frito, mas acontecer de você puxar essa merda, enquanto eu estou em um período de transição para que eu não quero te matar, eu quero te ajudar. Mas eu não posso te dar neste caso, ele não pertence a mim. Além disso, eu já passei por muita merda nesta manhã sobre este caso para entregá-lo a seu imbecil.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:115:116: C: Line is too long. [314/115]
+Agora que há a Tec-9, uma pistola de baixa qualidade a partir de South Miami. Esta arma é anunciado como a arma mais popular em crime americano. Você acredita nessa merda? Na verdade, diz que, no pequeno livro que vem com ele: a arma mais popular em crime americano. Como eles são realmente orgulhosos dessa merda.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:117:116: C: Line is too long. [370/115]
+Bem, a maneira como eles fazem shows é, eles fazem um show. Esse programa se chama um piloto. Em seguida, eles mostram que o show para as pessoas que fazem shows, e sobre a força do que um show que decidir se eles vão fazer mais shows. Alguns pilotos são apanhados e tornar-se programas de televisão. Alguns não, tornar-se nada. Ela estrelou um dos que se tornaram nada.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:119:116: C: Line is too long. [444/115]
+Você vê alguma Teletubbies aqui? Você vê uma tag plástico fino preso à minha camisa com meu nome impresso nele? Você vê uma criança asiática com uma expressão vazia no rosto sentado fora em um helicóptero mecânico que treme quando você colocar trimestres nele? Não? Bem, isso é o que você vê em uma loja de brinquedos. E você deve pensar que você está em uma loja de brinquedos, porque você está aqui fazer compras para uma criança chamada Jeb.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:121:116: C: Line is too long. [314/115]
+Agora que há a Tec-9, uma pistola de baixa qualidade a partir de South Miami. Esta arma é anunciado como a arma mais popular em crime americano. Você acredita nessa merda? Na verdade, diz que, no pequeno livro que vem com ele: a arma mais popular em crime americano. Como eles são realmente orgulhosos dessa merda.
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/seeds.rb:123:116: C: Line is too long. [440/115]
+Seus ossos não quebrar, o meu fazer. Isso é claro. Suas células reagem a bactérias e vírus de forma diferente do que o meu. Você não ficar doente, eu faço. Isso também é clara. Mas por alguma razão, você e eu reajo da mesma maneira à água. Nós engoli-lo muito rápido, nós sufocar. Nós temos alguns em nossos pulmões, que se afogar. No entanto irreal que pareça, estamos conectados, você e eu estamos na mesma curva, só em extremos opostos.'
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+db/migrate/20140815132950_add_title_to_links.rb:1:1: C: Missing top-level class documentation comment.
+class AddTitleToLinks < ActiveRecord::Migration
+^^^^^
+db/migrate/20140802223924_add_role_to_users.rb:1:1: C: Missing top-level class documentation comment.
+class AddRoleToUsers < ActiveRecord::Migration
+^^^^^
+db/migrate/20140807114304_create_events.rb:1:1: C: Missing top-level class documentation comment.
+class CreateEvents < ActiveRecord::Migration
+^^^^^
+db/migrate/20140719153966_add_forem_auto_subscribe.forem.rb:4:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless column_exists?(user_class, :forem_auto_subscribe)
+    ^^^^^^
+db/migrate/20140722145318_create_static_pages_translation.rb:1:1: C: Missing top-level class documentation comment.
+class CreateStaticPagesTranslation < ActiveRecord::Migration
+^^^^^
+db/migrate/20140811143044_add_confirmable_to_devise.rb:1:1: C: Missing top-level class documentation comment.
+class AddConfirmableToDevise < ActiveRecord::Migration
+^^^^^
+db/migrate/20140717155645_create_posts.rb:1:1: C: Missing top-level class documentation comment.
+class CreatePosts < ActiveRecord::Migration
+^^^^^
+db/migrate/20140901144919_create_galleries.rb:1:1: C: Missing top-level class documentation comment.
+class CreateGalleries < ActiveRecord::Migration
+^^^^^
+db/migrate/20140815201830_add_typemask_to_links.rb:1:1: C: Missing top-level class documentation comment.
+class AddTypemaskToLinks < ActiveRecord::Migration
+^^^^^
+db/migrate/20140712151120_devise_create_users.rb:1:1: C: Missing top-level class documentation comment.
+class DeviseCreateUsers < ActiveRecord::Migration
+^^^^^
+db/migrate/20140712151120_devise_create_users.rb:2:3: C: Method has too many lines. [15/10]
+  def change
+  ^^^
+db/migrate/20140820163053_add_unaccent_extension.rb:1:1: C: Missing top-level class documentation comment.
+class AddUnaccentExtension < ActiveRecord::Migration
+^^^^^
+db/migrate/20140825223324_create_newsletters.rb:1:1: C: Missing top-level class documentation comment.
+class CreateNewsletters < ActiveRecord::Migration
+^^^^^
+db/migrate/20140805052801_add_name_dob_nationality_gender_to_user.rb:1:1: C: Missing top-level class documentation comment.
+class AddNameDobNationalityGenderToUser < ActiveRecord::Migration
+^^^^^
+db/migrate/20140901151220_create_photos.rb:1:1: C: Missing top-level class documentation comment.
+class CreatePhotos < ActiveRecord::Migration
+^^^^^
+db/migrate/20140926174241_change_galleries_datetime_to_date.rb:1:1: C: Missing top-level class documentation comment.
+class ChangeGalleriesDatetimeToDate < ActiveRecord::Migration
+^^^^^
+db/migrate/20140714172010_create_static_pages.rb:1:1: C: Missing top-level class documentation comment.
+class CreateStaticPages < ActiveRecord::Migration
+^^^^^
+db/migrate/20140719153965_add_forem_state.forem.rb:4:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless column_exists?(user_class, :forem_state)
+    ^^^^^^
+db/migrate/20140726102317_create_links.rb:1:1: C: Missing top-level class documentation comment.
+class CreateLinks < ActiveRecord::Migration
+^^^^^
+db/migrate/20140902140359_add_unsubscribe_token_to_devise.rb:1:1: C: Missing top-level class documentation comment.
+class AddUnsubscribeTokenToDevise < ActiveRecord::Migration
+^^^^^
+db/migrate/20140825231329_create_newsletters_users.rb:1:1: C: Missing top-level class documentation comment.
+class CreateNewslettersUsers < ActiveRecord::Migration
+^^^^^
+db/migrate/20140726122813_create_sidebars_static_pages.rb:1:1: C: Missing top-level class documentation comment.
+class CreateSidebarsStaticPages < ActiveRecord::Migration
+^^^^^
+db/migrate/20140716105427_create_sidebars.rb:1:1: C: Missing top-level class documentation comment.
+class CreateSidebars < ActiveRecord::Migration
+^^^^^
+db/migrate/20140719153964_add_forem_admin.forem.rb:4:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless column_exists?(user_class, :forem_admin)
+    ^^^^^^
+db/migrate/20140726212315_create_comments.rb:1:1: C: Missing top-level class documentation comment.
+class CreateComments < ActiveRecord::Migration
+^^^^^
+db/migrate/20140719153967_add_friendly_id_slugs.forem.rb:3:3: C: Method has too many lines. [12/10]
+  def change
+  ^^^
+db/migrate/20140902214225_create_sliders.rb:1:1: C: Missing top-level class documentation comment.
+class CreateSliders < ActiveRecord::Migration
+^^^^^
+db/migrate/20140726143302_create_posts_translation.rb:1:1: C: Missing top-level class documentation comment.
+class CreatePostsTranslation < ActiveRecord::Migration
+^^^^^
+db/migrate/20140902145553_add_newsletters_subscribed_to_user.rb:1:1: C: Missing top-level class documentation comment.
+class AddNewslettersSubscribedToUser < ActiveRecord::Migration
+^^^^^
+db/migrate/20140719153950_add_category_id_to_forums.forem.rb:6:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if Forem::Forum.count > 0
+    ^^
+db/migrate/20140726105503_create_links_sidebars.rb:1:1: C: Missing top-level class documentation comment.
+class CreateLinksSidebars < ActiveRecord::Migration
+^^^^^
+db/migrate/20140812112531_create_settings.rb:1:1: C: Missing top-level class documentation comment.
+class CreateSettings < ActiveRecord::Migration
+^^^^^
+db/migrate/20140815105329_create_attendings.rb:1:1: C: Missing top-level class documentation comment.
+class CreateAttendings < ActiveRecord::Migration
+^^^^^
+db/migrate/20140808185919_create_attachments.rb:1:1: C: Missing top-level class documentation comment.
+class CreateAttachments < ActiveRecord::Migration
+^^^^^
+db/migrate/20140805034203_create_visitor_comments.rb:1:1: C: Missing top-level class documentation comment.
+class CreateVisitorComments < ActiveRecord::Migration
+^^^^^
+db/migrate/20140901161219_add_language_to_users.rb:1:1: C: Missing top-level class documentation comment.
+class AddLanguageToUsers < ActiveRecord::Migration
+^^^^^
+db/schema.rb:233:116: C: Line is too long. [139/115]
+  add_index 'settings', %w(thing_type thing_id var), name: 'index_settings_on_thing_type_and_thing_id_and_var', unique: true, using: :btree
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+db/schema.rb:263:116: C: Line is too long. [131/115]
+  add_index 'static_page_translations', ['static_page_id'], name: 'index_static_page_translations_on_static_page_id', using: :btree
+                                                                                                                   ^^^^^^^^^^^^^^^^
+db/schema.rb:305:116: C: Line is too long. [119/115]
+  add_index 'users', ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
+                                                                                                                   ^^^^
+test/models/admin/blog_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::BlogTest < ActiveSupport::TestCase
+      ^^^^^^^^^^^^^^^
+test/models/admin/static_page_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::StaticPageTest < ActiveSupport::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^
+test/test_helper.rb:5:1: C: Missing top-level class documentation comment.
+class ActiveSupport::TestCase
+^^^^^
+test/test_helper.rb:5:7: C: Use nested module/class definitions instead of compact style.
+class ActiveSupport::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^
+test/helpers/admin/sidebars_helper_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::SidebarsHelperTest < ActionView::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+test/helpers/admin/users_helper_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::UsersHelperTest < ActionView::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^
+test/helpers/admin/blogs_helper_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::BlogsHelperTest < ActionView::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^
+test/helpers/admin/static_pages_helper_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::StaticPagesHelperTest < ActionView::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/static_pages_controller_test.rb:3:1: C: Missing top-level class documentation comment.
+class Admin::StaticPagesControllerTest < ActionController::TestCase
+^^^^^
+test/controllers/admin/static_pages_controller_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::StaticPagesControllerTest < ActionController::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/static_pages_controller_test.rb:21:116: C: Line is too long. [136/115]
+      post :create, admin_static_page: { body: @admin_static_page.body, slug: @admin_static_page.slug, title: @admin_static_page.title }
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/static_pages_controller_test.rb:38:116: C: Line is too long. [159/115]
+    patch :update, id: @admin_static_page, admin_static_page: { body: @admin_static_page.body, slug: @admin_static_page.slug, title: @admin_static_page.title }
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/users_controller_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::UsersControllerTest < ActionController::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/blogs_controller_test.rb:3:1: C: Missing top-level class documentation comment.
+class Admin::BlogsControllerTest < ActionController::TestCase
+^^^^^
+test/controllers/admin/blogs_controller_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::BlogsControllerTest < ActionController::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/blogs_controller_test.rb:21:116: C: Line is too long. [120/115]
+      post :create, admin_blog: { content: @admin_blog.content, title: @admin_blog.title, user_id: @admin_blog.user_id }
+                                                                                                                   ^^^^^
+test/controllers/admin/blogs_controller_test.rb:38:116: C: Line is too long. [136/115]
+    patch :update, id: @admin_blog, admin_blog: { content: @admin_blog.content, title: @admin_blog.title, user_id: @admin_blog.user_id }
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^
+test/controllers/admin/sidebars_controller_test.rb:3:7: C: Use nested module/class definitions instead of compact style.
+class Admin::SidebarsControllerTest < ActionController::TestCase
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test/controllers/static_controller_test.rb:3:1: C: Missing top-level class documentation comment.
+class StaticControllerTest < ActionController::TestCase
+^^^^^
+test/controllers/comments_controller_test.rb:3:1: C: Missing top-level class documentation comment.
+class CommentsControllerTest < ActionController::TestCase
+^^^^^
+test/controllers/comments_controller_test.rb:38:116: C: Line is too long. [125/115]
+    patch :update, id: @comment, comment: { blog_id: @comment.blog_id, content: @comment.content, user_id: @comment.user_id }
+                                                                                                                   ^^^^^^^^^^
+app/models/user.rb:1:1: C: Missing top-level class documentation comment.
+class User < ActiveRecord::Base
+^^^^^
+app/models/user.rb:52:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if role.blank?
+    ^^
+app/models/user.rb:52:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if role.blank?
+    ^^
+app/models/user.rb:58:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if language.blank?
+    ^^
+app/models/user.rb:58:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if language.blank?
+    ^^
+app/models/user.rb:64:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if self.role? :admin
+    ^^
+app/models/user.rb:64:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if self.role? :admin
+    ^^
+app/models/user.rb:76:9: W: Use Kernel#loop with break rather than begin/end/until(or while).
+    end while self.class.exists?(unsubscribe_token: unsubscribe_token)
+        ^^^^^
+app/models/event.rb:1:1: C: Missing top-level class documentation comment.
+class Event < ActiveRecord::Base
+^^^^^
+app/models/event.rb:12:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if end_time
+    ^^
+app/models/link.rb:1:1: C: Missing top-level class documentation comment.
+class Link < ActiveRecord::Base
+^^^^^
+app/models/link.rb:11:5: C: Ternary operators must not be nested. Prefer if/else constructs instead.
+    /^http/.match(value) ? value : "http://#{value}"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/models/slider.rb:1:1: C: Missing top-level class documentation comment.
+class Slider < ActiveRecord::Base
+^^^^^
+app/models/sidebar.rb:1:1: C: Missing top-level class documentation comment.
+class Sidebar < ActiveRecord::Base
+^^^^^
+app/models/sidebar.rb:35:7: C: Rename is_left to left?.
+  def is_left
+      ^^^^^^^
+app/models/sidebar.rb:39:7: C: Rename is_right to right?.
+  def is_right
+      ^^^^^^^^
+app/models/sidebar.rb:43:7: C: Rename is_top to top?.
+  def is_top
+      ^^^^^^
+app/models/sidebar.rb:47:7: C: Rename is_bottom to bottom?.
+  def is_bottom
+      ^^^^^^^^^
+app/models/photo.rb:1:1: C: Missing top-level class documentation comment.
+class Photo < ActiveRecord::Base
+^^^^^
+app/models/visitor_comment.rb:1:1: C: Missing top-level class documentation comment.
+class VisitorComment < ActiveRecord::Base
+^^^^^
+app/models/newsletter.rb:1:1: C: Missing top-level class documentation comment.
+class Newsletter < ActiveRecord::Base
+^^^^^
+app/models/attachment.rb:1:1: C: Missing top-level class documentation comment.
+class Attachment < ActiveRecord::Base
+^^^^^
+app/models/attachment.rb:11:63: W: Literal interpolation detected.
+  scope :images, -> { where("lower(file_content_type) LIKE '#{'image'}%'") }
+                                                              ^^^^^^^
+app/models/attachment.rb:12:72: W: Literal interpolation detected.
+  scope :attachments, -> { where("lower(file_content_type) NOT LIKE '#{'image'}%'") }
+                                                                       ^^^^^^^
+app/models/attending.rb:1:1: C: Missing top-level class documentation comment.
+class Attending < ActiveRecord::Base
+^^^^^
+app/models/static_page.rb:1:1: C: Missing top-level class documentation comment.
+class StaticPage < ActiveRecord::Base
+^^^^^
+app/models/static_page.rb:17:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if slug.blank?
+    ^^
+app/models/comment.rb:1:1: C: Missing top-level class documentation comment.
+class Comment < ActiveRecord::Base
+^^^^^
+app/models/ability.rb:1:1: C: Missing top-level class documentation comment.
+class Ability
+^^^^^
+app/models/ability.rb:4:3: C: Method has too many lines. [17/10]
+  def initialize(user)
+  ^^^
+app/models/ability.rb:10:116: C: Line is too long. [125/115]
+      can :manage, [Attachment, Comment, Post, Sidebar, StaticPage, Link, VisitorComment, Event, Newsletter, Gallery, Slider]
+                                                                                                                   ^^^^^^^^^^
+app/models/gallery.rb:1:1: C: Missing top-level class documentation comment.
+class Gallery < ActiveRecord::Base
+^^^^^
+app/models/post.rb:1:1: C: Missing top-level class documentation comment.
+class Post < ActiveRecord::Base
+^^^^^
+app/models/setting.rb:1:1: C: Missing top-level class documentation comment.
+class Setting < RailsSettings::CachedSettings
+^^^^^
+app/mailers/system_mailer.rb:1:1: C: Missing top-level class documentation comment.
+class SystemMailer < ActionMailer::Base
+^^^^^
+app/mailers/system_mailer.rb:24:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    unless @user.newsletter_subscribed
+    ^^^^^^
+app/mailers/system_mailer.rb:24:5: C: Favor modifier unless usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    unless @user.newsletter_subscribed
+    ^^^^^^
+app/mailers/system_mailer.rb:30:116: C: Line is too long. [125/115]
+    @unsubscribe_url = view_context.link_to('here!', registrations_unsubscribe_url(token: @user.unsubscribe_token)).html_safe
+                                                                                                                   ^^^^^^^^^^
+app/mailers/my_devise_mailer.rb:1:1: C: Missing top-level class documentation comment.
+class MyDeviseMailer < Devise::Mailer
+^^^^^
+app/helpers/admin/blogs_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::BlogsHelper
+^^^^^^
+app/helpers/admin/blogs_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::BlogsHelper
+       ^^^^^^^^^^^^^^^^^^
+app/helpers/admin/website_configuration_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::WebsiteConfigurationHelper
+^^^^^^
+app/helpers/admin/website_configuration_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::WebsiteConfigurationHelper
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/events_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::EventsHelper
+^^^^^^
+app/helpers/admin/events_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::EventsHelper
+       ^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/links_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::LinksHelper
+^^^^^^
+app/helpers/admin/links_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::LinksHelper
+       ^^^^^^^^^^^^^^^^^^
+app/helpers/admin/static_pages_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::StaticPagesHelper
+^^^^^^
+app/helpers/admin/static_pages_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::StaticPagesHelper
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/users_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::UsersHelper
+^^^^^^
+app/helpers/admin/users_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::UsersHelper
+       ^^^^^^^^^^^^^^^^^^
+app/helpers/admin/galleries_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::GalleriesHelper
+^^^^^^
+app/helpers/admin/galleries_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::GalleriesHelper
+       ^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/newsletters_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::NewslettersHelper
+^^^^^^
+app/helpers/admin/newsletters_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::NewslettersHelper
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/sliders_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::SlidersHelper
+^^^^^^
+app/helpers/admin/sliders_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::SlidersHelper
+       ^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/sidebars_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::SidebarsHelper
+^^^^^^
+app/helpers/admin/sidebars_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::SidebarsHelper
+       ^^^^^^^^^^^^^^^^^^^^^
+app/helpers/admin/attachments_helper.rb:1:1: C: Missing top-level module documentation comment.
+module Admin::AttachmentsHelper
+^^^^^^
+app/helpers/admin/attachments_helper.rb:1:8: C: Use nested module/class definitions instead of compact style.
+module Admin::AttachmentsHelper
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/comments_helper.rb:1:1: C: Missing top-level module documentation comment.
+module CommentsHelper
+^^^^^^
+app/helpers/application_helper.rb:1:1: C: Missing top-level module documentation comment.
+module ApplicationHelper
+^^^^^^
+app/helpers/application_helper.rb:2:3: C: Method has too many lines. [17/10]
+  def parseNewsletter(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
+  ^^^
+app/helpers/application_helper.rb:2:7: C: Use snake_case for methods.
+  def parseNewsletter(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
+      ^^^^^^^^^^^^^^^
+app/helpers/application_helper.rb:2:22: C: Avoid parameter lists longer than 5 parameters.
+  def parseNewsletter(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/application_helper.rb:9:7: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if email
+      ^^
+app/helpers/application_helper.rb:20:116: C: Line is too long. [140/115]
+      result = result.gsub(/[*]confirmation_link[*]/, (link_to 'Confirm my account', confirmation_url(resource, confirmation_token: token)))
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/visitor_comments_helper.rb:1:1: C: Missing top-level module documentation comment.
+module VisitorCommentsHelper
+^^^^^^
+app/helpers/public_pages_helper.rb:1:1: C: Missing top-level module documentation comment.
+module PublicPagesHelper
+^^^^^^
+app/helpers/static_helper.rb:1:1: C: Missing top-level module documentation comment.
+module StaticHelper
+^^^^^^
+app/helpers/search_helper.rb:1:1: C: Missing top-level module documentation comment.
+module SearchHelper
+^^^^^^
+app/helpers/galleries_helper.rb:1:1: C: Missing top-level module documentation comment.
+module GalleriesHelper
+^^^^^^
+app/controllers/admin/sidebars_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::SidebarsController < Admin::AdminController
+^^^^^
+app/controllers/admin/sidebars_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::SidebarsController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/sidebars_controller.rb:25:3: C: Method has too many lines. [14/10]
+  def create
+  ^^^
+app/controllers/admin/sidebars_controller.rb:47:3: C: Method has too many lines. [13/10]
+  def update
+  ^^^
+app/controllers/admin/dashboard_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::DashboardController < Admin::AdminController
+^^^^^
+app/controllers/admin/dashboard_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::DashboardController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/settings_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::SettingsController < Admin::AdminController
+^^^^^
+app/controllers/admin/settings_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::SettingsController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/settings_controller.rb:7:3: C: Cyclomatic complexity for update_all is too high. [9/6]
+  def update_all
+  ^^^
+app/controllers/admin/settings_controller.rb:7:3: C: Method has too many lines. [31/10]
+  def update_all
+  ^^^
+app/controllers/admin/settings_controller.rb:7:3: C: Perceived complexity for update_all is too high. [10/7]
+  def update_all
+  ^^^
+app/controllers/admin/settings_controller.rb:34:7: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if params.key?('i18n_' + l.second)
+      ^^
+app/controllers/admin/events_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::EventsController < Admin::AdminController
+^^^^^
+app/controllers/admin/events_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::EventsController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/events_controller.rb:43:3: C: Method has too many lines. [12/10]
+  def update
+  ^^^
+app/controllers/admin/admin_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::AdminController < ApplicationController
+^^^^^
+app/controllers/admin/admin_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::AdminController < ApplicationController
+      ^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/admin_controller.rb:15:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if current_user
+    ^^
+app/controllers/admin/admin_controller.rb:15:5: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if current_user
+    ^^
+app/controllers/admin/galleries_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::GalleriesController < Admin::AdminController
+^^^^^
+app/controllers/admin/galleries_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::GalleriesController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/galleries_controller.rb:29:3: C: Method has too many lines. [11/10]
+  def add_photo
+  ^^^
+app/controllers/admin/galleries_controller.rb:55:3: C: Method has too many lines. [11/10]
+  def reorder
+  ^^^
+app/controllers/admin/sliders_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::SlidersController < Admin::AdminController
+^^^^^
+app/controllers/admin/sliders_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::SlidersController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/sliders_controller.rb:29:3: C: Method has too many lines. [11/10]
+  def add_photo
+  ^^^
+app/controllers/admin/sliders_controller.rb:55:3: C: Method has too many lines. [11/10]
+  def reorder
+  ^^^
+app/controllers/admin/sliders_controller.rb:71:3: C: Method has too many lines. [11/10]
+  def create
+  ^^^
+app/controllers/admin/sliders_controller.rb:126:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if (selected == '1')
+    ^^
+app/controllers/admin/sliders_controller.rb:128:7: C: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+      if previous_selected
+      ^^
+app/controllers/admin/attachments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::AttachmentsController < Admin::AdminController
+^^^^^
+app/controllers/admin/attachments_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::AttachmentsController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/posts_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::PostsController < Admin::AdminController
+^^^^^
+app/controllers/admin/posts_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::PostsController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/posts_controller.rb:29:3: C: Method has too many lines. [11/10]
+  def create
+  ^^^
+app/controllers/admin/links_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::LinksController < Admin::AdminController
+^^^^^
+app/controllers/admin/links_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::LinksController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/newsletters_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::NewslettersController < Admin::AdminController
+^^^^^
+app/controllers/admin/newsletters_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::NewslettersController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/newsletters_controller.rb:36:3: C: Method has too many lines. [12/10]
+  def create
+  ^^^
+app/controllers/admin/newsletters_controller.rb:55:3: C: Method has too many lines. [11/10]
+  def update
+  ^^^
+app/controllers/admin/static_pages_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::StaticPagesController < Admin::AdminController
+^^^^^
+app/controllers/admin/static_pages_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::StaticPagesController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/static_pages_controller.rb:29:3: C: Method has too many lines. [11/10]
+  def create
+  ^^^
+app/controllers/admin/users_controller.rb:1:1: C: Missing top-level class documentation comment.
+class Admin::UsersController < Admin::AdminController
+^^^^^
+app/controllers/admin/users_controller.rb:1:7: C: Use nested module/class definitions instead of compact style.
+class Admin::UsersController < Admin::AdminController
+      ^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/admin/users_controller.rb:33:3: C: Method has too many lines. [14/10]
+  def update
+  ^^^
+app/controllers/admin/users_controller.rb:67:116: C: Line is too long. [129/115]
+    params.require(:user).permit(:name, :email, :dob, :nationality, :language, :gender, :password, :password_confirmation, :role)
+                                                                                                                   ^^^^^^^^^^^^^^
+app/controllers/search_controller.rb:1:1: C: Missing top-level class documentation comment.
+class SearchController < ApplicationController
+^^^^^
+app/controllers/registrations_controller.rb:1:1: C: Missing top-level class documentation comment.
+class RegistrationsController < Devise::RegistrationsController
+^^^^^
+app/controllers/registrations_controller.rb:18:116: C: Line is too long. [154/115]
+    params.require(:user).permit(:name, :email, :dob, :nationality, :gender, :password, :password_confirmation, :current_password, :newsletter_subscribed)
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/events_controller.rb:1:1: C: Missing top-level class documentation comment.
+class EventsController < ApplicationController
+^^^^^
+app/controllers/events_controller.rb:14:3: C: Method has too many lines. [17/10]
+  def going
+  ^^^
+app/controllers/events_controller.rb:34:3: C: Method has too many lines. [17/10]
+  def not_going
+  ^^^
+app/controllers/events_controller.rb:54:3: C: Method has too many lines. [17/10]
+  def maybe
+  ^^^
+app/controllers/static_controller.rb:1:1: C: Missing top-level class documentation comment.
+class StaticController < ApplicationController
+^^^^^
+app/controllers/visitor_comments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class VisitorCommentsController < ApplicationController
+^^^^^
+app/controllers/galleries_controller.rb:1:1: C: Missing top-level class documentation comment.
+class GalleriesController < ApplicationController
+^^^^^
+app/controllers/calendar_controller.rb:1:1: C: Missing top-level class documentation comment.
+class CalendarController < ApplicationController
+^^^^^
+app/controllers/attachments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class AttachmentsController < ApplicationController
+^^^^^
+app/controllers/posts_controller.rb:1:1: C: Missing top-level class documentation comment.
+class PostsController < ApplicationController
+^^^^^
+app/controllers/comments_controller.rb:1:1: C: Missing top-level class documentation comment.
+class CommentsController < ApplicationController
+^^^^^
+app/controllers/comments_controller.rb:21:3: C: Method has too many lines. [12/10]
+  def create
+  ^^^
+app/controllers/static_pages_controller.rb:1:1: C: Missing top-level class documentation comment.
+class StaticPagesController < ApplicationController
+^^^^^
+app/controllers/application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::Base
+^^^^^
+app/controllers/application_controller.rb:5:5: C: Never use unless with else. Rewrite these with the positive case first.
+    unless current_user.try(:language).nil?
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/application_controller.rb:12:3: C: Method has too many lines. [11/10]
+  def set_i18n_locale
+  ^^^
+app/controllers/application_controller.rb:13:5: C: Use a guard clause instead of wrapping the code inside a conditional expression.
+    if Setting.selected_languages.map(&:second).include?(params[:locale])
+    ^^
+spec/models/user_spec.rb:36:116: C: Line is too long. [119/115]
+    expect(build(:admin, password: 'teste123', password_confirmation: '')).to have(1).errors_on(:password_confirmation)
+                                                                                                                   ^^^^
+spec/models/static_page_spec.rb:17:5: W: Useless assignment to variable - static_page. Did you mean static_page2?
+    static_page = StaticPage.create(title: 'Hello World', body: 'Things')
+    ^^^^^^^^^^^
+spec/spec_helper.rb:17:21: W: Unused block argument - config. You can omit the argument if you don't care about it.
+RSpec.configure do |config|
+                    ^^^^^^
+spec/controllers/admin/static_pages_controller_spec.rb:104:116: C: Line is too long. [144/115]
+        patch :update, id: @static_page, static_page: attributes_for(:static_page, title: 'Hello World Two', body: 'even more beautiful things')
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/controllers/admin/static_pages_controller_spec.rb:118:116: C: Line is too long. [130/115]
+        patch :update, id: @static_page, static_page: attributes_for(:static_page, title: nil, body: 'even more beautiful things')
+                                                                                                                   ^^^^^^^^^^^^^^^
+spec/controllers/admin/static_pages_controller_spec.rb:125:116: C: Line is too long. [119/115]
+        patch :update, id: @static_page, static_page: attributes_for(:static_page, title: 'Hello World Two', body: nil)
+                                                                                                                   ^^^^
+Gemfile:16:116: C: Line is too long. [123/115]
+# CanCanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
+                                                                                                                   ^^^^^^^^
+Guardfile:13:9: C: Use %r only for regular expressions matching more than 1 '/' character.
+  watch(%r{^spec/.+_spec\.rb$})
+        ^^^^^^^^^^^^^^^^^^^^^^
+Guardfile:14:9: C: Use %r only for regular expressions matching more than 1 '/' character.
+  watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
+        ^^^^^^^^^^^^^^^^^^
+Guardfile:18:9: C: Use %r only for regular expressions matching more than 1 '/' character.
+  watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
+        ^^^^^^^^^^^^^^^^^^
+Guardfile:19:9: C: Use %r only for regular expressions matching more than 1 '/' character.
+  watch(%r{^app/(.*)(\.erb|\.haml|\.slim)$})          { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Guardfile:20:116: C: Line is too long. [178/115]
+  watch(%r{^app/controllers/(.+)_(controller)\.rb$})  { |m| ["spec/routing/#{m[1]}_routing_spec.rb", "spec/#{m[2]}s/#{m[1]}_#{m[2]}_spec.rb", "spec/acceptance/#{m[1]}_spec.rb"] }
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Guardfile:31:116: C: Line is too long. [122/115]
+  watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+                                                                                                                   ^^^^^^^
+
+226 files inspected, 240 offenses detected

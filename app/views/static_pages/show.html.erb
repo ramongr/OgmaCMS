@@ -1,0 +1,21 @@
+<br>
+<div class="row">
+  <% if can? :update, @page %>
+    <%= link_to t('pages.name'), static_pages_path, class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_static_page_path(@page), class: "button small" %>
+    <% if can? :destroy, @page %>
+      <%= link_to t('common.destroy'), [:admin,@page], method: :delete, data: { confirm: t('common.confirm') }, class: "button small alert" %>
+    <% end %>
+  <% end %>
+  <br/>
+
+  <div class="small-12">
+    <h1 class="text-center"><%= @page.title %></h1>
+
+    <%= @page.body.html_safe %>
+
+    <br/>
+  </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+<br>
+<div class="row">
+  <%= link_to t('users.name'), admin_users_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_user_path(@admin_user), class: "button small" %>
+  <%= link_to t('common.destroy'), admin_user_path, method: :delete, data: {confirm: t('common.confirm')}, class: "button small alert" %>
+
+  <div class="small-12">
+    <h1 class="text-center"><%= @admin_user.name %></h1>
+
+    <p><strong>Email:</strong> <%= @admin_user.email %></p>
+    <p><strong>Date of Birth:</strong> <%= @admin_user.dob %></p>
+    <p><strong>Nationality:</strong> <%= @admin_user.nationality %></p>
+    <p><strong>Language:</strong> <%= @admin_user.language %></p>
+    <p><strong>Gender:</strong> <%= @admin_user.gender %></p>
+    <p><strong>Role:</strong> <%= @admin_user.role.humanize %></p>
+  </div>
+</div>

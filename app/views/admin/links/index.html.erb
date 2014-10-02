@@ -1,0 +1,34 @@
+<h1 class="text-center"><%= t('links.index.admin.title') %></h1>
+
+<div class="row">
+  <%= link_to t('links.index.admin.new'), new_admin_link_path, class: "button tiny" %>
+  <div class="small-12">
+    <% unless @links.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('links.attributes.title') %></th>
+            <th><%= t('links.attributes.value') %></th>
+            <th><%= t('links.attributes.type_mask') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @links.each do |link| %>
+            <tr>
+              <td><%= link.title %></td>
+              <td><%= link.value %></td>
+              <td><%= link.type_mask %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,link], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_link_path(link), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,link], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
