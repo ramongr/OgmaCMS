@@ -2,7 +2,6 @@
 # Falta:
 #   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
 #   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
-#   Erros nos forms Ex:  <%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:
 #   Traduzir o nomes das línguas para o nome da língua no locale actual
 #
 
@@ -555,12 +554,21 @@ pt:
     register: Registar
     read_more: Ler mais
     no_results_found: Não foram encontrados resultados
+    prohibited_save: proibiram este %{resource} de ser guardado
+    error:
+      one: um erro
+      other: '%{count} erros'
 
 #
 # will paginate
 #
 
   will_paginate:
-    next_label: 'Seguinte &raquo;'
-    page_gap: '&hellip;'
-    previous_label: '&laquo; Anterior'
+    next_label: próximo →
+    page_entries_info:
+      multi_page: Mostrando %{model} %{from} - %{to} de %{count} no total
+      multi_page_html: Mostrando %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> de <b>%{count}</b> no total
+      single_page: 
+      single_page_html: 
+    page_gap: "&hellip;"
+    previous_label: "← anterior"
