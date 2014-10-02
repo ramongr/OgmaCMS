@@ -1,10 +1,9 @@
 #
 # Falta:
-#   Anexos - Selecionar o ficheiro parece ser dependente da língua do browser
 #   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
 #   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
 #   Erros nos forms Ex:  <%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:
-#   Traduzir o nomes das línguas para o nome da língua no locale actual (Há gem)
+#   Traduzir o nomes das línguas para o nome da língua no locale actual
 #
 
 pt:
@@ -503,8 +502,8 @@ pt:
     roles:
       registered: Registado
       author: Autor
-      admin: Administrador
-      super_admin: Super Administrador
+      admin: Admin
+      super_admin: Super Admin
 
 #
 # Visitor comments
