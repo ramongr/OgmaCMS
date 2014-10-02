@@ -218,6 +218,8 @@ pt:
     im_going: Vou
     im_not_going: Eu não vou
     im_indecisive: Talvez vá
+
+    end_time_after_start_time: tem que ser depois de início
     
 #
 # Galleries

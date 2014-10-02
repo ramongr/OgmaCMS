@@ -28,7 +28,7 @@ en:
       event:
         title: Name
         body: Description
-        start_time: Beggining
+        start_time: Beginning
         end_time: End
         all_day: All day
         created_at: Created at
@@ -166,7 +166,7 @@ en:
       title: Name
       body: Description
       date: Date
-      start_time: Beggining
+      start_time: Beginning
       end_time: End
       all_day: All day
 
@@ -211,6 +211,8 @@ en:
     im_going: I'm going
     im_not_going: I'm not going
     im_indecisive: I'm indecisive
+
+    end_time_after_start_time: date must be after start date
     
 #
 # Galleries
