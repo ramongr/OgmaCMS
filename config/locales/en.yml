@@ -18,6 +18,7 @@ en:
       attachment:
         name: Name
         description: Description
+        file: File
         created_at: Created at
         updated_at: Updated at
       comment:
