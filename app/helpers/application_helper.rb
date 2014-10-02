@@ -22,32 +22,4 @@ module ApplicationHelper
 
     result
   end
-
-  def date_created_human
-    created_at.strftime('%e %b %Y %H:%M')
-  end
-
-  def date_updated_human
-    updated_at.strftime('%e %b %Y %H:%M')
-  end
-
-  def start_time_human
-    start_time.strftime('%e %b %Y %H:%M')
-  end
-
-  def end_time_human
-    end_time.strftime('%e %b %Y %H:%M')
-  end
-
-  def start_date_human
-    start_time.strftime('%e %b %Y')
-  end
-
-  def end_date_human
-    end_time.strftime('%e %b %Y')
-  end
-
-  def date_human
-    date.strftime('%e %b %Y')
-  end
 end

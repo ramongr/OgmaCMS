@@ -1,6 +1,4 @@
 class Post < ActiveRecord::Base
-  include ApplicationHelper
-
   translates :title, :content
   globalize_accessors
   belongs_to :user
