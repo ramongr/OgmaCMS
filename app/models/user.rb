@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
     self.role == 'registered'
   end
 
+  def translated_role
+    I18n.t('users.roles.' + self.role)
+  end
+
   private
     def set_default_role
       if self.role.blank?

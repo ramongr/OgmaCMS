@@ -1,14 +1,14 @@
-<h1 class="text-center">Listing pages</h1>
+<h1 class="text-center"><%= t('pages.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New Static page', new_admin_static_page_path, class: "button tiny" %>
+  <%= link_to t('pages.index.admin.new'), new_admin_static_page_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @admin_static_pages.empty? %>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Slug</th>
+            <th><%= t('pages.attributes.title') %></th>
+            <th><%= t('pages.attributes.slug') %></th>
             <th></th>
           </tr>
         </thead>
@@ -19,9 +19,9 @@
               <td><%= admin_static_page.title %></td>
               <td><%= admin_static_page.slug %></td>
               <td>
-                <%= link_to 'Show', [:admin,admin_static_page], class: "button tiny" %>
-                <%= link_to 'Edit', edit_admin_static_page_path(admin_static_page), class: "button tiny" %>
-                <%= link_to 'Destroy', [:admin,admin_static_page], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+                <%= link_to t('common.show'), [:admin,admin_static_page], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_static_page_path(admin_static_page), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,admin_static_page], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               </td>
             </tr>
           <% end %>

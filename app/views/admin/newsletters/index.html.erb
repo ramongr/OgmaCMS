@@ -1,13 +1,13 @@
-<h1 class="text-center">Listing newsletters</h1>
+<h1 class="text-center"><%= t('newsletters.index.admin.title') %></h1>
 
 <div class="row">
-  <%= link_to 'New newsletter', new_admin_newsletter_path, class: "button tiny" %>
+  <%= link_to t('newsletters.index.admin.new'), new_admin_newsletter_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @newsletters.empty? %>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
+            <th><%= t('newsletters.attributes.title') %></th>
             <th></th>
           </tr>
         </thead>
@@ -17,9 +17,10 @@
             <tr>
               <td><%= newsletter.title %></td>
               <td>
-                <%= link_to 'Show', [:admin,newsletter], class: "button tiny" %>
-                <%= link_to 'Edit', edit_admin_newsletter_path(newsletter), class: "button tiny" %>
-                <%= link_to 'Destroy', [:admin,newsletter], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %></td>
+                <%= link_to t('common.show'), [:admin,newsletter], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_newsletter_path(newsletter), class: "button tiny" %>
+                <%= link_to t('common.destroy'), [:admin,newsletter], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              </td>
             </tr>
           <% end %>
         </tbody>

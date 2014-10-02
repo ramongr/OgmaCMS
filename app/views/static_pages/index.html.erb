@@ -1,10 +1,11 @@
-<h1 class="text-center">Listing pages</h1>
+<h1 class="text-center"><%= t('pages.index.public.title') %></h1>
+
 <div class="row">
   <% unless @pages.empty? %>
     <table>
       <thead>
         <tr>
-          <th>Title</th>
+          <th><%= t('pages.attributes.title') %></th>
           <th></th>
         </tr>
       </thead>
@@ -13,7 +14,7 @@
         <% @pages.each do |page| %>
           <tr>
             <td><%= page.title %></td>
-            <td><%= link_to 'Show', page, class: "button tiny" %></td>
+            <td><%= link_to t('common.show'), page, class: "button tiny" %></td>
           </tr>
         <% end %>
       </tbody>

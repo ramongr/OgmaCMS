@@ -3,54 +3,51 @@
   <% not_attending = Attending.no.where(event: @event) %>
   <% indecisive = Attending.maybe.where(event: @event) %>
   <p>
-    <%= attending.count %> going | <%= not_attending.count %> not going | <%= indecisive.count %> maybe
+    <%= (t 'events.going_number', count: attending.count) %> 
+    <%= '| ' + (t 'events.not_going_number', count: not_attending.count) if not_attending.count > 0 %> 
+    <%= '| ' + (t 'events.indecisive_number', count: indecisive.count) if indecisive.count > 0 %>
   </p>
 
   <% if user_signed_in? %>
     <p>
       <% attend = Attending.find_by(event: @event, user: current_user) %>
       <% if attend.nil? %>
-        Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true %>
-             | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true  %>
-             | <%= link_to 'Maybe', event_maybe_path(@event), method: :put, remote: true %>
+        <%= t('events.going?') %> 
+        <%= link_to t('common.yes'), event_going_path(@event), method: :put, remote: true %> |
+        <%= link_to t('common.no'), event_not_going_path(@event), method: :put, remote: true  %> |
+        <%= link_to t('common.maybe'), event_maybe_path(@event), method: :put, remote: true %>
       <% elsif attend.yes? %>
-        You are going!
-        <p>
-        Changed your mind? <%= link_to 'Not going', event_not_going_path(@event), method: :put, remote: true  %>
-                         | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
-        </p>
+        <%= t('events.you_are_going') %>, <%= t('events.changed_your_mind?') %> 
+        <%= link_to t('events.im_not_going'), event_not_going_path(@event), method: :put, remote: true  %> |
+        <%= link_to t('events.im_indecisive'), event_maybe_path(@event), method: :put, remote: true %>
       <% elsif attend.no? %>
-        You are not going.
-        <p>
-          Changed your mind? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
-                           | <%= link_to 'Maybe i\'ll go', event_maybe_path(@event), method: :put, remote: true %>
-        </p>
+        <%= t('events.you_are_not_going') %>, <%= t('events.changed_your_mind?') %> 
+        <%= link_to t('events.im_going'), event_going_path(@event), method: :put, remote: true  %> |
+        <%= link_to t('events.im_indecisive'), event_maybe_path(@event), method: :put, remote: true %>
       <% else %>
-        You are indecisive.
-        <p>
-          Going? <%= link_to 'Yes', event_going_path(@event), method: :put, remote: true  %>
-               | <%= link_to 'No', event_not_going_path(@event), method: :put, remote: true %>
-        </p>
+        <%= t('events.you_are_indecisive') %>, <%= t('events.going?') %>  
+        <%= link_to t('events.im_going'), event_going_path(@event), method: :put, remote: true  %> |
+        <%= link_to t('events.im_not_going'), event_not_going_path(@event), method: :put, remote: true %>
       <% end %>
     </p>
   <% end %>
 
   <% unless attending.empty? %>
-    <strong>Going:</strong>
+    <strong><%= t('events.going') %>:</strong>
     <% attending.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
   <% unless not_attending.empty? %>
-    <strong>Not going:</strong>
+    <strong><%= t('events.not_going') %>:</strong>
     <% not_attending.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
   <% unless indecisive.empty? %>
-    <strong>Indecisive:</strong>
+    <strong><%= t('events.indecisive') %>:</strong>
     <% indecisive.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>

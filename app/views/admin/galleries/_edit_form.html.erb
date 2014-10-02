@@ -1,7 +1,7 @@
 <%= form_for([:admin,@gallery]) do |f| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this admin_gallery from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @gallery.errors.count, model: Gallery.model_name.human %></h4>
 
       <ul>
       <% @gallery.errors.full_messages.each do |message| %>
@@ -12,42 +12,43 @@
   <% end %>
 
   <div id="gallery_title" class="field">
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div id="gallery_description" class="field">
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description, rows: 6 %>
   </div>
   <div id="gallery_date" class="field">
     <%= f.label :date %>
     <%= f.date_select :date, {}, {class: "small-4 columns"} %>
-    <%= f.time_select :date, { time_separator: "", ignore_date: true }, {class: "small-6 columns"} %>
   </div>
 
-  <button id="add-image">Add Image</button>
+  <button id="add-image"><%= t('galleries.add_image') %></button>
 
-  <ul id="sortable">
-    <% @added_images.each do |image| %>
-      <li class="ui-state-default" id="<%= image.id %>">
-        <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
-        <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>">Remove Image</button>
-      </li>
-    <% end %>
-  </ul>
+  <div class="small-12 columns">
+    <ul id="sortable">
+      <% @added_images.each do |image| %>
+        <li class="ui-state-default" id="<%= image.id %>">
+          <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+          <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('galleries.remove_image') %></button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
   <br>
   <br>
 
-  <div class="actions">
+  <div class="small-12 actions">
     <%= f.submit class: "button right" %>
   </div>
 
 <% end %>
 
 
-<div id="dialog" title="Add Image" style="display:none">
-  <p class="validateTips">Select Image.</p>
+<div id="dialog" title="<%= t('galleries.add_image') %>" style="display:none">
+  <p class="validateTips"><%= t('galleries.select_image') %></p>
   <ol id="selectable">
     <% @images.each do |image| %>
       <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(image)%>"' data-attachment-id="<%= image.id %>" ><%= image.file_file_name %></li>

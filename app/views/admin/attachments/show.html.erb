@@ -1,39 +1,39 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="row">
+  <%= link_to t('attachments.name'), admin_attachments_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_attachment_path(@attachment), class: "button small" %>
+  
+  <div class="small-12">
+    <h1 class="text-center"><%= @attachment.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @attachment.name %>
-</p>
+    <p>
+      <strong><%= t('attachments.attributes.description') %>:</strong>
+      <%= @attachment.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @attachment.description %>
-</p>
+    <p>
+      <strong><%= t('attachments.attributes.file_name') %>:</strong>
+      <%= @attachment.file_file_name %>
+    </p>
 
-<p>
-  <strong>Attachment: </strong>
-  <%= @attachment.file_file_name %>
-</p>
+    <p>
+      <strong><%= t('attachments.attributes.content_type') %>:</strong>
+      <%= @attachment.file_content_type %>
+    </p>
 
-<p>
-  <strong>Content type: </strong>
-  <%= @attachment.file_content_type %>
-</p>
+    <p>
+      <strong><%= t('attachments.attributes.uploaded_by') %>:</strong>
+      <%= @attachment.user.name %>
+    </p>
 
-<p>
-  <strong>Uploaded by: </strong>
-  <%= @attachment.user.name %>
-</p>
+    <p>
+      <strong><%= t('attachments.attributes.created_at') %>:</strong>
+      <%= l @attachment.created_at %>
+    </p>
 
-<p>
-  <strong>Created at: </strong>
-  <%= @attachment.created_at %>
-</p>
-
-<p>
-  <strong>Last Updated at:</strong>
-  <%= @attachment.updated_at %>
-</p>
-
-<%= link_to 'Edit', edit_admin_attachment_path(@attachment) %> |
-<%= link_to 'Back', admin_attachments_path %>
+    <p>
+      <strong><%= t('attachments.attributes.updated_at') %>:</strong>
+      <%= l @attachment.updated_at %>
+    </p>
+  </div>
+</div>

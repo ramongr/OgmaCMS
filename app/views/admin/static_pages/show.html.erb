@@ -1,26 +1,16 @@
-<p id="notice"><%= notice %></p>
+<br>
+<div class="row">
+  <%= link_to t('pages.name'), admin_static_pages_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_static_page_path(@admin_static_page), class: "button small" %>
 
-<head>
-  <title><%= @admin_static_page.title %></title>
-</head>
-
-<body class="bodyclass">
-  <header class="headerclass">
+  <div class="small-12">
     <h1 class="text-center"><%= @admin_static_page.title %></h1>
-  </header>
 
-  <div class="row">
-    <%= link_to 'Back', admin_static_pages_path, class: "button tiny alert" %>
-    <%= link_to 'Edit', edit_admin_static_page_path(@admin_static_page), class: "button tiny" %>
-    
-    <div class="small-12">
-      <strong>Slug:</strong>
+      <strong><%= t('pages.attributes.slug') %>:</strong>
       <p><%= @admin_static_page.slug %></p>
-    </div>
-    <div class="small-12">
-      <h4 class="text-center">Body</h4>
+
+      <strong><%= t('pages.attributes.body') %>:</strong>
       <%= @admin_static_page.body.html_safe %>      
     </div>
   </div>
 </body>
-

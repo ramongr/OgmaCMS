@@ -1,42 +1,21 @@
-<head>
-  <title><%= @page.title %></title>
-</head>
-
+<br>
 <div class="row">
-  <body class="bodyclass">
-    <header class="headerclass">
-      <h1 class="text-center"><%= @page.title %></h1>
-    </header>
-    
-    <div class="small-12">
-      <div class="small-9 columns">
-        <p>
-          <strong>Slug:</strong>
-          <%= @page.slug %>
-        </p>
+  <% if can? :update, @page %>
+    <%= link_to t('pages.name'), static_pages_path, class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_static_page_path(@page), class: "button small" %>
+    <% if can? :destroy, @page %>
+      <%= link_to t('common.destroy'), [:admin,@page], method: :delete, data: { confirm: t('common.confirm') }, class: "button small alert" %>
+    <% end %>
+  <% end %>
+  <br/>
 
-        <p>
-          <strong>Body:</strong>
-        </p>
+  <div class="small-12">
+    <h1 class="text-center"><%= @page.title %></h1>
 
-        <%= @page.body.html_safe %>
+    <%= @page.body.html_safe %>
 
-        <br/>
-      </div>
-      <div class="small-3 columns">
-        <% if can? :update, @page %>
-          <%= link_to 'Edit', edit_admin_static_page_path(@page), class: "button small" %>
-          <% if can? :destroy, @page %>
-            <%= link_to 'Destroy', [:admin,@page], method: :delete, data: { confirm: 'Are you sure?' }, class: "button small alert" %>
-          <% end %>
-        <% end %>
-        <br/>
-      </div>
-      <div class="small-12 columns">
-        <%= link_to 'Back', root_path, class: "button small" %> 
-      </div>
-    </div>
-  </body>
+    <br/>
+  </div>
 </div>
 
 

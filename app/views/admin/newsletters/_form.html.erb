@@ -1,7 +1,7 @@
 <%= form_for([:admin,@newsletter]) do |f| %>
   <% if @newsletter.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@newsletter.errors.count, "error") %> prohibited this newsletter from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @newsletter.errors.count, model: Newsletter.model_name.human %></h4>
 
       <ul>
       <% @newsletter.errors.full_messages.each do |msg| %>
@@ -17,12 +17,12 @@
   </div>
   <div id="newsletter_body" class="field">
     <%= f.label :body %>
-    <%= f.text_area :body, class: "ckeditor", :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
+    <%= f.text_area :body, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
   </div>
 
   <br>
   <div id="newsletter_destinatary">
-    <p>To:</p>
+    <p><%= t('newsletters.to') %>:</p>
     <% for user in User.all %>
     <div>
       <%= check_box_tag "newsletter[user_ids][]", user.id, @newsletter.users.include?(user) %>

@@ -1,28 +1,30 @@
-<p>
-  <strong>Title:</strong>
-  <%= @gallery.title %>
-</p>
+<br>
+<div class="row">
+  <%= link_to t('galleries.name'), admin_galleries_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_gallery_path(@gallery), class: "button small" %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @gallery.description %>
-</p>
+  <div class="small-12">
+    <h1 class="text-center"><%= @gallery.title %></h1>
 
-<p>
-  <strong>Date: </strong>
-  <%= @gallery.date %>
-</p>
+    <p>
+      <strong><%= t('galleries.attributes.description') %>:</strong>
+      <%= @gallery.description %>
+    </p>
+
+    <p>
+      <strong><%= t('galleries.attributes.date') %>:</strong>
+      <%= @gallery.date %>
+    </p>
 
 
-<ul id="sortable-show">
-  <% @added_images.each do |image| %>
-    <li class="ui-state-default" id="<%= image.id %>">
-      <a href="<%= download_attachment_url(image.attachment)%>">
-        <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
-      </a> 
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Edit', edit_admin_gallery_path(@gallery) %> |
-<%= link_to 'Back', admin_galleries_path %>
+    <ul id="sortable-show">
+      <% @added_images.each do |image| %>
+        <li class="ui-state-default" id="<%= image.id %>">
+          <a href="<%= download_attachment_url(image.attachment)%>">
+            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+          </a> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

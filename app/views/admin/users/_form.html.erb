@@ -1,7 +1,7 @@
 <%= form_for([:admin,@admin_user]) do |f| %>
   <% if @admin_user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @admin_user.errors.count, model: User.model_name.human %></h4>
 
       <ul>
       <% @admin_user.errors.full_messages.each do |msg| %>
@@ -20,7 +20,7 @@
     <%= f.email_field :email %>
   </div>
   <div id="user_birth_date" class="field">
-    <%= f.label "Date of Birth" %>
+    <%= f.label :dob %>
     <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true}, {class: "small-4 columns"} %>
   </div>
   <div id="user_gender" class="field">
@@ -48,7 +48,7 @@
   </div>
   <div id="user_role" class="field">
     <%= f.label :role %>
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+    <%= f.select :role, User::ROLES.collect {|r| [ t('users.roles.' + r), r ] } %>
   </div>
   <div class="actions">
     <%= f.submit class: "button right" %>

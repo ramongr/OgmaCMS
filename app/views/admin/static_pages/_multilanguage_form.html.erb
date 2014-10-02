@@ -11,7 +11,7 @@
 <%= form_for([:admin,@admin_static_page]) do |f| %>
   <% if @admin_static_page.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_static_page.errors.count, "error") %> prohibited this admin_static_page from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @admin_static_page.errors.count, model: StaticPage.model_name.human %></h4>
       <ul>
       <% @admin_static_page.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -26,20 +26,20 @@
         <% title_locale = ("title_" + l.second).to_sym %>
         <% body_locale = ("body_" + l.second).to_sym %>
         <div id="page_title" class="field">
-          <%= f.label title_locale %>
+          <%= f.label t('pages.attributes.title') %>
           <%= f.text_field title_locale %>
         </div>
         <div id="page_slug" class="field">
-          <%= f.label :slug %>
+          <%= f.label t('pages.attributes.slug') %>
           <%= f.text_field :slug %>
         </div>
         <div id="page_body" class="field">
-          <%= f.label body_locale %>
+          <%= f.label t('pages.attributes.body') %>
           <%= f.text_area body_locale, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
         </div>
         <br>
         <div id="insert-attachment-<%=l.second%>">
-          <button>Insert Attachement</button>
+          <button><%= t('common.insert_attachment') %></button>
         </div>
       <% end %>
     <% end %>
@@ -50,8 +50,7 @@
   </div>
 <% end %>
 
-<div id="dialog" title="Insert Attachment" style="display:none">
-  <p class="validateTips">Select Attachment.</p>
+<div id="dialog" title="<%= t('common.select_attachment') %>" style="display:none">
   <ol id="selectable">
     <% @attachments.each do |attachment| %>
       <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>

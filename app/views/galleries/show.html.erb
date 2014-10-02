@@ -1,49 +1,27 @@
-<head>
-  <title><%= @gallery.title %></title>
-</head>
-
+<br>
 <div class="row">
-  <body class="bodyclass">
-    <header class="headerclass">
-      <h1 class="text-center"><%= @gallery.title %></h1>
-    </header>
-    
-    <div class="small-12">
-      <div class="small-9 columns">
-        <p>
-          <strong>Description:</strong>
-        </p>
+  <% if can? :destroy, @gallery %>
+    <%= link_to t('galleries.name'), admin_galleries_path, class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_gallery_path(@gallery), class: "button small" %>
+    <%= link_to t('common.destroy'), [:admin,@gallery], method: :delete, data: { confirm: t('common.confirm') }, class: "button small alert" %>
+  <% end %>
 
-        <%= @gallery.description %>
+  <div class="small-12">
+    <h1 class="text-center"><%= @gallery.title %></h1>
 
-        <br/>
+    <p>
+      <strong><%= t('galleries.attributes.description') %>:</strong>
+      <%= @gallery.description %>
+    </p>
 
-        <ul class="clearing-thumbs small-block-grid-4 my-grid" data-clearing>
-          <% @added_images.each do |image| %>
-            <li id="<%= image.id %>">
-              <a href="<%= download_attachment_url(image.attachment)%>">
-                <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
-              </a> 
-            </li>
-          <% end %>
-        </ul>
-
-      </div>
-      <div class="small-3 columns">
-        <% if can? :update, @gallery %>
-          <%= link_to 'Edit', edit_admin_gallery_path(@gallery), class: "button small" %>
-          <% if can? :destroy, @gallery %>
-            <%= link_to 'Destroy', [:admin,@gallery], method: :delete, data: { confirm: 'Are you sure?' }, class: "button small alert" %>
-          <% end %>
-        <% end %>
-        <br/>
-      </div>
-      <div class="small-12 columns">
-        <%= link_to 'Back', root_path, class: "button small" %> 
-      </div>
-    </div>
-  </body>
+    <ul class="clearing-thumbs small-block-grid-4 my-grid" data-clearing>
+      <% @added_images.each do |image| %>
+        <li id="<%= image.id %>">
+          <a href="<%= download_attachment_url(image.attachment)%>">
+            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+          </a> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
-
-

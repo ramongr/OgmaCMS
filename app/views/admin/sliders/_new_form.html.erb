@@ -1,7 +1,7 @@
 <%= form_for([:admin,@slider]) do |f| %>
   <% if @slider.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@slider.errors.count, "error") %> prohibited this admin_slider from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @slider.errors.count, model: Slider.model_name.human %></h4>
 
       <ul>
       <% @slider.errors.full_messages.each do |message| %>
@@ -16,7 +16,8 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.check_box :selected %> Selected
+    <%= f.check_box :selected %>
+    <%= f.label t('sliders.attributes.selected') %>
   </div>
 
   <div class="actions">

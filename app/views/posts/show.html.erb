@@ -1,31 +1,28 @@
-<p id="notice"><%= notice %></p>
-
+<br>
 <div class="row">
-  <%= link_to 'Back', posts_path, class: "button tiny" %>
-  <%= link_to 'Add Comment', new_post_comment_path(@post), class: "button tiny" %>
-  <div class="small-12" id="post-container">
-    <!-- Title and author -->
+  <%= link_to t('posts.name'), posts_path, class: "button small" %>
+  <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button small" %>
+
+  <div class="small-12">
     <h3 class="text-center"><%= @post.title %></h3>
-    <p class="text-center">by <%= @post.user.email %></p>
-    <!-- Content -->
-    <div class="small-10" id="post-text">
-      <p class="text-justify"><%= @post.content.html_safe %></p>
-    </div>
+    <hr>
+    <%= @post.user.name %><br>
+    <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
+    <hr>
+    <%= @post.content.html_safe %>
     <p class="text-right">
       <small>
-          <% if @post.created_at.to_i == @post.updated_at.to_i %>
-            Created: <%= @post.date_created_human %>
-          <% else %>
-            Last updated: <%= @post.date_updated_human %>
-          <% end %>
+        <% if @post.created_at.to_i != @post.updated_at.to_i %>
+          <%= t('posts.attributes.updated_at') %>: <%= l @post.updated_at %>
+        <% end %>
       </small>
     </p>
-    <!-- Edition -->
-    <%= link_to 'Add Comment', new_post_comment_path(@post), class: "button tiny" %>
+    
+    <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button tiny" %>
     <% if can? :update, @post %>
-      <%= link_to 'Edit', edit_admin_post_path(@post), class: "button tiny" %>
+      <%= link_to t('common.edit'), edit_admin_post_path(@post), class: "button tiny" %>
       <% if can? :destroy, @post %>
-        <%= link_to 'Destroy', [:admin,@post], method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert" %>
+        <%= link_to t('common.destroy'), [:admin,@post], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
       <% end %>
     <% end %>
 
@@ -35,27 +32,25 @@
       <div class="small-7 small-offset-2" id="comments-container">
 
         <h5 class="text-center">Comments</h5>
-        <br><br>
       
         <% @postcomments.each do |comment| %>
           <div class="small-12">
-            <%= comment.user.email %> wrote:
-            <br><br>
-            <%= comment.content %>
-            <p class="text-right">
-              <small>
-                <% if comment.created_at.to_i == comment.updated_at.to_i %>
-                  Created: <%= comment.date_created_human %>
-                <% else %>
-                  Last updated: <%= comment.date_updated_human %>
-                <% end %>
-              </small>
-            </p>
+            <hr>
+            <%= comment.user.name %><br>
+            <% if comment.created_at == comment.updated_at %>
+              <%= t('comments.attributes.created_at') %>
+            <% else %>
+              <%= t('comments.attributes.updated_at')%>
+            <% end %>
+            : <%= l comment.updated_at %><br><br>
+            <%= comment.content %><br>
+            <hr>
+            
             <div id="button-container">
               <% if can? :update, comment %>
-                <%= link_to 'Edit', edit_comment_path(comment), class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_comment_path(comment), class: "button tiny" %>
                 <% if can? :destroy, comment %>
-                  <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny" %>
+                  <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
                 <% end %>
               <% end %>
             </div>

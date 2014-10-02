@@ -1,11 +1,11 @@
-<h1 class="text-center">Listing settings</h1>
+<h1 class="text-center"><%= t('settings.index.admin.title') %></h1>
 
 <div class="row">
   <div class="small-9">
     <ul class="tabs" data-tab>
-      <li id="site-settings" class="tab-title active"><a href="#site">Site</a></li>
-      <li id="site-internationalization" class="tab-title"><a href="#internationalization">Internationalization</a></li>
-      <li id="site-newsletters" class="tab-title"><a href="#mailer">Mailer</a></li>
+      <li id="site-settings" class="tab-title active"><a href="#site"><%= t('settings.site') %></a></li>
+      <li id="site-internationalization" class="tab-title"><a href="#internationalization"><%= t('settings.internationalization') %></a></li>
+      <li id="site-newsletters" class="tab-title"><a href="#mailer"><%= t('settings.mailer') %></a></li>
     </ul>
 
     <%= form_tag [:admin_settings_update], method: :put do -%>
@@ -13,26 +13,26 @@
 
       <div class="content active" id="site">
         <div class="field">
-          <%= label_tag 'Site Name' %>
+          <%= label_tag t('settings.site_title') %>
           <%= text_field_tag :site_name, Setting.site_name %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Subtitle' %>
+          <%= label_tag t('settings.site_subtitle') %>
           <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Description' %>
+          <%= label_tag t('settings.site_description') %>
           <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
         </div>
         <div class="field">
-          <%= label_tag 'Site Logo' %>
+          <%= label_tag t('settings.site_logo') %>
           <%= text_field_tag :site_logo, Setting.site_logo %>
         </div>
       </div>
 
       <div class="content" id="internationalization">
         <div class="field">
-          <%= label_tag 'Available languages' %><br>
+          <%= label_tag t('settings.available_languages') %>
           <% Setting.available_languages.each do |l| %>
             <%= check_box_tag 'i18n_' + l.second, 'yes', l.in?(Setting.selected_languages) %>
             <%= l.first %>
@@ -41,16 +41,18 @@
       </div>
 
       <div class="content" id="mailer">
-        <p>Confirmation Instructions - Use *name* to refer to the user's name and *confirmation_link* to insert the confirmation link into the e-mail.</p>
+        <%= label_tag t('settings.confirmation_instructions') %>
+        <%= label_tag t('settings.confirmation_instructions_help') %>
         <%= text_area_tag :confirmation_instructions, Setting.confirmation_instructions, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
         <br><br>
-        <p>Event update - *user_name*, *event_title*, *event_description*, etc..</p>
+        <%= label_tag t('settings.event_update') %>
+        <%= label_tag t('settings.event_update_help') %>
         <%= text_area_tag :event_update, Setting.event_update, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
       </div>
 
     </div>
     <div class="actions">
-      <%= submit_tag "Update Settings", class: "button right" %>
+      <%= submit_tag t('settings.update_settings'), class: "button right" %>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <%= form_for([:admin,@attachment],html: { multipart: true }) do |f| %>
   <% if @attachment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this admin_attachment from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @attachment.errors.count, model: Attachment.model_name.human %></h4>
 
       <ul>
       <% @attachment.errors.full_messages.each do |message| %>
