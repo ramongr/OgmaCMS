@@ -1,7 +1,7 @@
 <%= form_for([:admin,@sidebar]) do |f| %>
   <% if @sidebar.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@sidebar.errors.count, "error") %> prohibited this sidebar from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @sidebar.errors.count, model: Sidebar.model_name.human %></h4>
 
       <ul>
       <% @sidebar.errors.full_messages.each do |msg| %>

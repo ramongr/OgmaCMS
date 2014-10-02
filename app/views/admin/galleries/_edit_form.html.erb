@@ -1,7 +1,7 @@
 <%= form_for([:admin,@gallery]) do |f| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this admin_gallery from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @gallery.errors.count, model: Gallery.model_name.human %></h4>
 
       <ul>
       <% @gallery.errors.full_messages.each do |message| %>

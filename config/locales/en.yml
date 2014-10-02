@@ -1,19 +1,19 @@
 en:
   activerecord:
     models:
-      attachment: Attachment
-      comment: Comment
-      event: Event   
-      gallery: Gallery
-      link: Link
-      newsletter: Newsletter
-      post: Post
-      setting: Setting
-      sidebar: Menu
-      slider: Slider
-      static_page: Page
-      user: User
-      visitor_comment: Comment
+      attachment: attachment
+      comment: comment
+      event: event   
+      gallery: gallery
+      link: link
+      newsletter: newsletter
+      post: post
+      setting: setting
+      sidebar: menu
+      slider: slider
+      static_page: page
+      user: user
+      visitor_comment: comment
     attributes:
       attachment:
         name: Name
@@ -547,7 +547,9 @@ en:
     register: Register
     read_more: Read more
     no_results_found: No results found
-    prohibited_save: prohibited this attachment from being saved
+    error_save: 
+      one: '1 error prohibited %{model} from being saved'
+      other: '%{count} errors prohibited %{model} from being saved'
 
 #
 # will paginate

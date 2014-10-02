@@ -1,7 +1,7 @@
 <%= form_for([:admin,@admin_static_page]) do |f| %>
   <% if @admin_static_page.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@admin_static_page.errors.count, "error") %> prohibited this admin_static_page from being saved:</h2>
+      <h4><%= t 'common.error_save', count: @admin_static_page.errors.count, model: StaticPage.model_name.human %></h4>
 
       <ul>
       <% @admin_static_page.errors.full_messages.each do |msg| %>
