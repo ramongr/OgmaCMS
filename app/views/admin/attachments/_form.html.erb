@@ -1,7 +1,7 @@
 <%= form_for([:admin,@attachment],html: { multipart: true }) do |f| %>
   <% if @attachment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t 'common.error', model: Attachment.model_name, count: @attachment.errors.count %> <%= t 'common.prohibited_save' %>:</h2>
+      <h2><%= t 'common.error', count: @attachment.errors.count %> <%= t 'common.prohibited_save' %>:</h2>
 
       <ul>
       <% @attachment.errors.full_messages.each do |message| %>
