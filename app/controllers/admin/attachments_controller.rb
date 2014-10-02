@@ -25,7 +25,7 @@ class Admin::AttachmentsController < Admin::AdminController
   # GET /admin/attachments/1/download
   def download
     @attachment = Attachment.find(params[:id])
-    send_file @attachment.file.path, :type => @attachment.file_content_type, :disposition => 'inline'
+    send_file @attachment.file.path, type: @attachment.file_content_type, disposition: 'inline'
   end
 
   # POST /admin/attachments
@@ -69,6 +69,7 @@ class Admin::AttachmentsController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_attachment
     @attachment = Attachment.find(params[:id])

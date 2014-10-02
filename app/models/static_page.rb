@@ -8,13 +8,14 @@ class StaticPage < ActiveRecord::Base
 
   include PgSearch
   pg_search_scope :search, against: [:title, :body],
-    using: { tsearch: {prefix: true} },
-    ignoring: :accents
-  
+                           using: { tsearch: { prefix: true } },
+                           ignoring: :accents
+
   private
-    def set_slug
-      if self.slug.blank?
-       self.slug = ActiveSupport::Inflector.transliterate(self.title).gsub(/[^a-z_ ]/i, '').downcase.tr(" ","_")
-      end
+
+  def set_slug
+    if slug.blank?
+      self.slug = ActiveSupport::Inflector.transliterate(title).gsub(/[^a-z_ ]/i, '').downcase.tr(' ', '_')
     end
+  end
 end

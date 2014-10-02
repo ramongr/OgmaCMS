@@ -23,12 +23,12 @@ class Admin::LinksController < Admin::AdminController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params.merge :type_mask => 1)
+    @link = Link.new(link_params.merge type_mask: 1)
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to [:admin,@link], notice: 'Link was successfully created.' }
-        format.json { render action: 'show', status: :created, location: [:admin,@link] }
+        format.html { redirect_to [:admin, @link], notice: 'Link was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [:admin, @link] }
       else
         format.html { render action: 'new' }
         format.json { render json: @link.errors, status: :unprocessable_entity }
@@ -36,14 +36,12 @@ class Admin::LinksController < Admin::AdminController
     end
   end
 
-
   # PATCH/PUT /links/1
   # PATCH/PUT /links/1.json
   def update
-
     respond_to do |format|
       if @link.update(link_params)
-        format.html { redirect_to [:admin,@link], notice: 'Link was successfully updated.' }
+        format.html { redirect_to [:admin, @link], notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -51,7 +49,6 @@ class Admin::LinksController < Admin::AdminController
       end
     end
   end
-
 
   # DELETE /links/1
   # DELETE /links/1.json
@@ -63,8 +60,8 @@ class Admin::LinksController < Admin::AdminController
     end
   end
 
-
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_link
     @link = Link.find(params[:id])
@@ -72,8 +69,6 @@ class Admin::LinksController < Admin::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def link_params
-    params.require(:link).permit(:title,:value)
+    params.require(:link).permit(:title, :value)
   end
-
-
 end

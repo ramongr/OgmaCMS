@@ -24,7 +24,7 @@ class Admin::SidebarsController < Admin::AdminController
   # POST /sidebar2s.json
   def create
     @sidebar = Sidebar.new(sidebar_params)
-    
+
     params[:sidebar][:link_ids] ||= []
     params[:sidebar][:static_page_ids] ||= []
 
@@ -33,7 +33,7 @@ class Admin::SidebarsController < Admin::AdminController
 
     respond_to do |format|
       if @sidebar.save
-        format.html { redirect_to [:admin,@sidebar], notice: 'Sidebar was successfully created.' }
+        format.html { redirect_to [:admin, @sidebar], notice: 'Sidebar was successfully created.' }
         format.json { render action: 'show', status: :created, location: @sidebar }
       else
         format.html { render action: 'new' }
@@ -41,7 +41,6 @@ class Admin::SidebarsController < Admin::AdminController
       end
     end
   end
-
 
   # PATCH/PUT /sidebars/1
   # PATCH/PUT /sidebars/1.json
@@ -54,7 +53,7 @@ class Admin::SidebarsController < Admin::AdminController
 
     respond_to do |format|
       if @sidebar.update(sidebar_params)
-        format.html { redirect_to [:admin,@sidebar], notice: 'Sidebar was successfully updated.' }
+        format.html { redirect_to [:admin, @sidebar], notice: 'Sidebar was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -62,7 +61,6 @@ class Admin::SidebarsController < Admin::AdminController
       end
     end
   end
-
 
   # DELETE /sidebars/1
   # DELETE /sidebars/1.json
@@ -74,9 +72,8 @@ class Admin::SidebarsController < Admin::AdminController
     end
   end
 
-
-
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_sidebar
     @sidebar = Sidebar.find(params[:id])
@@ -86,5 +83,4 @@ class Admin::SidebarsController < Admin::AdminController
   def sidebar_params
     params.require(:sidebar).permit(:title, :type_mask)
   end
-
 end

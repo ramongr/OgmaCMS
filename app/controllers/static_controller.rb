@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
   layout 'homepage'
-  
+
   def index
     @top_sidebars = Sidebar.top
     @bottom_sidebars = Sidebar.bottom

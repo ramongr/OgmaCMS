@@ -4,7 +4,7 @@ class CreateAttendings < ActiveRecord::Migration
       t.belongs_to :event
       t.belongs_to :user
       t.string :going
-      
+
       t.timestamps
     end
   end

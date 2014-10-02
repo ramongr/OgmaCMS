@@ -5,5 +5,4 @@ class Slider < ActiveRecord::Base
   def self.selected
     Slider.find_by selected: true
   end
-
 end

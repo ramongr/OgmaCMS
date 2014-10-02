@@ -31,7 +31,7 @@ class Admin::SettingsController < Admin::AdminController
     # INTERNATIONALIZATION SETTINGS
     selected_languages = []
     Setting.available_languages.each do |l|
-      if params.has_key?('i18n_' + l.second)
+      if params.key?('i18n_' + l.second)
         selected_languages << l
       end
     end
@@ -44,5 +44,4 @@ class Admin::SettingsController < Admin::AdminController
 
     redirect_to admin_settings_url, notice: 'Settings saved successfully'
   end
-
 end

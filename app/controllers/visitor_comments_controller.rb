@@ -63,13 +63,14 @@ class VisitorCommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_visitor_comment
-      @visitor_comment = VisitorComment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def visitor_comment_params
-      params.require(:visitor_comment).permit(:subject, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_visitor_comment
+    @visitor_comment = VisitorComment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def visitor_comment_params
+    params.require(:visitor_comment).permit(:subject, :content)
+  end
 end

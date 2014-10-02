@@ -29,7 +29,7 @@ class Admin::EventsController < Admin::AdminController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to [:admin,@event], notice: 'Event was successfully created.' }
+        format.html { redirect_to [:admin, @event], notice: 'Event was successfully created.' }
         format.json { render action: 'show', status: :created, location: @event }
       else
         format.html { render action: 'new' }
@@ -44,9 +44,9 @@ class Admin::EventsController < Admin::AdminController
     respond_to do |format|
       if @event.update(event_params)
         Attending.where(event: @event).find_each do |a|
-          SystemMailer.event_update(@event,a.user).deliver
+          SystemMailer.event_update(@event, a.user).deliver
         end
-        format.html { redirect_to [:admin,@event], notice: 'Event was successfully updated.' }
+        format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -66,6 +66,7 @@ class Admin::EventsController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])

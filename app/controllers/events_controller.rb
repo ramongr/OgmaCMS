@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   # GET /events
   # GET /events.json
   def index
@@ -29,7 +28,7 @@ class EventsController < ApplicationController
         @attending.update(going: 'yes')
         format.js
       end
-    end   
+    end
   end
 
   def not_going
@@ -49,7 +48,7 @@ class EventsController < ApplicationController
         @attending.update(going: 'no')
         format.js
       end
-    end   
+    end
   end
 
   def maybe
@@ -69,7 +68,6 @@ class EventsController < ApplicationController
         @attending.update(going: 'maybe')
         format.js
       end
-    end   
+    end
   end
-
 end
