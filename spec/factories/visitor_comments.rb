@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :visitor_comment do
-    subject "MyString"
-    name "MyString"
-    email "MyString"
-    content "MyText"
+    subject 'MyString'
+    name 'MyString'
+    email 'MyString'
+    content 'MyText'
   end
 end

@@ -3,7 +3,7 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :static_page do   
+  factory :static_page do
     title { Faker::Name.title }
     slug { Faker::Internet.slug(title, '_') }
     body { Faker::Lorem.paragraph }

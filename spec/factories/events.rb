@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :event do
-    title "MyString"
-    body "MyText"
-    start_time "2014-08-07 12:43:04"
-    end_time "2014-08-07 12:43:04"
+    title 'MyString'
+    body 'MyText'
+    start_time '2014-08-07 12:43:04'
+    end_time '2014-08-07 12:43:04'
   end
 end

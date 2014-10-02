@@ -37,7 +37,7 @@ class Admin::UsersController < Admin::AdminController
     end
     respond_to do |format|
       if @admin_user.update(user_params)
-        sign_in(@admin_user, :bypass => true) if @admin_user == current_user
+        sign_in(@admin_user, bypass: true) if @admin_user == current_user
         format.html { redirect_to admin_users_url, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -56,6 +56,7 @@ class Admin::UsersController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @admin_user = User.find(params[:id])

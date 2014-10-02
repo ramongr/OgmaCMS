@@ -66,6 +66,7 @@ class Admin::StaticPagesController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_admin_static_page
     @admin_static_page = StaticPage.find(params[:id])
@@ -76,5 +77,4 @@ class Admin::StaticPagesController < Admin::AdminController
     permitted = StaticPage.globalize_attribute_names + [:slug]
     params.require(:static_page).permit(*permitted)
   end
-
 end

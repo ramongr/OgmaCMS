@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   # GET /posts
   # GET /posts.json
   def index
@@ -9,7 +8,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     @postcomments = Comment.where(post_id: @post.id).order(created_at: :desc)
   end
 end

@@ -21,8 +21,8 @@ class Admin::GalleriesController < Admin::AdminController
 
   # GET /admin/galleries/1/edit
   def edit
-  	@images = Attachment.images
-  	@added_images = @gallery.photos.order(position: :asc)
+    @images = Attachment.images
+    @added_images = @gallery.photos.order(position: :asc)
   end
 
   # POST /admin/galleries/1/add_photo
@@ -37,7 +37,7 @@ class Admin::GalleriesController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
-      render json: {id: @photo.id}, status: :ok
+      render json: { id: @photo.id }, status: :ok
     else
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
@@ -107,6 +107,7 @@ class Admin::GalleriesController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_gallery
     @gallery = Gallery.find(params[:id])

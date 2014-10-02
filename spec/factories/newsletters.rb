@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :newsletter do
-    title "MyString"
-    body "MyString"
+    title 'MyString'
+    body 'MyString'
   end
 end

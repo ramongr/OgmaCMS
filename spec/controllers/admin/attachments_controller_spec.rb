@@ -18,140 +18,140 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe Admin::AttachmentsController, :type => :controller do
+RSpec.describe Admin::AttachmentsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
   # Admin::Attachment. As you add validations to Admin::Attachment, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # Admin::AttachmentsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET index" do
-    it "assigns all admin_attachments as @admin_attachments" do
+  describe 'GET index' do
+    it 'assigns all admin_attachments as @admin_attachments' do
       attachment = Admin::Attachment.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:admin_attachments)).to eq([attachment])
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested admin_attachment as @admin_attachment" do
+  describe 'GET show' do
+    it 'assigns the requested admin_attachment as @admin_attachment' do
       attachment = Admin::Attachment.create! valid_attributes
-      get :show, {:id => attachment.to_param}, valid_session
+      get :show, { id: attachment.to_param }, valid_session
       expect(assigns(:admin_attachment)).to eq(attachment)
     end
   end
 
-  describe "GET new" do
-    it "assigns a new admin_attachment as @admin_attachment" do
+  describe 'GET new' do
+    it 'assigns a new admin_attachment as @admin_attachment' do
       get :new, {}, valid_session
       expect(assigns(:admin_attachment)).to be_a_new(Admin::Attachment)
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested admin_attachment as @admin_attachment" do
+  describe 'GET edit' do
+    it 'assigns the requested admin_attachment as @admin_attachment' do
       attachment = Admin::Attachment.create! valid_attributes
-      get :edit, {:id => attachment.to_param}, valid_session
+      get :edit, { id: attachment.to_param }, valid_session
       expect(assigns(:admin_attachment)).to eq(attachment)
     end
   end
 
-  describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Admin::Attachment" do
-        expect {
-          post :create, {:admin_attachment => valid_attributes}, valid_session
-        }.to change(Admin::Attachment, :count).by(1)
+  describe 'POST create' do
+    describe 'with valid params' do
+      it 'creates a new Admin::Attachment' do
+        expect do
+          post :create, { admin_attachment: valid_attributes }, valid_session
+        end.to change(Admin::Attachment, :count).by(1)
       end
 
-      it "assigns a newly created admin_attachment as @admin_attachment" do
-        post :create, {:admin_attachment => valid_attributes}, valid_session
+      it 'assigns a newly created admin_attachment as @admin_attachment' do
+        post :create, { admin_attachment: valid_attributes }, valid_session
         expect(assigns(:admin_attachment)).to be_a(Admin::Attachment)
         expect(assigns(:admin_attachment)).to be_persisted
       end
 
-      it "redirects to the created admin_attachment" do
-        post :create, {:admin_attachment => valid_attributes}, valid_session
+      it 'redirects to the created admin_attachment' do
+        post :create, { admin_attachment: valid_attributes }, valid_session
         expect(response).to redirect_to(Admin::Attachment.last)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns a newly created but unsaved admin_attachment as @admin_attachment" do
-        post :create, {:admin_attachment => invalid_attributes}, valid_session
+    describe 'with invalid params' do
+      it 'assigns a newly created but unsaved admin_attachment as @admin_attachment' do
+        post :create, { admin_attachment: invalid_attributes }, valid_session
         expect(assigns(:admin_attachment)).to be_a_new(Admin::Attachment)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:admin_attachment => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
+        post :create, { admin_attachment: invalid_attributes }, valid_session
+        expect(response).to render_template('new')
       end
     end
   end
 
-  describe "PUT update" do
-    describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested admin_attachment" do
-        attachment = Admin::Attachment.create! valid_attributes
-        put :update, {:id => attachment.to_param, :admin_attachment => new_attributes}, valid_session
-        attachment.reload
-        skip("Add assertions for updated state")
+  describe 'PUT update' do
+    describe 'with valid params' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
       end
 
-      it "assigns the requested admin_attachment as @admin_attachment" do
+      it 'updates the requested admin_attachment' do
         attachment = Admin::Attachment.create! valid_attributes
-        put :update, {:id => attachment.to_param, :admin_attachment => valid_attributes}, valid_session
+        put :update, { id: attachment.to_param, admin_attachment: new_attributes }, valid_session
+        attachment.reload
+        skip('Add assertions for updated state')
+      end
+
+      it 'assigns the requested admin_attachment as @admin_attachment' do
+        attachment = Admin::Attachment.create! valid_attributes
+        put :update, { id: attachment.to_param, admin_attachment: valid_attributes }, valid_session
         expect(assigns(:admin_attachment)).to eq(attachment)
       end
 
-      it "redirects to the admin_attachment" do
+      it 'redirects to the admin_attachment' do
         attachment = Admin::Attachment.create! valid_attributes
-        put :update, {:id => attachment.to_param, :admin_attachment => valid_attributes}, valid_session
+        put :update, { id: attachment.to_param, admin_attachment: valid_attributes }, valid_session
         expect(response).to redirect_to(attachment)
       end
     end
 
-    describe "with invalid params" do
-      it "assigns the admin_attachment as @admin_attachment" do
+    describe 'with invalid params' do
+      it 'assigns the admin_attachment as @admin_attachment' do
         attachment = Admin::Attachment.create! valid_attributes
-        put :update, {:id => attachment.to_param, :admin_attachment => invalid_attributes}, valid_session
+        put :update, { id: attachment.to_param, admin_attachment: invalid_attributes }, valid_session
         expect(assigns(:admin_attachment)).to eq(attachment)
       end
 
       it "re-renders the 'edit' template" do
         attachment = Admin::Attachment.create! valid_attributes
-        put :update, {:id => attachment.to_param, :admin_attachment => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+        put :update, { id: attachment.to_param, admin_attachment: invalid_attributes }, valid_session
+        expect(response).to render_template('edit')
       end
     end
   end
 
-  describe "DELETE destroy" do
-    it "destroys the requested admin_attachment" do
+  describe 'DELETE destroy' do
+    it 'destroys the requested admin_attachment' do
       attachment = Admin::Attachment.create! valid_attributes
-      expect {
-        delete :destroy, {:id => attachment.to_param}, valid_session
-      }.to change(Admin::Attachment, :count).by(-1)
+      expect do
+        delete :destroy, { id: attachment.to_param }, valid_session
+      end.to change(Admin::Attachment, :count).by(-1)
     end
 
-    it "redirects to the admin_attachments list" do
+    it 'redirects to the admin_attachments list' do
       attachment = Admin::Attachment.create! valid_attributes
-      delete :destroy, {:id => attachment.to_param}, valid_session
+      delete :destroy, { id: attachment.to_param }, valid_session
       expect(response).to redirect_to(admin_attachments_url)
     end
   end

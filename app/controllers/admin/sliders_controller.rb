@@ -21,8 +21,8 @@ class Admin::SlidersController < Admin::AdminController
 
   # GET /admin/sliders/1/edit
   def edit
-  	@images = Attachment.images
-  	@added_images = @slider.photos.order(position: :asc)
+    @images = Attachment.images
+    @added_images = @slider.photos.order(position: :asc)
   end
 
   # POST /admin/sliders/1/add_photo
@@ -37,7 +37,7 @@ class Admin::SlidersController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
-      render json: {id: @photo.id}, status: :ok
+      render json: { id: @photo.id }, status: :ok
     else
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
@@ -110,6 +110,7 @@ class Admin::SlidersController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_slider
     @slider = Slider.find(params[:id])
@@ -122,12 +123,11 @@ class Admin::SlidersController < Admin::AdminController
 
   # Verify the selected param and unselect the old slider if needed.
   def selection_handler(selected)
-    if( selected == '1')
+    if (selected == '1')
       previous_selected = Slider.selected
-      if(previous_selected)
+      if previous_selected
         previous_selected.update(selected: false)
       end
     end
   end
-
 end

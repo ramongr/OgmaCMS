@@ -9,7 +9,7 @@ FactoryGirl.define do
 
       factory :left_sidebar_static_pages do
         after(:build) do |sidebar|
-          (0..3).each do |i|
+          (0..3).each do |_i|
             sidebar.static_pages << FactoryGirl.build(:static_page)
           end
         end
@@ -21,7 +21,7 @@ FactoryGirl.define do
 
       factory :right_sidebar_static_pages do
         after(:build) do |sidebar|
-          (0..3).each do |i|
+          (0..3).each do |_i|
             sidebar.static_pages << FactoryGirl.build(:static_page)
           end
         end
@@ -33,7 +33,7 @@ FactoryGirl.define do
 
       factory :top_sidebar_static_pages do
         after(:build) do |sidebar|
-          (0..3).each do |i|
+          (0..3).each do |_i|
             sidebar.static_pages << FactoryGirl.build(:static_page)
           end
         end
@@ -45,7 +45,7 @@ FactoryGirl.define do
 
       factory :bottom_sidebar_static_pages do
         after(:build) do |sidebar|
-          (0..3).each do |i|
+          (0..3).each do |_i|
             sidebar.static_pages << FactoryGirl.build(:static_page)
           end
         end
@@ -54,8 +54,7 @@ FactoryGirl.define do
 
     factory :invalid_sidebar do
       title nil
-    end  
+    end
   end
-
 
 end

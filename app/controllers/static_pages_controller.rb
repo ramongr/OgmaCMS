@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-
   # GET /pages
   def index
     @pages = StaticPage.all
@@ -8,7 +7,6 @@ class StaticPagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-  	@page = StaticPage.find(params[:id])
+    @page = StaticPage.find(params[:id])
   end
-
 end

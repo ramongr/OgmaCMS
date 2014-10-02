@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :slider do
-    title "MyString"
+    title 'MyString'
   end
 end

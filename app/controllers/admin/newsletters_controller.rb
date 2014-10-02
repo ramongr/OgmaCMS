@@ -10,7 +10,7 @@ class Admin::NewslettersController < Admin::AdminController
   def show
   end
 
-   # GET /admin/newsletters/new
+  # GET /admin/newsletters/new
   def new
     @newsletter = Newsletter.new
   end
@@ -23,14 +23,14 @@ class Admin::NewslettersController < Admin::AdminController
   def send_newsletter
     @newsletter = Newsletter.find(params[:id])
     @newsletter.users.each do |user|
-      SystemMailer.newsletter_send(@newsletter,user).deliver
+      SystemMailer.newsletter_send(@newsletter, user).deliver
     end
 
     respond_to do |format|
       format.js
     end
   end
-  
+
   # POST /admin/newsletters
   # POST /admin/newsletters.json
   def create
@@ -41,7 +41,7 @@ class Admin::NewslettersController < Admin::AdminController
 
     respond_to do |format|
       if @newsletter.save
-        format.html { redirect_to [:admin,@newsletter], notice: 'Newsletter was successfully created.' }
+        format.html { redirect_to [:admin, @newsletter], notice: 'Newsletter was successfully created.' }
         format.json { render action: 'show', status: :created, location: newsletters_path }
       else
         format.html { render action: 'new' }
@@ -53,13 +53,12 @@ class Admin::NewslettersController < Admin::AdminController
   # PATCH/PUT /admin/newsletters/1
   # PATCH/PUT /admin/newsletters/1.json
   def update
-
     params[:newsletter][:user_ids] ||= []
     @newsletter.user_ids = params[:newsletter][:user_ids]
 
     respond_to do |format|
       if @newsletter.update(newsletter_params)
-        format.html { redirect_to [:admin,@newsletter], notice: 'Newsletter was successfully updated.' }
+        format.html { redirect_to [:admin, @newsletter], notice: 'Newsletter was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -79,6 +78,7 @@ class Admin::NewslettersController < Admin::AdminController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_admin_newsletter
     @newsletter = Newsletter.find(params[:id])
@@ -88,7 +88,4 @@ class Admin::NewslettersController < Admin::AdminController
   def newsletter_params
     params.require(:newsletter).permit(:title, :body)
   end
-
 end
-
-

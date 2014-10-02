@@ -5,7 +5,7 @@ class SystemMailer < ActionMailer::Base
 
   include ApplicationHelper
   helper ApplicationHelper
-  default from: "from@example.com"
+  default from: 'from@example.com'
 
   def event_update(event, user)
     @user = user
@@ -21,20 +21,20 @@ class SystemMailer < ActionMailer::Base
   end
 
   def check_subscription
-    if(!@user.newsletter_subscribed)
+    unless @user.newsletter_subscribed
       mail.perform_deliveries = false
     end
-  end 
+  end
 
   def append_footer
-    @unsubscribe_url = view_context.link_to( 'here!', registrations_unsubscribe_url(token: @user.unsubscribe_token)).html_safe
-    @unsubscribe_url = "If you dont want to receive more Newsletters click " + @unsubscribe_url
+    @unsubscribe_url = view_context.link_to('here!', registrations_unsubscribe_url(token: @user.unsubscribe_token)).html_safe
+    @unsubscribe_url = 'If you dont want to receive more Newsletters click ' + @unsubscribe_url
 
     if mail.html_part
-       Replace the html raw_source
+      Replace the html raw_source
       mail.html_part.body.raw_source = mail.html_part.body.raw_source + @unsubscribe_url
     else
       mail.body = String(mail.body) + @unsubscribe_url
     end
-  end 
+  end
 end

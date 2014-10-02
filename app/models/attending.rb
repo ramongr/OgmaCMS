@@ -7,15 +7,14 @@ class Attending < ActiveRecord::Base
   scope :maybe, -> { where("going LIKE 'maybe'") }
 
   def yes?
-    self.going == 'yes'
+    going == 'yes'
   end
 
   def no?
-    self.going == 'no'
+    going == 'no'
   end
 
   def maybe?
-    self.going == 'maybe'
+    going == 'maybe'
   end
-
 end
