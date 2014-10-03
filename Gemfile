@@ -117,3 +117,7 @@ gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
 # Access Cookies with JQuery
 gem 'jquery-cookie-rails'
+
+group :production, :stagin do
+  gem 'rails_12factor'
+end
