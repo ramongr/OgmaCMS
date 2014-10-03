@@ -1,1 +1,21 @@
-<h1><%= t('dashboard.index.title') %></h1>
+<h1 class="text-center"><%= t('dashboard.index.title') %></h1>
+
+<div class="row">
+  <div class="small-2">
+    <div class="panel">
+      <ul class="side-nav">
+        <li><%= link_to t('attachments.name'), admin_attachments_path %></li>
+        <li><%= link_to t('events.name'), admin_events_path %></li>
+        <li><%= link_to t('galleries.name'), admin_galleries_path %></li>
+        <li><%= link_to t('links.name'), admin_links_path %></li>
+        <li><%= link_to t('newsletters.name'), admin_newsletters_path %></li>
+        <li><%= link_to t('pages.name'), admin_static_pages_path %></li>
+        <li><%= link_to t('posts.name'), admin_posts_path %></li>
+        <li><%= link_to t('settings.name'), admin_settings_path %></li>
+        <li><%= link_to t('sidebars.name'), admin_sidebars_path %></li>
+        <li><%= link_to t('sliders.name'), admin_sliders_path %></li>
+        <li><%= link_to t('users.name'), admin_users_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

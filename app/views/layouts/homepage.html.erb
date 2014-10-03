@@ -36,17 +36,11 @@
       <div class="medium-3 columns">
         <% @left_sidebars.each do |sidebar| %>
           <h3><%=sidebar.title%></h3>
-          <p>
-            Links
-          </p>
-          <ul class="side-nav">
+           <ul class="side-nav">
             <% sidebar.links.each do |link| %>
               <li><%= link_to link.title, link.url_with_protocol() %></li>
             <% end %>
           </ul>
-          <p>
-            Internal Pages
-          </p>
           <ul class="side-nav">
             <% sidebar.static_pages.each do |static_page| %>
               <li><%= link_to static_page.title, [:admin,static_page] %></li>
@@ -62,17 +56,11 @@
           <div class="row">
             <div class="medium-3 push-9 columns">
               <h3><%=sidebar.title%></h3>
-              <p>
-                Links
-              </p>
               <ul class="side-nav">
                 <% sidebar.links.each do |link| %>
                   <li><%= link_to link.title, link.url_with_protocol() %></li>
                 <% end %>
               </ul>
-              <p>
-                Internal Pages
-              </p>
               <ul class="side-nav">
                 <% sidebar.static_pages.each do |static_page| %>
                   <li><%= link_to static_page.title, [:admin,static_page] %></li>
