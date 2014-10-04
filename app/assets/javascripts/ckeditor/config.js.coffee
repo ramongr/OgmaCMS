@@ -1,5 +1,5 @@
 CKEDITOR.editorConfig = (config) ->
-  config.language = 'en'
+  config.defaultLanguage = 'en'
   # config.uiColor = "#AADC6E"
   config.toolbar_Mail = [
     { name: 'document',    items: [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },

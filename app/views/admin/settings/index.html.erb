@@ -35,7 +35,7 @@
           <%= label_tag t('settings.available_languages') %>
           <% Setting.available_languages.each do |l| %>
             <%= check_box_tag 'i18n_' + l.second, 'yes', l.in?(Setting.selected_languages) %>
-            <%= l.first %>
+            <%= label_tag l.first %><br>
           <% end %>
         </div>
       </div>

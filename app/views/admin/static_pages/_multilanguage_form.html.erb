@@ -1,10 +1,6 @@
 <ul class="tabs" data-tab>
   <% Setting.selected_languages.each_with_index do |l,index| %>
-    <% if index == 0 %>
-      <li class="tab-title active"><a href="#langtab0"><%= l.first %></a></li>
-    <% else %>
-      <li class="tab-title"><a href="#langtab<%= index %>"><%= l.first %></a></li>
-    <% end %>
+    <li class="tab-title <%= l.second == I18n.locale.to_s ? "active" : ""%>"><a href="#langtab<%= index %>"><%= l.first %></a></li>
   <% end %>
 </ul>
 
@@ -22,20 +18,19 @@
   <div class="tabs-content"> 
     <% Setting.selected_languages.each_with_index do |l, index| %>
       
-      <%= content_tag :div, class: "content "+ (index == 0 ? "active": ""), id: "langtab"+index.to_s do %> 
-        <% title_locale = ("title_" + l.second).to_sym %>
-        <% body_locale = ("body_" + l.second).to_sym %>
+      <%= content_tag :div, class: "content "+ (l.second == I18n.locale.to_s ? "active" : ""), id: "langtab"+index.to_s do %> 
+
         <div id="page_title" class="field">
-          <%= f.label t('pages.attributes.title') %>
-          <%= f.text_field title_locale %>
+          <%= f.label t('pages.attributes.title', locale: l.second.to_sym) %>
+          <%= f.text_field ("title_" + l.second).to_sym %>
         </div>
         <div id="page_slug" class="field">
-          <%= f.label t('pages.attributes.slug') %>
+          <%= f.label t('pages.attributes.slug', locale: l.second.to_sym) %>
           <%= f.text_field :slug %>
         </div>
         <div id="page_body" class="field">
-          <%= f.label t('pages.attributes.body') %>
-          <%= f.text_area body_locale, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+          <%= f.label t('pages.attributes.body', locale: l.second.to_sym) %>
+          <%= f.text_area ("body_" + l.second).to_sym, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
         </div>
         <br>
         <div id="insert-attachment-<%=l.second%>">

@@ -13,7 +13,7 @@
  
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field ("title_" + I18n.locale.to_s).to_sym %>
   </div>
   <div class="field">
     <%= f.label :slug %>
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area :body, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+    <%= f.text_area ("title_" + I18n.locale.to_s).to_sym, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
   </div>
   <div class="actions">
     <%= f.submit class: "button right" %>
