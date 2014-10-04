@@ -12,8 +12,8 @@
     <%= render 'layouts/topbar' %>
     <br>
     <!-- Main Slider -->
-    <div class="row" id="main-slider">
-      <div class="large-12">
+    <div class="row">
+      <div class="slider large-12">
         <% @main_slider = Slider.selected %>
         <% if @main_slider %>
           <ul data-orbit data-options="animation:slide;
