@@ -58,6 +58,8 @@ class Admin::EventsController < Admin::AdminController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
+    attendings_from_event = Attending.where(event: @event)
+    attendings_from_event.map(&:destroy)
     @event.destroy
     respond_to do |format|
       format.html { redirect_to admin_events_url }

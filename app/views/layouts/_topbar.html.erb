@@ -3,7 +3,7 @@
   <section class="top-bar-section">
     <ul class="title-area">
       <li class="has-dropdown">
-        <%= link_to "OgmaCMS", main_app.root_path %>
+        <%= link_to Setting.site_name, main_app.root_path %>
         <ul class="dropdown">
           <% if user_signed_in? %>
             <% if current_user.role? :admin %>
