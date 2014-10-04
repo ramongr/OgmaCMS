@@ -10,9 +10,10 @@
   </head>
   <body id="<%= controller.controller_name %>">
     <%= render 'layouts/topbar' %>
+    <br>
     <!-- Main Slider -->
     <div class="row" id="main-slider">
-      <div class="small-12">
+      <div class="large-12">
         <% @main_slider = Slider.selected %>
         <% if @main_slider %>
           <ul data-orbit data-options="animation:slide;
@@ -31,9 +32,7 @@
           </ul>
         <% end %>
       </div>
-    </div>
 
-    <div class="row">
       <div class="medium-3 columns">
         <% @left_sidebars.each do |sidebar| %>
           <h3><%=sidebar.title%></h3>
@@ -55,7 +54,7 @@
       <div class="medium-3 columns">
         <% @right_sidebars.each do |sidebar| %>
           <div class="row">
-            <div class="medium-3 push-9 columns">
+            <div class="medium-3 push-7 columns">
               <h3><%=sidebar.title%></h3>
               <ul class="side-nav">
                 <% sidebar.links.each do |link| %>
