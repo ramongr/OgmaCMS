@@ -1,57 +1,62 @@
 <nav class="top-bar admin-top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "OgmaCMS", main_app.root_path %></a></h1>
-    </li>
-  </ul>
+
   <section class="top-bar-section">
-    <ul class="right">
+    <ul class="title-area">
+      <li class="has-dropdown">
+        <%= link_to Setting.site_name, main_app.root_path %>
+        <ul class="dropdown">
+          <% if user_signed_in? %>
+            <% if current_user.role? :admin %>
+              <li><%= link_to t('dashboard.name'), main_app.admin_path %></li>
+            <% end %>
+          <% end %>
+          <li><%= link_to t('events.calendar'), main_app.calendar_index_path %></li>
+          <li><%= link_to t('events.name'), main_app.events_path %></li>
+          <li><%= link_to t('galleries.name'), main_app.galleries_path %></li>
+          <li><%= link_to t('posts.name'), main_app.posts_path %></li>          
+          <li><%= link_to t('pages.name'), main_app.static_pages_path %></li>
+          <li><%= link_to t('common.forum'), forem.forums_path %></li>
+          <li><%= link_to t('visitor_comments.name'), main_app.visitor_comments_path %></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="right">      
       <li class="has-form">
         <div class="row collapse">
           <div class="large-8 small-9 columns">
-            <%= form_tag search_index_path, method: :get do %>
-            <p>
-              <%= text_field_tag :search, params[:search] %>              
-            </p>
-          </div>
-          <div class="large-4 small-3 columns">
-            <%= submit_tag t('common.search'), name: nil, class: 'alert button expand' %>
-          </div>
-        </div>
-        <% end %>
+            <%= form_tag search_index_path, method: :get do %>            
+              <p><%= text_field_tag :search, params[:search] %></p>
+              </div>
+              <div class="large-4 small-3 columns">
+                <%= submit_tag t('common.search'), name: nil, class: 'alert button expand' %>
+              </div>
+            <% end %>
+        </div>        
       </li>
       <% if Setting.selected_languages.length > 1 %>
-      <li class="has-dropdown">
-        <a href="#"><%= t('common.language') %></a>
-        <ul class="dropdown">          
-          <% Setting.selected_languages.each do |l| %>
-            <% if l.second == I18n.locale.to_s %>
-              <li class="active"><%= link_to l.first, locale: l.second %></li>
-            <% else %>
-              <li><%= link_to l.first, locale: l.second %></li>
-            <% end %>          
-          <% end %>
-        </ul>
-      </li>
+        <li class="has-dropdown">
+          <a href="#"><%= t('common.language') %></a>
+          <ul class="dropdown">          
+            <% Setting.selected_languages.each do |l| %>
+              <% if l.second == I18n.locale.to_s %>
+                <li class="active"><%= link_to l.first, locale: l.second %></li>
+              <% else %>
+                <li><%= link_to l.first, locale: l.second %></li>
+              <% end %>          
+            <% end %>
+          </ul>
+        </li>
       <% end %>
-      <li>
-        <%= link_to 'Visitor Comment', main_app.visitor_comments_path %>
-      </li>
-      <li>
-        <%= link_to 'Posts', main_app.posts_path %>
-      </li>
-      <li>
-        <%= link_to 'Forums', forem.forums_path %>
-      </li>
+
       <% if user_signed_in? %>
-        <li><%= link_to current_user.name, main_app.edit_user_registration_path %></li>
-        <li><%= link_to t('common.log_out'), main_app.destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to current_user.name, main_app.edit_user_registration_path %></li>
+      <li><%= link_to t('common.log_out'), main_app.destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to t('common.log_in'), main_app.new_user_session_path %></li>
-        <li><%= link_to t('common.register'), main_app.new_user_registration_path %></li>
+      <li><%= link_to t('common.log_in'), main_app.new_user_session_path %></li>
+      <li><%= link_to t('common.register'), main_app.new_user_registration_path %></li>
       <% end %>
     </ul>
-    <ul class="left">
+    <ul class="left">      
     </ul>
   </section>
 </nav>

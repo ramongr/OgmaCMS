@@ -61,6 +61,9 @@ class Admin::AttachmentsController < Admin::AdminController
   # DELETE /admin/attachments/1
   # DELETE /admin/attachments/1.json
   def destroy
+    # Check if attachment is part of other objects before deleting.
+    photos_from_attachment = Photo.where(attachment: @attachment)
+    photos_from_attachment.map(&:destroy)
     @attachment.destroy
     respond_to do |format|
       format.html { redirect_to admin_attachments_url }
