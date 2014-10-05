@@ -50,6 +50,10 @@
     <%= f.label :role %>
     <%= f.select :role, User::ROLES.collect {|r| [ t('users.roles.' + r), r ] } %>
   </div>
+  <div class="field">
+    <%= f.check_box :newsletter_subscribed %>
+    <%= f.label t('users.attributes.receive_newsletters') %><br />
+  </div>
   <div class="actions">
     <%= f.submit class: "button right" %>
   </div>

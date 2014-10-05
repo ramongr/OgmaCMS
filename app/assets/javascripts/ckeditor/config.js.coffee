@@ -1,6 +1,7 @@
 CKEDITOR.editorConfig = (config) ->
   config.defaultLanguage = 'pt'
-  # config.uiColor = "#AADC6E"
+  config.skin = 'bootstrapck'
+  #config.uiColor = "#ffffff"
   config.toolbar_Mail = [
     { name: 'document',    items: [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
     { name: 'clipboard',   items: [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },

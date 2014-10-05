@@ -1,4 +1,4 @@
-<h1 class="text-center">Edit <%= resource_name.to_s.humanize %></h1>
+<h1 class="text-center"><%= t('common.edit') %> <%= resource_name.to_s.humanize %></h1>
 
 <div class="row">
   <div class="small-6">
@@ -20,11 +20,6 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>  
 
-      <div>
-        <%= f.label :language %>
-        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
-      </div>
-
       <div class="field">
         <%= f.label :dob %>
         <%= f.date_select :dob, { start_year: Date.today.year - 110 , end_year: Date.today.year - 18, default: { day: 1, month: 1, year: Date.today.year - 110 }}, {class: "small-4 columns", required: ''} %>
@@ -43,7 +38,12 @@
         <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
       </div>
 
-      <div class="field"><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+      <div>
+        <%= f.label :language %>
+        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
+      </div>
+
+      <div class="field"><%= f.label :password %> <i><%= t('devise.leave_blank') %></i><br />
         <%= f.password_field :password, autocomplete: "off" %></div>
 
       <div class="field">
@@ -52,21 +52,21 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.label :current_password %> <i><%= t('devise.need_password') %></i><br />
         <%= f.password_field :current_password, autocomplete: "off" %>
       </div>
 
       <div class="field">
         <%= f.check_box :newsletter_subscribed %>
-        <%= f.label "Receive Newsletters" %><br />
+        <%= f.label t('users.attributes.receive_newsletters') %><br />
       </div>
       
       <div>
-        <%= f.submit "Update", class: "button right" %>
+        <%= f.submit class: "button right" %>
       </div>
     <% end %>
 
-    <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button left" %></p>
+    <p><%= link_to t('devise.cancel_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button left" %></p>
 
   </div>
 </div>

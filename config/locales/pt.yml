@@ -2,7 +2,6 @@
 # Falta:
 #   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
 #   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
-#   Traduzir o nomes das línguas para o nome da língua no locale actual
 #
 
 pt:
@@ -104,11 +103,19 @@ pt:
     to_time: Até às
 
 #
+# I18n
+#
+
+  i18n:
+    name_native: Português
+    name_en: Portuguese
+
+#
 # Admin Dashboard
 #
 
   dashboard:
-    name: Área de administração
+    name: Painel de Controlo
 
     index:
       title: Painel de controlo
@@ -439,7 +446,7 @@ pt:
     select_image: Seleccione uma imagem.
 
 #
-# Static Pages
+# Pages
 #
 
   pages:
@@ -489,6 +496,7 @@ pt:
       role: Permissões
       created_at: Criado em
       updated_at: Modificado em
+      receive_newsletters: Receber newsletters
 
     index:
       admin:
@@ -554,8 +562,8 @@ pt:
     shortcuts: Atalhos
     language: Língua
     search: Pesquisar
-    log_in: Login
-    log_out: Logout
+    login: Login
+    logout: Logout
     register: Registar
     read_more: Ler mais
     no_results_found: Não foram encontrados resultados
@@ -564,4 +572,19 @@ pt:
       other: '%{count} erros não permitiram criar o %{model}'
     navigation: Navegação
     forum: Forum
-    public_site: Ir para a parte pública
+    public_site: Visualizar site
+    content: Conteúdo
+    components: Componentes
+    system: Sistema
+
+#
+# Devise
+#
+
+  devise:
+    forgot_password?: Recuperar password
+    didnt_receive_confirmation?: Não recebeu o email confirmação?
+    leave_blank: (Deixar em branco se não quiser mudar)
+    need_password: (Precisamos da sua password para confirmar as mudanças)
+    cancel_account: Cancelar conta
+    send_reset_instructions: Recuperar password

@@ -97,6 +97,14 @@ en:
     to_time: To
 
 #
+# I18n
+#
+
+  i18n:
+    name_native: English
+    name_pt: Inglês
+
+#
 # Admin Dashboard
 #
 
@@ -431,7 +439,7 @@ en:
     select_image: Select image
 
 #
-# Static Pages
+# Pages
 #
 
   pages:
@@ -481,6 +489,7 @@ en:
       role: Role
       created_at: Created at
       updated_at: Updated at
+      receive_newsletters: Receive newsletters
 
     index:
       admin:
@@ -546,8 +555,8 @@ en:
     shortcuts: Shortcuts
     language: Language
     search: Search
-    log_in: Login
-    log_out: Logout
+    login: Login
+    logout: Logout
     register: Register
     read_more: Read more
     no_results_found: No results found
@@ -557,3 +566,18 @@ en:
     navigation: Navigation
     forum: Forum
     public_site: Public website
+    content: Content
+    components: Components
+    system: System
+
+#
+# Devise
+#
+
+  devise:
+    forgot_password?: Forgot your password?
+    didnt_receive_confirmation?: Didn't receive confirmation instructions?
+    leave_blank: (Leave blank if you don't want to change it)
+    need_password: (We need your current password to confirm your changes)
+    cancel_account: Cancel account
+    send_reset_instructions: Recover password

@@ -12,25 +12,69 @@
     <nav class="top-bar admin-top-bar" data-topbar>
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">OgmaCMS Admin</a></h1>
+          <h1><a href="#"><%= Setting.site_name %> Admin</a></h1>
         </li>
       </ul>
       <section class="top-bar-section">
-        <ul class="right">
-          <li><%= link_to current_user.name, edit_user_registration_path %></li>
-          <li><%= link_to t('common.log_out'), destroy_user_session_path, method: :delete %></li>
-        </ul>
         <ul class="left">
-          <li>
-            <%= link_to t('common.public_site'), root_path %>
-          </li>        
+          <li><%= link_to t('common.public_site'), root_path %></li>
+          <li class="has-dropdown">
+            <a href="#"><%= t('common.content') %></a>
+            <ul class="dropdown">
+              <li><%= link_to t('attachments.name'), admin_attachments_path %></li>
+              <li><%= link_to t('events.name'), admin_events_path %></li>              
+              <li><%= link_to t('links.name'), admin_links_path %></li>              
+              <li><%= link_to t('pages.name'), admin_static_pages_path %></li>
+              <li><%= link_to t('posts.name'), admin_posts_path %></li>              
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a href="#"><%= t('common.components') %></a>
+            <ul class="dropdown">
+              <li><%= link_to t('galleries.name'), admin_galleries_path %></li>
+              <li><%= link_to t('sidebars.name'), admin_sidebars_path %></li>
+              <li><%= link_to t('sliders.name'), admin_sliders_path %></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a href="#"><%= t('common.system') %></a>
+            <ul class="dropdown">
+              <li><%= link_to t('newsletters.name'), admin_newsletters_path %></li>
+              <li><%= link_to t('settings.name'), admin_settings_path %></li>
+              <li><%= link_to t('users.name'), admin_users_path %></li>
+            </ul>
+          </li>
+
         </ul>
+
+        <ul class="right">
+          <% if Setting.selected_languages.length > 1 %>
+            <li class="has-dropdown">
+              <a href="#"><%= t('common.language') %></a>
+              <ul class="dropdown">          
+                <% Setting.selected_languages.each do |l| %>
+                  <% if l.second == I18n.locale.to_s %>
+                    <li class="active"><%= link_to l.first, locale: l.second %></li>
+                  <% else %>
+                    <li><%= link_to l.first, locale: l.second %></li>
+                  <% end %>          
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+
+          <li><%= link_to current_user.name, edit_user_registration_path %></li>
+          <li><%= link_to t('common.logout'), destroy_user_session_path, method: :delete %></li>
+        </ul>
+        
       </section>
     </nav>
 
     <div class="flash">
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, :id => "flash_#{name}", class: "alert-box success", data: {alert: ''} do %>
+        <%= content_tag :div, id: "flash_#{name}", class: "alert-box success", data: {alert: ''} do %>
           <%= msg %>
           <a href="#" class="close">&times;</a>
         <% end %>

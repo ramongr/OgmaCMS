@@ -50,9 +50,9 @@
 
       <% if user_signed_in? %>
       <li><%= link_to current_user.name, main_app.edit_user_registration_path %></li>
-      <li><%= link_to t('common.log_out'), main_app.destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to t('common.logout'), main_app.destroy_user_session_path, method: :delete %></li>
       <% else %>
-      <li><%= link_to t('common.log_in'), main_app.new_user_session_path %></li>
+      <li><%= link_to t('common.login'), main_app.new_user_session_path %></li>
       <li><%= link_to t('common.register'), main_app.new_user_registration_path %></li>
       <% end %>
     </ul>
