@@ -11,42 +11,42 @@
     </div>
   <% end %>
 
-  <div id="user_name" class="field">
+  <div id="user-name" class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div id="user_email" class="field">
+  <div id="user-email" class="field">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, autocomplete: :off %>
   </div>
-  <div id="user_birth_date" class="field">
+  <div id="user-dob" class="field">
     <%= f.label :dob %>
     <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true}, {class: "small-4 columns"} %>
   </div>
-  <div id="user_gender" class="field">
+  <div id="user-gender" class="field">
     <%= f.label :gender %>
     <%= f.radio_button :gender, "m" %>
     <%= f.label "M" %>
     <%= f.radio_button :gender, "f" %>
     <%= f.label "F" %>
   </div>
-  <div id="user_nationality" class="nationality">
+  <div id="user-nationality" class="nationality">
     <%= f.label :nationality %>
     <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
   </div>
-  <div id="user_language" class="language">
+  <div id="user-language" class="language">
     <%= f.label :language %>
     <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale.to_s) %>
   </div>
-  <div id="user_password" class="field">
+  <div id="user-password" class="field">
     <%= f.label :password, "Password" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, autocomplete: :off %>
   </div>
-  <div id="user_password_confirmation" class="field">
+  <div id="user-password-confirmation" class="field">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div id="user_role" class="field">
+  <div id="user-role" class="field">
     <%= f.label :role %>
     <%= f.select :role, User::ROLES.collect {|r| [ t('users.roles.' + r), r ] } %>
   </div>
@@ -58,32 +58,32 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="user_name" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the name of the user.</p>
+    <li data-id="user-name" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.users.name' %></p>
     </li>  
-    <li data-id="user_email" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Enter the email of the user.</p>
+    <li data-id="user-email" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.email' %></p>
     </li>
-    <li data-id="user_birth_date" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select the birthdate.</p>
+    <li data-id="user-dob" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.dob' %></p>
     </li>
-    <li data-id="user_gender" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select gender.</p>
+    <li data-id="user-gender" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.gender' %></p>
     </li>
-    <li data-id="user_nationality" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select nationality.</p>
+    <li data-id="user-nationality" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.nationality' %></p>
     </li>
-    <li data-id="user_language" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select language.</p>
+    <li data-id="user-language" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.language' %></p>
     </li>
-    <li data-id="user_password" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Password to LogIn.</p>
+    <li data-id="user-password" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.password' %></p>
     </li>
-    <li data-id="user_password_confirmation" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Confirm Password to LogIn.</p>
+    <li data-id="user-password-confirmation" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.password-confirmation' %></p>
     </li>
-    <li data-id="user_role" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select the role for this user.</p>
+    <li data-id="user-role" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.users.role' %></p>
     </li>
   </ol>
 </div>
