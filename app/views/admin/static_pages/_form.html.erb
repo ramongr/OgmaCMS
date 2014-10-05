@@ -21,9 +21,22 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <%= f.text_area ("title_" + I18n.locale.to_s).to_sym, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+    <%= f.text_area ("title_" + I18n.locale.to_s).to_sym, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full', language: I18n.locale}} %>
+  </div>
+  <br>
+  <div id="insert-attachment">
+    <button class="attachment-btn" id="insert-attachment"><%= t('common.insert_attachment') %></button>
   </div>
   <div class="actions">
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+<div id="dialog" title="<%= t('common.insert_attachment') %>" style="display:none">
+  <p class="validateTips"><%= t('common.select_attachment') %>.</p>
+  <ol id="selectable">
+    <% @attachments.each do |attachment| %>
+      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
+    <% end %>
+  </ol>
+</div>

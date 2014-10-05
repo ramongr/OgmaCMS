@@ -93,7 +93,7 @@ group :test do
 end
 
 # ready-for-use HTML text editor
-gem 'ckeditor', '4.1.0'
+gem 'ckeditor', git: 'git://github.com/galetahub/ckeditor.git'
 
 # Paperclip file attachment library
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'

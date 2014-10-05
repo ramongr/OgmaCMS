@@ -27,7 +27,7 @@
         </div>
         <div id="post_body" class="field">
           <%= f.label t('posts.attributes.content', locale: l.second.to_sym) %>
-          <%= f.text_area ("content_" + l.second).to_sym, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
+          <%= f.text_area ("content_" + l.second).to_sym, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full', language: I18n.locale } } %>
         </div>
         <br>
         <div id="insert-attachment">
