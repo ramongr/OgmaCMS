@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OgmaCMS</title>
+    <title><%= Setting.site_name %></title>
     <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
@@ -12,41 +12,35 @@
     <%= render 'layouts/topbar' %>
     <br>
     <!-- Main Slider -->
-    <div id="main-slider">
-      <% @main_slider = Slider.selected %>
-      <% if @main_slider %>
-        <ul data-orbit data-options="animation:slide;
-                  pause_on_hover:false;
-                  timer_speed:7000;
-                  animation_speed:1500;
-                  navigation_arrows:true;
-                  bullets:true;">
-          <% @main_slider.photos.order(position: :asc).each do |image| %>
-            <li data-orbit-slide="headline">
-              <div>
-                <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
-              </div>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-
     <div class="row">
+      <div class="slider large-12">
+        <% @main_slider = Slider.selected %>
+        <% if @main_slider %>
+          <ul data-orbit data-options="animation:slide;
+                    pause_on_hover:false;
+                    timer_speed:7000;
+                    animation_speed:1500;
+                    navigation_arrows:true;
+                    bullets:true;">
+            <% @main_slider.photos.order(position: :asc).each do |image| %>
+              <li data-orbit-slide="headline">
+                <div>
+                  <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
       <div class="medium-3 columns">
         <% @left_sidebars.each do |sidebar| %>
           <h3><%=sidebar.title%></h3>
-          <p>
-            Links
-          </p>
-          <ul class="side-nav">
+           <ul class="side-nav">
             <% sidebar.links.each do |link| %>
               <li><%= link_to link.title, link.url_with_protocol() %></li>
             <% end %>
           </ul>
-          <p>
-            Internal Pages
-          </p>
           <ul class="side-nav">
             <% sidebar.static_pages.each do |static_page| %>
               <li><%= link_to static_page.title, [:admin,static_page] %></li>
@@ -60,19 +54,13 @@
       <div class="medium-3 columns">
         <% @right_sidebars.each do |sidebar| %>
           <div class="row">
-            <div class="medium-3 push-9 columns">
+            <div class="medium-3 push-7 columns">
               <h3><%=sidebar.title%></h3>
-              <p>
-                Links
-              </p>
               <ul class="side-nav">
                 <% sidebar.links.each do |link| %>
                   <li><%= link_to link.title, link.url_with_protocol() %></li>
                 <% end %>
               </ul>
-              <p>
-                Internal Pages
-              </p>
               <ul class="side-nav">
                 <% sidebar.static_pages.each do |static_page| %>
                   <li><%= link_to static_page.title, [:admin,static_page] %></li>

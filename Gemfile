@@ -74,6 +74,7 @@ end
 gem 'forem', github: 'radar/forem', branch: 'rails4'
 
 gem 'will_paginate'
+gem 'will-paginate-i18n'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
