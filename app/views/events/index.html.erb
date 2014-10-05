@@ -32,8 +32,8 @@
                       <br>
                       <%= t('events.attributes.all_day') %>
                   </td> 
-                <% end %>             
-              <% else %>  
+                <% end %>
+              <% else %>
                 <% if event.start_time.day == event.end_time.day %>
                   <td>
                     <%= l event.start_time, format: :date_only %>
