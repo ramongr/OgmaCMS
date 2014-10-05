@@ -8,14 +8,8 @@ class Setting < RailsSettings::CachedSettings
 
   # I18n
 
-  defaults[:available_languages] = [%w(English en),
-                                    %w(Español es),
-                                    %w(Français fr),
-                                    %w(Italiano it),
-                                    %w(Português pt)
-                                   ]
-
-  defaults[:selected_languages] = [%w(English en)]
+  defaults[:available_languages] = %w(en es fr it pt)
+  defaults[:selected_languages] = %w(en pt)
 
   # EMAILS
 
