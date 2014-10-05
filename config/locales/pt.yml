@@ -317,7 +317,7 @@ pt:
 #
 
   posts:
-    name: Posts
+    name: Artigos
 
     attributes:
       title: Nome
@@ -328,22 +328,22 @@ pt:
 
     index:
       admin:
-        title: Posts
-        new: Novo post
+        title: Artigos
+        new: Novo artigo
       public:
-        title: Posts
-        new: Novo post
+        title: Artigos
+        new: Novo artigo
 
     new:
       admin:
-        title: Novo post
+        title: Novo artigo
 
     edit:
       admin:
-        title: Modificar post
+        title: Modificar artigo
 
     search:
-      title: Posts
+      title: Artigos
 
     add_comment: Comentar
 
@@ -575,6 +575,95 @@ pt:
     page_gap: "&hellip;"
     previous_label: "← anterior"
 
+# 
+# Joyride
+# 
+
+
+  joyride:
+    next: "→"
+    prev: "←"
+    #
+    # Posts
+    # 
+    post:
+      title: Coloque aqui o título do artigo
+      body: Coloque aqui o conteúdo do artigo
+      attachments: Aqui pode escolher anexos já existentes na base de dados
+    # 
+    # Pages 
+    #      
+    page:
+      title: Coloque aqui o título da página
+      slug: Este campo é opcional, serve para modificar o endereço da página que está a criar
+      body: Conteúdo da página 
+      attachments: Aqui pode escolher anexos já existentes na base de dados
+    # 
+    # Menu
+    # 
+    menu:
+      title: Coloque aqui o título do menu
+      position: Escolha a posição na página deste menu
+      links: Abaixo estão links para todos os locais do teu site mais alguns links criados
+      pages: As páginas criadas também podem ser ligadas ao menu
+    # 
+    # Slider
+    # 
+    slider:
+      title: Coloque aqui o título do painel
+      selected: Ao selecionar este painel, será o apresentado por defeito na página pricipal
+    # 
+    # Attachment
+    # 
+    attachment:
+      name: Coloque aqui o nome do anexo
+      description: Pequena descrição aqui
+      file: Escolha o ficheiro no seu dispositivo
+    # 
+    # Events
+    # 
+    event:
+      title: Coloque aqui o título do evento
+      body: Uma descrição aqui
+      all-day: O evento é o dia todo? Clique aqui
+      start-time: Início do evento
+      end-time: Fim do evento
+    # 
+    # Galleries
+    # 
+    gallery:
+      title: Coloque aqui o título da galeria
+      description: Uma descrição da galeria
+      date: Uma data para a galeria
+    # 
+    # Newsletters
+    # 
+    newsletter:
+      title: Coloque aqui um título para a newsletter
+      body: O conteúdo da newsletter
+      destinatary: Escolha abaixo quem vai receber esta newsletter
+    # 
+    # Settings
+    # 
+    settings:
+      title: Coloca um nome para o teu website
+      description: Uma pequena descrição para o teu website
+      logo: O logótipo do teu site
+      internationalization: O teu site vai suportar multíplas línguas? Escolhe aqui quais
+      newsletters: Configura as newsletters aqui
+    # 
+    # Users
+    # 
+    users:
+      name: Coloque aqui o seu nome
+      email: Coloque aqui o seu endereço eletrónico
+      dob: Data de nascimento
+      gender: Coloque aqui o seu género
+      nationality: Selecione abaixo a sua nacionalidade
+      language: A lingua que quer ver o site, apenas estão disponíveis línguas definidas das definições do site
+      password: A sua password aqui, procure sempre colocar uma password segura
+      password-confirmation: Confirme a sua password neste campo
+      role: As permissões do utilizador, se o utilizador for Admin ou Super Admin, pode alterar todas as definições do site. Tenha cuidado a quem dá tais permissões.
 #
 # Devise
 #

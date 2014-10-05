@@ -11,16 +11,16 @@
     </div>
   <% end %>
 
-  <div id="attachment_name" class="field">
+  <div id="attachment-name" class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div id="attachment_description" class="field">
+  <div id="attachment-description" class="field">
     <%= f.label :description %>
     <%= f.text_area :description, rows: 4 %>
   </div>
   <%= f.file_field :file %>
-  <div id="attachment_file" class="actions">
+  <div id="attachment-file" class="actions">
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
@@ -28,14 +28,14 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="attachment_name" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the name you want for the attachment.</p>
+    <li data-id="attachment-name" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.attachment.name' %></p>
     </li>  
-    <li data-id="attachment_description" data-text="Next" data-options="tip_location: top">
-      <p>Describe the attachment.</p>
+    <li data-id="attachment-description" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.attachment.description' %></p>
     </li>
-    <li data-id="attachment_file" data-text="Ok" data-options="tip_location: top;">
-      <p>Choose the file you want to upload as an attachment.</p>
+    <li data-id="attachment-file" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.attachment.file' %></p>
     </li>
   </ol>
 </div>

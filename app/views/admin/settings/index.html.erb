@@ -1,7 +1,7 @@
 <h1 class="text-center"><%= t('settings.index.admin.title') %></h1>
 
 <div class="row">
-  <div class="small-9">
+  <div class="small-9 columns">
     <ul class="tabs" data-tab>
       <li id="site-settings" class="tab-title active"><a href="#site"><%= t('settings.site') %></a></li>
       <li id="site-internationalization" class="tab-title"><a href="#internationalization"><%= t('settings.internationalization') %></a></li>
@@ -12,19 +12,15 @@
     <div class="tabs-content">
 
       <div class="content active" id="site">
-        <div class="field">
+        <div id="site-title" class="field">
           <%= label_tag t('settings.site_title') %>
           <%= text_field_tag :site_name, Setting.site_name %>
         </div>
-        <div class="field">
-          <%= label_tag t('settings.site_subtitle') %>
-          <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
-        </div>
-        <div class="field">
+        <div id="site-description" class="field">
           <%= label_tag t('settings.site_description') %>
           <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
         </div>
-        <div class="field">
+        <div id="site-logo" class="field">
           <%= label_tag t('settings.site_logo') %>
           <%= text_field_tag :site_logo, Setting.site_logo %>
         </div>
@@ -55,30 +51,28 @@
       <%= submit_tag t('settings.update_settings'), class: "button right" %>
     </div>
   </div>
+  <% end %>
+  <div class="small-3 columns">
+    <button id="joyride-init" class="small radius">?</button>
+  </div>
 </div>
-
-<% end -%>
-
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="site_name" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the Name you want for the site.</p>
+    <li data-id="site-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.settings.title' %></p>
     </li>  
-    <li data-id="site_subtitle" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Enter the Subtitle you want for the site.</p>
+    <li data-id="site-description" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.settings.description' %></p>
     </li> 
-    <li data-id="site_description" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Describe the site.</p>
-    </li> 
-    <li data-id="site_logo" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Give a logo for the site.</p>
+    <li data-id="site-logo" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.settings.logo' %></p>
     </li>
-    <li data-id="site-internationalization" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Select the languages you want the site to support.</p>
+    <li data-id="site-internationalization" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.settings.internationalization' %></p>
     </li>
-    <li data-id="site-newsletters" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Customize predefined Newsletter.</p>
+    <li data-id="site-newsletters" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.settings.newsletters' %></p>
     </li>
   </ol>
 </div>
