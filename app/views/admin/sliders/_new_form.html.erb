@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="slider-title" class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div id="slider-selected" class="field">
     <%= f.check_box :selected %>
     <%= f.label t('sliders.attributes.selected') %>
   </div>
@@ -28,9 +28,11 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="slider_title" data-text="Ok" data-options="tip_location: top; prev_button: false">
-      <p>Enter the name you want for the slider.</p>
-      <p>You will add images in the next step.</p>
+    <li data-id="slider-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.slider.title' %></p>
+    </li>
+    <li data-id="slider-selected" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.slider.selected' %></p>
     </li>  
   </ol>
 </div>

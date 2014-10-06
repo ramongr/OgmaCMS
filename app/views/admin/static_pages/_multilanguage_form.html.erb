@@ -1,6 +1,6 @@
 <ul class="tabs" data-tab>
   <% Setting.selected_languages.each do |l| %>
-    <li class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
   <% end %>
 </ul>
 
@@ -20,22 +20,26 @@
       
       <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
 
-        <div id="page_title" class="field">
+		    <!-- Page name -->
+        <%= content_tag :div, class: 'field', id: 'page-title-'+ l do %>
           <%= f.label t('pages.attributes.title', locale: l.to_sym) %>
           <%= f.text_field ("title_" + l).to_sym %>
-        </div>
-        <div id="page_slug" class="field">
+        <% end %>
+        <!-- Page slug -->
+        <%= content_tag :div, class: 'field', id: 'page-slug-' + l do %>
           <%= f.label t('pages.attributes.slug', locale: l.to_sym) %>
           <%= f.text_field :slug %>
-        </div>
-        <div id="page_body" class="field">
+        <% end %>
+		    <!-- Page body -->
+        <%= content_tag :div, class: 'field', id: 'page-body-'+ l do %>
           <%= f.label t('pages.attributes.body', locale: l.to_sym) %>
           <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
-        </div>
+        <% end %>
         <br>
-        <div id="insert-attachment-<%= l %>">
-          <button><%= t('common.insert_attachment') %></button>
-        </div>
+        <!-- Attachment -->
+        <%= content_tag :div, class: 'field', id: 'page-attachment-' + l do %>
+          <button><%= t('common.insert_attachment', locale: l) %></button>
+        <% end %>
       <% end %>
     <% end %>
 
@@ -55,21 +59,19 @@
 
 
 <!-- At the bottom of your page but inside of the body tag -->
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="page_title" data-text="Next" data-options="tip_location: top; prev_button: false; cookieMonster: true;
-      cookieName: 'JoyRide';
-      cookieDomain: false">
-      <p>Enter the title of the Static Page.</p>
+<div id="pages-form" class="joyride-content">
+  <ol id="joyride-defs" class="joyride-list" data-joyride>
+    <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.page.title' %></p>
     </li>  
-    <li data-id="page_slug" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>This field is optional. </p>
+    <li id="slug" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.slug' %></p>
     </li>
-    <li data-id="page_body" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the body of the Static Page.</p>
+    <li id="body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.body' %></p>
     </li>
-    <li data-id="insert-attachment" data-text="Ok" data-options="tip_location: top; prev_button: false">
-      <p>Attachments can be loaded into the body using this button.</p>
+    <li id="attachment" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.attachments' %></p>
     </li> 
   </ol>
 </div>

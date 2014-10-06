@@ -1,6 +1,6 @@
 <ul class="tabs" data-tab>
   <% Setting.selected_languages.each do |l| %>
-    <li class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
   <% end %>
 </ul>
 
@@ -20,19 +20,22 @@
     <% Setting.selected_languages.each do |l| %>
       
       <%= content_tag :div, class: "content "+ (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
-
-        <div id="post_title" class="field">
+      
+        <!-- Name div -->
+        <%= content_tag :div, class: 'field', id: "post-title-" + l do %>
           <%= f.label t('posts.attributes.title', locale: l.to_sym) %>
           <%= f.text_field ("title_" + l).to_sym %>
-        </div>
-        <div id="post_body" class="field">
+        <% end %>
+        <!-- Content div -->
+        <%= content_tag :div, class: 'field', id: "post-body-" + l do %>
           <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
           <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale } %>
         </div>
         <br>
-        <div id="insert-attachment">
+        <!-- Attachment -->
+        <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>
           <button class="attachment-btn" id="insert-attachment-<%=l%>"><%= t('common.insert_attachment') %></button>
-        </div>
+        <% end %>
       <% end %>
 
     <% end %>
@@ -52,17 +55,17 @@
   </ol>
 </div>
 
-
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="post_title" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the title of the Post.</p>
+<!-- Joyride instructions -->
+<div id="posts-form" class="joyride-content">
+  <ol id="joyride-defs" class="joyride-list" data-joyride>
+    <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.post.title' %></p>
     </li>  
-    <li data-id="post_body" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the body of the Post.</p>
+    <li id="body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
+      <p><%= t 'joyride.post.body' %></p>
     </li>
-    <li data-id="insert-attachment" data-text="Ok" data-options="tip_location: top; prev_button: false">
-      <p>Attachments can be loaded into the body using this button.</p>
+    <li id="attachment" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
+      <p><%= t 'joyride.post.attachments' %></p>
     </li> 
   </ol>
 </div>
