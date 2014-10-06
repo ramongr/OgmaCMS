@@ -16,7 +16,11 @@
           <%= label_tag t('settings.site_title') %>
           <%= text_field_tag :site_name, Setting.site_name %>
         </div>
+<<<<<<< HEAD
+        <div class="field">
+=======
         <div id="site-description" class="field">
+>>>>>>> develop
           <%= label_tag t('settings.site_description') %>
           <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
         </div>
@@ -51,7 +55,7 @@
       <%= submit_tag t('settings.update_settings'), class: "button right" %>
     </div>
   </div>
-  <% end -%>
+  <% end %>
   <div class="small-3 columns">
     <button id="joyride-init" class="small radius">?</button>
   </div>

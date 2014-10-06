@@ -11,23 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div id="event-title" class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
+  <div id="event-body" class="field">
     <%= f.label :body %>
     <%= f.text_area :body, rows: 6 %>
   </div>
-  <div class="field">
+  <div id="event-all-day" class="field">
     <%= f.check_box :all_day %> <%= t('events.attributes.all_day') %>
   </div>
-  <div class="field">
+  <div id="event-start-time" class="field">
     <%= f.label :start_time %>
     <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
     <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
   </div>
-  <div class="field">
+  <div id="event-end-time" class="field">
     <%= f.label :end_time %>
     <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
     <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
@@ -36,12 +36,23 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
-
+<!-- Joyride -->
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-button="End" data-options="prev_button: false">
-      <h4>Events and Calendar</h4>
-      <p>You can create and manage Events in the calendar view! Go there and see that's easier to create or change an Event</p>
+    <li data-id="event-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.event.title' %></p>
+    </li>
+    <li data-id="event-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.body' %></p>
+    </li>
+    <li data-id="event-all-day" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.all-day' %></p>
+    </li>
+    <li data-id="event-start-time" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.start-time' %></p>
+    </li>
+    <li data-id="event-end-time" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.end-time' %></p>
     </li>
   </ol>
 </div>

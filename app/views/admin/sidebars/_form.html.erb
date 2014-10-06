@@ -11,33 +11,35 @@
     </div>
   <% end %>
 
-  <div id="sidebar_title" class="field">
+  <div id="sidebar-title" class="field small-12">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div id="sidebar_type_mask" class="field">
+  <div id="sidebar-position" class="field small-12">
     <%= f.label :type_mask %>
     <%= f.select :type_mask, options_for_select([["Left", 0], ["Right", 1], ["Top", 2], ["Bottom", 3]], @sidebar.type_mask) %>
   </div>
 
-  <div id="sidebar_links_list">
-    <%= f.label t('links.name') %>
-    <% for link in Link.all %>
-    <div>
-      <%= check_box_tag "sidebar[link_ids][]", link.id, @sidebar.links.include?(link) %>
-      <%= link.title %>
+  <div class="row" data-equalizer>
+    <div id="sidebar-links-list" class="field small-6 columns" data-equalizer-watch>
+      <%= f.label t('links.name') %>
+      <% for link in Link.all %>
+      <div>
+        <%= check_box_tag "sidebar[link_ids][]", link.id, @sidebar.links.include?(link) %>
+        <%= link.title %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 
-  <div id="sidebar_static_pages_list">
-    <%= f.label t('pages.name') %>
-    <% for static_page in StaticPage.all %>
-    <div>
-      <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
-      <%= static_page.title %>
+    <div id="sidebar-pages-list" class="field small-6 columns" data-equalizer-watch>
+      <%= f.label t('pages.name') %>
+      <% for static_page in StaticPage.all %>
+      <div>
+        <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
+        <%= static_page.title %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 
 
@@ -54,18 +56,17 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="sidebar_title" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the title of the Sidebar.</p>
+    <li data-id="sidebar-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.menu.title' %></p>
     </li>  
-    <li data-id="sidebar_type_mask" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Select the type of the Sidebar.</p>
+    <li data-id="sidebar-position" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.menu.position' %></p>
     </li>
-    <li data-id="sidebar_links_list" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Select all links you want to add to the sidebar.</p>
-      <p>You can add links in the admin links page.</p>
+    <li data-id="sidebar-links-list" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.menu.links' %></p>
     </li>
-    <li data-id="sidebar_static_pages_list" data-text="Ok" data-options="tip_location: top; prev_button: false">
-      <p>Select from your created pages the ones you want to add to the sidebar.</p>
+    <li data-id="sidebar-pages-list" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.menu.pages' %></p>
     </li>
   </ol>
 </div>

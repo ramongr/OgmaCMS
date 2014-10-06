@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div id="newsletter_title" class="field">
+  <div id="newsletter-title" class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div id="newsletter_body" class="field">
+  <div id="newsletter-body" class="field">
     <%= f.label :body %>
     <%= f.text_area :body, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
   </div>
 
   <br>
-  <div id="newsletter_destinatary">
+  <div id="newsletter-destinatary">
     <p><%= t('newsletters.to') %>:</p>
     <% for user in User.all %>
     <div>
@@ -39,18 +39,14 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="newsletter_title" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the title of the Newsletter.</p>
+    <li data-id="newsletter-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.newsletter.title' %></p>
     </li>  
-    <li data-id="newsletter_body" data-text="Next" data-options="tip_location: top; prev_button: true">
-      <p>Fill with the content for the Newsletter.</p>
+    <li data-id="newsletter-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.newsletter.body' %></p>
     </li>
-    <li data-id="newsletter_destinatary" data-text="Ok" data-options="tip_location: top; prev_button: true">
-      <p>Select the users you want to send this Newsletter.</p>
-    </li>
-    <li data-button="End" data-prev-text="Prev">
-      <h4>That's it!</h4>
-      <p>You can send it whenever you want either in the Newsletters Index or in the Newsletter specific page!</p>
+    <li data-id="newsletter-destinatary" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.newsletter.destinatary' %></p>
     </li>
   </ol>
 </div>
