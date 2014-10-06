@@ -1,4 +1,11 @@
 en:
+  language_name:
+    en: English
+    es: Inglés
+    fr: Anglais
+    it: Inglese
+    pt: Inglês
+
   activerecord:
     models:
       attachment: attachment
@@ -95,14 +102,6 @@ en:
     to_date: To
     from_time: From
     to_time: To
-
-#
-# I18n
-#
-
-  i18n:
-    name_native: English
-    name_pt: Inglês
 
 #
 # Admin Dashboard

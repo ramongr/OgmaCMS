@@ -1,17 +1,23 @@
 class Setting < RailsSettings::CachedSettings
-  # SITE
+
+  #
+  # Site
+  #
 
   defaults[:site_name]        = 'My Website'
-  defaults[:site_subtitle]    = 'My Subtitle'
   defaults[:site_description] = 'My Description'
   defaults[:site_logo]        = 'My_Site_Logo.png'
 
+  #
   # I18n
+  #
 
   defaults[:available_languages] = %w(en es fr it pt)
   defaults[:selected_languages] = %w(en pt)
 
-  # EMAILS
+  #
+  # Email
+  #
 
   defaults[:confirmation_instructions] =
     '<p>Welcome *name*!</p>' \

@@ -55,10 +55,14 @@
               <a href="#"><%= t('common.language') %></a>
               <ul class="dropdown">          
                 <% Setting.selected_languages.each do |l| %>
-                  <% if l.second == I18n.locale.to_s %>
-                    <li class="active"><%= link_to l.first, locale: l.second %></li>
+                  <% if l == I18n.locale.to_s %>
+                    <li class="active">
+                      <%= link_to t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', locale: l %>
+                    </li>
                   <% else %>
-                    <li><%= link_to l.first, locale: l.second %></li>
+                    <li>
+                      <%= link_to t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', locale: l %>
+                    </li>
                   <% end %>          
                 <% end %>
               </ul>

@@ -17,10 +17,6 @@
           <%= text_field_tag :site_name, Setting.site_name %>
         </div>
         <div class="field">
-          <%= label_tag t('settings.site_subtitle') %>
-          <%= text_field_tag :site_subtitle, Setting.site_subtitle %>
-        </div>
-        <div class="field">
           <%= label_tag t('settings.site_description') %>
           <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
         </div>
@@ -34,8 +30,8 @@
         <div class="field">
           <%= label_tag t('settings.available_languages') %>
           <% Setting.available_languages.each do |l| %>
-            <%= check_box_tag 'i18n_' + l.second, 'yes', l.in?(Setting.selected_languages) %>
-            <%= label_tag l.first %><br>
+            <%= check_box_tag 'i18n_' + l, 'yes', l.in?(Setting.selected_languages) %>
+            <%= label_tag t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')' %><br>
           <% end %>
         </div>
       </div>

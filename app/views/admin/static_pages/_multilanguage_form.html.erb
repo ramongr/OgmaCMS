@@ -1,6 +1,6 @@
 <ul class="tabs" data-tab>
-  <% Setting.selected_languages.each_with_index do |l,index| %>
-    <li class="tab-title <%= l.second == I18n.locale.to_s ? "active" : ""%>"><a href="#langtab<%= index %>"><%= l.first %></a></li>
+  <% Setting.selected_languages.each do |l| %>
+    <li class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
   <% end %>
 </ul>
 
@@ -16,24 +16,24 @@
     </div>
   <% end %>
   <div class="tabs-content"> 
-    <% Setting.selected_languages.each_with_index do |l, index| %>
+    <% Setting.selected_languages.each do |l| %>
       
-      <%= content_tag :div, class: "content "+ (l.second == I18n.locale.to_s ? "active" : ""), id: "langtab"+index.to_s do %> 
+      <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
 
         <div id="page_title" class="field">
-          <%= f.label t('pages.attributes.title', locale: l.second.to_sym) %>
-          <%= f.text_field ("title_" + l.second).to_sym %>
+          <%= f.label t('pages.attributes.title', locale: l.to_sym) %>
+          <%= f.text_field ("title_" + l).to_sym %>
         </div>
         <div id="page_slug" class="field">
-          <%= f.label t('pages.attributes.slug', locale: l.second.to_sym) %>
+          <%= f.label t('pages.attributes.slug', locale: l.to_sym) %>
           <%= f.text_field :slug %>
         </div>
         <div id="page_body" class="field">
-          <%= f.label t('pages.attributes.body', locale: l.second.to_sym) %>
-          <%= f.cktext_area ("body_" + l.second).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
+          <%= f.label t('pages.attributes.body', locale: l.to_sym) %>
+          <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
         </div>
         <br>
-        <div id="insert-attachment-<%=l.second%>">
+        <div id="insert-attachment-<%= l %>">
           <button><%= t('common.insert_attachment') %></button>
         </div>
       <% end %>

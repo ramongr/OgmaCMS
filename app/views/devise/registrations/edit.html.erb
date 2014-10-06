@@ -35,14 +35,14 @@
 
       <div class="field">
         <%= f.label :nationality %>
-        <%= f.select :nationality, options_for_select(Setting.available_languages, I18n.locale.to_s) %>
+        <%= f.select :nationality, Setting.available_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, {include_blank: true} %>
       </div>
 
-      <div>
+      <div class="field">
         <%= f.label :language %>
-        <%= f.select :language, options_for_select(Setting.selected_languages, I18n.locale) %>
+        <%= f.select :language, Setting.selected_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, selected: I18n.default_locale.to_s %>
       </div>
-
+ 
       <div class="field"><%= f.label :password %> <i><%= t('devise.leave_blank') %></i><br />
         <%= f.password_field :password, autocomplete: "off" %></div>
 

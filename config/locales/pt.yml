@@ -5,6 +5,13 @@
 #
 
 pt:
+  language_name:
+    en: Portuguese
+    es: Portugués
+    fr: Portugais
+    it: Portoghese
+    pt: Português
+
   activerecord:
     models:
       attachment: anexo
@@ -101,14 +108,6 @@ pt:
     to_date: Até
     from_time: Das
     to_time: Até às
-
-#
-# I18n
-#
-
-  i18n:
-    name_native: Português
-    name_en: Portuguese
 
 #
 # Admin Dashboard
