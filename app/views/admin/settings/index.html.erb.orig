@@ -45,14 +45,18 @@
           <%= label_tag t('settings.event_update_help') %>
           <%= text_area_tag :event_update, Setting.event_update, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
         </div>
-      </div>
 
+      </div>
       <div class="actions">
         <%= submit_tag t('settings.update_settings'), class: "button right" %>
       </div>
     <% end -%>
   </div>
-
+<<<<<<< HEAD
+  
+=======
+  <% end -%>
+>>>>>>> develop
   <div class="small-3 columns">
     <button id="joyride-init" class="small radius">?</button>
   </div>
