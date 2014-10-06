@@ -2,7 +2,6 @@ class Setting < RailsSettings::CachedSettings
   # SITE
 
   defaults[:site_name]        = 'My Website'
-  defaults[:site_subtitle]    = 'My Subtitle'
   defaults[:site_description] = 'My Description'
   defaults[:site_logo]        = 'My_Site_Logo.png'
 
