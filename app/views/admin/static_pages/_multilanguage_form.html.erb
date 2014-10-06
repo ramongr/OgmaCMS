@@ -20,7 +20,7 @@
       
       <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
 
-		    <!-- Page name -->
+        <!-- Page name -->
         <%= content_tag :div, class: 'field', id: 'page-title-'+ l do %>
           <%= f.label t('pages.attributes.title', locale: l.to_sym) %>
           <%= f.text_field ("title_" + l).to_sym %>
@@ -30,7 +30,7 @@
           <%= f.label t('pages.attributes.slug', locale: l.to_sym) %>
           <%= f.text_field :slug %>
         <% end %>
-		    <!-- Page body -->
+        <!-- Page body -->
         <%= content_tag :div, class: 'field', id: 'page-body-'+ l do %>
           <%= f.label t('pages.attributes.body', locale: l.to_sym) %>
           <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
