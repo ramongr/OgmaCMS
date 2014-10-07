@@ -29,8 +29,8 @@
         <!-- Content div -->
         <%= content_tag :div, class: 'field', id: "post-body-" + l do %>
           <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
-          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale } %>
-        </div>
+          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale} %>
+        <% end %>
         <br>
         <!-- Attachment -->
         <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>

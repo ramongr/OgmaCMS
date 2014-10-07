@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :body %>
-    <%= f.cktext_area ("body_" + I18n.locale.to_s).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
+    <%= f.cktext_area ("body_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
   </div>
   <br>
   <div id="insert-attachment">
