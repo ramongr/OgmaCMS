@@ -15,7 +15,8 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <div id="slider_selected" class="field">    
+  <div id="slider_selected" class="field">
+    <%= f.check_box :selected %>
     <%= f.label t('sliders.attributes.selected') %>
   </div>
   
