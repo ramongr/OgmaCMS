@@ -75,7 +75,7 @@ pt:
         updated_at: Modificado em
       slider:
         title: Nome
-        selected: Seleccionado
+        selected: Selecionado
         created_at: Criado em
         updated_at: Modificado em
       user:
@@ -423,7 +423,7 @@ pt:
 
     attributes:
       title: Nome
-      selected: Seleccionado
+      selected: Selecionado
       created_at: Criado em
       updated_at: Modificado em
 
