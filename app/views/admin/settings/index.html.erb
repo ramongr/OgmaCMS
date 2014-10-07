@@ -39,11 +39,11 @@
         <div class="content" id="mailer">
           <%= label_tag t('settings.confirmation_instructions') %>
           <%= label_tag t('settings.confirmation_instructions_help') %>
-          <%= text_area_tag :confirmation_instructions, Setting.confirmation_instructions, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
+          <%= cktext_area :confirmation_instructions, Setting.confirmation_instructions %>
           <br><br>
           <%= label_tag t('settings.event_update') %>
           <%= label_tag t('settings.event_update_help') %>
-          <%= text_area_tag :event_update, Setting.event_update, class: "ckeditor", input_html: {ckeditor: { toolbar: "Mail"} } %>
+          <%= cktext_area :event_update, Setting.event_update %>
         </div>
       </div>
 
