@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
     unless current_user.try(:language).nil?
       current_user.language.to_sym
     else
-      http_accept_language.compatible_language_from(Setting.selected_languages.map(&:second))
+      http_accept_language.compatible_language_from(Setting.selected_languages)
     end
   end
 
   def set_i18n_locale
-    if Setting.selected_languages.map(&:second).include?(params[:locale])
+    if Setting.selected_languages.include?(params[:locale])
       if params[:locale] && params[:locale] != I18n.locale
         I18n.locale = params[:locale]
         if user_signed_in?

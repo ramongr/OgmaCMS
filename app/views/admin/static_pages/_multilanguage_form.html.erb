@@ -1,6 +1,6 @@
 <ul class="tabs" data-tab>
-  <% Setting.selected_languages.each_with_index do |l,index| %>
-    <li id="lang-tab" data-lang=<%= l.second %> class="tab-title <%= l.second == I18n.locale.to_s ? "active" : ""%>"><a href="#langtab<%= index %>"><%= l.first %></a></li>
+  <% Setting.selected_languages.each do |l| %>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
   <% end %>
 </ul>
 
@@ -16,30 +16,29 @@
     </div>
   <% end %>
   <div class="tabs-content"> 
-    <% Setting.selected_languages.each_with_index do |l, index| %>
+    <% Setting.selected_languages.each do |l| %>
       
-      <%= content_tag :div, class: "content "+ (l.second == I18n.locale.to_s ? "active" : ""), id: "langtab"+index.to_s do %> 
-        <% title_locale = ("title_" + l.second).to_sym %>
-        <% body_locale = ("body_" + l.second).to_sym %>
+      <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
+
         <!-- Page name -->
-        <%= content_tag :div, class: 'field', id: 'page-title-'+l.second do %>
-          <%= f.label t('pages.attributes.title', locale: l.second) %>
-          <%= f.text_field title_locale %>
+        <%= content_tag :div, class: 'field', id: 'page-title-'+ l do %>
+          <%= f.label t('pages.attributes.title', locale: l.to_sym) %>
+          <%= f.text_field ("title_" + l).to_sym %>
         <% end %>
         <!-- Page slug -->
-        <%= content_tag :div, class: 'field', id: 'page-slug-'+l.second do %>
-          <%= f.label t('pages.attributes.slug', locale: l.second) %>
+        <%= content_tag :div, class: 'field', id: 'page-slug-' + l do %>
+          <%= f.label t('pages.attributes.slug', locale: l.to_sym) %>
           <%= f.text_field :slug %>
         <% end %>
         <!-- Page body -->
-        <%= content_tag :div, class: 'field', id: 'page-body-'+l.second do %>
-          <%= f.label t('pages.attributes.body', locale: l.second) %>
-          <%= f.text_area body_locale, class: "ckeditor", input_html: {ckeditor: {toolbar: 'Full'}} %>
+        <%= content_tag :div, class: 'field', id: 'page-body-'+ l do %>
+          <%= f.label t('pages.attributes.body', locale: l.to_sym) %>
+          <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale} %>
         <% end %>
         <br>
         <!-- Attachment -->
-        <%= content_tag :div, class: 'field', id: 'page-attachment-'+l.second do %>
-          <button><%= t('common.insert_attachment', locale: l.second) %></button>
+        <%= content_tag :div, class: 'field', id: 'page-attachment-' + l do %>
+          <button><%= t('common.insert_attachment', locale: l) %></button>
         <% end %>
       <% end %>
     <% end %>

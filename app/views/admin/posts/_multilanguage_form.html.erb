@@ -1,6 +1,6 @@
 <ul class="tabs" data-tab>
-  <% Setting.selected_languages.each_with_index do |l,index| %>
-      <li id="lang-tab" data-lang=<%= l.second %> class="tab-title <%= l.second == I18n.locale.to_s ? "active" : ""%>"><a href="#langtab<%= index %>"><%= l.first %></a></li>
+  <% Setting.selected_languages.each do |l| %>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
   <% end %>
 </ul>
 
@@ -17,26 +17,24 @@
     </div>
   <% end %>
   <div class="tabs-content"> 
-    <% Setting.selected_languages.each_with_index do |l, index| %>
+    <% Setting.selected_languages.each do |l| %>
       
-      <%= content_tag :div, class: "content "+ (l.second == I18n.locale.to_s ? "active" : ""), id: "langtab"+index.to_s do %> 
+      <%= content_tag :div, class: "content "+ (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
       
-        <% title_locale = ("title_" + l.second).to_sym %>
-        <% content_locale = ("content_" + l.second).to_sym %>
         <!-- Name div -->
-        <%= content_tag :div, class: 'field', id: "post-title-"+l.second do %>
-          <%= f.label t('posts.attributes.title', locale: l.second.to_sym) %>
-          <%= f.text_field title_locale %>
+        <%= content_tag :div, class: 'field', id: "post-title-" + l do %>
+          <%= f.label t('posts.attributes.title', locale: l.to_sym) %>
+          <%= f.text_field ("title_" + l).to_sym %>
         <% end %>
         <!-- Content div -->
-        <%= content_tag :div, class: 'field', id: "post-body-"+l.second do %>
-          <%= f.label t('posts.attributes.content', locale: l.second.to_sym) %>
-          <%= f.text_area content_locale, class: "ckeditor", input_html: { ckeditor: {toolbar: 'Full'} } %>
-        <% end %>
+        <%= content_tag :div, class: 'field', id: "post-body-" + l do %>
+          <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
+          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {toolbar: 'Full', language: I18n.locale } %>
+        </div>
         <br>
         <!-- Attachment -->
-        <%= content_tag :div, class: 'field', id: 'post-attachment-'+l.second do %>
-          <button class="attachment-btn" id="insert-attachment-<%=l.second%>"><%= t('common.insert_attachment') %></button>
+        <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>
+          <button class="attachment-btn" id="insert-attachment-<%=l%>"><%= t('common.insert_attachment') %></button>
         <% end %>
       <% end %>
 
@@ -56,6 +54,7 @@
     <% end %>
   </ol>
 </div>
+
 <!-- Joyride instructions -->
 <div id="posts-form" class="joyride-content">
   <ol id="joyride-defs" class="joyride-list" data-joyride>
