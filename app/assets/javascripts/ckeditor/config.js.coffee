@@ -1,5 +1,5 @@
 CKEDITOR.editorConfig = (config) ->
-  config.removePlugins = 'liststyle,tabletools,scayt,menubutton,contextmenu'
+  config.removePlugins = 'liststyle,tabletools,scayt,contextmenu'
   config.defaultLanguage = 'pt'
   config.skin = 'bootstrapck'
   config.disableNativeSpellChecker = false
