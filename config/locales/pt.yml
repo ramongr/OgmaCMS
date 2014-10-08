@@ -149,6 +149,13 @@ pt:
         title: Modificar anexo
 
 #
+# Calendar
+#
+
+  calendar:
+    name: Calendário
+
+#
 # Comments
 #
 
@@ -201,7 +208,6 @@ pt:
       admin:
         title: Modificar evento
 
-    calendar: Calendário
     manage_events: Gerir eventos
     going?: 'vais?'
     going: Vão
@@ -549,7 +555,9 @@ pt:
 
   common:
     confirm: Tem a certeza?
+    index: Índice
     show: Ver
+    new: Novo
     edit: Modificar
     back: Retroceder
     destroy: Apagar
@@ -587,6 +595,19 @@ pt:
     need_password: (Precisamos da sua password para confirmar as mudanças)
     cancel_account: Cancelar conta
     send_reset_instructions: Recuperar password
+    resend_confirmation: Reenviar confirmação
+
+#
+# Devise controllers
+#
+  sessions:
+    name: Login
+  registrations:
+    name: Registar
+  confirmations:
+    name: Confirmação
+  passwords:
+    name: Recuperar password
 
 # 
 # Joyride
