@@ -8,17 +8,17 @@ RSpec.describe Sidebar, type: :model do
     expect(build(:right_sidebar)).to be_valid
     expect(build(:top_sidebar)).to be_valid
     expect(build(:bottom_sidebar)).to be_valid
-    expect(build(:left_sidebar_static_pages)).to be_valid
-    expect(build(:right_sidebar_static_pages)).to be_valid
-    expect(build(:top_sidebar_static_pages)).to be_valid
-    expect(build(:bottom_sidebar_static_pages)).to be_valid
+    expect(build(:left_sidebar_pages)).to be_valid
+    expect(build(:right_sidebar_pages)).to be_valid
+    expect(build(:top_sidebar_pages)).to be_valid
+    expect(build(:bottom_sidebar_pages)).to be_valid
   end
 
-  it 'belongs to static_pages' do
-    expect(create(:left_sidebar_static_pages).static_pages.count).to eq 4
-    expect(create(:right_sidebar_static_pages).static_pages.count).to eq 4
-    expect(create(:top_sidebar_static_pages).static_pages.count).to eq 4
-    expect(create(:bottom_sidebar_static_pages).static_pages.count).to eq 4
+  it 'belongs to Pages' do
+    expect(create(:left_sidebar_pages).pages.count).to eq 4
+    expect(create(:right_sidebar_pages).pages.count).to eq 4
+    expect(create(:top_sidebar_pages).pages.count).to eq 4
+    expect(create(:bottom_sidebar_pages).pages.count).to eq 4
   end
 
   it 'is invalid without title' do

@@ -65,7 +65,7 @@ RSpec.describe Admin::SidebarsController, type: :controller do
 
   describe 'POST #create' do
     before :each do
-      @static_pages = [attributes_for(:static_page)]
+      @pages = [attributes_for(:page)]
     end
 
     context 'with valid attributes' do

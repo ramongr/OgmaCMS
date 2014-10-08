@@ -188,6 +188,31 @@ ActiveRecord::Schema.define(version: 20140926174241) do
     t.integer "user_id"
   end
 
+  create_table "page_translations", force: true do |t|
+    t.integer  "page_id",    null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "body"
+  end
+
+  add_index "page_translations", ["locale"], name: "index_page_translations_on_locale", using: :btree
+  add_index "page_translations", ["page_id"], name: "index_page_translations_on_page_id", using: :btree
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages_sidebars", force: true do |t|
+    t.integer "sidebar_id"
+    t.integer "page_id"
+  end
+
   create_table "photos", force: true do |t|
     t.integer  "imageable_id"
     t.string   "imageable_type"
@@ -240,34 +265,9 @@ ActiveRecord::Schema.define(version: 20140926174241) do
     t.datetime "updated_at"
   end
 
-  create_table "sidebars_static_pages", force: true do |t|
-    t.integer "sidebar_id"
-    t.integer "static_page_id"
-  end
-
   create_table "sliders", force: true do |t|
     t.string   "title"
     t.boolean  "selected"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "static_page_translations", force: true do |t|
-    t.integer  "static_page_id", null: false
-    t.string   "locale",         null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.text     "body"
-  end
-
-  add_index "static_page_translations", ["locale"], name: "index_static_page_translations_on_locale", using: :btree
-  add_index "static_page_translations", ["static_page_id"], name: "index_static_page_translations_on_static_page_id", using: :btree
-
-  create_table "static_pages", force: true do |t|
-    t.string   "title"
-    t.string   "slug"
-    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

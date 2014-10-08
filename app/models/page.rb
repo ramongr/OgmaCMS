@@ -1,4 +1,4 @@
-class StaticPage < ActiveRecord::Base
+class Page < ActiveRecord::Base
   translates :title, :body
   globalize_accessors
   before_validation :set_slug

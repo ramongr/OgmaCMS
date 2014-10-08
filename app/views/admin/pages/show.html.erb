@@ -1,0 +1,16 @@
+<br>
+<div class="row">
+  <%= link_to t('pages.name'), admin_pages_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_page_path(@admin_page), class: "button small" %>
+
+  <div class="small-12">
+    <h1 class="text-center"><%= @admin_page.title %></h1>
+
+      <strong><%= t('pages.attributes.slug') %>:</strong>
+      <p><%= @admin_page.slug %></p>
+
+      <strong><%= t('pages.attributes.body') %>:</strong>
+      <%= @admin_page.body.html_safe %>      
+    </div>
+  </div>
+</body>
