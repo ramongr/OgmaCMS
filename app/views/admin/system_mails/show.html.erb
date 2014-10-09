@@ -1,0 +1,13 @@
+<br>
+<div class="row">
+  <%= link_to t('system_mails.name'), admin_system_mails_path, class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_system_mail_path(@system_mail), class: "button small" %>
+
+  <div class="small-12">
+    <h3 class="text-center"><%= @system_mail.name %></h3>
+    <hr>
+    <%= @system_mail.subject %><br>
+    <hr>
+    <%= @system_mail.content.html_safe %>
+  </div>
+</div>

@@ -27,6 +27,7 @@ pt:
       page: página
       user: utilizador
       visitor_comment: comentário
+      system_mail: mails do sistema
     attributes:
       attachment:
         name: Nome
@@ -76,6 +77,12 @@ pt:
       slider:
         title: Nome
         selected: Selecionado
+        created_at: Criado em
+        updated_at: Modificado em
+      system_mail:
+        name: Nome
+        subject: Assunto
+        content: Conteúdo
         created_at: Criado em
         updated_at: Modificado em
       user:
@@ -362,6 +369,13 @@ pt:
     add_comment: Comentar
 
 #
+# Search
+#
+
+  search:
+    name: Pesquisar
+
+#
 # Settings
 #
 
@@ -449,6 +463,24 @@ pt:
     add_image: Adicionar imagem
     remove_image: Remover imagem
     select_image: Seleccione uma imagem.
+
+#
+# System Mails
+#
+
+  system_mails:
+    name: Mails do sistema
+
+    attributes:
+      name: Nome
+      subject: Assunto
+      cotent: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Mails de sistema
 
 #
 # Pages
