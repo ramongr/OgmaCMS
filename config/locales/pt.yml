@@ -582,11 +582,12 @@ pt:
 
   devise:
     forgot_password?: Recuperar password
-    didnt_receive_confirmation?: Não recebeu o email confirmação?
+    didnt_receive_confirmation?: Não recebeu o email de confirmação?
     leave_blank: (Deixar em branco se não quiser mudar)
-    need_password: (Precisamos da sua password para confirmar as mudanças)
+    need_password: (Preencher apenas se quiser mudar a password ou email)
     cancel_account: Cancelar conta
     send_reset_instructions: Recuperar password
+    current_password: Password actual
 
 # 
 # Joyride
