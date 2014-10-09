@@ -10,52 +10,32 @@
       </ul>
     </div>
   <% end %>
-
-  <div id="gallery_title" class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div id="gallery-container">
+    <div id="gallery_title" class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div id="gallery_description" class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 6 %>
+    </div>
+    <div id="gallery_date" class="field">
+      <%= f.label :date %>
+      <%= f.date_select :date, {}, {class: "small-4 columns"} %>
+    </div>
+    <div id="gallery-add-image" class="field">
+      <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('galleries.add_image') %></button>
+    </div>
+    <div id="selected-images-container" class="field">
+      <%= render 'selected_images' %>
+    </div>
+    <div class="small-12 actions" class="field">
+      <%= f.submit class: "button right" %>
+    </div>
   </div>
-  <div id="gallery_description" class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 6 %>
-  </div>
-  <div id="gallery_date" class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date, {}, {class: "small-4 columns"} %>
-  </div>
-
-  <button id="add-image"><%= t('galleries.add_image') %></button>
-
-  <div class="small-12 columns">
-    <ul id="sortable">
-      <% @added_images.each do |image| %>
-        <li class="ui-state-default" id="<%= image.id %>">
-          <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
-          <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('galleries.remove_image') %></button>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <br>
-  <br>
-
-  <div class="small-12 actions">
-    <%= f.submit class: "button right" %>
-  </div>
-
 <% end %>
 
-
-<div id="dialog" title="<%= t('galleries.add_image') %>" style="display:none">
-  <p class="validateTips"><%= t('galleries.select_image') %></p>
-  <ol id="selectable">
-    <% @images.each do |image| %>
-      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(image)%>"' data-attachment-id="<%= image.id %>" ><%= image.file_file_name %></li>
-    <% end %>
-  </ol>
-</div>
-
+<%= render 'admin/attachments/image_modal' %>
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>

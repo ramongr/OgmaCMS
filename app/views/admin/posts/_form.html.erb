@@ -22,7 +22,6 @@
     </div>
     <br>
     <div id="post-attachment">
-      <button class="attachment-btn" id="insert-attachment-<%= I18n.locale %>"><%= t('common.insert_attachment') %></button>
       <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
     </div>
     <div class="actions">
@@ -46,4 +45,4 @@
   </ol>
 </div>
 
-<%= render 'admin/attachments/modal' %>
+<%= render 'admin/attachments/generic_modal' %>

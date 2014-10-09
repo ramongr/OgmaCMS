@@ -1,0 +1,8 @@
+<ul id="sortable">
+  <% @added_images.each do |image| %>
+    <li class="ui-state-default" id="<%= image.id %>">
+      <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+      <button id="remove-image<%= image.id %>" class="button small" data-photo-id="<%= image.id %>"><%= t('galleries.remove_image') %></button>
+    </li>
+  <% end %>
+</ul>

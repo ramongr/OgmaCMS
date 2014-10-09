@@ -19,27 +19,21 @@
     <%= f.check_box :selected %>
     <%= f.label t('sliders.attributes.selected') %>
   </div>
-  
-  <button id="add-image"><%= t('sliders.add_image') %></button>
+  <div id="slider-add-image" class="field">
+    <button id="add-image"><%= t('sliders.add_image') %></button>
+    <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('galleries.add_image') %></button>
+  </div>
 
-  <ul id="sortable">
-    <% @added_images.each do |image| %>
-      <li class="ui-state-default" id="<%= image.id %>">
-        <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
-        <button id="remove-image<%= image.id %>" class="small" data-photo-id="<%= image.id %>"><%= t('sliders.remove_image') %></button>
-      </li>
-    <% end %>
-  </ul>
-
-  <br>
-  <br>
-
+  <div id="selected-images-container" class="field">
+    <%= render 'selected_images' %>
+  </div>
   <div class="actions">
     <%= f.submit class: "button right" %>
   </div>
 
 <% end %>
 
+<%= render 'admin/attachments/image_modal' %>
 
 <div id="dialog" title="<%= t('sliders.add_image') %>" style="display:none">
   <p class="validateTips"><%= t('sliders.select_image') %></p>
@@ -50,8 +44,7 @@
   </ol>
 </div>
 
-
-
+<!-- Joyride content -->
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
     <li data-id="slider_title" data-text="Next" data-options="tip_location: top; prev_button: false">
