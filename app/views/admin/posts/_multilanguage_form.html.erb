@@ -34,8 +34,7 @@
         <br>
         <!-- Attachment -->
         <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>
-          <button class="attachment-btn" id="insert-attachment"><%= t('common.insert_attachment') %></button>
-          <%= link_to "Modal n' shit", '#', data: {reveal_id: 'attachment-modal'} %>
+          <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
         <% end %>
       <% end %>
 
@@ -63,76 +62,6 @@
     </li> 
   </ol>
 </div>
-<!-- Possible MIME types
 
-  application -> Includes tar files and LaTeX files
-  audio
-  image
-  text
-  video
- -->
 <!-- Modal content -->
-<div id="attachment-modal" class="reveal-modal medium" data-reveal>
-  <a class="close-reveal-modal">&#215;</a>
-  <% unless @image_attachments.empty? && @audio_attachments.empty? && @video_attachments.empty? && @text_attachments.empyty && @application_attachments.empty? %>
-    <dl class="tabs" data-tab>
-      <% unless @image_attachments.empty? %>
-        <dd data-id="images" id="modal-tab"><a href="#images">Images</a></dd>
-      <% end %>
-      <% unless @audio_attachments.empty? %>
-        <dd data-id="audio" id="modal-tab"><a href="#audio">Audio</a></dd>
-      <% end %>
-      <% unless @video_attachments.empty? %>
-        <dd data-id="videos" id="modal-tab"><a href="#videos">Videos</a></dd>
-      <% end %>
-      <% unless @text_attachments.empty? %>
-        <dd data-id="texts" id="modal-tab"><a href="#texts">Texts</a></dd>
-      <% end %>
-      <% unless @application_attachments.empty? %>
-        <dd data-id="others" id="modal-tab"><a href="#others">Other files</a></dd>
-      <% end %>
-    </dl>
-    <div id="modal-tab-container" class="tabs-content">
-      <% unless @image_attachments.empty? %>
-        <div class="row content" id="images">
-          <h3 class="-text-center">Click to add them</h3>
-          <% @image_attachments.each_with_index do |img, index| %>
-            <% if index == 0 %>
-              <div class="small-12 columns">
-            <% elsif index % 3 == 0 %>
-              </div>
-              <div class="small-12 columns">
-            <% end %>
-            <%= link_to 'javascript:void(0)', class: "small-4 columns", id: 'att-images' do %>
-              <%= img.name %>
-              <%= image_tag download_attachment_url(img) %>
-            <% end %>
-          <% end %>
-          </div>
-        </div>
-      <% end %>
-      <% unless @audio_attachments.empty? %>
-        <div class="content" id="audio">
-          <p>This is the second panel of the basic tab example. This is the second panel of the basic tab example.</p>
-        </div>
-      <% end %>
-      <% unless @video_attachments.empty? %>
-        <div class="content" id="videos">
-          <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-        </div>
-      <% end %>
-      <% unless @text_attachments.empty? %>
-        <div class="content" id="texts">
-          <p>This is the third panel of the basic tab example. This is the third panel of the basic tab example.</p>
-        </div>
-      <% end %>
-      <% unless @application_attachments.empty? %>
-        <div class="content" id="others">
-          <p>This is the fourth panel of the basic tab example. This is the fourth panel of the basic tab example.</p>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p>There are no attachments!</p>
-  <% end %>
-</div>
+<%= render 'admin/attachments/modal' %>
