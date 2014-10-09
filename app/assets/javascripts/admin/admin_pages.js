@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  if ($('#static_pages').length) {
+  if ($('#pages').length) {
 
     var dialog, editorLangSelected, image_data;
  
@@ -45,7 +45,7 @@ $(document).ready(function(){
             html_string = '<a href='+attachment_link+'>'+attachment_name+'</a>';
           }
 
-          CKEDITOR.instances["static_page_body_"+editorLangSelected].insertHtml(html_string);
+          CKEDITOR.instances["page_body_"+editorLangSelected].insertHtml(html_string);
 
           dialog.dialog( "close" );
         });

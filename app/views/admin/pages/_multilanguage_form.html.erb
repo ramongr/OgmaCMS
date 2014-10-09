@@ -4,12 +4,12 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@admin_static_page]) do |f| %>
-  <% if @admin_static_page.errors.any? %>
+<%= form_for([:admin,@admin_page]) do |f| %>
+  <% if @admin_page.errors.any? %>
     <div id="error_explanation">
-      <h4><%= t 'common.error_save', count: @admin_static_page.errors.count, model: StaticPage.model_name.human %></h4>
+      <h4><%= t 'common.error_save', count: @admin_page.errors.count, model: Page.model_name.human %></h4>
       <ul>
-      <% @admin_static_page.errors.full_messages.each do |msg| %>
+      <% @admin_page.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -38,7 +38,7 @@
         <br>
         <!-- Attachment -->
         <%= content_tag :div, class: 'field', id: 'page-attachment-' + l do %>
-          <button><%= t('common.insert_attachment', locale: l) %></button>
+          <button class="attachment-btn" id="insert-attachment-<%=l%>"><%= t('common.insert_attachment', locale: l) %></button>
         <% end %>
       <% end %>
     <% end %>

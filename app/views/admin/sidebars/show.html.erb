@@ -26,8 +26,8 @@
 
           <!-- Left Nav Section -->
           <ul class="left">
-            <% @sidebar.static_pages.each do |static_page| %>
-              <li><%= link_to static_page.title, [:admin,static_page] %></li>
+            <% @sidebar.pages.each do |page| %>
+              <li><%= link_to page.title, [:admin,page] %></li>
             <% end %>
           </ul>
         </section>
@@ -42,8 +42,8 @@
           <div class="row">
             <div class="large-6 columns">
               <ul class="inline-list left">
-                <% @sidebar.static_pages.each do |static_page| %>
-                  <li><%= link_to static_page.title, [:admin,static_page] %></li>
+                <% @sidebar.pages.each do |page| %>
+                  <li><%= link_to page.title, [:admin,page] %></li>
                 <% end %>
               </ul>
               <br/>
@@ -72,8 +72,8 @@
 
       <h3> Internal Pages </h3>
       <ul class="side-nav">
-        <% @sidebar.static_pages.each do |static_page| %>
-          <li><%= link_to static_page.title, [:admin,static_page] %></li>
+        <% @sidebar.pages.each do |page| %>
+          <li><%= link_to page.title, [:admin,page] %></li>
         <% end %>
       </ul>
     <% end %>
@@ -90,8 +90,8 @@
 
           <h3>Internal Pages</h3>
           <ul class="side-nav">
-            <% @sidebar.static_pages.each do |static_page| %>
-              <li><%= link_to static_page.title, [:admin,static_page] %></li>
+            <% @sidebar.pages.each do |page| %>
+              <li><%= link_to page.title, [:admin,page] %></li>
             <% end %>
           </ul>
         </div>

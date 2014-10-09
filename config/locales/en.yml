@@ -18,7 +18,7 @@ en:
       setting: setting
       sidebar: menu
       slider: slider
-      static_page: page
+      page: page
       user: user
       visitor_comment: comment
     attributes:
@@ -585,10 +585,11 @@ en:
     forgot_password?: Forgot your password?
     didnt_receive_confirmation?: Didn't receive confirmation instructions?
     leave_blank: (Leave blank if you don't want to change it)
-    need_password: (We need your current password to confirm your changes)
+    need_password: (Fill only if you want to change your password or email)
     cancel_account: Cancel account
     send_reset_instructions: Recover password
     resend_confirmation: Resend confirmation
+    current_password: Current password
 
 #
 # Devise controllers
