@@ -4,7 +4,7 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@admin_post]) do |f| %>
+<%= form_for([:admin,@admin_post]), id: 'posts-form'  do |f| %>
   <% if @admin_post.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @admin_post.errors.count, model: Post.model_name.human %></h4>
@@ -49,7 +49,7 @@
 
 
 <!-- Joyride instructions -->
-<div id="posts-form" class="joyride-content">
+<div class="joyride-content">
   <ol id="joyride-defs" class="joyride-list" data-joyride>
     <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
       <p><%= t 'joyride.post.title' %></p>
