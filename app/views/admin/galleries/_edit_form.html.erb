@@ -37,22 +37,4 @@
 
 <%= render 'admin/attachments/image_modal' %>
 
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="gallery_title" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the name you want for the gallery.</p>
-    </li>  
-    <li data-id="gallery_description" data-text="Next" data-options="tip_location: top">
-      <p>Describe the gallery.</p>
-    </li>
-    <li data-id="gallery_date" data-text="Next" data-options="tip_location: top;">
-      <p>Choose the date associated with this gallery.</p>
-    </li>
-    <li data-id="add-image" data-text="Ok" data-options="tip_location: top;">
-      <p>Add images from attachments to this gallery.</p>
-    </li>
-    <li data-button="End" data-options="tip_location: top;">
-      <p>After images are added, you can reorder them by dragging and drop.</p>
-    </li>
-  </ol>
-</div>
+<%= render 'joyride_instructions' %>
