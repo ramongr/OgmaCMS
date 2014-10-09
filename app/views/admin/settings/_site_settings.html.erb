@@ -1,0 +1,14 @@
+<div class="content active" id="site">
+  <div id="site-title" class="field">
+    <%= label_tag t('settings.site_title') %>
+    <%= text_field_tag :site_name, Setting.site_name %>
+  </div>
+  <div id="site-description" class="field">
+    <%= label_tag t('settings.site_description') %>
+    <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
+  </div>
+  <div id="site-logo" class="field">
+    <%= label_tag t('settings.site_logo') %>
+    <%= text_field_tag :site_logo, Setting.site_logo %>
+  </div>
+</div>
