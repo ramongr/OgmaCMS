@@ -9,8 +9,8 @@ forem:
         one: 1 mensagem
         other: "%{count} mensagens"
       flagged_for_spam: A tua conta foi marcada como spammer.
-      cannot_create_topic: Neste momento não podes criar esse tópico.
-      cannot_create_post: Neste momento não podes criar uma nova mensagem.
+      cannot_create_topic: Neste momento não é possível criar um tópico.
+      cannot_create_post: Neste momento não é possível criar uma nova mensagem.
 
     access_denied: "Não tens permissões para essa acção."
     admin:
@@ -59,7 +59,7 @@ forem:
     common:
       pages: Páginas
     errors:
-      not_signed_in: Precisas de te logar primeiro.
+      not_signed_in: Precisas de fazer login primeiro.
       access_denied: Acesso negado.
     forum:
       header: "A visualizar %{title}"
