@@ -26,10 +26,10 @@ class Admin::SidebarsController < Admin::AdminController
     @sidebar = Sidebar.new(sidebar_params)
 
     params[:sidebar][:link_ids] ||= []
-    params[:sidebar][:static_page_ids] ||= []
+    params[:sidebar][:page_ids] ||= []
 
     @sidebar.link_ids = params[:sidebar][:link_ids]
-    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
+    @sidebar.page_ids = params[:sidebar][:page_ids]
 
     respond_to do |format|
       if @sidebar.save
@@ -46,10 +46,10 @@ class Admin::SidebarsController < Admin::AdminController
   # PATCH/PUT /sidebars/1.json
   def update
     params[:sidebar][:link_ids] ||= []
-    params[:sidebar][:static_page_ids] ||= []
+    params[:sidebar][:page_ids] ||= []
 
     @sidebar.link_ids = params[:sidebar][:link_ids]
-    @sidebar.static_page_ids = params[:sidebar][:static_page_ids]
+    @sidebar.page_ids = params[:sidebar][:page_ids]
 
     respond_to do |format|
       if @sidebar.update(sidebar_params)

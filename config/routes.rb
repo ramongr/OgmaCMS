@@ -14,7 +14,7 @@ OgmaCMS::Application.routes.draw do
     root 'static#index'
 
     resources :calendar, only: :index
-    resources :static_pages, only: [:index, :show]
+    resources :pages, only: [:index, :show]
     resources :events, only: [:index, :show] do
       put 'going' => 'events#going', as: 'going'
       put 'not_going' => 'events#not_going', as: 'not_going'
@@ -38,7 +38,7 @@ OgmaCMS::Application.routes.draw do
     namespace :admin do
       get '/', to: 'dashboard#index'
       resources :sidebars
-      resources :static_pages
+      resources :pages
       resources :posts
       resources :links
       resources :users

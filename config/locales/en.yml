@@ -18,7 +18,7 @@ en:
       setting: setting
       sidebar: menu
       slider: slider
-      static_page: page
+      page: page
       user: user
       visitor_comment: comment
     attributes:

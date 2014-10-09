@@ -51,16 +51,16 @@ if Link.where(value: (Rails.application.routes.url_helpers.visitor_comments_path
   puts "\tCreated Visitors Book Link, " + Rails.application.routes.url_helpers.visitor_comments_path
 end
 
-if Link.where(value: (Rails.application.routes.url_helpers.static_pages_path)).empty?
-  signin_link = Link.new title: 'Public Pages', type_mask: 0, value: (Rails.application.routes.url_helpers.static_pages_path)
+if Link.where(value: (Rails.application.routes.url_helpers.pages_path)).empty?
+  signin_link = Link.new title: 'Public Pages', type_mask: 0, value: (Rails.application.routes.url_helpers.pages_path)
   signin_link.save!
-  puts "\tCreated Public Static Pages Link, " + Rails.application.routes.url_helpers.static_pages_path
+  puts "\tCreated Public Pages Link, " + Rails.application.routes.url_helpers.pages_path
 end
 
 if Link.where(value: (Rails.application.routes.url_helpers.posts_path)).empty?
   signin_link = Link.new title: 'Posts', type_mask: 0, value: (Rails.application.routes.url_helpers.posts_path)
   signin_link.save!
-  puts "\tCreated Public Static Pages Link, " + Rails.application.routes.url_helpers.posts_path
+  puts "\tCreated Public Pages Link, " + Rails.application.routes.url_helpers.posts_path
 end
 
 if Link.where(value: '/forum/').empty?
@@ -122,9 +122,9 @@ Agora que há a Tec-9, uma pistola de baixa qualidade a partir de South Miami. E
 
 Seus ossos não quebrar, o meu fazer. Isso é claro. Suas células reagem a bactérias e vírus de forma diferente do que o meu. Você não ficar doente, eu faço. Isso também é clara. Mas por alguma razão, você e eu reajo da mesma maneira à água. Nós engoli-lo muito rápido, nós sufocar. Nós temos alguns em nossos pulmões, que se afogar. No entanto irreal que pareça, estamos conectados, você e eu estamos na mesma curva, só em extremos opostos.'
 
-if StaticPage.where(slug: 'test_page').empty?
-  StaticPage.create title: 'Test Page 1', slug: 'test_page', body: test_text
-  puts 'Created Test Static Page'
+if Page.where(slug: 'test_page').empty?
+  Page.create title: 'Test Page 1', slug: 'test_page', body: test_text
+  puts 'Created Test Page'
 end
 
 if Post.where(title: 'Test Post 1').empty?

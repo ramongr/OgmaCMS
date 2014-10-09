@@ -7,10 +7,10 @@ FactoryGirl.define do
     factory :left_sidebar do
       type_mask 0
 
-      factory :left_sidebar_static_pages do
+      factory :left_sidebar_pages do
         after(:build) do |sidebar|
           (0..3).each do |_i|
-            sidebar.static_pages << FactoryGirl.build(:static_page)
+            sidebar.pages << FactoryGirl.build(:page)
           end
         end
       end
@@ -19,10 +19,10 @@ FactoryGirl.define do
     factory :right_sidebar do
       type_mask 1
 
-      factory :right_sidebar_static_pages do
+      factory :right_sidebar_pages do
         after(:build) do |sidebar|
           (0..3).each do |_i|
-            sidebar.static_pages << FactoryGirl.build(:static_page)
+            sidebar.pages << FactoryGirl.build(:page)
           end
         end
       end
@@ -31,10 +31,10 @@ FactoryGirl.define do
     factory :top_sidebar do
       type_mask 2
 
-      factory :top_sidebar_static_pages do
+      factory :top_sidebar_pages do
         after(:build) do |sidebar|
           (0..3).each do |_i|
-            sidebar.static_pages << FactoryGirl.build(:static_page)
+            sidebar.pages << FactoryGirl.build(:page)
           end
         end
       end
@@ -43,10 +43,10 @@ FactoryGirl.define do
     factory :bottom_sidebar do
       type_mask 3
 
-      factory :bottom_sidebar_static_pages do
+      factory :bottom_sidebar_pages do
         after(:build) do |sidebar|
           (0..3).each do |_i|
-            sidebar.static_pages << FactoryGirl.build(:static_page)
+            sidebar.pages << FactoryGirl.build(:page)
           end
         end
       end

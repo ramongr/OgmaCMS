@@ -33,10 +33,10 @@
 
     <div id="sidebar-pages-list" class="field small-6 columns" data-equalizer-watch>
       <%= f.label t('pages.name') %>
-      <% for static_page in StaticPage.all %>
+      <% for page in Page.all %>
       <div>
-        <%= check_box_tag "sidebar[static_page_ids][]", static_page.id, @sidebar.static_pages.include?(static_page) %>
-        <%= static_page.title %>
+        <%= check_box_tag "sidebar[page_ids][]", page.id, @sidebar.pages.include?(page) %>
+        <%= page.title %>
       </div>
       <% end %>
     </div>

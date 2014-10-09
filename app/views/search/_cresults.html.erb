@@ -3,7 +3,7 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 
 <h1><%= t('pages.search.title') %></h1>
-  <% unless @static_pages.empty? %>
+  <% unless @pages.empty? %>
     <table>
       <thead>
         <tr>
@@ -14,14 +14,14 @@
       </thead>
 
       <tbody>
-        <% @static_pages.each do |static_page| %>
+        <% @pages.each do |page| %>
           <tr>
-            <td><%= static_page.title %></td>
-            <td><%= strip_tags(static_page.body.truncate(300)) %></td>
+            <td><%= page.title %></td>
+            <td><%= strip_tags(page.body.truncate(300)) %></td>
             <td>
-              <%= link_to t('common.show'), [:admin,static_page], class: "button tiny" %>
-              <%= link_to t('common.edit'), edit_admin_static_page_path(static_page), class: "button tiny" %>
-              <%= link_to t('common.destroy'), [:admin,static_page], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
+              <%= link_to t('common.show'), [:admin,page], class: "button tiny" %>
+              <%= link_to t('common.edit'), edit_admin_page_path(page), class: "button tiny" %>
+              <%= link_to t('common.destroy'), [:admin,page], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
             </td>
           </tr>
         <% end %>
