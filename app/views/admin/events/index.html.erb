@@ -1,7 +1,7 @@
 <h1 class="text-center"><%= t('events.index.admin.title') %></h1>
 <div class="row">
   <%= link_to t('events.index.admin.new'), new_admin_event_path, class: "button tiny" %>
-  <%= link_to t('events.calendar'), calendar_index_path, class: "button tiny" %>
+  <%= link_to t('calendar.name'), calendar_index_path, class: "button tiny" %>
   <div class="small-12">
     <% unless @events.empty? %>
       <table>

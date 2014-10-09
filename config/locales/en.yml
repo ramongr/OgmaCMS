@@ -143,6 +143,13 @@ en:
         title: Edit attachment
 
 #
+# Calendar
+#
+
+  calendar:
+    name: Calendário
+
+#
 # Comments
 #
 
@@ -195,7 +202,6 @@ en:
       admin:
         title: Edit event
 
-    calendar: Calendar
     manage_events: Manage events
     going?: 'going?'
     going: Going
@@ -542,7 +548,9 @@ en:
 
   common:
     confirm: Are you sure?
+    index: Index
     show: Show
+    new: New
     edit: Edit
     back: Back
     destroy: Delete
@@ -580,7 +588,20 @@ en:
     need_password: (Fill only if you want to change your password or email)
     cancel_account: Cancel account
     send_reset_instructions: Recover password
+    resend_confirmation: Resend confirmation
     current_password: Current password
+
+#
+# Devise controllers
+#
+  sessions:
+    name: Login
+  registrations:
+    name: Register
+  confirmations:
+    name: Confirmation
+  passwords:
+    name: Recover password
 
 # 
 # Joyride
