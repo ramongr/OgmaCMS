@@ -26,6 +26,11 @@
               <li data-orbit-slide="headline">
                 <div>
                   <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
+                  <% unless image.attachment.description.nil? %>
+                    <div class="orbit-caption">
+                      <%= image.attachment.description %>
+                    </div>
+                  <% end %>
                 </div>
               </li>
             <% end %>
