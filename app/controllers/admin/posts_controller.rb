@@ -16,7 +16,22 @@ class Admin::PostsController < Admin::AdminController
   # GET /admin/posts/new
   def new
     @admin_post = Post.new
-    @attachments = Attachment.all
+    attachments = Attachment.all
+    @image_attachments = attachments.select do |s|
+      s.image? == true
+    end
+    @audio_attachments = attachments.select do |s|
+      s.audio? == true
+    end
+    @video_attachments = attachments.select do |s|
+      s.video? == true
+    end
+    @text_attachments = attachments.select do |s|
+      s.text? == true
+    end
+    @application_attachments = attachments.select do |s|
+      s.application? == true
+    end
   end
 
   # GET /admin/posts/1/edit

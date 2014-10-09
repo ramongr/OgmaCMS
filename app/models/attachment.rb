@@ -12,4 +12,20 @@ class Attachment < ActiveRecord::Base
   def image?
     file_content_type.start_with? 'image'
   end
+
+  def text?
+    file_content_type.start_with? 'text'
+  end
+
+  def application?
+    file_content_type.start_with? 'application'
+  end
+
+  def audio?
+    file_content_type.start_with? 'audio'
+  end
+
+  def video?
+    file_content_type.start_with? 'video'
+  end
 end
