@@ -4,7 +4,7 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@admin_post]), id: 'posts-form'  do |f| %>
+<%= form_for([:admin,@admin_post]) do |f| %>
   <% if @admin_post.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @admin_post.errors.count, model: Post.model_name.human %></h4>
@@ -16,11 +16,10 @@
       </ul>
     </div>
   <% end %>
-  <div class="tabs-content"> 
+  <div id="post-container" class="tabs-content"> 
     <% Setting.selected_languages.each do |l| %>
       
       <%= content_tag :div, class: "content "+ (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
-      
         <!-- Name div -->
         <%= content_tag :div, class: 'field', id: "post-title-" + l do %>
           <%= f.label t('posts.attributes.title', locale: l.to_sym) %>
@@ -46,22 +45,8 @@
   </div>
 <% end %>
 
-
-
 <!-- Joyride instructions -->
-<div class="joyride-content">
-  <ol id="joyride-defs" class="joyride-list" data-joyride>
-    <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.post.title' %></p>
-    </li>  
-    <li id="body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
-      <p><%= t 'joyride.post.body' %></p>
-    </li>
-    <li id="attachment" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
-      <p><%= t 'joyride.post.attachments' %></p>
-    </li> 
-  </ol>
-</div>
+<%= render 'joyride_instructions' %>
 
 <!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>
