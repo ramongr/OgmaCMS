@@ -28,7 +28,7 @@ class Admin::SystemMailsController < ApplicationController
 
   def update
     flash[:notice] = 'SystemMail was successfully updated.' if @system_mail.update(system_mail_params)
-    respond_with(@system_mail)
+    respond_with([:admin,@system_mail])
   end
 
   def destroy

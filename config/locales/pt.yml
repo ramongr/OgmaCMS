@@ -474,7 +474,7 @@ pt:
     attributes:
       name: Nome
       subject: Assunto
-      cotent: Conteúdo
+      content: Conteúdo
       created_at: Criado em
       updated_at: Modificado em
 

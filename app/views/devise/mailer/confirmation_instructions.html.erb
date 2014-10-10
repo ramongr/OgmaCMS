@@ -1,1 +1,1 @@
-<%= parseNewsletter(Setting.confirmation_instructions, email: @email, resource: @resource, token: @token).html_safe %>
+<%= parseNewsletter(@mail.content, email: @email, resource: @resource, token: @token).html_safe %>

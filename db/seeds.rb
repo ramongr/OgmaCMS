@@ -156,3 +156,29 @@ if Forem::Category.where(name: 'Default').empty?
   fc.save!
   puts 'Created forum category'
 end
+
+################
+# System Mails
+################
+
+if SystemMail.where(name: 'Email confirmation instructions').empty?
+  SystemMail.create name: '*site_name*: Email confirmation instructions', 
+                    subject: 'Confirmation Instructions', 
+                    content: '<p>Welcome *name*!</p>' \
+                             '<p>You can confirm your account email through the link below:</p>' \
+                             '<p>*confirmation_link*</p>'
+  p 'Created system mail 1'
+end
+
+if SystemMail.where(name: 'Event update').empty?
+  SystemMail.create name: 'Event update',
+                    subject: '*site_name*: Event *event_name* has been updated',
+                    content: '<h1>Hello, *user_name*</h1>' \
+                             '<p>' \
+                               'There has been an update in *event_title* we thought we should inform you since you are attending.' \
+                             '<p>' \
+                                '*event_description*' \
+                             '</p>' \
+                             '<p>Thanks for reading and have a great day!</p>'
+  p 'Created system mail 2'
+end

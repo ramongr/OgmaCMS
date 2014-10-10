@@ -10,7 +10,8 @@ class SystemMailer < ActionMailer::Base
   def event_update(event, user)
     @user = user
     @event = event
-    mail(to: @user.email, subject: Setting.site_name + ': Event ' + @event.title + ' changed')
+    @mail = SystemMail.find_by(id: 2)
+    mail(to: @user.email, subject: @mail.subject)
   end
 
   def newsletter_send(newsletter, user)

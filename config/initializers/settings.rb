@@ -32,23 +32,3 @@ Setting.defaults[:event_update] =
       '*event_description*' \
   '</p>' \
   '<p>Thanks for reading and have a great day!</p>'
-
-if SystemMail.where(name: 'Email confirmation instructions').empty?
-  SystemMail.create name: 'Email confirmation instructions', 
-                    subject: 'Confirmation Instructions', 
-                    content: '<p>Welcome *name*!</p>' \
-                             '<p>You can confirm your account email through the link below:</p>' \
-                             '<p>*confirmation_link*</p>'
-end
-
-if SystemMail.where(name: 'Event update').empty?
-  SystemMail.create name: 'Event Update',
-                    subject: 'Event Update',
-                    content: '<h1>Hello, *user_name*</h1>' \
-                             '<p>' \
-                               'There has been an update in *event_title* we thought we should inform you since you are attending.' \
-                             '<p>' \
-                                '*event_description*' \
-                             '</p>' \
-                             '<p>Thanks for reading and have a great day!</p>'
-end
