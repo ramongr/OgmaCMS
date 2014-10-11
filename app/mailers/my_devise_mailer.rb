@@ -4,8 +4,9 @@ class MyDeviseMailer < Devise::Mailer
 
   def confirmation_instructions(record, token, opts={})
     @mail = SystemMail.find_by(id: 1)
-    headers = { subject: @mail.subject }
-    super
+    mail = super
+    mail.subject = @mail.subject
+    mail
   end
 
 end
