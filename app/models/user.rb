@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   before_validation :set_language
   before_save :set_forem_role
   validate :name, :role, presence: true
+  validate :name, uniqueness: true
 
   ROLES = %w(registered author admin super_admin)
 
