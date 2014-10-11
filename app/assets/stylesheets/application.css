@@ -12,7 +12,6 @@
  *= require foundation_and_overrides
  *= require 'forem/base'
  *= require fullcalendar
- *= require jquery-ui
  *= require_tree .
  */
 

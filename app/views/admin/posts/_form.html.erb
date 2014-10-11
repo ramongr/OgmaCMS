@@ -11,28 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field ("title_" + I18n.locale.to_s).to_sym  %>
-  </div>
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
-  </div>
-  <br>
-  <div id="insert-attachment">
-    <button class="attachment-btn" id="insert-attachment-<%= I18n.locale %>"><%= t('common.insert_attachment') %></button>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "button right" %>
+  <div id="post-container" data-lang=<%= I18n.locale %>>
+    <div id="post-title-<%=I18n.locale %>" class="field">
+      <%= f.label :title %>
+      <%= f.text_field ("title_" + I18n.locale.to_s).to_sym  %>
+    </div>
+    <div id="post-body-<%=I18n.locale %>" class="field">
+      <%= f.label :content %>
+      <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+    </div>
+    <br>
+    <div id="post-attachment-<%=I18n.locale %>" class="field">
+      <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
   </div>
 <% end %>
 
-<div id="dialog" title="<%= t('common.insert_attachment') %>" style="display:none">
-  <p class="validateTips"><%= t('common.select_attachment') %>.</p>
-  <ol id="selectable">
-    <% @attachments.each do |attachment| %>
-      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
-    <% end %>
-  </ol>
-</div>
+<!-- Joyride instructions -->
+<%= render 'joyride_instructions' %>
+
+<%= render 'admin/attachments/generic_modal' %>

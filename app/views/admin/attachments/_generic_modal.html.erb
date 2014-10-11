@@ -1,0 +1,98 @@
+<div id="attachment-modal" data-lang=<%= I18n.locale %> class="reveal-modal medium" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+  <% unless @image_attachments.empty? && @audio_attachments.empty? && @video_attachments.empty? && @text_attachments.empyty && @application_attachments.empty? %>
+    <dl class="tabs" data-tab>
+      <% unless @image_attachments.empty? %>
+        <dd data-id="images" id="modal-tab"><a href="#images">Images</a></dd>
+      <% end %>
+      <% unless @audio_attachments.empty? %>
+        <dd data-id="audio" id="modal-tab"><a href="#audio">Audio</a></dd>
+      <% end %>
+      <% unless @video_attachments.empty? %>
+        <dd data-id="videos" id="modal-tab"><a href="#videos">Videos</a></dd>
+      <% end %>
+      <% unless @text_attachments.empty? %>
+        <dd data-id="texts" id="modal-tab"><a href="#texts">Texts</a></dd>
+      <% end %>
+      <% unless @application_attachments.empty? %>
+        <dd data-id="others" id="modal-tab"><a href="#others">Other files</a></dd>
+      <% end %>
+    </dl>
+    <div id="modal-tab-container" class="tabs-content">
+      <!-- Image tab -->
+      <% unless @image_attachments.empty? %>
+        <div class="row content" id="images">
+        
+          <h3 class="text-center">Click on the images to add them</h3>
+          <% @image_attachments.each_with_index do |img, index| %>
+            <% if index == 0 %>
+              <div class="small-12 columns">
+            <% elsif index % 3 == 0 %>
+              </div>
+              <div class="small-12 columns">
+            <% end %>
+            <%= link_to 'javascript:void(0)', class: "small-4 columns", id: 'att-images' do %>
+              <%= img.name %>
+              <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name} %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+      <% end %>
+      <!-- Audiu tab -->
+      <% unless @audio_attachments.empty? %>
+        <div class="content" id="audio">
+          <h3 class="text-center">Adding audio</h3>
+          <ul class="inline-list">
+            <% @audio_attachments.each do |aud| %>
+              <li id="linkable-att">
+                <%= link_to aud.name, 'javascript:void(0)', data: {addr: download_attachment_url(aud), name: aud.name, desc: aud.description} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <!-- Video tab -->
+      <% unless @video_attachments.empty? %>
+        <div class="content" id="videos">
+          <h3 class="text-center">Adding videos</h3>
+          <ul class="inline-list">
+            <% @video_attachments.each do |vid| %>
+              <li id="linkable-att">
+                <%= link_to vid.name, 'javascript:void(0)', data: {addr: download_attachment_url(vid), name: vid.name, desc: vid.description} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <!-- Text tab -->
+      <% unless @text_attachments.empty? %>
+        <div class="content" id="texts">
+          <h3 class="text-center">Adding texts</h3>
+          <ul class="inline-list" id="text-inline">
+            <% @text_attachments.each do |txt| %>
+              <li id="linkable-att">
+                <%= link_to txt.name, 'javascript:void(0)', data: {addr: download_attachment_url(txt), desc: txt.description} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <!-- Other files tabs -->
+      <% unless @application_attachments.empty? %>
+        <div class="content" id="others">
+          <h3 class="text-center">Adding texts</h3>
+          <ul class="inline-list" id="text-inline">
+            <% @application_attachments.each do |app| %>
+              <li id="linkable-att">
+                <%= link_to app.name, 'javascript:void(0)', data: {addr: download_attachment_url(app), desc: app.description} %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>There are no attachments!</p>
+  <% end %>
+</div>

@@ -16,11 +16,10 @@
       </ul>
     </div>
   <% end %>
-  <div class="tabs-content"> 
+  <div id="post-container" class="tabs-content"> 
     <% Setting.selected_languages.each do |l| %>
       
       <%= content_tag :div, class: "content "+ (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
-      
         <!-- Name div -->
         <%= content_tag :div, class: 'field', id: "post-title-" + l do %>
           <%= f.label t('posts.attributes.title', locale: l.to_sym) %>
@@ -34,7 +33,7 @@
         <br>
         <!-- Attachment -->
         <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>
-          <button class="attachment-btn" id="insert-attachment-<%=l%>"><%= t('common.insert_attachment') %></button>
+          <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
         <% end %>
       <% end %>
 
@@ -46,26 +45,8 @@
   </div>
 <% end %>
 
-<div id="dialog" title="<%= t('common.insert_attachment') %>" style="display:none">
-  <p class="validateTips"><%= t('common.select_attachment') %>.</p>
-  <ol id="selectable">
-    <% @attachments.each do |attachment| %>
-      <li class="ui-widget-content" data-attachment-link='"<%= download_attachment_url(attachment)%>"' data-attachment-type="<%= attachment.file_content_type %>" ><%= attachment.file_file_name %></li>
-    <% end %>
-  </ol>
-</div>
-
 <!-- Joyride instructions -->
-<div id="posts-form" class="joyride-content">
-  <ol id="joyride-defs" class="joyride-list" data-joyride>
-    <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.post.title' %></p>
-    </li>  
-    <li id="body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
-      <p><%= t 'joyride.post.body' %></p>
-    </li>
-    <li id="attachment" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
-      <p><%= t 'joyride.post.attachments' %></p>
-    </li> 
-  </ol>
-</div>
+<%= render 'joyride_instructions' %>
+
+<!-- Modal content -->
+<%= render 'admin/attachments/generic_modal' %>

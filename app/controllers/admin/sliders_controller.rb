@@ -37,7 +37,8 @@ class Admin::SlidersController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
-      render json: { id: @photo.id }, status: :ok
+      @added_images = @slider.photos.order(position: :asc)
+      render edit: { id: @photo.id }, status: :ok
     else
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end
