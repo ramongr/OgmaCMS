@@ -161,7 +161,7 @@ end
 SystemMail.create name_pt: 'Instruções para a confirmação de email', 
                   subject_pt: '*site_name*: Instruções para a confirmação de email', 
                   content_pt: '<h2>Bem-vindo *user_name*!</h2>' \
-                              '<p>Podes confirmar a tua contra através do link abaixo:</p>' \
+                              '<p>Podes confirmar a tua contra através do link seguinte:</p>' \
                               '<p>*confirmation_link*</p>',
 
                   name_en: 'Email confirmation instructions', 
@@ -206,7 +206,7 @@ SystemMail.create name_pt: 'Alteração de evento',
                            '<p>Os melhores cumprimentos, tenha um bom dia!</p>',
 
                   name_en: 'Event update',
-                  subject_en: '*site_name*: Event "*event_name*"" has been updated',
+                  subject_en: '*site_name*: Event "*event_name*" has been updated',
                   content_en: '<h2>Hello, *user_name*</h2>' \
                            '<p>' \
                              'There has been an update in "*event_name*" we thought we should inform you.' \

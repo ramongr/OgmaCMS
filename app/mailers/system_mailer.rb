@@ -11,7 +11,7 @@ class SystemMailer < ActionMailer::Base
     @user = user
     @event = event
     @mail = SystemMail.find_by(id: 3)
-    mail(to: @user.email, subject: parseEmail(@mail.subject, user: @user, event: @event))
+    mail(to: @user.email, subject: parseEmail(@mail.send('subject_' + @user.language), user: @user, event: @event))
   end
 
   def newsletter_send(newsletter, user)

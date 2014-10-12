@@ -6,14 +6,14 @@ class MyDeviseMailer < Devise::Mailer
   def confirmation_instructions(record, token, opts={})
     @mail = SystemMail.find_by(id: 1)
     mail = super
-    mail.subject = parseEmail(@mail.subject, user: @resource)
+    mail.subject = parseEmail(@mail.send('subject_' + @user.language), user: @resource)
     mail
   end
 
   def reset_password_instructions(record, token, opts={})
-    @mail = SystemMail.find_by(id: 3)
+    @mail = SystemMail.find_by(id: 2)
     mail = super
-    mail.subject = parseEmail(@mail.subject, user: @resource)
+    mail.subject = parseEmail(@mail.send('subject_' + @user.language), user: @resource)
     mail
   end
 end

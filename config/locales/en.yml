@@ -622,6 +622,10 @@ en:
     send_reset_instructions: Recover password
     resend_confirmation: Resend confirmation
     current_password: Current password
+    change_your_password: Change your password
+    new_password: New password
+    confirm_new_password: Confirm new password
+    change_my_password: Change password
 
 #
 # Devise controllers
