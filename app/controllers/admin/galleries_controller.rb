@@ -28,7 +28,6 @@ class Admin::GalleriesController < Admin::AdminController
   # POST /admin/galleries/1/add_photo
   def add_photo
     @photo = Photo.new
-
     @attachment_id = params[:attachment_id]
     @attachment = Attachment.find(@attachment_id)
 
@@ -37,7 +36,8 @@ class Admin::GalleriesController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
-      render json: { id: @photo.id }, status: :ok
+      @added_images = @gallery.photos.order(position: :asc)
+      render edit: { id: @photo.id }, status: :ok
     else
       format.json { render json: @photo.errors, status: :unprocessable_entity }
     end

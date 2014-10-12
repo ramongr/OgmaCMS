@@ -1,0 +1,18 @@
+<div id="attachment-modal" data-lang=<%= I18n.locale %> class="reveal-modal" data-reveal>
+  <a class="close-reveal-modal">&#215;</a>
+  <% unless @images.empty? %>
+    <h3 class="text-center">Click on the images to add them</h3>
+    <% @images.each_with_index do |img, index| %>
+      <% if index == 0 %>
+        <div class="small-12 columns">
+      <% elsif index % 3 == 0 %>
+        </div>
+        <div class="small-12 columns">
+      <% end %>
+      <%= link_to 'javascript:void(0)', class: "small-4 columns", id: 'ins-images' do %>
+        <%= img.name %>
+        <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name, id: img.id} %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
