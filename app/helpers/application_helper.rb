@@ -6,8 +6,8 @@ module ApplicationHelper
       result = result.gsub(/[*]user_name[*]/, user.name)
       .gsub(/[*]user_email[*]/, user.email)
       if token
-        result = result.gsub(/[*]confirmation_link[*]/, (link_to 'Confirm my account', confirmation_url(user, confirmation_token: token)))
-        .gsub(/[*]reset_password_link[*]/, (link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token)))
+        result = result.gsub(/[*]confirmation_link[*]/, (link_to t('devise.confirm_my_account', locale: user.language), confirmation_url(user, confirmation_token: token)))
+        .gsub(/[*]reset_password_link[*]/, (link_to t('devise.change_my_password', locale: user.language), edit_password_url(@resource, reset_password_token: @token)))
       end
     end
 

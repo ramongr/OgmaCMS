@@ -199,7 +199,7 @@ SystemMail.create name_pt: 'Alteração de evento',
                   subject_pt: '*site_name*: O evento "*event_name*" foi alterado',
                   content_pt: '<h2>Olá, *user_name*</h2>' \
                            '<p>' \
-                             'Ocorreu uma alteração no evento "*event_name*" está-mos a informa-lo uma vez que mostrou interesse.' \
+                             'Ocorreu uma alteração no evento "*event_name*" estamos a informa-lo uma vez que mostrou interesse.' \
                            '<p>' \
                               '*event_description*' \
                            '</p>' \

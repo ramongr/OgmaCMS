@@ -24,7 +24,7 @@
       <li class="has-form">
         <div class="row collapse">
           <div class="large-8 small-9 columns">
-            <%= form_tag search_index_path, method: :get do %>            
+            <%= form_tag main_app.search_index_path, method: :get do %>            
               <p><%= text_field_tag :search, params[:search] %></p>
               </div>
               <div class="large-4 small-3 columns">
