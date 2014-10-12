@@ -154,9 +154,9 @@ if Forem::Category.where(name: 'Default').empty?
   puts 'Created forum category'
 end
 
-################
-# System Mails
-################
+########################################################
+# System Mails (Creation order is important to mantain)
+#########################################################
 
 SystemMail.create name_pt: 'Instruções para a confirmação de email', 
                   subject_pt: '*site_name*: Instruções para a confirmação de email', 
@@ -169,7 +169,7 @@ SystemMail.create name_pt: 'Instruções para a confirmação de email',
                   content_en: '<h2>Welcome *user_name*!</h2>' \
                               '<p>You can confirm your account email through the link below:</p>' \
                               '<p>*confirmation_link*</p>'
-puts 'Created system mail pt 1'
+puts 'Created system mail 1'
 
 SystemMail.create name_pt: 'Instruções para redefinir a password',
                   subject_pt: '*site_name*: Instruções para redefinir a password',
@@ -192,7 +192,7 @@ SystemMail.create name_pt: 'Instruções para redefinir a password',
                            '</p>' \
                            '<p>If you didn\'t request this, please ignore this email.</p>' \
                            '<p>Your password won\'t change until you access the link above and create a new one.</p>'
-puts 'Created system mail pt 2'
+puts 'Created system mail 2'
 
 
 SystemMail.create name_pt: 'Alteração de evento',
@@ -214,6 +214,6 @@ SystemMail.create name_pt: 'Alteração de evento',
                               '*event_description*' \
                            '</p>' \
                            '<p>Thanks for reading and have a great day!</p>'
-puts 'Created system mail pt 3'
+puts 'Created system mail 3'
 
 
