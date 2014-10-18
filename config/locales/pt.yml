@@ -325,7 +325,7 @@ pt:
 
     to: Para
     send: Enviar
-    cant_send: Adicione utilizadores antes de enviar
+    cant_send: Adicione utilizadores antes de enviar a newsletter
     sent: Newsletter enviada
 
 #

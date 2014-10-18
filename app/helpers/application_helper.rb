@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def parseNewsletter(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
+  def parseEmail(body, user: nil, email: nil, event: nil, resource: nil, token: nil)
     result = body
 
     if user
