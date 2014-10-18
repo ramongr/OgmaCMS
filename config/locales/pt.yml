@@ -60,6 +60,7 @@ pt:
         type_mask: Tipo
       newsletter:
         title: Nome
+        subject: Assunto
         body: Conteúdo
         created_at: Criado em
         updated_at: Modificado em
@@ -304,6 +305,7 @@ pt:
 
     attributes:
       title: Nome
+      subject: Assunto
       body: Conteúdo
       created_at: Criado em
       updated_at: Modificado em

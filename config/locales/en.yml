@@ -54,6 +54,7 @@ en:
         type_mask: Type
       newsletter:
         title: Name
+        subject: Subject
         body: Content
         created_at: Created at
         updated_at: Updated at
@@ -298,6 +299,7 @@ en:
 
     attributes:
       title: Name
+      subject: Subject
       body: Content
       created_at: Created at
       updated_at: Updated at

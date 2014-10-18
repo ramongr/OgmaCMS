@@ -1,36 +1,36 @@
 <br>
 <div class="row">
-  <%= link_to t('newsletters.name'), admin_newsletters_path, class: "button small" %>
-  <%= link_to t('common.edit'), edit_admin_newsletter_path(@newsletter), class: "button small" %>
-
   <div class="small-12">
+    <%= link_to t('newsletters.name'), admin_newsletters_path, class: 'button small' %>
+    <%= link_to t('common.edit'), edit_admin_newsletter_path(@newsletter), class: 'button small' %>
+    <div id="send_newsletter" style="display: inline">
+      <%= unless @newsletter.users.empty?
+            link_to t('newsletters.send'), send_newsletter_admin_newsletter_path(@newsletter), remote: true, class: 'button small'
+          else
+            link_to t('newsletters.cant_send'), edit_admin_newsletter_path(@newsletter), class: 'button small alert'
+          end
+      %>
+    </div>
+
     <h1 class="text-center"><%= @newsletter.title %></h1>
 
-  <p>
-    <strong><%= t('newsletters.attributes.body') %>:</strong>
-  </p>
+    <hr>
+    <% unless @newsletter.users.empty? %>
+      <div>
+        <p>
+          <strong><%= t('newsletters.to') %>:</strong>
+        </p>
+        <ul>
+          <% @newsletter.users.each do |user| %>
+            <li><%= link_to user.email, [:admin,user] %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <hr>
 
-  <%= @newsletter.body.html_safe %>
+    <p><strong><%= t('newsletters.attributes.subject') %>:</strong> <%= @newsletter.subject %></p>
+    <p><strong><%= t('newsletters.attributes.body') %>:</strong></p> <%= @newsletter.body.html_safe %>
 
-  <% unless @newsletter.users.empty? %>
-    <div>
-      <p>
-        <strong><%= t('newsletters.to') %>:</strong>
-      </p>
-      <ul>
-        <% @newsletter.users.each do |user| %>
-          <li><%= link_to user.email, [:admin,user] %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div id="send_newsletter">
-    <%= if !@newsletter.users.empty?
-          link_to t('newsletters.send'), send_newsletter_admin_newsletter_path(@newsletter), remote: true
-        else
-          t('newsletters.cant_send')
-        end
-    %>
-  </div>
+    
 </div>
