@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/galetahub/ckeditor.git
-  revision: 344c6625649df8c46b33f60c838921fa3589f196
+  revision: 2664d61ae0ac9a35e7ae103ac50ab34933231b8b
   specs:
     ckeditor (4.1.0)
       mime-types
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: 69b6b7a0feaf61ce8057b59764e9d30f2dce42cd
+  revision: dee7350f3bd117d0a7edd8623ce29cdfe4f7c062
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
-  revision: ef4b73623bfe0131ab27bcac92a6ba30f40bd124
+  revision: a8eed73280f17a122e9d8719c5483e48e77eaa7d
   branch: master
   specs:
     rails-i18n (4.0.3)
@@ -97,7 +97,7 @@ GEM
       uniform_notifier
     callsite (0.0.11)
     cancancan (1.9.2)
-    capybara (2.4.3)
+    capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
@@ -135,7 +135,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    execjs (2.2.1)
+    execjs (2.2.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -143,7 +143,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
-    ffi (1.9.5)
+    ffi (1.9.6)
     formatador (0.2.5)
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
@@ -176,7 +176,7 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    jquery-ui-rails (5.0.0)
+    jquery-ui-rails (5.0.2)
       railties (>= 3.2.16)
     json (1.8.1)
     launchy (2.4.2)
@@ -194,7 +194,7 @@ GEM
       rack-contrib
       railties
     method_source (0.8.2)
-    mime-types (2.3)
+    mime-types (2.4.2)
     mini_portile (0.6.0)
     minitest (5.4.2)
     multi_json (1.10.1)
@@ -227,7 +227,7 @@ GEM
       sprockets-rails (~> 2.0)
     rails-settings-cached (0.4.1)
       rails (>= 4.0.0)
-    rails_12factor (0.0.2)
+    rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.2)
@@ -296,10 +296,10 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.1.4)
+    sprockets-rails (2.2.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
-      sprockets (~> 2.8)
+      sprockets (>= 2.8, < 4.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref

@@ -502,6 +502,7 @@ pt:
       created_at: Criado em
       updated_at: Modificado em
       receive_newsletters: Receber newsletters
+      last_sign_in_at: Último login
 
     index:
       admin:
@@ -515,6 +516,11 @@ pt:
     edit:
       admin:
         title: Modificar utilizador
+
+    email:
+      confirm_email: Confirmar email
+      unconfirmed: não confirmado
+      confirmed: confirmado
 
     roles:
       registered: Registado
@@ -583,6 +589,9 @@ pt:
     content: Conteúdo
     components: Componentes
     system: Sistema
+    never: Nunca
+    'true': Sim
+    'false': Não
 
 #
 # Devise
