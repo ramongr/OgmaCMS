@@ -43,7 +43,7 @@ class Admin::EventsController < Admin::AdminController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        Attending.where(event: @event).find_each do |a|
+        Attending.where(event: @event).each do |a|
           SystemMailer.event_update(@event, a.user).deliver
         end
         format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }

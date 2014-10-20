@@ -1,0 +1,43 @@
+<ul class="tabs" data-tab>
+  <% Setting.selected_languages.each do |l| %>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
+  <% end %>
+</ul>
+
+<%= form_for([:admin,@system_mail]) do |f| %>
+  <% if @system_mail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@system_mail.errors.count, "error") %> prohibited this system_mail from being saved:</h2>
+
+      <ul>
+      <% @system_mail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="tabs-content"> 
+    <% Setting.selected_languages.each do |l| %>
+      
+      <%= content_tag :div, class: "content "+ (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %> 
+      
+        <!-- Name div -->
+        <%= content_tag :div, class: 'field', id: "system_mail-subject-" + l do %>
+          <%= f.label t('system_mails.attributes.subject', locale: l.to_sym) %>
+          <%= f.text_field ("subject_" + l).to_sym %>
+        <% end %>
+        <!-- Content div -->
+        <%= content_tag :div, class: 'field', id: "system_mail-content-" + l do %>
+          <%= f.label t('system_mails.attributes.content', locale: l.to_sym) %>
+          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale} %>
+        <% end %>
+      <% end %>
+
+    <% end %>
+    
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
+  </div>
+<% end %>

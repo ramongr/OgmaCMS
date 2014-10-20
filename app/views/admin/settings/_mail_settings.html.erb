@@ -1,9 +1,20 @@
 <div class="content" id="mailer">
-  <%= label_tag t('settings.confirmation_instructions') %>
-  <%= label_tag t('settings.confirmation_instructions_help') %>
-  <%= cktext_area :confirmation_instructions, Setting.confirmation_instructions, ckeditor: {language: I18n.locale}%>
-  <br><br>
-  <%= label_tag t('settings.event_update') %>
-  <%= label_tag t('settings.event_update_help') %>
-  <%= cktext_area :event_update, Setting.event_update, ckeditor: {language: I18n.locale} %>
+  <div class="row">
+    <div class="small-12">
+      <% unless @system_mails.empty? %>
+      <% @system_mails.each do |system_mail| %>
+        <div class="small-7 columns">
+          <%= system_mail.name %>
+        </div>
+        <div class="small-2 columns">
+          <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
+        </div>
+        <div class="small-2 columns">
+          <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
+        </div>
+      <br>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

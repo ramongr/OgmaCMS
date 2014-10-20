@@ -2,6 +2,7 @@ class Admin::SettingsController < Admin::AdminController
   load_and_authorize_resource
 
   def index
+    @system_mails = SystemMail.all
   end
 
   def update_all

@@ -1,7 +1,7 @@
 class SystemMailer < ActionMailer::Base
   include AbstractController::Callbacks
 
-  after_filter :check_subscription, :append_footer
+  after_filter :check_subscription, :append_footer, only: :newsletter_send
 
   include ApplicationHelper
   helper ApplicationHelper
@@ -10,7 +10,8 @@ class SystemMailer < ActionMailer::Base
   def event_update(event, user)
     @user = user
     @event = event
-    mail(to: @user.email, subject: Setting.site_name + ': Event ' + @event.title + ' changed')
+    @mail = SystemMail.find_by(id: 3)
+    mail(to: @user.email, subject: parseEmail(@mail.send('subject_' + @user.language), user: @user, event: @event))
   end
 
   def newsletter_send(newsletter, user)

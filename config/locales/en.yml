@@ -21,6 +21,7 @@ en:
       page: page
       user: user
       visitor_comment: comment
+      system_mail: system mail
     attributes:
       attachment:
         name: Name
@@ -71,6 +72,12 @@ en:
       slider:
         title: Name
         selected: Seleccionado
+        created_at: Created at
+        updated_at: Updated at
+      system_mail:
+        name: Name
+        subject: Subject
+        content: Content
         created_at: Created at
         updated_at: Updated at
       user:
@@ -357,6 +364,13 @@ en:
     add_comment: Comment
 
 #
+# Search
+#
+
+  search:
+    name: Search
+
+#
 # Settings
 #
 
@@ -444,6 +458,24 @@ en:
     add_image: Add image
     remove_image: Remove image
     select_image: Select image
+
+#
+# System Mails
+#
+
+  system_mails:
+    name: System mails
+
+    attributes:
+      name: Name
+      subject: Subject
+      content: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: System mails
 
 #
 # Pages
@@ -587,118 +619,3 @@ en:
     never: Never
     'true': Yes
     'false': No
-
-#
-# Devise
-#
-
-  devise:
-    forgot_password?: Forgot your password?
-    didnt_receive_confirmation?: Didn't receive confirmation instructions?
-    leave_blank: (Leave blank if you don't want to change it)
-    need_password: (Fill only if you want to change your password or email)
-    cancel_account: Cancel account
-    send_reset_instructions: Recover password
-    resend_confirmation: Resend confirmation
-    current_password: Current password
-
-#
-# Devise controllers
-#
-  sessions:
-    name: Login
-  registrations:
-    name: Register
-  confirmations:
-    name: Confirmation
-  passwords:
-    name: Recover password
-
-# 
-# Joyride
-# 
-
-  joyride:
-    next: "→"
-    prev: "←"
-    # 
-    # Posts 
-    #
-    post:
-      title: Enter here the posts' title
-      body: Enter here the post content
-      attachments: Attachments can be added from the database
-    # 
-    # Pages
-    # 
-    page:
-      title: Page title
-      slug: This field is optional, used to customize this page address
-      body: Page content here
-      attachments: Attachments can be added from the database
-    # 
-    # Menu
-    # 
-    menu:
-      title: Enter the title of the menu
-      position: Select the position the menu will be on the home page
-      links: Bellow are links to all places in your website, and some custom ones
-      pages: Your custom pages can also be linked on the menu
-    # 
-    # Slider
-    # 
-    slider:
-      title: Slider title here
-      selected: If selected this slider will be the default slider on the home page
-    # 
-    # Attachment
-    # 
-    attachment:
-      name: Name of the attachment here
-      description: A small description here
-      file: Select the file from your device here
-    # 
-    # Events
-    # 
-    event:
-      title: Title of the event here
-      body: Decription of the event
-      all-day: All day event? Click here
-      start-time: Start date of the event
-      end-time: End date of the event
-    # 
-    # Galleries
-    # 
-    gallery:
-      title: Title of the gallery here
-      description: Description of the gallery
-      date: A date to be associated with this gallery
-    # 
-    # Newsletters
-    # 
-    newsletter:
-      title: Title for your newsletter here
-      body: Write here the content for your newsletter
-      destinatary: Select bellow who will receive this newsletter
-    # 
-    # Settings
-    # 
-    settings:
-      title: Your website name here
-      description: Describe your site
-      logo: A logo for your site
-      internationalization: Configure internationalization here
-      newsletters: Configure newsletters here
-    # 
-    # Users
-    # 
-    users:
-      name: Your name here
-      email: Your email here
-      dob: Your date of birth here
-      gender: Your gender here
-      country: Your country
-      language: "Your desired language for the website, it's limited to the ones selectd by the site admin"
-      password: "You password here, make sure it's a good one!"
-      password-confirmation: Confirm your password here
-      role: The user role, refers to the user permissions inside the site. Be wary of the permissions given to the users, bear in mind too much freedom may result in havoc

@@ -1,1 +1,1 @@
-<%= parseNewsletter(Setting.event_update, user: @user, event: @event ).html_safe %> 
+<%= parseEmail(@mail.send('content_' + @user.language), user: @user, event: @event).html_safe %>

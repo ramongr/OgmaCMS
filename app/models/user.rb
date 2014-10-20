@@ -11,10 +11,8 @@ class User < ActiveRecord::Base
   has_many :events, through: :attendings
   has_and_belongs_to_many :newsletters
 
-  before_validation :set_default_role
   before_validation :set_language
   before_save :set_forem_role
-  after_create :set_newsletter_subscribed
   validate :name, :role, presence: true
   validate :name, length: { in: 3..100 }
 
@@ -50,12 +48,6 @@ class User < ActiveRecord::Base
 
   private
 
-  def set_default_role
-    if role.blank?
-      self.role = 'registered'
-    end
-  end
-
   def set_language
     if language.blank?
       self.language = I18n.locale.to_s
@@ -66,10 +58,6 @@ class User < ActiveRecord::Base
     if self.role? :admin
       self.forem_admin = true
     end
-  end
-
-  def set_newsletter_subscribed
-    self.update_attribute(:newsletter_subscribed, false)
   end
 
   def add_unsubscribe_token

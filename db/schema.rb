@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020112945) do
+ActiveRecord::Schema.define(version: 20141020175308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -289,7 +289,7 @@ ActiveRecord::Schema.define(version: 20141020112945) do
     t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
-    t.string   "role"
+    t.string   "role",                   default: "registered"
     t.string   "name"
     t.date     "dob"
     t.string   "country"
@@ -300,7 +300,7 @@ ActiveRecord::Schema.define(version: 20141020112945) do
     t.string   "unconfirmed_email"
     t.string   "language"
     t.string   "unsubscribe_token"
-    t.boolean  "newsletter_subscribed"
+    t.boolean  "newsletter_subscribed",  default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -1,0 +1,26 @@
+<%= form_for([:admin,@system_mail]) do |f| %>
+  <% if @system_mail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@system_mail.errors.count, "error") %> prohibited this system_mail from being saved:</h2>
+
+      <ul>
+      <% @system_mail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :subject %><br>
+    <%= f.text_field ("subject_" + I18n.locale.to_s).to_sym %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area ("content_" + I18n.locale.to_s).to_sym %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

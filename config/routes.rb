@@ -43,6 +43,7 @@ OgmaCMS::Application.routes.draw do
       resources :links
       resources :users
       resources :events
+      resources :system_mails, except: [:new,:delete]
       resources :attachments do
         member do
           get 'download'

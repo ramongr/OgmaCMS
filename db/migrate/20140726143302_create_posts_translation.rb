@@ -9,6 +9,6 @@ class CreatePostsTranslation < ActiveRecord::Migration
   end
 
   def self.down
-    posts.drop_translation_table! migrate_data: true
+    Post.drop_translation_table! migrate_data: true
   end
 end

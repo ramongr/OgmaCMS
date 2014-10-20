@@ -1,0 +1,28 @@
+<h1 class="text-center"><%= t('system_mails.index.admin.title') %></h1>
+
+<div class="row">
+  <div class="small-12">
+    <% unless @system_mails.empty? %>
+      <table>
+        <thead>
+          <tr>
+            <th><%= t('system_mails.attribuets.name') %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @system_mails.each do |system_mail| %>
+            <tr>
+              <td><%= system_mail.name %></td>
+              <td>
+                <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
+                <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

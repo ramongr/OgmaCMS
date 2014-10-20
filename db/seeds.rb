@@ -1,7 +1,6 @@
 #####################
 # Users
 #####################
-puts 'Adding users'
 
 super_admin = User.where(email: 'super_admin@example.com').first
 if super_admin.nil?
@@ -31,7 +30,6 @@ end
 #####################
 # Links
 #####################
-puts 'Adding links'
 
 if Link.where(value: (Rails.application.routes.url_helpers.new_user_session_path)).empty?
   logout_link = Link.new title: 'Sign In', type_mask: 0, value: (Rails.application.routes.url_helpers.new_user_session_path)
@@ -72,7 +70,6 @@ end
 #####################
 # Sidebars
 #####################
-puts 'Adding links'
 
 if Sidebar.where(type_mask: 0).empty?
   top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
@@ -151,8 +148,71 @@ end
 # Forum Data
 #####################
 
-if Forem::Category.where(name: 'Default').empty?
-  fc = Forem::Category.new name: 'Default'
-  fc.save!
-  puts 'Created forum category'
-end
+# if Forem::Category.where(name: 'Default').empty?
+#   fc = Forem::Category.create(name: 'Default')
+#   puts 'Created forum category'
+# end
+
+########################################################
+# System Mails (Creation order is important to mantain)
+#########################################################
+
+SystemMail.create name_pt: 'Instruções para a confirmação de email', 
+                  subject_pt: '*site_name*: Instruções para a confirmação de email', 
+                  content_pt: '<h2>Bem-vindo *user_name*!</h2>' \
+                              '<p>Podes confirmar a tua contra através do link seguinte:</p>' \
+                              '<p>*confirmation_link*</p>',
+
+                  name_en: 'Email confirmation instructions', 
+                  subject_en: '*site_name*: Email confirmation instructions', 
+                  content_en: '<h2>Welcome *user_name*!</h2>' \
+                              '<p>You can confirm your account email through the link below:</p>' \
+                              '<p>*confirmation_link*</p>'
+puts 'Created system mail 1'
+
+SystemMail.create name_pt: 'Instruções para redefinir a password',
+                  subject_pt: '*site_name*: Instruções para redefinir a password',
+                  content_pt: '<h2>Olá, *user_name*</h2>' \
+                              '<p>' \
+                              'Foi requesitada a redefinição da password da sua conta. Poderá fazê-lo através do link abaixo.' \
+                              '<p>' \
+                              '*reset_password_link*' \
+                              '</p>' \
+                              '<p>Se não fez este pedido, então ignore este email.</p>' \
+                              '<p>A sua password não será alterada até que aceda ao link acima e crie uma nova.</p>',
+
+                  name_en: 'Reset password instructions',
+                  subject_en: '*site_name*: Reset password instructions',
+                  content_en: '<h2>Hello, *user_name*</h2>' \
+                           '<p>' \
+                             'Someone has requested a link to change your password. You can do this through the link below.' \
+                           '<p>' \
+                              '*reset_password_link*' \
+                           '</p>' \
+                           '<p>If you didn\'t request this, please ignore this email.</p>' \
+                           '<p>Your password won\'t change until you access the link above and create a new one.</p>'
+puts 'Created system mail 2'
+
+
+SystemMail.create name_pt: 'Alteração de evento',
+                  subject_pt: '*site_name*: O evento "*event_name*" foi alterado',
+                  content_pt: '<h2>Olá, *user_name*</h2>' \
+                           '<p>' \
+                             'Ocorreu uma alteração no evento "*event_name*" estamos a informa-lo uma vez que mostrou interesse.' \
+                           '<p>' \
+                              '*event_description*' \
+                           '</p>' \
+                           '<p>Os melhores cumprimentos, tenha um bom dia!</p>',
+
+                  name_en: 'Event update',
+                  subject_en: '*site_name*: Event "*event_name*" has been updated',
+                  content_en: '<h2>Hello, *user_name*</h2>' \
+                           '<p>' \
+                             'There has been an update in "*event_name*" we thought we should inform you.' \
+                           '<p>' \
+                              '*event_description*' \
+                           '</p>' \
+                           '<p>Thanks for reading and have a great day!</p>'
+puts 'Created system mail 3'
+
+
