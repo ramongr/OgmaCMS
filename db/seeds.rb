@@ -148,11 +148,10 @@ end
 # Forum Data
 #####################
 
-if Forem::Category.where(name: 'Default').empty?
-  fc = Forem::Category.new name: 'Default'
-  fc.save!
-  puts 'Created forum category'
-end
+# if Forem::Category.where(name: 'Default').empty?
+#   fc = Forem::Category.create(name: 'Default')
+#   puts 'Created forum category'
+# end
 
 ########################################################
 # System Mails (Creation order is important to mantain)

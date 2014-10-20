@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: dee7350f3bd117d0a7edd8623ce29cdfe4f7c062
+  revision: dc8f34302e1d1b02f68629b436e0fbfc7754f788
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -181,6 +181,8 @@ GEM
     json (1.8.1)
     launchy (2.4.2)
       addressable (~> 2.3)
+    letter_opener (1.2.0)
+      launchy (~> 2.2)
     libv8 (3.16.14.7)
     listen (2.7.11)
       celluloid (>= 0.15.2)
@@ -357,6 +359,7 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails (~> 5.0.0)
   launchy (~> 2.4.2)
+  letter_opener
   meta_request (~> 0.2.8)
   paperclip!
   pg
