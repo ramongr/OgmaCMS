@@ -31,6 +31,9 @@ class Admin::UsersController < Admin::AdminController
   end
 
   def update
+    if params[:confirm_email] == '1'
+      @admin_user.skip_confirmation!
+    end
     if params[:user][:password].blank?
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)

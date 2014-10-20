@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
   before_save :set_forem_role
   after_create :set_newsletter_subscribed
   validate :name, :role, presence: true
+<<<<<<< HEAD
+  validate :name, uniqueness: true
+=======
   validate :name, length: { in: 3..100 }
+>>>>>>> develop
 
   ROLES = %w(registered author admin super_admin)
 

@@ -6,12 +6,27 @@
 
   <div class="small-12">
     <h1 class="text-center"><%= @admin_user.name %></h1>
-
-    <p><strong>Email:</strong> <%= @admin_user.email %></p>
-    <p><strong>Date of Birth:</strong> <%= @admin_user.dob %></p>
-    <p><strong>Nationality:</strong> <%= @admin_user.nationality %></p>
-    <p><strong>Language:</strong> <%= @admin_user.language %></p>
-    <p><strong>Gender:</strong> <%= @admin_user.gender %></p>
-    <p><strong>Role:</strong> <%= @admin_user.role.humanize %></p>
+    <hr>
+    <p><strong><%= t('users.attributes.created_at') %>:</strong> <%= l @admin_user.created_at %></p>
+    <% if @admin_user.last_sign_in_at.nil? %>
+      <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= t('common.never') %></p>
+    <% else %>
+      <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= @admin_user.last_sign_in_at.nil %></p>
+    <% end %>
+    <p>
+      <strong><%= t('users.attributes.email') %>:</strong> <%= @admin_user.email %>
+      <% if @admin_user.confirmed_at.nil? %>
+        (<%= t('users.email.unconfirmed') %>)
+      <% else %>
+        (<%= t('users.email.confirmed') %>)
+      <% end %>
+    </p>
+    <p><strong><%= t('users.attributes.dob') %>:</strong> <%= @admin_user.dob %></p>
+    <p><strong><%= (t'users.attributes.nationality') %>:</strong> <%= @admin_user.nationality %></p>
+    <p><strong><%= t('users.attributes.language') %>:</strong> <%= t('language_name.' + I18n.locale.to_s, locale: @admin_user.language) %></p>
+    <p><strong><%= t('users.attributes.gender') %>:</strong> <%= @admin_user.gender %></p>
+    <p><strong><%= t('users.attributes.role') %>:</strong> <%= @admin_user.role.humanize %></p>
+    <p><strong><%= t('users.attributes.receive_newsletters')  %>:</strong> <%= t ('common.' + @admin_user.newsletter_subscribed.to_s) %></p>
+    <hr>
   </div>
 </div>
