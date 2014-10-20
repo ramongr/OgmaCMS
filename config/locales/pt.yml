@@ -84,7 +84,7 @@ pt:
         email: Email
         dob: Data de Nascimento
         gender: Sexo
-        nationality: Nacionalidade
+        country: País
         language: Língua
         password: Password
         password_confirmation: Confirmação da password
@@ -496,7 +496,7 @@ pt:
       email: Email
       dob: Data de nascimento
       gender: Sexo
-      nationality: Nacionalidade
+      country: País
       language: Língua
       password: Password
       password_confirmation: Confirmação da password
@@ -705,7 +705,7 @@ pt:
       email: Coloque aqui o seu endereço eletrónico
       dob: Data de nascimento
       gender: Coloque aqui o seu género
-      nationality: Selecione abaixo a sua nacionalidade
+      country: Selecione abaixo o seu país
       language: A lingua que quer ver o site, apenas estão disponíveis línguas definidas das definições do site
       password: A sua password aqui, procure sempre colocar uma password segura
       password-confirmation: Confirme a sua password neste campo
