@@ -19,6 +19,12 @@
     <%= f.label :email %>
     <%= f.email_field :email, autocomplete: :off %>
   </div>
+  <% if @admin_user.confirmed_at.nil? %>
+    <div class="field">
+      <%= check_box_tag 'confirm_email' %>
+      <%= label_tag t('users.email.confirm_email') %>
+    </div>
+  <% end %>
   <div id="user-dob" class="field">
     <%= f.label :dob %>
     <%= f.date_select :dob, {start_year: Date.today.year - 6, end_year: Date.today.year - 110, include_blank: true}, {class: "small-4 columns"} %>

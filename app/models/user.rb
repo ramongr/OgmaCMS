@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   before_validation :set_default_role
   before_validation :set_language
   before_save :set_forem_role
+  after_create :set_newsletter_subscribed
   validate :name, :role, presence: true
+  validate :name, length: { in: 3..100 }
 
   ROLES = %w(registered author admin super_admin)
 
@@ -67,7 +69,7 @@ class User < ActiveRecord::Base
   end
 
   def set_newsletter_subscribed
-    self.newsletter_subscribed = true
+    self.update_attribute(:newsletter_subscribed, false)
   end
 
   def add_unsubscribe_token

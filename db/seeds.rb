@@ -5,25 +5,25 @@ puts 'Adding users'
 
 super_admin = User.where(email: 'super_admin@example.com').first
 if super_admin.nil?
-  super_admin = User.new name: 'Super Admin', email: 'super_admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'super_admin', confirmed_at: Time.now, language: 'pt'
+  super_admin = User.new name: 'Super Admin', email: 'super_admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'super_admin', confirmed_at: Time.now, language: 'pt', newsletter_subscribed: true
   super_admin.save!
   puts "\tCreated User Super Admin, super_admin@example.com"
 end
 
 if User.where(email: 'admin@example.com').empty?
-  admin = User.new name: 'Admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'admin', confirmed_at: Time.now, language: 'pt'
+  admin = User.new name: 'Admin', email: 'admin@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'true', role: 'admin', confirmed_at: Time.now, language: 'pt', newsletter_subscribed: true
   admin.save!
   puts "\tCreated User Admin, admin@example.com"
 end
 
 if User.where(email: 'author@example.com').empty?
-  author = User.new name: 'Author', email: 'author@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'author', confirmed_at: Time.now, language: 'pt'
+  author = User.new name: 'Author', email: 'author@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'author', confirmed_at: Time.now, language: 'pt', newsletter_subscribed: true
   author.save!
   puts "\tCreated User Author, author@example.com"
 end
 
 if User.where(email: 'registered@example.com').empty?
-  registered = User.new name: 'Registered', email: 'registered@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'registered', confirmed_at: Time.now, language: 'pt'
+  registered = User.new name: 'Registered', email: 'registered@example.com', password: 'password', password_confirmation: 'password', forem_admin: 'false', role: 'registered', confirmed_at: Time.now, language: 'pt', newsletter_subscribed: false
   registered.save!
   puts "\tCreated User Registered, registered@example.com"
 end

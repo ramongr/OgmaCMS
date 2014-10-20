@@ -495,6 +495,7 @@ en:
       created_at: Created at
       updated_at: Updated at
       receive_newsletters: Receive newsletters
+      last_sign_in_at: Last sign in at
 
     index:
       admin:
@@ -508,6 +509,11 @@ en:
     edit:
       admin:
         title: Edit user
+
+    email:
+      confirm_email: Confirm email
+      unconfirmed: unconfirmed
+      confirmed: confirmed
 
     roles:
       registered: Registered
@@ -576,6 +582,9 @@ en:
     content: Content
     components: Components
     system: System
+    never: Never
+    'true': Yes
+    'false': No
 
 #
 # Devise
