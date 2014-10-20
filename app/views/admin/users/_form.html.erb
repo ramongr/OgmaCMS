@@ -36,9 +36,9 @@
     <%= f.radio_button :gender, "f" %>
     <%= f.label "F" %>
   </div>
-  <div id="user-nationality" class="field">
-    <%= f.label :nationality %>
-    <%= f.select :nationality, Setting.available_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, {include_blank: true} %>
+  <div id="user-country" class="field">
+    <%= f.label :country %>
+    <%= f.select :country, Setting.available_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, {include_blank: true} %>
   </div>
   <div id="user-language" class="field">
     <%= f.label :language %>

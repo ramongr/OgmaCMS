@@ -34,8 +34,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :nationality %>
-        <%= f.select :nationality, Setting.available_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, {include_blank: true} %>
+        <%= f.label :country %>
+        <%= f.select :country, Setting.available_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, {include_blank: true} %>
       </div>
 
       <div class="field">

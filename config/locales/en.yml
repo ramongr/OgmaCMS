@@ -78,7 +78,7 @@ en:
         email: Email
         dob: Date of birth
         gender: Gender
-        nationality: Nationality
+        country: Country
         language: Language
         password: Password
         password_confirmation: Password confirmation
@@ -489,7 +489,7 @@ en:
       email: Email
       dob: Date of birth
       gender: Gender
-      nationality: Nationality
+      country: Country
       language: Language
       password: Password
       password_confirmation: Password confirmation
@@ -697,7 +697,7 @@ en:
       email: Your email here
       dob: Your date of birth here
       gender: Your gender here
-      nationality: Your nationality
+      country: Your country
       language: "Your desired language for the website, it's limited to the ones selectd by the site admin"
       password: "You password here, make sure it's a good one!"
       password-confirmation: Confirm your password here

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018210941) do
+ActiveRecord::Schema.define(version: 20141020112945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -273,27 +273,6 @@ ActiveRecord::Schema.define(version: 20141018210941) do
     t.datetime "updated_at"
   end
 
-  create_table "system_mail_translations", force: true do |t|
-    t.integer  "system_mail_id", null: false
-    t.string   "locale",         null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "subject"
-    t.text     "content"
-  end
-
-  add_index "system_mail_translations", ["locale"], name: "index_system_mail_translations_on_locale", using: :btree
-  add_index "system_mail_translations", ["system_mail_id"], name: "index_system_mail_translations_on_system_mail_id", using: :btree
-
-  create_table "system_mails", force: true do |t|
-    t.string   "name"
-    t.string   "subject"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",               null: false
     t.string   "encrypted_password",     default: "",               null: false
@@ -313,7 +292,7 @@ ActiveRecord::Schema.define(version: 20141018210941) do
     t.string   "role"
     t.string   "name"
     t.date     "dob"
-    t.string   "nationality"
+    t.string   "country"
     t.string   "gender"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
