@@ -22,7 +22,7 @@
       <% end %>
     </p>
     <p><strong><%= t('users.attributes.dob') %>:</strong> <%= @admin_user.dob %></p>
-    <p><strong><%= (t'users.attributes.nationality') %>:</strong> <%= @admin_user.nationality %></p>
+    <p><strong><%= (t'users.attributes.country') %>:</strong> <%= @admin_user.country %></p>
     <p><strong><%= t('users.attributes.language') %>:</strong> <%= t('language_name.' + I18n.locale.to_s, locale: @admin_user.language) %></p>
     <p><strong><%= t('users.attributes.gender') %>:</strong> <%= @admin_user.gender %></p>
     <p><strong><%= t('users.attributes.role') %>:</strong> <%= @admin_user.role.humanize %></p>
