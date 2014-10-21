@@ -273,6 +273,27 @@ ActiveRecord::Schema.define(version: 20141020175308) do
     t.datetime "updated_at"
   end
 
+  create_table "system_mail_translations", force: true do |t|
+    t.integer  "system_mail_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "subject"
+    t.text     "content"
+  end
+
+  add_index "system_mail_translations", ["locale"], name: "index_system_mail_translations_on_locale", using: :btree
+  add_index "system_mail_translations", ["system_mail_id"], name: "index_system_mail_translations_on_system_mail_id", using: :btree
+
+  create_table "system_mails", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",               null: false
     t.string   "encrypted_password",     default: "",               null: false

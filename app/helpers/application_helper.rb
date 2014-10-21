@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def parseEmail(content, user: nil, event: nil, token: nil)
+  def parseEmail(content, user: nil, event: nil, token: nil, newsletter: nil)
     result = content
 
     if user
@@ -14,6 +14,10 @@ module ApplicationHelper
     if event
       result = result.gsub(/[*]event_name[*]/, event.title)
       .gsub(/[*]event_description[*]/, event.body)
+    end
+
+    if newsletter
+      result = result.gsub(/[*]unsubscribe_url[*]/, link_to(t('newsletters.unsubscribe'), registrations_unsubscribe_url(token: @user.unsubscribe_token)).html_safe)
     end
 
     result = result.gsub(/[*]site_name[*]/, Setting.site_name)
