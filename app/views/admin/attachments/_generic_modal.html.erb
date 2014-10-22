@@ -1,6 +1,6 @@
 <div id="attachment-modal" data-lang=<%= I18n.locale %> class="reveal-modal medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
-  <% unless @image_attachments.empty? && @audio_attachments.empty? && @video_attachments.empty? && @text_attachments.empyty && @application_attachments.empty? %>
+  <% unless @image_attachments.empty? && @audio_attachments.empty? && @video_attachments.empty? && @text_attachments.empty? && @application_attachments.empty? %>
     <dl class="tabs" data-tab>
       <% unless @image_attachments.empty? %>
         <dd data-id="images" id="modal-tab"><a href="#images">Images</a></dd>

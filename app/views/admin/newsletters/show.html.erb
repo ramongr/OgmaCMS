@@ -9,20 +9,16 @@
     <% unless @newsletter.users.empty? %>
       <hr>
       <div>
-        <p>
-          <strong><%= t('newsletters.to') %>:</strong>
-        </p>
-        <ul>
-          <% @newsletter.users.each do |user| %>
-            <li><%= link_to user.email, [:admin,user] %></li>
-          <% end %>
-        </ul>
+        <strong><%= t('newsletters.to') %>:</strong>
+        <% @newsletter.users.each do |user| %>
+          <%= link_to user.email, [:admin,user] %><%= ', ' if user != @newsletter.users.last %>
+        <% end %>
       </div>
-      <hr>
     <% end %>
 
-    <p><strong><%= t('newsletters.attributes.subject') %>:</strong> <%= @newsletter.subject %></p>
-    <p><strong><%= t('newsletters.attributes.body') %>:</strong></p> <%= @newsletter.body.html_safe %>
+    <strong><%= t('newsletters.attributes.subject') %>:</strong> <%= @newsletter.subject %>
+    <hr>
+    <%= @newsletter.body.html_safe %>
 
     <div id="send_newsletter">
       <%= unless @newsletter.users.empty?
