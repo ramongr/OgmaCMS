@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020175308) do
+ActiveRecord::Schema.define(version: 20141022011151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,18 @@ ActiveRecord::Schema.define(version: 20141020175308) do
     t.integer "sidebar_id"
   end
 
+  create_table "newsletter_translations", force: true do |t|
+    t.integer  "newsletter_id", null: false
+    t.string   "locale",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "subject"
+    t.text     "body"
+  end
+
+  add_index "newsletter_translations", ["locale"], name: "index_newsletter_translations_on_locale", using: :btree
+  add_index "newsletter_translations", ["newsletter_id"], name: "index_newsletter_translations_on_newsletter_id", using: :btree
+
   create_table "newsletters", force: true do |t|
     t.string   "title"
     t.text     "body"
@@ -269,6 +281,27 @@ ActiveRecord::Schema.define(version: 20141020175308) do
   create_table "sliders", force: true do |t|
     t.string   "title"
     t.boolean  "selected"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "system_mail_translations", force: true do |t|
+    t.integer  "system_mail_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "subject"
+    t.text     "content"
+  end
+
+  add_index "system_mail_translations", ["locale"], name: "index_system_mail_translations_on_locale", using: :btree
+  add_index "system_mail_translations", ["system_mail_id"], name: "index_system_mail_translations_on_system_mail_id", using: :btree
+
+  create_table "system_mails", force: true do |t|
+    t.string   "name"
+    t.string   "subject"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

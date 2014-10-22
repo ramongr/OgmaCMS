@@ -17,11 +17,11 @@
   </div>
   <div id="newsletter-subject" class="field">
     <%= f.label :subject %>
-    <%= f.text_field :subject %>
+    <%= f.text_field ("subject_" + I18n.locale.to_s).to_sym  %>
   </div>
   <div id="newsletter-body" class="field">
     <%= f.label :body %>
-    <%= f.cktext_area :body %>
+    <%= f.cktext_area ("body_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
   </div>
 
   <br>

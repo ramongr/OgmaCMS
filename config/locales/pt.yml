@@ -1,9 +1,3 @@
-#
-# Falta:
-#   Galerias - Ao adicionar uma imagem tem um botão chamado Cancel (ver onde traduzir isso)
-#   Galerias - Adicionar uma nova imagem torna o botão "Adicionar Imagem" em "Add Image"
-#
-
 pt:
   language_name:
     en: Portuguese
@@ -334,6 +328,7 @@ pt:
     send: Enviar
     cant_send: Adicione utilizadores antes de enviar a newsletter
     sent: Newsletter enviada
+    unsubscribe: Se não quer receber mais newsletters clique aqui.
 
 #
 # Posts

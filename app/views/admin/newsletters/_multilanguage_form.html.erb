@@ -1,0 +1,73 @@
+<ul class="tabs" data-tab>
+  <% Setting.selected_languages.each do |l| %>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
+  <% end %>
+</ul>
+
+<%= form_for([:admin,@newsletter]) do |f| %>
+  <% if @newsletter.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= t 'common.error_save', count: @newsletter.errors.count, model: Newsletter.model_name.human %></h4>
+
+      <ul>
+      <% @newsletter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="tabs-content">
+    <br>
+    <%= content_tag :div, class: 'field', id: 'newsletter-title' do %>
+          <%= f.label t('newsletters.attributes.title') %>
+          <%= f.text_field :title %>
+    <% end %>
+
+    <% Setting.selected_languages.each do |l| %>
+
+      <%= content_tag :div, class: "content" + (l == I18n.locale.to_s ? " active" : ""), id: "langtab-" + l do %> 
+
+        <%= content_tag :div, class: 'field', id: 'newsletter-subject-'+ l do %>
+          <%= f.label t('newsletters.attributes.subject', locale: l.to_sym) %>
+          <%= f.text_field ("subject_" + l).to_sym %>
+        <% end %>
+
+        <%= content_tag :div, class: 'field', id: 'newsletter-body-'+ l do %>
+          <%= f.label t('newsletters.attributes.body', locale: l.to_sym) %>
+          <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {language: I18n.locale} %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+
+    <br>
+    <div id="newsletter-destinatary">
+      <p><%= t('newsletters.to') %>:</p>
+      <% for user in User.all %>
+      <div>
+        <%= check_box_tag "newsletter[user_ids][]", user.id, @newsletter.users.include?(user) %>
+        <%= user.email %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
+  </div>
+<% end %>
+
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="newsletter-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.newsletter.title' %></p>
+    </li>  
+    <li data-id="newsletter-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.newsletter.body' %></p>
+    </li>
+    <li data-id="newsletter-destinatary" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.newsletter.destinatary' %></p>
+    </li>
+  </ol>
+</div>

@@ -82,7 +82,6 @@ group :development, :test do
   gem 'rspec-collection_matchers', '~> 1.0.0'
   gem 'guard-rspec', '~> 4.3.1'
   # gem 'shoulda-matchers', '~> 2.6.2'
-  gem "letter_opener"
 end
 
 group :test do
