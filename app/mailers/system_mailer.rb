@@ -18,7 +18,7 @@ class SystemMailer < ActionMailer::Base
     @user = user
     @newsletter = newsletter
 
-    mail(to: @user.email, subject: parseEmail(@newsletter.subject))
+    mail(to: @user.email, subject: parseEmail(@newsletter.send('subject_' + @user.language), user: @user)
   end
 
   def check_subscription
