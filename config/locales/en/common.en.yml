@@ -1,0 +1,34 @@
+en:
+  common:
+    confirm: Are you sure?
+    index: Index
+    show: Show
+    new: New
+    edit: Edit
+    back: Back
+    destroy: Delete
+    'yes': Yes
+    'no': No
+    maybe: Maybe
+    insert_attachment: Insert atttachment
+    select_attachment: Select attachment
+    shortcuts: Shortcuts
+    language: Language
+    search: Search
+    login: Login
+    logout: Logout
+    register: Register
+    read_more: Read more
+    no_results_found: No results found
+    error_save: 
+      one: '1 error prohibited %{model} from being saved'
+      other: '%{count} errors prohibited %{model} from being saved'
+    navigation: Navigation
+    forum: Forum
+    public_site: Public website
+    content: Content
+    components: Components
+    system: System
+    never: Never
+    'true': Yes
+    'false': No

@@ -1,0 +1,36 @@
+pt:
+  activerecord:
+    models:
+      slider: painel rolante
+    attributes:
+      slider:
+        title: Nome
+        selected: Selecionado
+        created_at: Criado em
+        updated_at: Modificado em
+
+  sliders:
+    name: Painéis rolantes
+
+    attributes:
+      title: Nome
+      selected: Selecionado
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Painéis rolantes
+        new: Novo painel
+
+    new:
+      admin:
+        title: Novo painel
+
+    edit:
+      admin:
+        title: Modificar painel
+
+    add_image: Adicionar imagem
+    remove_image: Remover imagem
+    select_image: Seleccione uma imagem.

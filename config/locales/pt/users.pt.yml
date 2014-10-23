@@ -1,0 +1,59 @@
+pt:
+  activerecord:
+    models:
+      user: utilizador
+    attributes:
+      user:
+        name: Nome
+        email: Email
+        dob: Data de Nascimento
+        gender: Sexo
+        country: País
+        language: Língua
+        password: Password
+        password_confirmation: Confirmação da password
+        role: Permissões
+        created_at: Criado em
+        updated_at: Modificado em
+        
+  users:
+    name: Utilizadores
+
+    attributes:
+      name: Nome
+      email: Email
+      dob: Data de nascimento
+      gender: Sexo
+      country: País
+      language: Língua
+      password: Password
+      password_confirmation: Confirmação da password
+      role: Permissões
+      created_at: Criado em
+      updated_at: Modificado em
+      receive_newsletters: Receber newsletters
+      last_sign_in_at: Último login
+
+    index:
+      admin:
+        title: Utilizadores
+        new: Novo utilizador
+
+    new:
+      admin:
+        title: Novo utilizador
+
+    edit:
+      admin:
+        title: Modificar utilizador
+
+    email:
+      confirm_email: Confirmar email
+      unconfirmed: não confirmado
+      confirmed: confirmado
+
+    roles:
+      registered: Registado
+      author: Autor
+      admin: Admin
+      super_admin: Super Admin

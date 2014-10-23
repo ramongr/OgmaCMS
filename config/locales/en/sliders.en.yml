@@ -1,0 +1,36 @@
+en:
+  activerecord:
+    models:
+      slider: slider
+    attributes:
+      slider:
+        title: Name
+        selected: Seleccionado
+        created_at: Created at
+        updated_at: Updated at
+        
+  sliders:
+    name: Sliders
+
+    attributes:
+      title: Name
+      selected: Selected
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Sliders
+        new: New slider
+
+    new:
+      admin:
+        title: New slider
+
+    edit:
+      admin:
+        title: Edit slider
+
+    add_image: Add image
+    remove_image: Remove image
+    select_image: Select image

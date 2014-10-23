@@ -1,0 +1,36 @@
+pt:
+  activerecord:
+    models:
+      attachment: anexo
+    attributes:
+      attachment:
+        name: Nome
+        description: Descrição
+        file: Ficheiro
+        created_at: Criado em
+        updated_at: Modificado em
+
+  attachments:
+    name: Anexos
+
+    attributes:
+      name: Nome
+      description: Descrição
+      file_name: Nome do ficheiro
+      content_type: Tipo de conteúdo
+      uploaded_by: Carregado por
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Anexos
+        new: Novo anexo
+
+    new:
+      admin:
+        title: Novo anexo
+
+    edit:
+      admin:
+        title: Modificar anexo

@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      comment: comment
+    attributes:
+      comment:
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+        
+  comments:
+    name: Comments
+
+    attributes:
+      content: Message
+      user: Author
+      created_at: Created at
+      updated_at: Updated at
+
+    new:
+      public:
+        title: New comment
+
+    edit:
+      public:
+        title: Edit comment

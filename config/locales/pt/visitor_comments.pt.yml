@@ -1,0 +1,32 @@
+pt:
+  activerecord:
+    models:
+      visitor_comment: comentário
+    attributes:
+      visitor_comment:
+        subject: Assunto
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+        
+  visitor_comments:
+    name: Livro de visitas
+
+    attributes:
+      subject: Assunto
+      content: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      public:
+        title: Livro de visitas
+        new: Novo comentário
+
+    new:
+      public:
+        title: Novo comentário
+
+    edit:
+      public:
+        title: Modificar comentário

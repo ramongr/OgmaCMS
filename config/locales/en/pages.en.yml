@@ -1,0 +1,39 @@
+en:
+  activerecord:
+    models:
+      page: page
+    attributes:
+      page:
+        title: Name
+        slug: Address name
+        body: Content
+        created_at: Created at
+        updated_at: Updated at
+
+  pages:
+    name: Pages
+
+    attributes:
+      title: Name
+      slug: Address name
+      body: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Pages
+        new: New page
+      public:
+        title: Pages
+
+    new:
+      admin:
+        title: New page
+
+    edit:
+      admin:
+        title: Edit page
+
+    search:
+      title: Pages
