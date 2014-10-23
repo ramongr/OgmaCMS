@@ -11,7 +11,7 @@
 
       <% if @admin_page.send('body_' + l).nil? %>
 
-        <h2 class="text-center"><%= t('common.translation_missing', model: t(activerecord.model.controller.controller_name) %></h1>
+        <h2 class="text-center"><%= t('common.translation_missing') %></h1>
 
       <% else %>
 

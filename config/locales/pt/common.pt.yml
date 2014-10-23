@@ -32,3 +32,4 @@ pt:
     never: Nunca
     'true': Sim
     'false': Não
+    translation_missing: Não existe tradução disponível
