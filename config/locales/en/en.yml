@@ -1,0 +1,20 @@
+en:
+  language_name:
+    en: English
+    es: Inglés
+    fr: Anglais
+    it: Inglese
+    pt: Inglês
+
+#
+# Time
+#
+  time:
+    formats:
+      date_only: '%A, %e de %B de %Y'
+      time_only: '%H:%Mh'
+
+    from_date: From
+    to_date: To
+    from_time: From
+    to_time: To

@@ -1,0 +1,36 @@
+en:
+  activerecord:
+    models:
+      attachment: attachment
+    attributes:
+      attachment:
+        name: Name
+        description: Description
+        file: File
+        created_at: Created at
+        updated_at: Updated at
+        
+  attachments:
+    name: Attachments
+
+    attributes:
+      name: Name
+      description: Description
+      file_name: File name
+      content_type: Content type
+      uploaded_by: Uploaded by
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Attachments
+        new: New attachment
+
+    new:
+      admin:
+        title: New attachment
+
+    edit:
+      admin:
+        title: Edit attachment

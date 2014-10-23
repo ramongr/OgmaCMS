@@ -1,0 +1,32 @@
+en:
+  activerecord:
+    models:
+      sidebar: menu
+    attributes:
+      sidebar:
+        title: Name
+        type_mask: Type
+        created_at: Created at
+        updated_at: Updated at
+        
+  sidebars:
+    name: Menus
+
+    attributes:
+      title: Name
+      type_mask: Type
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Menus
+        new: New menu
+
+    new:
+      admin:
+        title: New menu
+
+    edit:
+      admin:
+        title: Edit menu

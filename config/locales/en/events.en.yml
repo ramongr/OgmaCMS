@@ -1,0 +1,67 @@
+en:
+  activerecord:
+    models:
+      event: event
+    attributes:
+      event:
+        title: Name
+        body: Description
+        start_time: Beginning
+        end_time: End
+        all_day: All day
+        created_at: Created at
+        updated_at: Updated at
+        
+  events:
+    name: Events
+
+    attributes:
+      title: Name
+      body: Description
+      date: Date
+      start_time: Beginning
+      end_time: End
+      all_day: All day
+
+    index:
+      admin:
+        title: Events
+        new: New event
+      public:
+        title: Events
+        new: New event
+
+    new:
+      admin:
+        title: New event
+
+    edit:
+      admin:
+        title: Edit event
+
+    manage_events: Manage events
+    going?: 'going?'
+    going: Going
+    not_going: Not going
+    indecisive: Indecisive
+    going_number:
+      zero: 0 going
+      one: 1 going
+      other: '%{count} going'
+    not_going_number:
+      zero: 0 not going
+      one: 1 not going
+      other: '%{count} not going'
+    indecisive_number:
+      zero: 0 indecisive
+      one: 1 indecisive
+      other: '%{count} indecisive'
+    you_are_going: You are going
+    you_are_not_going: You are not going
+    you_are_indecisive: You are indecisive
+    changed_your_mind?: 'changed your mind?'
+    im_going: I'm going
+    im_not_going: I'm not going
+    im_indecisive: I'm indecisive
+
+    end_time_after_start_time: date must be after start date

@@ -1,0 +1,40 @@
+en:
+  activerecord:
+    models:
+      gallery: gallery
+    attributes:
+      gallery:
+        title: Name
+        description: Description
+        date: Date
+        created_at: Created at
+        updated_at: Updated at
+        
+  galleries:
+    name: Galleries
+    
+    attributes:
+      title: Name
+      description: Description
+      date: Date
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      admin:
+        title: Galleries
+        new: New gallery
+      public:
+        title: Gallleries
+
+    new:
+      admin:
+        title: New gallery
+
+    edit:
+      admin:
+        title: Edit gallery
+
+    add_image: Add image
+    remove_image: Remove image
+    select_image: Select image

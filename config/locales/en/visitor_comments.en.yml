@@ -1,0 +1,32 @@
+en:
+  activerecord:
+    models:
+      visitor_comment: comment
+    attributes:
+      visitor_comment:
+        subject: Subject
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+        
+  visitor_comments:
+    name: Visitor book
+
+    attributes:
+      subject: Subject
+      content: Content
+      created_at: Created at
+      updated_at: Updated at
+
+    index:
+      public:
+        title: Visitor book
+        new: New comment
+
+    new:
+      public:
+        title: New comment
+
+    edit:
+      public:
+        title: Edit comment

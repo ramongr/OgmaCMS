@@ -1,0 +1,32 @@
+pt:
+  activerecord:
+    models:
+      setting: definição
+
+  settings:
+    name: Definições
+
+    index:
+      admin:
+        title: Definições
+
+    update_settings: Actualizar definições
+
+    #Site
+    site: Site
+    internationalization: Internacionalização
+    mailer: Email
+    site_title: Título
+    site_subtitle: Subtítulo
+    site_description: Descrição
+    site_logo: Logo
+
+    #Internationalization
+    available_languages: Línguas disponíveis
+
+    #Mailer
+    confirmation_instructions: Instruções de confirmação de e-mail
+    confirmation_instructions_help: Use *name* para referir ao nome do utilizador e *confirmation_link* para inserir o link de confirmação no e-mail.
+
+    event_update: Actualizações de eventos
+    event_update_help: '*user_name*, *event_title*, *event_description*'

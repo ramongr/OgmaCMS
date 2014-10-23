@@ -1,0 +1,32 @@
+en:
+
+#
+# Devise views
+#
+
+  devise:
+    forgot_password?: Forgot your password?
+    didnt_receive_confirmation?: Didn't receive confirmation instructions?
+    leave_blank: (Leave blank if you don't want to change it)
+    need_password: (Fill only if you want to change your password or email)
+    cancel_account: Cancel account
+    send_reset_instructions: Recover password
+    resend_confirmation: Resend confirmation
+    current_password: Current password
+    change_your_password: Change your password
+    new_password: New password
+    confirm_new_password: Confirm new password
+    change_my_password: Change password
+    confirm_my_account: Confirm my account
+
+#
+# Devise controllers name
+#
+  sessions:
+    name: Login
+  registrations:
+    name: Register
+  confirmations:
+    name: Confirmation
+  passwords:
+    name: Recover password
