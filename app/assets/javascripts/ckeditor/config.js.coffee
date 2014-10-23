@@ -19,7 +19,8 @@ CKEDITOR.editorConfig = (config) ->
     { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
     '/',
     { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
-    { name: 'insert', items : [ 'Table','HorizontalRule','Smiley','SpecialChar','PageBreak','abbr' ] }
+    { name: 'insert', items : [ 'Table','HorizontalRule','Smiley','SpecialChar','PageBreak'] },
+    { name: 'custom', items: ['abbr']}
   ]
 
   config.toolbar = 'Editor'
