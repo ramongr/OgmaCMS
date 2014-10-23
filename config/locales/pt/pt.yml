@@ -1,0 +1,20 @@
+pt:
+  language_name:
+    en: Portuguese
+    es: Portugués
+    fr: Portugais
+    it: Portoghese
+    pt: Português
+
+#
+# Time
+#
+  time:
+    formats:
+      date_only: '%A, %e de %B de %Y'
+      time_only: '%H:%Mh'
+
+    from_date: De
+    to_date: Até
+    from_time: Das
+    to_time: Até às

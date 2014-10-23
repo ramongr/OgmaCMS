@@ -1,0 +1,59 @@
+en:
+  activerecord:
+    models:
+      user: user
+    attributes:
+      user:
+        name: Name
+        email: Email
+        dob: Date of birth
+        gender: Gender
+        country: Country
+        language: Language
+        password: Password
+        password_confirmation: Password confirmation
+        role: Role
+        created_at: Created at
+        updated_at: Updated at
+        
+  users:
+    name: Users
+
+    attributes:
+      name: Name
+      email: Email
+      dob: Date of birth
+      gender: Gender
+      country: Country
+      language: Language
+      password: Password
+      password_confirmation: Password confirmation
+      role: Role
+      created_at: Created at
+      updated_at: Updated at
+      receive_newsletters: Receive newsletters
+      last_sign_in_at: Last sign in at
+
+    index:
+      admin:
+        title: Users
+        new: New user
+
+    new:
+      admin:
+        title: New user
+
+    edit:
+      admin:
+        title: Edit user
+
+    email:
+      confirm_email: Confirm email
+      unconfirmed: unconfirmed
+      confirmed: confirmed
+
+    roles:
+      registered: Registered
+      author: Author
+      admin: Admin
+      super_admin: Super Admin

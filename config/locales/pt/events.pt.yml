@@ -1,0 +1,67 @@
+pt:
+  activerecord:
+    models:
+      event: evento
+    attributes:
+      event:
+        title: Nome
+        body: Descrição
+        start_time: Início
+        end_time: Fim
+        all_day: Todo o dia
+        created_at: Criado em
+        updated_at: Modificado em
+
+  events:
+    name: Eventos
+
+    attributes:
+      title: Nome
+      body: Descrição
+      date: Data
+      start_time: Início
+      end_time: Fim
+      all_day: Todo o dia
+
+    index:
+      admin:
+        title: Eventos
+        new: Novo evento
+      public:
+        title: Eventos
+        new: Novo evento
+
+    new:
+      admin:
+        title: Novo evento
+
+    edit:
+      admin:
+        title: Modificar evento
+
+    manage_events: Gerir eventos
+    going?: 'vais?'
+    going: Vão
+    not_going: Não vão
+    indecisive: Indecididos
+    going_number:
+      zero: 0 vão
+      one: 1 vai
+      other: '%{count} vão'
+    not_going_number:
+      zero: 0 não vão
+      one: 1 não vai
+      other: '%{count} não vão'
+    indecisive_number:
+      zero: 0 indecisos
+      one: 1 indeciso
+      other: '%{count} indecisos'
+    you_are_going: Tu vais
+    you_are_not_going: Tu não vais
+    you_are_indecisive: Estás indecidido
+    changed_your_mind?: 'mudaste de ideias?'
+    im_going: Vou
+    im_not_going: Eu não vou
+    im_indecisive: Talvez vá
+
+    end_time_after_start_time: tem que ser depois de início

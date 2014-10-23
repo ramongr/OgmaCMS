@@ -1,0 +1,25 @@
+pt:
+  activerecord:
+    models:
+      system_mail: mails do sistema
+    attributes:
+      system_mail:
+        name: Nome
+        subject: Assunto
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+        
+  system_mails:
+    name: Mails do sistema
+
+    attributes:
+      name: Nome
+      subject: Assunto
+      content: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Mails de sistema

@@ -1,0 +1,34 @@
+en:
+  activerecord:
+    models:
+      link: link
+    attributes:
+      link:
+        title: Name
+        value: Address
+        created_at: Created at
+        updated_at: Updated at
+        type_mask: Type
+        
+  links:
+    name: Links
+
+    attributes:
+      title: Name
+      value: Address
+      created_at: Created at
+      updated_at: Updated at
+      type_mask: Type
+
+    index:
+      admin:
+        title: Links
+        new: New link
+
+    new:
+      admin:
+        title: New link
+
+    edit:
+      admin:
+        title: Edit link
