@@ -4,15 +4,10 @@
   <%= link_to t('common.edit'), edit_admin_post_path(@admin_post), class: "button small" %>
 
   <div class="small-12">
-    <h3 class="text-center"><%= @admin_post.title %></h3>
-    <hr>
-    <%= @admin_post.user.name %><br>
-    <%= t('posts.attributes.created_at') %>: <%= l @admin_post.created_at %><br>
-    <% if @admin_post.created_at.to_i != @admin_post.updated_at.to_i %>
-      <%= t('posts.attributes.updated_at') %>: <%= l @admin_post.updated_at %>
+    <% if Setting.selected_languages.length < 2 %>
+      <%= render 'single_language_show' %>
+    <% else %>
+      <%= render 'multilanguage_show' %>
     <% end %>
-    <hr>
-    <%= @admin_post.content.html_safe %>
   </div>
 </div>
-

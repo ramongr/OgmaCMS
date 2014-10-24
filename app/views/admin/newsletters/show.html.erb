@@ -6,26 +6,10 @@
 
     <h1 class="text-center"><%= @newsletter.title %></h1>
 
-    <% unless @newsletter.users.empty? %>
-      <hr>
-      <div>
-        <strong><%= t('newsletters.to') %>:</strong>
-        <% @newsletter.users.each do |user| %>
-          <%= link_to user.email, [:admin,user] %><%= ', ' if user != @newsletter.users.last %>
-        <% end %>
-      </div>
+    <% if Setting.selected_languages.length < 2 %>
+      <%= render 'single_language_show' %>
+    <% else %>
+      <%= render 'multilanguage_show' %>
     <% end %>
-
-    <strong><%= t('newsletters.attributes.subject') %>:</strong> <%= @newsletter.subject %>
-    <hr>
-    <%= @newsletter.body.html_safe %>
-
-    <div id="send_newsletter">
-      <%= unless @newsletter.users.empty?
-            link_to t('newsletters.send'), send_newsletter_admin_newsletter_path(@newsletter), remote: true, class: 'button small'
-          else
-            link_to t('newsletters.cant_send'), edit_admin_newsletter_path(@newsletter), class: 'button small alert'
-          end
-      %>
-    </div>
+  </div>
 </div>
