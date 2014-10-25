@@ -4,7 +4,7 @@
 
 <% else %>
 
-  <h3 class="text-center"><%= @admin_post.title %></h3>
+  <h3 class="text-center"><%= @admin_post.send('title_' + I18n.locale.to_s) %></h3>
   <hr>
   <%= @admin_post.user.name %><br>
   <%= t('posts.attributes.created_at') %>: <%= l @admin_post.created_at %><br>
@@ -12,6 +12,6 @@
     <%= t('posts.attributes.updated_at') %>: <%= l @admin_post.updated_at %>
   <% end %>
   <hr>
-  <%= @admin_post.content.html_safe %>
+  <%= @admin_post.send('content_' + I18n.locale.to_s).html_safe %>
 
 <% end %>
