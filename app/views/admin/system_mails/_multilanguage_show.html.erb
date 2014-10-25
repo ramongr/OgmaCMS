@@ -1,0 +1,21 @@
+<ul class="tabs" data-tab>
+  <% Setting.selected_languages.each do |l| %>
+    <li id="lang-tab" data-lang=<%= l %> class="tab-title <%= l == I18n.locale.to_s ? "active" : "" %>"><a href="#langtab-<%= l %>"><%= t('language_name.' + I18n.locale.to_s, locale: l) %></a></li>
+  <% end %>
+</ul>
+
+<div class="tabs-content"> 
+  <% Setting.selected_languages.each do |l| %>
+    
+    <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %>
+
+      <h3 class="text-center"><%= @system_mail.send('name_' + l) %></h3>
+      <hr>
+      <%= @system_mail.send('subject_' + l) %><br>
+      <hr>
+      <%= @system_mail.send('content_' + l).html_safe %>
+
+    <% end %>
+
+  <% end %>
+</div>

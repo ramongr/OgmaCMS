@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_i18n_locale
-    if Setting.selected_languages.include?(params[:locale])
+    if !params[:locale].nil? && Setting.selected_languages.include?(params[:locale])
       if params[:locale] != I18n.locale.to_s
         I18n.locale = params[:locale]
         if user_signed_in?

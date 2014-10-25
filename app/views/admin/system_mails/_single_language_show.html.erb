@@ -1,0 +1,5 @@
+<h3 class="text-center"><%= @system_mail.name %></h3>
+<hr>
+<%= @system_mail.send('subject_' + I18n.locale.to_s) %><br>
+<hr>
+<%= @system_mail.send('content_' + I18n.locale.to_s).html_safe %>
