@@ -37,7 +37,7 @@ class Admin::SettingsController < Admin::AdminController
 
     if I18n.default_locale.to_s != params[:default_language]
       if Setting.available_languages.include?(params[:default_language])
-        I18n.default_locale = params[:default_locale]
+        I18n.default_locale = params[:default_language]
       else
         errors << t('settings.errors.default_language_not_available')
       end
