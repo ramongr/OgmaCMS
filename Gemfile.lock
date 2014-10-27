@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 3ec2599d13c1c4d6ab7c5bd291b8ff31e625915e
+  revision: 17cae0e7956e4c78891875ede83f1c4f173bc9ce
   specs:
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -87,9 +87,10 @@ GEM
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
-    better_errors (1.0.1)
+    better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -316,7 +317,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.4.0)
+    turbolinks (2.5.1)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -337,7 +338,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors (~> 1.0.1)
+  better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.6.0)
   cancancan
@@ -359,9 +360,10 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
-  jquery-ui-rails (~> 5.0.0)
+  jquery-ui-rails
   launchy (~> 2.4.2)
   meta_request (~> 0.2.8)
+  momentjs-rails
   paperclip!
   pg
   pg_search
