@@ -1,0 +1,35 @@
+pt:
+  common:
+    confirm: Tem a certeza?
+    index: Índice
+    show: Ver
+    new: Novo
+    edit: Modificar
+    back: Retroceder
+    destroy: Apagar
+    'yes': Sim
+    'no': Não
+    maybe: Talvez
+    insert_attachment: Inserir anexo
+    select_attachment: Seleccionar anexo
+    shortcuts: Atalhos
+    language: Língua
+    search: Pesquisar
+    login: Login
+    logout: Logout
+    register: Registar
+    read_more: Ler mais
+    no_results_found: Não foram encontrados resultados
+    error_save: 
+      one: '1 erro não permitiu criar o %{model}'
+      other: '%{count} erros não permitiram criar o %{model}'
+    navigation: Navegação
+    forum: Forum
+    public_site: Visualizar site
+    content: Conteúdo
+    components: Componentes
+    system: Sistema
+    never: Nunca
+    'true': Sim
+    'false': Não
+    translation_missing: Não existe tradução disponível

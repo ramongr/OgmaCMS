@@ -1,0 +1,17 @@
+<% if @admin_post.send('content_' + I18n.locale.to_s).nil? %>
+
+  <h2 class="text-center"><%= t('common.translation_missing') %></h2>
+
+<% else %>
+
+  <h3 class="text-center"><%= @admin_post.send('title_' + I18n.locale.to_s) %></h3>
+  <hr>
+  <%= @admin_post.user.name %><br>
+  <%= t('posts.attributes.created_at') %>: <%= l @admin_post.created_at %><br>
+  <% if @admin_post.created_at.to_i != @admin_post.updated_at.to_i %>
+    <%= t('posts.attributes.updated_at') %>: <%= l @admin_post.updated_at %>
+  <% end %>
+  <hr>
+  <%= @admin_post.send('content_' + I18n.locale.to_s).html_safe %>
+
+<% end %>

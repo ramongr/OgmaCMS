@@ -1,0 +1,40 @@
+pt:
+  activerecord:
+    models:
+      newsletter: newsletter
+    attributes:
+      newsletter:
+        title: Nome
+        subject: Assunto
+        body: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+
+  newsletters:
+    name: Newsletters
+
+    attributes:
+      title: Nome
+      subject: Assunto
+      body: Conteúdo
+      created_at: Criado em
+      updated_at: Modificado em
+
+    index:
+      admin:
+        title: Newsletters
+        new: Nova newsletter
+
+    new:
+      admin:
+        title: Nova newsletter
+
+    edit:
+      admin:
+        title: Modificar newsletter
+
+    to: Para
+    send: Enviar
+    cant_send: Adicione utilizadores antes de enviar a newsletter
+    sent: Newsletter enviada
+    unsubscribe: Se não quer receber mais newsletters clique aqui.

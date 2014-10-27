@@ -1,0 +1,41 @@
+en:
+  activerecord:
+    models:
+      post: post
+    attributes:
+      post:
+        title: Name
+        content: Content
+        created_at: Created at
+        updated_at: Updated at
+        
+  posts:
+    name: Posts
+
+    attributes:
+      title: Name
+      content: Content
+      created_at: Created at
+      updated_at: Updated at
+      author: Author
+
+    index:
+      admin:
+        title: Posts
+        new: New post
+      public:
+        title: Posts
+        new: New post
+
+    new:
+      admin:
+        title: New post
+
+    edit:
+      admin:
+        title: Edit post
+
+    search:
+      title: Posts
+
+    add_comment: Comment

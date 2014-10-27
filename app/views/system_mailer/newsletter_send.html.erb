@@ -1,1 +1,1 @@
-<%= parseEmail(@newsletter.body, user: @user).html_safe %> 
+<%= parseEmail(@newsletter.send('body_' + @user.language), user: @user, newsletter: true).html_safe %> 

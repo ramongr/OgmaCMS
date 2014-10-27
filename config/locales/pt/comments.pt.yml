@@ -1,0 +1,26 @@
+pt:
+  activerecord:
+    models:
+      comment: comentário
+    attributes:
+      comment:
+        content: Conteúdo
+        created_at: Criado em
+        updated_at: Modificado em
+        
+  comments:
+    name: Comentários
+
+    attributes:
+      content: Mensagem
+      user: Autor
+      created_at: Criado em
+      updated_at: Modificado em
+
+    new:
+      public:
+        title: Novo comentário
+
+    edit:
+      public:
+        title: Modificar comentário

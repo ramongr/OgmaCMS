@@ -1,16 +1,13 @@
 <br>
 <div class="row">
-  <%= link_to t('pages.name'), admin_pages_path, class: "button small" %>
-  <%= link_to t('common.edit'), edit_admin_page_path(@admin_page), class: "button small" %>
-
   <div class="small-12">
-    <h1 class="text-center"><%= @admin_page.title %></h1>
+    <%= link_to t('pages.name'), admin_pages_path, class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_page_path(@admin_page), class: "button small" %>
 
-      <strong><%= t('pages.attributes.slug') %>:</strong>
-      <p><%= @admin_page.slug %></p>
-
-      <strong><%= t('pages.attributes.body') %>:</strong>
-      <%= @admin_page.body.html_safe %>      
-    </div>
+    <% if Setting.selected_languages.length < 2 %>
+        <%= render 'single_language_show' %>
+    <% else %>
+      <%= render 'multilanguage_show' %>
+    <% end %>
   </div>
-</body>
+</div>

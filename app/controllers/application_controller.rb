@@ -3,23 +3,28 @@ class ApplicationController < ActionController::Base
 
   def user_language
     unless current_user.try(:language).nil?
-      current_user.language.to_sym
+      if Setting.selected_languages.include?(current_user.language)
+        current_user.language.to_sym
+      else
+        ulang = http_accept_language.compatible_language_from(Setting.selected_languages)
+        current_user.update_attribute(:language,ulang)
+        ulang
+      end
     else
       http_accept_language.compatible_language_from(Setting.selected_languages)
     end
   end
 
   def set_i18n_locale
-    if Setting.selected_languages.include?(params[:locale])
-      if params[:locale] && params[:locale] != I18n.locale
+    if !params[:locale].nil? && Setting.selected_languages.include?(params[:locale])
+      if params[:locale] != I18n.locale.to_s
         I18n.locale = params[:locale]
         if user_signed_in?
-          current_user.language = I18n.locale
-          current_user.save
+          current_user.update_attribute(:language,I18n.locale.to_s)
         end
-      else
-        I18n.locale = user_language
       end
+    else
+      I18n.locale = user_language
     end
   end
 

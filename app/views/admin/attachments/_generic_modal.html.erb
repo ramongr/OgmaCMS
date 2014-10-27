@@ -1,26 +1,26 @@
 <div id="attachment-modal" data-lang=<%= I18n.locale %> class="reveal-modal medium" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
-  <% unless @image_attachments.empty? && @audio_attachments.empty? && @video_attachments.empty? && @text_attachments.empyty && @application_attachments.empty? %>
+  <% unless @image_attachments.nil? && @audio_attachments.nil? && @video_attachments.nil? && @text_attachments.nil? && @application_attachments.nil? %>
     <dl class="tabs" data-tab>
-      <% unless @image_attachments.empty? %>
+      <% unless @image_attachments.nil? %>
         <dd data-id="images" id="modal-tab"><a href="#images">Images</a></dd>
       <% end %>
-      <% unless @audio_attachments.empty? %>
+      <% unless @audio_attachments.nil? %>
         <dd data-id="audio" id="modal-tab"><a href="#audio">Audio</a></dd>
       <% end %>
-      <% unless @video_attachments.empty? %>
+      <% unless @video_attachments.nil? %>
         <dd data-id="videos" id="modal-tab"><a href="#videos">Videos</a></dd>
       <% end %>
-      <% unless @text_attachments.empty? %>
+      <% unless @text_attachments.nil? %>
         <dd data-id="texts" id="modal-tab"><a href="#texts">Texts</a></dd>
       <% end %>
-      <% unless @application_attachments.empty? %>
+      <% unless @application_attachments.nil? %>
         <dd data-id="others" id="modal-tab"><a href="#others">Other files</a></dd>
       <% end %>
     </dl>
     <div id="modal-tab-container" class="tabs-content">
       <!-- Image tab -->
-      <% unless @image_attachments.empty? %>
+      <% unless @image_attachments.nil? %>
         <div class="row content" id="images">
         
           <h3 class="text-center">Click on the images to add them</h3>
@@ -40,7 +40,7 @@
         </div>
       <% end %>
       <!-- Audiu tab -->
-      <% unless @audio_attachments.empty? %>
+      <% unless @audio_attachments.nil? %>
         <div class="content" id="audio">
           <h3 class="text-center">Adding audio</h3>
           <ul class="inline-list">
@@ -53,7 +53,7 @@
         </div>
       <% end %>
       <!-- Video tab -->
-      <% unless @video_attachments.empty? %>
+      <% unless @video_attachments.nil? %>
         <div class="content" id="videos">
           <h3 class="text-center">Adding videos</h3>
           <ul class="inline-list">
@@ -66,7 +66,7 @@
         </div>
       <% end %>
       <!-- Text tab -->
-      <% unless @text_attachments.empty? %>
+      <% unless @text_attachments.nil? %>
         <div class="content" id="texts">
           <h3 class="text-center">Adding texts</h3>
           <ul class="inline-list" id="text-inline">
@@ -79,7 +79,7 @@
         </div>
       <% end %>
       <!-- Other files tabs -->
-      <% unless @application_attachments.empty? %>
+      <% unless @application_attachments.nil? %>
         <div class="content" id="others">
           <h3 class="text-center">Adding texts</h3>
           <ul class="inline-list" id="text-inline">
