@@ -29,6 +29,6 @@ pt:
       save_success: Definições gravadas com sucesso
 
     errors:
-      deselect_default: Não é possível desselecionar a língua predefinida
+      deselect_default: Não é possível remover a língua predefinida
       select_at_least_one_language: Tem de selecionar pelo menos uma língua
       default_language_not_available: A língua predefinida que escolheu não está disponível
