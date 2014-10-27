@@ -6,6 +6,7 @@ class Admin::SettingsController < Admin::AdminController
   end
 
   def update_all
+    errors = []
     # SITE
     if Setting.site_name != params[:site_name]
       Setting.site_name = params[:site_name]
@@ -17,29 +18,35 @@ class Admin::SettingsController < Admin::AdminController
       Setting.site_logo = params[:site_logo]
     end
 
-    # MAILER
-    if Setting.confirmation_instructions != params[:confirmation_instructions]
-      Setting.confirmation_instructions = params[:confirmation_instructions]
-    end
-
-    if Setting.event_update != params[:event_update]
-      Setting.event_update = params[:event_update]
-    end
-
-    # INTERNATIONALIZATION
+    # I18N
     selected_languages = []
     Setting.available_languages.each do |l|
       if params.key?('i18n_' + l)
         selected_languages << l
       end
     end
-    if !selected_languages.empty?
-      Setting.selected_languages = selected_languages
+    unless selected_languages.empty?
+      if selected_languages.include?(params[:default_language])
+        Setting.selected_languages = selected_languages
+      else
+        errors << t('settings.errors.deselect_default')
+      end
     else
-      redirect_to admin_settings_url, notice: 'You have to select at least one language'
-      return
+      errors << t('settings.errors.select_at_least_one_language')
     end
 
-    redirect_to admin_settings_url, notice: 'Settings saved successfully'
+    if I18n.default_locale.to_s != params[:default_language]
+      if Setting.available_languages.include?(params[:default_language])
+        I18n.default_locale = params[:default_language]
+      else
+        errors << t('settings.errors.default_language_not_available')
+      end
+    end
+
+    if errors.empty?
+      redirect_to admin_settings_url, notice: t('settings.notice.save_success')
+    else
+      redirect_to admin_settings_url, alert: errors.join(', ')
+    end
   end
 end
