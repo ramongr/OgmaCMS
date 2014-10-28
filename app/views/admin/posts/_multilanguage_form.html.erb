@@ -30,11 +30,6 @@
           <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
           <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale} %>
         <% end %>
-        <br>
-        <!-- Attachment -->
-        <%= content_tag :div, class: 'field', id: 'post-attachment-'+l do %>
-          <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
-        <% end %>
       <% end %>
 
     <% end %>

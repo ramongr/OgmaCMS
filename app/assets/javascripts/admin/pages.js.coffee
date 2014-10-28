@@ -1,6 +1,6 @@
 page = ->
   if $('#pages-form').length > 0 
-    lang = $('li#lang-tab').filter('.active').attr('data-lang')
+    lang = $('li#lang-tab').filter('.active').attr('data-lang') || $('#page-container').attr('data-lang')
     dataAssigner(lang)
     $('li#lang-tab').on 'click', ->
 
@@ -8,10 +8,11 @@ page = ->
       return
 
 dataAssigner = (lang) ->
-  $('#joyride-defs > li').each ->
-    $(this).attr 'data-id', 'page-' + $(this).attr('id') + '-' + lang
+  if $('#pages-form').length > 0 
+    $('#joyride-defs > li').each ->
+      $(this).attr 'data-id', 'page-' + $(this).attr('id') + '-' + lang
+      return
     return
-  return
 
 $(document).ready(page)
 $(document).on('page:load',page)

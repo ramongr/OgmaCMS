@@ -21,9 +21,6 @@
       <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
     </div>
     <br>
-    <div id="post-attachment-<%=I18n.locale %>" class="field">
-      <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('common.insert_attachment') %></button>
-    </div>
     <div class="actions">
       <%= f.submit class: "button right" %>
     </div>

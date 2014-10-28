@@ -1,0 +1,17 @@
+<!-- At the bottom of your page but inside of the body tag -->
+<div id="pages-form" class="joyride-content">
+  <ol id="joyride-defs" class="joyride-list" data-joyride>
+    <li id="title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.page.title' %></p>
+    </li>  
+    <li id="slug" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.slug' %></p>
+    </li>
+    <li id="body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.body' %></p>
+    </li>
+    <li id="body" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.page.attachments' %></p>
+    </li> 
+  </ol>
+</div>
