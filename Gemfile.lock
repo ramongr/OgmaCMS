@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: git://github.com/globalize/globalize-accessors.git
-  revision: 4d15505ca9c5e922dfbfd922a24bd29a41e722a8
+  revision: b0e4783f146d8c85d7213363d86a8f83f51d913f
   branch: master
   specs:
     globalize-accessors (0.1.5)
@@ -38,7 +38,7 @@ GIT
 
 GIT
   remote: git://github.com/svenfuchs/rails-i18n.git
-  revision: a8eed73280f17a122e9d8719c5483e48e77eaa7d
+  revision: 3602742fb8c9b5f213e9be32a030d39f1062b00d
   branch: master
   specs:
     rails-i18n (4.0.3)
@@ -47,7 +47,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 3ec2599d13c1c4d6ab7c5bd291b8ff31e625915e
+  revision: 17cae0e7956e4c78891875ede83f1c4f173bc9ce
   specs:
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -86,10 +86,11 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
-    bcrypt (3.1.7)
-    better_errors (1.0.1)
+    bcrypt (3.1.9)
+    better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
@@ -150,7 +151,9 @@ GEM
       sass (>= 3.2.0)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
-    fullcalendar-rails (1.6.4.0)
+    fullcalendar-rails (2.1.1.0)
+      jquery-rails (>= 3.1.1, < 5.0.0)
+      momentjs-rails (~> 2.8, >= 2.8.3)
     gemoji (2.1.0)
     globalize (4.0.2)
       activemodel (>= 4.0.0, < 5)
@@ -197,6 +200,8 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.0)
     minitest (5.4.2)
+    momentjs-rails (2.8.3)
+      railties (>= 3.1)
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -312,7 +317,7 @@ GEM
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
-    turbolinks (2.4.0)
+    turbolinks (2.5.1)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -333,7 +338,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors (~> 1.0.1)
+  better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.6.0)
   cancancan
@@ -355,9 +360,10 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
-  jquery-ui-rails (~> 5.0.0)
+  jquery-ui-rails
   launchy (~> 2.4.2)
   meta_request (~> 0.2.8)
+  momentjs-rails
   paperclip!
   pg
   pg_search

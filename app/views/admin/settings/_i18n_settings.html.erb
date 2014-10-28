@@ -1,9 +1,17 @@
 <div class="content" id="internationalization">
-  <div class="field">
-    <%= label_tag t('settings.available_languages') %>
-    <% Setting.available_languages.each do |l| %>
-    <%= check_box_tag 'i18n_' + l, 'yes', l.in?(Setting.selected_languages) %>
-    <%= t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')' %><br>
-    <% end %>
-  </div>
+    
+    <div class="field">
+      <%= label_tag t('settings.available_languages') %>
+      <% Setting.available_languages.each do |l| %>
+        <%= check_box_tag 'i18n_' + l, 'yes', l.in?(Setting.selected_languages) %>
+        <%= t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')' %>
+        <br>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= label_tag t('settings.default_language') %>
+      <%= select_tag 'default_language', options_for_select(Setting.selected_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, I18n.default_locale.to_s) %>
+    </div>
+
 </div>

@@ -17,6 +17,7 @@
 //= require jquery-ui
 //= require foundation
 //= require ckeditor/init
+//= require moment
 //= require fullcalendar
 //= require_tree .
 $(function(){

@@ -23,10 +23,12 @@ pt:
 
     #Internationalization
     available_languages: Línguas disponíveis
+    default_language: Língua predefinida
 
-    #Mailer
-    confirmation_instructions: Instruções de confirmação de e-mail
-    confirmation_instructions_help: Use *name* para referir ao nome do utilizador e *confirmation_link* para inserir o link de confirmação no e-mail.
+    notice:
+      save_success: Definições gravadas com sucesso
 
-    event_update: Actualizações de eventos
-    event_update_help: '*user_name*, *event_title*, *event_description*'
+    errors:
+      deselect_default: Não é possível remover a língua predefinida
+      select_at_least_one_language: Tem de selecionar pelo menos uma língua
+      default_language_not_available: A língua predefinida que escolheu não está disponível
