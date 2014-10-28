@@ -3,7 +3,9 @@ CKEDITOR.editorConfig = (config) ->
   config.defaultLanguage = 'pt'
   config.skin = 'bootstrapck'
   config.disableNativeSpellChecker = false
-
+  config.allowedContent = true
+  config.extraPlugins = 'mediabutton'
+  
   config.toolbar_Editor = [
     { name: 'document', items: [ 'Source', '-', 'Preview', 'Print','-','Templates' ]},
     { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
@@ -16,8 +18,9 @@ CKEDITOR.editorConfig = (config) ->
     '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
     { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
     '/',
-    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] }
-    { name: 'insert', items : [ 'Table','HorizontalRule','Smiley','SpecialChar','PageBreak' ] },
+    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
+    { name: 'insert', items : [ 'Table','HorizontalRule','Smiley','SpecialChar','PageBreak'] },
+    { name: 'custom', items: ['Mediabutton']}
   ]
 
   config.toolbar = 'Editor'
