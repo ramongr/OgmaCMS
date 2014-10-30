@@ -42,6 +42,11 @@
         <%= f.label :language %>
         <%= f.select :language, Setting.selected_languages.collect {|l| [ t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', l]}, selected: I18n.default_locale.to_s %>
       </div>
+
+      <div id="user-time-zone" class="field">
+        <%= f.label :time_zone %>
+        <%= f.time_zone_select :time_zone %>
+      </div>
  
       <div class="field"><%= f.label :password %> <i><%= t('devise.leave_blank') %></i><br />
         <%= f.password_field :password, autocomplete: "off" %></div>
