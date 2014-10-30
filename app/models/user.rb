@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   before_validation :set_time_zone
   before_save :set_forem_role
   validate :name, :role, presence: true
-  validate :name, length: { in: 3..100 }
+  validate :name, length: { in: 2..69 }
   validates_inclusion_of :role, in: ROLES
   validates_inclusion_of :language, in: Setting.selected_languages
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name).keys
