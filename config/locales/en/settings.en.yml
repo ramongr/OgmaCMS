@@ -24,7 +24,9 @@ en:
     #Internationalization
     available_languages: Available languages
     default_language: Default language
+    default_time_zone: Default time zone
 
+    #Success/Failure
     notice:
       save_success: 'Settings saved successfully'
 

@@ -10,6 +10,7 @@ pt:
         gender: Sexo
         country: País
         language: Língua
+        time_zone: Fuso horário
         password: Password
         password_confirmation: Confirmação da password
         role: Permissões
@@ -26,6 +27,7 @@ pt:
       gender: Sexo
       country: País
       language: Língua
+      time_zone: Fuso horário
       password: Password
       password_confirmation: Confirmação da password
       role: Permissões
