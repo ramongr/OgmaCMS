@@ -45,7 +45,7 @@ class Admin::SettingsController < Admin::AdminController
 
     if Setting.default_time_zone != params[:default_time_zone]
       if ActiveSupport::TimeZone.zones_map(&:name).keys.include?(params[:default_time_zone])
-        Setting.default_time_zone == params[:default_time_zone]
+        Setting.default_time_zone = params[:default_time_zone]
       else
         errors << t('settings.errors.default_time_zone_not_available')
       end
