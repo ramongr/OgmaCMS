@@ -24,7 +24,9 @@ en:
     #Internationalization
     available_languages: Available languages
     default_language: Default language
+    default_time_zone: Default time zone
 
+    #Success/Failure
     notice:
       save_success: 'Settings saved successfully'
 
@@ -32,3 +34,4 @@ en:
       deselect_default: You can't deselect your default language
       select_at_least_one_language: You have to select at least one language
       default_language_not_available: The default language you selected is not available
+      default_time_zone_not_available: The default time zone you selected is not available

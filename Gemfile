@@ -7,7 +7,7 @@ gem 'rails'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.4'
 
 # Authentication
 gem 'devise'
@@ -23,7 +23,7 @@ gem 'thin'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
@@ -39,7 +39,7 @@ gem 'jquery-turbolinks'
 gem 'foundation-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder', '~> 2.2.4'
 
 # Globalize builds on the I18n API in Ruby on Rails to add model translations to ActiveRecord models.
 gem 'globalize'
@@ -54,8 +54,8 @@ end
 
 group :development do
   gem 'better_errors', '~> 2.0.0'
-  gem 'bullet', '~> 4.6.0'
-  gem 'meta_request', '~> 0.2.8'
+  gem 'bullet', '~> 4.14.0'
+  gem 'meta_request', '~> 0.3.4'
   gem 'binding_of_caller', '~> 0.7.2'
 end
 

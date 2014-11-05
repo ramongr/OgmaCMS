@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_i18n_locale
+  around_filter :set_time_zone
 
   def user_language
     unless current_user.try(:language).nil?
@@ -30,6 +31,11 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  def set_time_zone(&block)
+    time_zone = current_user.try(:time_zone) || Setting.default_time_zone
+    Time.use_zone(time_zone, &block)
   end
 
   include ApplicationHelper

@@ -11,12 +11,16 @@ class User < ActiveRecord::Base
   has_many :events, through: :attendings
   has_and_belongs_to_many :newsletters
 
+  ROLES = %w(registered author admin super_admin)
+
   before_validation :set_language
+  before_validation :set_time_zone
   before_save :set_forem_role
   validate :name, :role, presence: true
-  validate :name, length: { in: 3..100 }
-
-  ROLES = %w(registered author admin super_admin)
+  validate :name, length: { in: 2..69 }
+  validates_inclusion_of :role, in: ROLES
+  validates_inclusion_of :language, in: Setting.selected_languages
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name).keys
 
   def forem_name
     email
@@ -51,6 +55,12 @@ class User < ActiveRecord::Base
   def set_language
     if language.blank?
       self.language = I18n.locale.to_s
+    end
+  end
+
+  def set_time_zone
+    if time_zone.blank?
+      self.time_zone = Setting.default_time_zone
     end
   end
 

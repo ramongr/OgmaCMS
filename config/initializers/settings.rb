@@ -14,6 +14,7 @@ Setting.defaults[:site_logo]        = 'My_Site_Logo.png'
 
 Setting.defaults[:available_languages] = %w(en es fr it pt)
 Setting.defaults[:selected_languages] = %w(en pt)
+Setting.defaults[:default_time_zone] = 'UTC'
 
 #
 # Email
