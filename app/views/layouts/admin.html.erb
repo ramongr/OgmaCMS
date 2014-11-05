@@ -8,6 +8,8 @@
     </title>
     <%= stylesheet_link_tag    "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "vendor/modernizr" %>
+    <%= stylesheet_link_tag    "//cdn.jsdelivr.net/emojione/1.3.0/assets/css/emojione.min.css" %>
+    <%= javascript_include_tag "//cdn.jsdelivr.net/emojione/1.3.0/lib/js/emojione.min.js" %>    
     <%= csrf_meta_tags %>
   </head>
   <body id="<%= controller.controller_name %>" data-action="<%= controller.action_name %>">

@@ -1,7 +1,7 @@
 CKEDITOR.editorConfig = (config) ->
   config.removePlugins = 'liststyle,tabletools,scayt,contextmenu'
   config.defaultLanguage = 'pt'
-  config.skin = 'bootstrapck'
+  config.skin = 'office2013'
   config.disableNativeSpellChecker = false
   config.allowedContent = true
   config.extraPlugins = 'mediabutton,emoji'
