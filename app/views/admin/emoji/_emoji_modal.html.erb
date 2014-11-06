@@ -1,19 +1,72 @@
-<div id="emoji-modal" class="reveal-modal small" data-reveal>
-  <a class="close-reveal-modal">&#215;</a>
-  <dl class="tabs" data-tab>
-    <dd class="active"><a id="emoji-cat-1" href="#emoji-panel-1"></a></dd>
-    <dd><a id="emoji-cat-2" href="#emoji-panel-2"></a></dd>
-    <dd><a id="emoji-cat-3" href="#emoji-panel-3"></a></dd>
-    <dd><a id="emoji-cat-4" href="#emoji-panel-4"></a></dd>
-    <dd><a id="emoji-cat-5" href="#emoji-panel-5"></a></dd>
-  </dl>
+<div id="emoji-modal" class="reveal-modal medium" data-reveal>
 
-  <div class="tabs-content">
-    <div class="content active" id="emoji-panel-1"></div>
-    <div class="content" id="emoji-panel-2"></div>
-    <div class="content" id="emoji-panel-3"></div>
-    <div class="content" id="emoji-panel-4"></div>
-    <div class="content" id="emoji-panel-5"></div>
-  </div>
+  <a class="close-reveal-modal">&#215;</a>
+
+    <dl class="tabs" data-tab>
+      <dd class="active">
+        <a href="#emojiPanel1" title=":smile:">
+          <svg class="emoji-title">
+            <use xlink:href="/emoji/emojione.sprites.svg#emoji-1F604"></use>
+          </svg>
+        </a>      
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel2" title=":dog:">
+          <svg class="emoji-title">
+            <use xlink:href="/emoji/emojione.sprites.svg#emoji-1F436"></use>
+          </svg>
+        </a>        
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel3" title=":bell:">
+          <svg class="emoji-title">
+            <use xlink:href="/emoji/emojione.sprites.svg#emoji-1F514"></use>
+          </svg>
+        </a>        
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel4" title=":oncoming_automobile:">
+          <svg class="emoji-title">
+            <use xlink:href="/emoji/emojione.sprites.svg#emoji-1F698"></use>
+          </svg>
+        </a>        
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel5" title=":hash:">
+          <svg class="emoji-title">
+            <use xlink:href="/emoji/emojione.sprites.svg#emoji-0023-20E3"></use>
+          </svg>
+        </a>        
+      </dd>
+    </dl>
+
+
+    <div class="tabs-content">
+
+      <div class="content active" id="emojiPanel1">
+        <%= render 'admin/emoji/smiley' %>
+      </div>
+
+      <div class="content" id="emojiPanel2">
+        <%= render 'admin/emoji/nature' %>
+      </div>
+
+      <div class="content" id="emojiPanel3">
+        <%= render 'admin/emoji/objects' %>
+      </div>
+
+      <div class="content" id="emojiPanel4">
+        <%= render 'admin/emoji/places' %>
+      </div>
+
+      <div class="content" id="emojiPanel5">
+        <%= render 'admin/emoji/other' %>
+      </div>
+
+    </div>
 
 </div>
