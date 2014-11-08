@@ -18,37 +18,19 @@
             <tr>
               <td><%= event.title %></td>
               <% if event.all_day %>
-                <% if event.start_time.day == event.end_time.day %>
-                  <td>
-                      <%= l event.start_time, format: :date_only %>
-                      <br>
-                      <%= t('events.attributes.all_day') %>
-                  </td> 
-                <% else %>
-                  <td>
-                      <%= t('time.from_date') %> <%= (l event.start_time, format: :date_only).downcase %>
-                      <br>
-                      <%= t('time.to_date') %> <%= (l event.end_time, format: :date_only).downcase %>
-                      <br>
-                      <%= t('events.attributes.all_day') %>
-                  </td> 
-                <% end %>             
-              <% else %>
-                <% if event.start_time.day == event.end_time.day %>
-                  <td>
+                <td>
                     <%= l event.start_time, format: :date_only %>
                     <br>
-                    <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
-                    <br>
-                    <%= t('time.to_time') %> <%= l event.end_time, format: :time_only %>
-                  </td>
-                <% else %>
-                  <td>
-                    <%= t('time.from_date') %> <%= (l event.start_time).downcase %>
-                    <br>
-                    <%= t('time.to_date') %> <%=   (l event.end_time).downcase %>
-                  </td>
-                <% end %>
+                    <%= t('events.attributes.all_day') %>
+                </td>
+              <% else %>
+                <td>
+                  <%= l event.start_time, format: :date_only %>
+                  <br>
+                  <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
+                  <br>
+                  <%= t('time.to_time') %> <%= l event.end_time, format: :time_only %>
+                </td>
               <% end %>
 
               <td>
