@@ -15,15 +15,35 @@ class Admin::EventsController < Admin::AdminController
 
   # GET /events/new
   def new
-    @event = Event.new
+    # Presetting some values for the event
+    body = nil
+    final = nil
+    all_day = true
+    
     # Building start time
     start = params[:start_time]
     start_time = DateTime.new(start[2].to_i,start[1].to_i, start[0].to_i, start[3].to_i, start[4].to_i)
-    unless params[:all_day].nil?
+    
+    if params[:all_day].nil?
       # End time only exists if not all day
       final = params[:end_time]
       final_time = DateTime.new(final[2].to_i,final[1].to_i, final[0].to_i, final[3].to_i, final[4].to_i)
+      all_day = true
+    end
 
+    unless params[:body].nil?
+      body = params[:body]
+    end
+
+    @event = Event.new(title: params[:title], body: body, start_time: start_time, end_time: final_time, all_day: all_day)
+
+    respond_to do |format|
+      if @event.save
+        format.js {render action: 'event'}
+      else
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /events/1/edit

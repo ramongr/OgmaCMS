@@ -6,13 +6,13 @@
       <!-- Title -->
       <div class="field">
         <label>Title
-          <input type="text" placeholder="Insert title here">
+          <input type="text" name="title" placeholder="Insert title here">
         </label>
       </div>
       <!-- Body -->
       <div id="event-body" class="field">
         <label>Body
-        <textarea placeholder="A small (optional) description of the event"></textarea>
+        <textarea name="body" placeholder="A small (optional) description of the event"></textarea>
         </label>
       </div>
       <!-- Start time -->
@@ -24,7 +24,7 @@
       <!-- All day? -->
       <div id="event-all-day" class="field">
         <label>All day?
-          <%= check_box_tag 'all_day', true %>
+          <%= check_box_tag 'all_day', true, true %>
         </label>
       </div>
       <!-- End time -->
