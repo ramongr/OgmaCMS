@@ -88,6 +88,14 @@ calendar = ->
         firstDay: 0
         timeFormat: 'HH:mm'
         events: 'admin/events.json'
+        eventClick: (object)->
+          event.preventDefault()
+          deferred = $.ajax(
+            url: "events/" + object.id
+            type: "GET"
+            dataType: "script"
+          )
+          return
   return
 
 $(document).ready(calendar)

@@ -9,6 +9,11 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.js {render 'calendar/detail', event: @event}
+      format.html { render action: 'show'}
+    end
   end
 
   def going

@@ -1,7 +1,9 @@
 <div class="row">
   <% if can? :create, Event %>
     <%= link_to t('events.manage_events'), admin_events_path, class: "button small" %>
-    <%= render 'admin/events/event_modal' %>
+    <%= render 'admin/events/new_event_modal' %>
+  <% else %>
+    <div id="event-detail-modal"></div>
   <% end %>
   <div id="calendar-container">
     <%= render 'calendar' %>
