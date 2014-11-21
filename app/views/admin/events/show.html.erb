@@ -9,7 +9,9 @@
     <h4><%= t('events.attributes.start_time') %>:</h4>
     <p><%= l @event.start_time %></p>
     <h4><%= t('events.attributes.end_time') %>:</h4>
-    <p><%= l @event.end_time %></p>
+    <% unless @event.end_time.nil? %>
+      <p><%= l @event.end_time %></p>
+    <% end %>
     <h4><%= t('events.attributes.all_day') %>:</h4>
   	<p><%= @event.all_day ? t('common.yes') : t('common.no') %></p>
   </div>

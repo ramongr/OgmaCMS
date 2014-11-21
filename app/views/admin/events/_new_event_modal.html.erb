@@ -1,0 +1,42 @@
+<div id="event-modal-container" class="reveal-modal medium" data-reveal>
+  <a id="close-modal" class="close-reveal-modal">&#215;</a>
+  <h3>New event</h3>
+  <div id="form-container" class="small-12">
+    <%= form_tag new_admin_event_path, remote: true, method: 'get' do %>
+      <!-- Title -->
+      <div class="field">
+        <label>Title
+          <input type="text" name="title" placeholder="Insert title here">
+        </label>
+      </div>
+      <!-- Body -->
+      <div id="event-body" class="field">
+        <label>Body
+        <textarea name="body" placeholder="A small (optional) description of the event"></textarea>
+        </label>
+      </div>
+      <!-- Start time -->
+      <div id="event-start-time" class="field">
+        <label>Start time</label>
+        <%= date_select "event", :start_time, {include_blank: true}, {class: "small-4 columns", name: "start_time[]"} %>
+        <%= time_select "event", :start_time, { time_separator: "", ignore_date: true}, {class: "small-6 columns", id: "time_select", name: "start_time[]"}  %>
+      </div>
+      <!-- All day? -->
+      <div id="event-all-day" class="field">
+        <label>All day?
+          <%= check_box_tag 'all_day', true, true %>
+        </label>
+      </div>
+      <!-- End time -->
+      <div id="event-end-time" class="field">
+        <label>End time</label>
+        <%= date_select :event, :end_time, {include_blank: true}, {class: "small-4 columns", name: "end_time[]"}  %>
+        <%= time_select :event, :end_time, { include_blank: true, time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select", name: "end_time[]"} %>
+      </div>
+      <!-- Submit button -->
+      <div class="field">
+        <button type="submit" class="button">Submit</button>
+      </div>
+    <% end %>
+  </div>
+</div>
