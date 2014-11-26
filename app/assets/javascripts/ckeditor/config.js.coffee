@@ -1,10 +1,10 @@
 CKEDITOR.editorConfig = (config) ->
   config.removePlugins = 'liststyle,tabletools,scayt,contextmenu'
   config.defaultLanguage = 'pt'
-  config.skin = 'bootstrapck'
+  config.skin = 'office2013'
   config.disableNativeSpellChecker = false
   config.allowedContent = true
-  config.extraPlugins = 'mediabutton'
+  config.extraPlugins = 'mediabutton,emoji'
   
   config.toolbar_Editor = [
     { name: 'document', items: [ 'Source', '-', 'Preview', 'Print','-','Templates' ]},
@@ -19,7 +19,7 @@ CKEDITOR.editorConfig = (config) ->
     { name: 'links', items : [ 'Link','Unlink','Anchor' ] },
     '/',
     { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
-    { name: 'insert', items : [ 'Table','HorizontalRule','Smiley','SpecialChar','PageBreak'] },
+    { name: 'insert', items : [ 'Table','HorizontalRule','Emoji','SpecialChar','PageBreak'] },
     { name: 'custom', items: ['Mediabutton']}
   ]
 

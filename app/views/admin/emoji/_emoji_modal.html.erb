@@ -1,0 +1,61 @@
+<div id="emoji-modal" class="reveal-modal medium" data-reveal>
+
+  <a class="close-reveal-modal">&#215;</a>
+
+    <dl class="tabs" data-tab>
+      <dd class="active">
+        <a href="#emojiPanel1" title=":smile:">
+          <img src="/emoji/1F604.png" height="28px" width="28px">
+        </a>
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel2" title=":dog:">
+          <img src="/emoji/1F436.png" height="28px" width="28px">
+        </a>
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel3" title=":bell:">
+          <img src="/emoji/1F514.png" height="28px" width="28px">
+        </a>
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel4" title=":oncoming_automobile:">
+          <img src="/emoji/1F698.png" height="28px" width="28px">
+        </a>
+      </dd>
+
+      <dd>
+        <a href="#emojiPanel5" title=":hash:">
+          <img src="/emoji/0023-20E3.png" height="28px" width="28px">
+        </a>
+      </dd>
+    </dl>
+
+    <div class="tabs-content">
+
+      <div class="content active" id="emojiPanel1">
+        <%= render 'admin/emoji/smiley' %>
+      </div>
+
+      <div class="content" id="emojiPanel2">
+        <%= render 'admin/emoji/nature' %>
+      </div>
+
+      <div class="content" id="emojiPanel3">
+        <%= render 'admin/emoji/objects' %>
+      </div>
+
+      <div class="content" id="emojiPanel4">
+        <%= render 'admin/emoji/places' %>
+      </div>
+
+      <div class="content" id="emojiPanel5">
+        <%= render 'admin/emoji/other' %>
+      </div>
+
+    </div>
+
+</div>

@@ -1,12 +1,18 @@
 # This file handles the click methods behind the foundation modal
-# Used in Admin::Posts#new, 
+# Used in Admin::Posts#new, Admin::Pages#new
+
+# Check if modal is in pages or posts
+instance = $('form').attr('data-model')
 
 # Check if modal is in multilanguage form
 lang = $('#attachment-modal').attr('data-lang')
 # Dynamically add images
 $('a#att-images').on 'click', ->
   img = '<img alt=default src='+$(this ).children('img').attr('data-addr')+'>'
-  CKEDITOR.instances['post_content_'+lang].insertHtml(img)
+  if instance == 'post'
+    CKEDITOR.instances['post_content_'+lang].insertHtml(img)
+  else
+    CKEDITOR.instances['page_body_'+lang].insertHtml(img)
   return
 
 $('li#linkable-att').on 'click', ->

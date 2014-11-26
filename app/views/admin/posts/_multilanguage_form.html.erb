@@ -4,7 +4,7 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@admin_post]) do |f| %>
+<%= form_for([:admin,@admin_post], data: {model: 'post'}) do |f| %>
   <% if @admin_post.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @admin_post.errors.count, model: Post.model_name.human %></h4>
@@ -26,7 +26,7 @@
           <%= f.text_field ("title_" + l).to_sym %>
         <% end %>
         <!-- Content div -->
-        <%= content_tag :div, class: 'field', id: "post-body-" + l do %>
+        <%= content_tag :div, class: 'field', id: "post-content-" + l do %>
           <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
           <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale} %>
         <% end %>
@@ -45,3 +45,4 @@
 
 <!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>
+<%= render 'admin/emoji/emoji_modal' %>

@@ -1,4 +1,4 @@
-<%= form_for([:admin,@admin_post]) do |f| %>
+<%= form_for([:admin,@admin_post], data: {model: 'post'}) do |f| %>
   <% if @admin_post.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @admin_post.errors.count, model: Post.model_name.human %></h4>
@@ -16,7 +16,7 @@
       <%= f.label :title %>
       <%= f.text_field ("title_" + I18n.locale.to_s).to_sym  %>
     </div>
-    <div id="post-body-<%=I18n.locale %>" class="field">
+    <div id="post-content-<%=I18n.locale %>" class="field">
       <%= f.label :content %>
       <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
     </div>
@@ -30,4 +30,6 @@
 <!-- Joyride instructions -->
 <%= render 'joyride_instructions' %>
 
+<!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>
+<%= render 'admin/emoji/emoji_modal' %>

@@ -1,4 +1,4 @@
-<%= form_for([:admin,@admin_page]) do |f| %>
+<%= form_for([:admin,@admin_page], data: {model: 'page'}) do |f| %>
   <% if @admin_page.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @admin_page.errors.count, model: Page.model_name.human %></h4>
@@ -23,10 +23,11 @@
       <%= f.text_field :slug %>
     <% end %>
     <!-- Page body -->
-    <%= content_tag :div, class: 'field', id: 'page-body-'+ I18n.locale.to_s do %>
+    <%= content_tag :div, class: 'field', id: 'page-content-'+ I18n.locale.to_s do %>
       <%= f.label t('pages.attributes.body', locale: I18n.locale) %>
       <%= f.cktext_area ("body_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
     <% end %>
+    <br>
     <div class="actions">
       <%= f.submit class: "button right" %>
     </div>
@@ -38,3 +39,4 @@
 
 <!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>
+<%= render 'admin/emoji/emoji_modal' %>
