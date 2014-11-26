@@ -57,13 +57,3 @@ td {
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline;
 }
-
-.emoji-title{
-  width: 24px;
-  height: 24px;
-}
-
-.emoji{
-  width: 18px;
-  height: 18px;
-}
