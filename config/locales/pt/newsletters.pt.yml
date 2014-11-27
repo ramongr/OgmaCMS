@@ -4,7 +4,7 @@ pt:
       newsletter: newsletter
     attributes:
       newsletter:
-        title: Nome
+        name: Nome
         subject: Assunto
         body: Conteúdo
         created_at: Criado em
@@ -14,7 +14,7 @@ pt:
     name: Newsletters
 
     attributes:
-      title: Nome
+      name: Nome
       subject: Assunto
       body: Conteúdo
       created_at: Criado em

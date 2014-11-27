@@ -7,7 +7,7 @@
       <table>
         <thead>
           <tr>
-            <th><%= t('newsletters.attributes.title') %></th>
+            <th><%= t('newsletters.attributes.name') %></th>
             <th></th>
           </tr>
         </thead>
@@ -15,7 +15,7 @@
         <tbody>
           <% @newsletters.each do |newsletter| %>
             <tr>
-              <td><%= newsletter.title %></td>
+              <td><%= newsletter.name %></td>
               <td>
                 <%= link_to t('common.show'), [:admin,newsletter], class: "button tiny" %>
                 <%= link_to t('common.edit'), edit_admin_newsletter_path(newsletter), class: "button tiny" %>

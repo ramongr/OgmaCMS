@@ -4,7 +4,7 @@ en:
       newsletter: newsletter
     attributes:
       newsletter:
-        title: Name
+        name: Name
         subject: Subject
         body: Content
         created_at: Created at
@@ -14,7 +14,7 @@ en:
     name: Newsletters
 
     attributes:
-      title: Name
+      name: Name
       subject: Subject
       body: Content
       created_at: Created at

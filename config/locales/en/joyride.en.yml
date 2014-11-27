@@ -58,7 +58,7 @@ pt:
     # Newsletters
     # 
     newsletter:
-      title: Title for your newsletter here
+      name: Title for your newsletter here
       body: Write here the content for your newsletter
       destinatary: Select bellow who will receive this newsletter
     # 

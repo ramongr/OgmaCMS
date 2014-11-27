@@ -1,4 +1,4 @@
-<% if @newsletter.send('content_' + l).nil? %>
+<% if @newsletter.send('body_' + I18n.locale.to_s).nil? %>
 
   <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 

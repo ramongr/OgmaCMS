@@ -1,7 +1,7 @@
 class Newsletter < ActiveRecord::Base
-  translates :subject, :body
+  translates :name, :subject, :body
   globalize_accessors
   
-  validates :title, :subject, :body, presence: true
+  validates :name, :subject, :body, presence: true
   has_and_belongs_to_many :users
 end
