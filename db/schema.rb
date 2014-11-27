@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141030162306) do
+ActiveRecord::Schema.define(version: 20141126213435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,13 +183,14 @@ ActiveRecord::Schema.define(version: 20141030162306) do
     t.datetime "updated_at"
     t.string   "subject"
     t.text     "body"
+    t.string   "name"
   end
 
   add_index "newsletter_translations", ["locale"], name: "index_newsletter_translations_on_locale", using: :btree
   add_index "newsletter_translations", ["newsletter_id"], name: "index_newsletter_translations_on_newsletter_id", using: :btree
 
   create_table "newsletters", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"

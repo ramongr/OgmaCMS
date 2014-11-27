@@ -19,23 +19,24 @@
 
   <div class="tabs-content">
     <br>
-    <%= content_tag :div, class: 'field', id: 'newsletter-title' do %>
-          <%= f.label t('newsletters.attributes.title') %>
-          <%= f.text_field :title %>
-    <% end %>
 
     <% Setting.selected_languages.each do |l| %>
 
-      <%= content_tag :div, class: "content" + (l == I18n.locale.to_s ? " active" : ""), id: "langtab-" + l do %> 
+      <%= content_tag :div, class: "content" + (l == I18n.locale.to_s ? " active" : ""), id: "langtab-" + l do %>
+
+        <%= content_tag :div, class: 'field', id: 'newsletter-name' do %>
+          <%= f.label t('newsletters.attributes.name', locale: l.to_sym) %>
+          <%= f.text_field ('name_' + l).to_sym %>
+        <% end %>
 
         <%= content_tag :div, class: 'field', id: 'newsletter-subject-'+ l do %>
           <%= f.label t('newsletters.attributes.subject', locale: l.to_sym) %>
-          <%= f.text_field ("subject_" + l).to_sym %>
+          <%= f.text_field ('subject_' + l).to_sym %>
         <% end %>
 
         <%= content_tag :div, class: 'field', id: 'newsletter-body-'+ l do %>
           <%= f.label t('newsletters.attributes.body', locale: l.to_sym) %>
-          <%= f.cktext_area ("body_" + l).to_sym, ckeditor: {language: I18n.locale} %>
+          <%= f.cktext_area ('body_' + l).to_sym, ckeditor: {language: I18n.locale} %>
         <% end %>
 
       <% end %>
@@ -60,8 +61,8 @@
 
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="newsletter-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.newsletter.title' %></p>
+    <li data-id="newsletter-name" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.newsletter.name' %></p>
     </li>  
     <li data-id="newsletter-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
       <p><%= t 'joyride.newsletter.body' %></p>
