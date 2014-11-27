@@ -43,7 +43,7 @@
               <%= t('comments.attributes.updated_at')%>
             <% end %>
             : <%= l comment.updated_at %><br><br>
-            <%= comment.content %><br>
+            <%= comment.content.html_safe %><br>
             <hr>
             
             <div id="button-container">

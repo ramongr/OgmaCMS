@@ -7,7 +7,7 @@ gem 'rails'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.4'
+gem 'sass-rails'
 
 # Authentication
 gem 'devise'
@@ -20,10 +20,10 @@ gem 'cancancan'
 gem 'thin'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
@@ -39,7 +39,7 @@ gem 'jquery-turbolinks'
 gem 'foundation-rails'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.2.4'
+gem 'jbuilder'
 
 # Globalize builds on the I18n API in Ruby on Rails to add model translations to ActiveRecord models.
 gem 'globalize'
@@ -53,10 +53,10 @@ group :doc do
 end
 
 group :development do
-  gem 'better_errors', '~> 2.0.0'
-  gem 'bullet', '~> 4.14.0'
-  gem 'meta_request', '~> 0.3.4'
-  gem 'binding_of_caller', '~> 0.7.2'
+  gem 'better_errors'
+  gem 'bullet'
+  gem 'meta_request'
+  gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password
@@ -77,19 +77,19 @@ gem 'will_paginate'
 gem 'will-paginate-i18n'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'factory_girl_rails', '~> 4.4.1'
-  gem 'rspec-collection_matchers', '~> 1.0.0'
-  gem 'guard-rspec', '~> 4.3.1'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'rspec-collection_matchers'
+  gem 'guard-rspec'
   # gem 'shoulda-matchers', '~> 2.6.2'
 end
 
 group :test do
-  gem 'faker', '~> 1.4.2'
-  gem 'capybara', '~> 2.4.1'
-  gem 'database_cleaner', '~> 1.3.0'
-  gem 'launchy', '~> 2.4.2'
-  gem 'selenium-webdriver', '~> 2.42.0'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
 end
 
 # ready-for-use HTML text editor

@@ -40,17 +40,6 @@
   </div>
 <% end %>
 
-
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="newsletter-name" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.newsletter.name' %></p>
-    </li>  
-    <li data-id="newsletter-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.newsletter.body' %></p>
-    </li>
-    <li data-id="newsletter-destinatary" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.newsletter.destinatary' %></p>
-    </li>
-  </ol>
-</div>
+<!-- Modal content -->
+<%= render 'admin/attachments/generic_modal' %>
+<%= render 'admin/emoji/emoji_modal' %>
