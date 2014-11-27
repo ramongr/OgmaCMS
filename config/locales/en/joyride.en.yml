@@ -1,4 +1,4 @@
-pt:
+en:
   joyride:
     next: "→"
     prev: "←"
@@ -59,6 +59,7 @@ pt:
     # 
     newsletter:
       name: Title for your newsletter here
+      subject: A subject for your newsletter here
       body: Write here the content for your newsletter
       destinatary: Select bellow who will receive this newsletter
     # 
