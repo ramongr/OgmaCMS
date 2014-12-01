@@ -40,13 +40,13 @@
             <% Setting.selected_languages.each do |l| %>
               <% if l == I18n.locale.to_s %>
                 <li class="active">
-                  <%= link_to t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', locale: l %>
+                  <%= link_to t('language_name.' + l, locale: l.to_sym) %>
                 </li>
               <% else %>
                 <li>
                   <%= link_to t('language_name.' + l, locale: l.to_sym) + ' (' + t('language_name.' + I18n.locale.to_s, locale: l.to_sym) + ')', locale: l %>
                 </li>
-              <% end %>          
+              <% end %>
             <% end %>
           </ul>
         </li>
