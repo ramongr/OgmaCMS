@@ -1,19 +1,13 @@
 <div id="joyride-content">
   <ol class="joyride-list" data-joyride>
-    <li data-id="gallery_title" data-text="Next" data-options="tip_location: top; prev_button: false">
-      <p>Enter the name you want for the gallery.</p>
+    <li data-id="gallery-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.gallery.title' %></p>
     </li>  
-    <li data-id="gallery_description" data-text="Next" data-options="tip_location: top">
-      <p>Describe the gallery.</p>
+    <li data-id="gallery-description" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.gallery.description' %></p>
     </li>
-    <li data-id="gallery_date" data-text="Next" data-options="tip_location: top;">
-      <p>Choose the date associated with this gallery.</p>
-    </li>
-    <li data-id="add-image" data-text="Ok" data-options="tip_location: top;">
-      <p>Add images from attachments to this gallery.</p>
-    </li>
-    <li data-button="End" data-options="tip_location: top;">
-      <p>After images are added, you can reorder them by dragging and drop.</p>
+    <li data-id="gallery-date" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
+      <p><%= t 'joyride.gallery.date' %></p>
     </li>
   </ol>
 </div>

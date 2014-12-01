@@ -14,4 +14,5 @@ $('a#emoji').on 'click', ->
     when 'post' then CKEDITOR.instances['post_content_'+lang].insertHtml(emoji)
     when 'page' then CKEDITOR.instances['page_body_'+lang].insertHtml(emoji)
     when 'comment' then CKEDITOR.instances['comment_content'].insertHtml(emoji)
+    when 'newsletter' then CKEDITOR.instances['newsletter_body'].insertHtml(emoji)
   return

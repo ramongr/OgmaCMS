@@ -10,36 +10,24 @@
       </ul>
     </div>
   <% end %>
+  <div id="gallery-container">
+    <div id="gallery-title" class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div id="gallery-description" class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 6 %>
+    </div>
+    <div id="gallery-date" class="field">
+      <%= f.label :date %>
+      <%= f.date_select :date, {}, {class: "small-4 columns"} %>
+    </div>
 
-  <div id="gallery-title" class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div id="gallery-description" class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description, rows: 6 %>
-  </div>
-  <div id="gallery-date" class="field">
-    <%= f.label :date %>
-    <%= f.date_select :date, {}, {class: "small-4 columns"} %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit class: "button right" %>
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
   </div>
 <% end %>
 
-
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="gallery-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.gallery.title' %></p>
-    </li>  
-    <li data-id="gallery-description" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.gallery.description' %></p>
-    </li>
-    <li data-id="gallery-date" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top;">
-      <p><%= t 'joyride.gallery.date' %></p>
-    </li>
-  </ol>
-</div>
+<%= render 'joyride_instructions' %>

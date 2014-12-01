@@ -4,7 +4,7 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@newsletter]) do |f| %>
+<%= form_for([:admin,@newsletter], data: {model: 'newsletter'}) do |f| %>
   <% if @newsletter.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @newsletter.errors.count, model: Newsletter.model_name.human %></h4>
@@ -18,13 +18,12 @@
   <% end %>
 
   <div class="tabs-content">
-    <br>
 
     <% Setting.selected_languages.each do |l| %>
 
       <%= content_tag :div, class: "content" + (l == I18n.locale.to_s ? " active" : ""), id: "langtab-" + l do %>
 
-        <%= content_tag :div, class: 'field', id: 'newsletter-name' do %>
+        <%= content_tag :div, class: 'field', id: 'newsletter-name-'+ l do %>
           <%= f.label t('newsletters.attributes.name', locale: l.to_sym) %>
           <%= f.text_field ('name_' + l).to_sym %>
         <% end %>
@@ -58,6 +57,8 @@
     </div>
   </div>
 <% end %>
+
+<%= render 'joyride_instructions' %>
 
 <!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>

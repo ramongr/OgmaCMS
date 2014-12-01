@@ -1,4 +1,4 @@
-<%= form_for([:admin,@newsletter]) do |f| %>
+<%= form_for([:admin,@newsletter], data: {model: 'newsletter'}) do |f| %>
   <% if @newsletter.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @newsletter.errors.count, model: Newsletter.model_name.human %></h4>
@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div id="newsletter-name" class="field">
-    <%= f.label :name %>
-    <%= f.text_field (':name_' + I18n.locale.to_s).to_sym %>
-  </div>
-  <div id="newsletter-subject" class="field">
-    <%= f.label :subject %>
-    <%= f.text_field ('subject_' + I18n.locale.to_s).to_sym  %>
-  </div>
-  <div id="newsletter-body" class="field">
-    <%= f.label :body %>
-    <%= f.cktext_area ('body_' + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+  <div id="newsletter-container" data-lang=<%= I18n.locale %>>
+    <div id="newsletter-name-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :name %>
+      <%= f.text_field ('name_' + I18n.locale.to_s).to_sym %>
+    </div>
+    <div id="newsletter-subject-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :subject %>
+      <%= f.text_field ('subject_' + I18n.locale.to_s).to_sym  %>
+    </div>
+    <div id="newsletter-body-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :body %>
+      <%= f.cktext_area ('body_' + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+    </div>
   </div>
 
   <br>
@@ -39,6 +41,8 @@
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+<%= render 'joyride_instructions' %>
 
 <!-- Modal content -->
 <%= render 'admin/attachments/generic_modal' %>
