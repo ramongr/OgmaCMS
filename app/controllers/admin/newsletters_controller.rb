@@ -13,10 +13,42 @@ class Admin::NewslettersController < Admin::AdminController
   # GET /admin/newsletters/new
   def new
     @newsletter = Newsletter.new
+    attachments = Attachment.all
+    @image_attachments = attachments.select do |s|
+      s.image? == true
+    end
+    @audio_attachments = attachments.select do |s|
+      s.audio? == true
+    end
+    @video_attachments = attachments.select do |s|
+      s.video? == true
+    end
+    @text_attachments = attachments.select do |s|
+      s.text? == true
+    end
+    @application_attachments = attachments.select do |s|
+      s.application? == true
+    end
   end
 
   # GET /admin/newsletters/1/edit
   def edit
+    attachments = Attachment.all
+    @image_attachments = attachments.select do |s|
+      s.image? == true
+    end
+    @audio_attachments = attachments.select do |s|
+      s.audio? == true
+    end
+    @video_attachments = attachments.select do |s|
+      s.video? == true
+    end
+    @text_attachments = attachments.select do |s|
+      s.text? == true
+    end
+    @application_attachments = attachments.select do |s|
+      s.application? == true
+    end
   end
 
   # GET /admin/newsletters/1/send_newsletter

@@ -8,7 +8,6 @@ post = ->
     lang = $('li#lang-tab').filter('.active').attr('data-lang') || $('#post-container').attr('data-lang')
     dataAssigner(lang)
     $('li#lang-tab').on 'click', ->
-
       dataAssigner($(this).attr('data-lang'))
       return
 
