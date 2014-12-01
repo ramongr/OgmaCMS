@@ -2,7 +2,7 @@
 # Used in Admin::Posts#new, Admin::Pages#new
 
 # Check if modal is in pages or posts
-instance = $('form').attr('data-model')
+instance = $('*[data-model]').attr('data-model')
 
 # Check if modal is in multilanguage form
 lang = $('#attachment-modal').attr('data-lang')
@@ -10,8 +10,9 @@ lang = $('#attachment-modal').attr('data-lang')
 # Dynamically add images
 $('a#emoji').on 'click', ->
   emoji = $(this).html()
-  if instance == 'post'
-    CKEDITOR.instances['post_content_'+lang].insertHtml(emoji)
-  else
-    CKEDITOR.instances['page_body_'+lang].insertHtml(emoji)
+  switch instance
+    when 'post' then CKEDITOR.instances['post_content_'+lang].insertHtml(emoji)
+    when 'page' then CKEDITOR.instances['page_body_'+lang].insertHtml(emoji)
+    when 'comment' then CKEDITOR.instances['comment_content'].insertHtml(emoji)
+    when 'newsletter' then CKEDITOR.instances['newsletter_body_'+lang].insertHtml(emoji)
   return

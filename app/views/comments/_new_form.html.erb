@@ -1,4 +1,4 @@
-<%= form_for([:post,@comment]) do |f| %>
+<%= form_for([:post,@comment], data: {model: 'comment'}) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h4><%= t 'common.error_save', count: @comment.errors.count, model: Comment.model_name.human %></h4>
@@ -13,9 +13,13 @@
 
   <div class="field">
     <%= f.label :content %>
-    <%= f.text_area :content, rows: 6 %>
+    <%= f.cktext_area :content, ckeditor: {language: I18n.locale, toolbar: 'Comments'} %>
   </div>
+  <br>
   <div class="actions">
     <%= f.submit class: "button right" %>
   </div>
 <% end %>
+
+<!-- Modal content -->
+<%= render 'admin/emoji/emoji_modal' %>

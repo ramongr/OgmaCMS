@@ -23,6 +23,10 @@ CKEDITOR.editorConfig = (config) ->
     { name: 'custom', items: ['Mediabutton']}
   ]
 
+  config.toolbar_Comments = [
+    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript', 'RemoveFormat', '-', 'Link', 'Unlink', '-', 'Emoji' ] }
+  ]
+
   config.toolbar = 'Editor'
 
   true
