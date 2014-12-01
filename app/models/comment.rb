@@ -1,5 +1,4 @@
 class Comment < ActiveRecord::Base
-  include CommentsHelper
   belongs_to :user
   belongs_to :post
   validates :content, :user, :post, presence: true
@@ -9,6 +8,6 @@ class Comment < ActiveRecord::Base
   private
 
   def sanitize_content
-    sanitizeComment(self.content)
+    self.content = ActionController::Base.helpers.sanitize(self.content, tags: %w(p, sup, sub, s, u, em, strong, a, img))
   end
 end
