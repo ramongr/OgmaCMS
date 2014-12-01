@@ -59,6 +59,7 @@ pt:
     # 
     newsletter:
       name: Coloque aqui um título para a newsletter
+      subject: Coloque um assunto para a newsletter
       body: O conteúdo da newsletter
       destinatary: Escolha abaixo quem vai receber esta newsletter
     # 

@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div id="newsletter-name" class="field">
-    <%= f.label :name %>
-    <%= f.text_field (':name_' + I18n.locale.to_s).to_sym %>
-  </div>
-  <div id="newsletter-subject" class="field">
-    <%= f.label :subject %>
-    <%= f.text_field ('subject_' + I18n.locale.to_s).to_sym  %>
-  </div>
-  <div id="newsletter-body" class="field">
-    <%= f.label :body %>
-    <%= f.cktext_area ('body_' + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+  <div id="newsletter-container" data-lang=<%= I18n.locale %>>
+    <div id="newsletter-name-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :name %>
+      <%= f.text_field ('name_' + I18n.locale.to_s).to_sym %>
+    </div>
+    <div id="newsletter-subject-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :subject %>
+      <%= f.text_field ('subject_' + I18n.locale.to_s).to_sym  %>
+    </div>
+    <div id="newsletter-body-<%= I18n.locale.to_s %>" class="field">
+      <%= f.label :body %>
+      <%= f.cktext_area ('body_' + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+    </div>
   </div>
 
   <br>
@@ -40,17 +42,4 @@
   </div>
 <% end %>
 
-
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="newsletter-name" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.newsletter.name' %></p>
-    </li>  
-    <li data-id="newsletter-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.newsletter.body' %></p>
-    </li>
-    <li data-id="newsletter-destinatary" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.newsletter.destinatary' %></p>
-    </li>
-  </ol>
-</div>
+<%= render 'joyride_instructions' %>
