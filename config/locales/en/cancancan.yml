@@ -1,5 +1,19 @@
 en:
   unauthorized:
+    manage:
+      attachment: You don't have permission to manage this attachment.
+      comment: You don't have permission to manage this comment.
+      event: You don't have permission to manage this event.
+      gallery: You don't have permission to manage this gallery.
+      link: You don't have permission to manage this link.
+      newsletter: You don't have permission to managey this newsletter.
+      page: You don't have permission to manage this page.
+      post: You don't have permission to manage this post.
+      sidebar: You don't have permission to manage this menu.
+      slider: You don't have permission to manage this slider.
+      user: You don't have permission to manage this user.
+      visitor_comment: You don't have permission to manage this comment.
+
     create:
       attachment: You don't have permission to create an attachment.
       comment: Only registered users are allowed to comment.

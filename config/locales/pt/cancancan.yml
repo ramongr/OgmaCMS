@@ -1,5 +1,19 @@
 pt:
   unauthorized:
+    manage:
+      attachment: Não tem permissão para gerir este anexo.
+      comment: Não tem permissão para gerir este comentário.
+      event: Não tem permissão para gerir este evento.
+      gallery: Não tem permissão para gerir esta galeria.
+      link: Não tem permissão para gerir este link.
+      newsletter: Não tem permissão para gerir esta newsletter.
+      page: Não tem permissão para gerir esta página.
+      post: Não tem permissão para gerir este artigo.
+      sidebar: Não tem permissão para gerir este menu.
+      slider: Não tem permissão para gerir este painel rolante.
+      user: Não tem permissão para gerir este user.
+      visitor_comment: Não tem permissão para gerir este comentário.
+
     create:
       attachment: Não tem permissão para criar um anexo.
       comment: Apenas utilizadores registados podem comentar.
@@ -18,7 +32,7 @@ pt:
       attachment: Não tem permissão para ver este anexo.
       comment: Não tem permissão para ver este comentário.
       event: Não tem permissão para ver este evento.
-      gallery: Não tem permissão para ver esta gaveria.
+      gallery: Não tem permissão para ver esta galeria.
       link: Não tem permissão para ver este link.
       newsletter: Não tem permissão para ver esta newsletter.
       page: Não tem permissão para ver esta página.
