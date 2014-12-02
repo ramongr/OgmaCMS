@@ -1,5 +1,5 @@
 class Admin::SettingsController < Admin::AdminController
-  load_and_authorize_resource
+  authorize_resource
 
   def index
     @system_mails = SystemMail.all

@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
     Time.use_zone(time_zone, &block)
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to :back, alert: exception.message
+  end
+
   include ApplicationHelper
   helper ApplicationHelper
 

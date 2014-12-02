@@ -1,0 +1,4 @@
+en:
+  unauthorized:
+    create:
+      comment: "Only registered users are allowed to comment."

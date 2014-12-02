@@ -1,5 +1,4 @@
 class Admin::PostsController < Admin::AdminController
-  before_action :set_admin_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /admin/posts
@@ -96,11 +95,6 @@ class Admin::PostsController < Admin::AdminController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_admin_post
-    @admin_post = Post.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
