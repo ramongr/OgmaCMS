@@ -10,7 +10,7 @@ class SystemMailer < ActionMailer::Base
   def event_update(event, user)
     @user = user
     @event = event
-    @mail = SystemMail.find_by(id: 3)
+    @mail = SystemMail.find_by(action: 'event_update')
     mail(to: @user.email, subject: parseEmail(@mail.send('subject_' + @user.language), user: @user, event: @event))
   end
 

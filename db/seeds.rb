@@ -157,7 +157,8 @@ end
 # System Mails (Creation order is important to mantain)
 #########################################################
 
-SystemMail.create name_pt: 'Instruções para a confirmação de email', 
+SystemMail.create action: 'email_confirmation'
+                  name_pt: 'Instruções para a confirmação de email', 
                   subject_pt: '*site_name*: Instruções para a confirmação de email', 
                   content_pt: '<h2>Bem-vindo *user_name*!</h2>' \
                               '<p>Podes confirmar a tua contra através do link seguinte:</p>' \
@@ -170,7 +171,8 @@ SystemMail.create name_pt: 'Instruções para a confirmação de email',
                               '<p>*confirmation_link*</p>'
 puts 'Created system mail 1'
 
-SystemMail.create name_pt: 'Instruções para redefinir a password',
+SystemMail.create action: 'reset_password'
+                  name_pt: 'Instruções para redefinir a password',
                   subject_pt: '*site_name*: Instruções para redefinir a password',
                   content_pt: '<h2>Olá, *user_name*</h2>' \
                               '<p>' \
@@ -194,7 +196,8 @@ SystemMail.create name_pt: 'Instruções para redefinir a password',
 puts 'Created system mail 2'
 
 
-SystemMail.create name_pt: 'Alteração de evento',
+SystemMail.create action: 'event_update'
+                  name_pt: 'Alteração de evento',
                   subject_pt: '*site_name*: O evento "*event_name*" foi alterado',
                   content_pt: '<h2>Olá, *user_name*</h2>' \
                            '<p>' \
