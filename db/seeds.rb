@@ -154,7 +154,7 @@ end
 # end
 
 ########################################################
-# System Mails (Creation order is important to mantain)
+# System Mails
 #########################################################
 
 SystemMail.create action: 'email_confirmation'
