@@ -1,5 +1,4 @@
 class Admin::SystemMailsController < ApplicationController
-  before_action :set_system_mail, only: [:show, :edit, :update, :destroy]
   respond_to :html, :json
   load_and_authorize_resource
 
@@ -37,9 +36,6 @@ class Admin::SystemMailsController < ApplicationController
   end
 
   private
-    def set_system_mail
-      @system_mail = SystemMail.find(params[:id])
-    end
 
     def system_mail_params
       params.require(:system_mail).permit(*SystemMail.globalize_attribute_names)

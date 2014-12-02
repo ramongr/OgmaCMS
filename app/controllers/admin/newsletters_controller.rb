@@ -1,5 +1,4 @@
 class Admin::NewslettersController < Admin::AdminController
-  before_action :set_admin_newsletter, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   def index
@@ -110,11 +109,6 @@ class Admin::NewslettersController < Admin::AdminController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_admin_newsletter
-    @newsletter = Newsletter.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def newsletter_params

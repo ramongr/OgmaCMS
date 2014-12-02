@@ -1,5 +1,4 @@
 class Admin::GalleriesController < Admin::AdminController
-  before_action :set_gallery, only: [:show, :edit, :update, :destroy, :add_photo]
   load_and_authorize_resource
 
   # GET /admin/galleries
@@ -107,11 +106,6 @@ class Admin::GalleriesController < Admin::AdminController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_gallery
-    @gallery = Gallery.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def gallery_params

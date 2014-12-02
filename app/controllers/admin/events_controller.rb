@@ -1,5 +1,4 @@
 class Admin::EventsController < Admin::AdminController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /events
@@ -95,11 +94,6 @@ class Admin::EventsController < Admin::AdminController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_event
-    @event = Event.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params

@@ -1,0 +1,4 @@
+pt:
+  unauthorized:
+    create:
+      comment: "Apenas utilizadores registados podem comentar."
