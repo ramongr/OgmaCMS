@@ -2,11 +2,12 @@ calendar = ->
   #
   # Event handler for the webpage
   #
-  $('#event-end-time').hide()
+  if $('#calendar-container').length > 0
+    $('#event-end-time').hide()
 
-  $('#event-all-day').on 'click', ->
-    $('#event-end-time').toggle(250)
-    return
+    $('#event-toggle-time').on 'click', ->
+      $('#event-end-time').toggle(250)
+      return
 
   #
   # Auxiliary functions for FullCalendar js
@@ -21,7 +22,6 @@ calendar = ->
       title: event.title
       start: start
       end: end
-      allDay: event.allDay
     #
     # Ajax call to store event in DB
     #
@@ -32,7 +32,6 @@ calendar = ->
         event:
           start_time: start
           end_time: end
-          all_day: event.allDay
 
       dataType: "json"
     )
@@ -47,7 +46,6 @@ calendar = ->
           left: 'prev,next today'
           center: 'title'
           right: 'month,agendaWeek,agendaDay'
-        allDaySlot: true
         selectable: true
         selectHelper: true
         editable: true
@@ -55,7 +53,8 @@ calendar = ->
         firstDay: 0
         timeFormat: 'HH:mm'
         events: 'admin/events.json'
-        select: (start, end, allDay) ->
+        select: (start, end) ->
+          console.log start
           $('#event-start-time > select:eq(0)').val(start.date())
           $('#event-start-time > select:eq(1)').val(start.month()+1)
           $('#event-start-time > select:eq(2)').val(start.year())
@@ -80,7 +79,6 @@ calendar = ->
           left: 'prev,next today'
           center: 'title'
           right: 'month,agendaWeek,agendaDay'
-        allDaySlot: true
         selectable: true
         selectHelper: true
         editable: true

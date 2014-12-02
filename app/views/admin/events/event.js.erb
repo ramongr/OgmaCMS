@@ -4,7 +4,6 @@ var eventData =
   title: '<%= @event.title %>',
   start: '<%= @event.start_time %>',
   end: '<%= @event.end_time.nil? ? @event.start_time : @event.end_time %>',
-  allDay: '<%= @event.all_day %>'
 };
 $('#calendar-content').fullCalendar('renderEvent', eventData, true); // stick? = true
 $('#event-modal-container').foundation('reveal', 'close')

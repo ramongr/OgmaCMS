@@ -11,30 +11,31 @@
     </div>
   <% end %>
 
-  <div id="event-title" class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div id="event-body" class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body, rows: 6 %>
-  </div>
-  <div id="event-all-day" class="field">
-    <%= f.check_box :all_day %> <%= t('events.attributes.all_day') %>
-  </div>
-  <div id="event-start-time" class="field">
-    <%= f.label :start_time %>
-    <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
-    <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
-  </div>
-  <div id="event-end-time" class="field">
-    <%= f.label :end_time %>
-    <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
-    <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
-  </div>
-  <div class="actions">
-    <%= f.submit class: "button right" %>
-  </div>
+    <div id="event-title" class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div id="event-body" class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body, rows: 6 %>
+    </div>
+    <div id="event-start-time" class="field">
+      <%= f.label :start_time %>
+      <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
+      <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
+    </div>
+    <div class="field">
+      <%= hidden_field_tag :toggle_time, '' %>
+      <%= check_box_tag :toggle_time %> <%= t('events.attributes.end_time_toggle') %>
+    </div>
+    <div id="event-end-time" class="field end-time-hide">
+      <%= f.label :end_time %>
+      <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
+      <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "button right" %>
+    </div>
 <% end %>
 <!-- Joyride -->
 <div id="joyride-content">

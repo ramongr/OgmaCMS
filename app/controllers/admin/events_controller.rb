@@ -15,33 +15,34 @@ class Admin::EventsController < Admin::AdminController
 
   # GET /events/new
   def new
-    # Presetting some values for the event
-    body = nil
-    final = nil
-    all_day = true
-    
-    # Building start time
-    start = params[:start_time]
-    start_time = DateTime.new(start[2].to_i,start[1].to_i, start[0].to_i, start[3].to_i, start[4].to_i)
-    
-    if params[:all_day].nil?
-      # End time only exists if not all day
-      final = params[:end_time]
-      final_time = DateTime.new(final[2].to_i,final[1].to_i, final[0].to_i, final[3].to_i, final[4].to_i)
+    unless params[:ajax].nil?
+      # Presetting some values for the event
+      body = nil
+      final = nil
       all_day = true
-    end
+      
+      # Building start time
+      start = params[:start_time]
+      start_time = DateTime.new(start[2].to_i,start[1].to_i, start[0].to_i, start[3].to_i, start[4].to_i)
+      
+      unless params[:toggle_time].nil?
+        # End time only exists if not all day
+        final = params[:end_time]
+        final_time = DateTime.new(final[2].to_i,final[1].to_i, final[0].to_i, final[3].to_i, final[4].to_i)
+      end
 
-    unless params[:body].nil?
-      body = params[:body]
-    end
+      unless params[:body].nil?
+        body = params[:body]
+      end
 
-    @event = Event.new(title: params[:title], body: body, start_time: start_time, end_time: final_time, all_day: all_day)
+      @event = Event.new(title: params[:title], body: body, start_time: start_time, end_time: final_time)
 
-    respond_to do |format|
-      if @event.save
-        format.js {render action: 'event'}
-      else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @event.save
+          format.js {render action: 'event'}
+        else
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -53,7 +54,12 @@ class Admin::EventsController < Admin::AdminController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    if params[:toggle_time].empty?
+      start = DateTime.strptime("#{event_params['start_time(1i)']}-#{event_params['start_time(2i)']}-#{event_params['start_time(3i)']}T#{event_params['start_time(4i)']}:#{event_params['start_time(5i)']}", '%Y-%m-%dT%H:%M')
+      @event = Event.new(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil)
+    else
+      @event = Event.new(event_params)
+    end
 
     respond_to do |format|
       if @event.save
@@ -70,15 +76,29 @@ class Admin::EventsController < Admin::AdminController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @event.update(event_params)
-        Attending.where(event: @event).each do |a|
-          SystemMailer.event_update(@event, a.user).deliver
+      if params[:toggle_time].empty?
+        start = DateTime.strptime("#{event_params['start_time(1i)']}-#{event_params['start_time(2i)']}-#{event_params['start_time(3i)']}T#{event_params['start_time(4i)']}:#{event_params['start_time(5i)']}", '%Y-%m-%dT%H:%M')
+        if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil)
+          Attending.where(event: @event).each do |a|
+            SystemMailer.event_update(@event, a.user).deliver
+          end
+          format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
         end
-        format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
-        format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+        if @event.update(event_params)
+          Attending.where(event: @event).each do |a|
+            SystemMailer.event_update(@event, a.user).deliver
+          end
+          format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -103,6 +123,6 @@ class Admin::EventsController < Admin::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :body, :start_time, :end_time, :all_day)
+    params.require(:event).permit(:title, :body, :start_time, :end_time)
   end
 end
