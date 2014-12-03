@@ -4,9 +4,8 @@ CKEDITOR.editorConfig = (config) ->
   config.skin = 'office2013'
   config.disableNativeSpellChecker = false
   config.allowedContent = true
-  config.extraPlugins = 'mediabutton,emoji'
-   
- 
+  config.extraPlugins = 'mediabutton,emoji'  
+  
   config.toolbar_Editor = [
     { name: 'document', items: [ 'Source', '-', 'Preview', 'Print','-','Templates' ]},
     { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
