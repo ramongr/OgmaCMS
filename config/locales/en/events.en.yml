@@ -8,7 +8,6 @@ en:
         body: Description
         start_time: Beginning
         end_time: End
-        end_time_toggle: End time?
         created_at: Created at
         updated_at: Updated at
   events:
@@ -20,7 +19,7 @@ en:
       date: Date
       start_time: Beginning
       end_time_toggle: End time?
-      all_day: All day
+      notification: Warn about changes?
 
     index:
       admin:

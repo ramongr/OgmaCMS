@@ -20,15 +20,24 @@
               <% if event.end_time.nil? %>
                 <td>
                   <%= l event.start_time, format: :date_only %>
+                  <br>
+                  <%= t('time.at_time') %> <%= l event.start_time, format: :time_only %>
                 </td>
               <% else %>
-                <td>
-                  <%= l event.start_time, format: :date_only %>
-                  <br>
-                  <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
-                  <br>
-                  <%= t('time.to_time') %> <%= l event.end_time, format: :time_only %>
-                </td>
+                <% if event.start_time.day == event.end_time.day %>
+                  <td>
+                    <%= l event.start_time, format: :date_only %>
+                    <br>
+                    <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
+                    <%= t('time.to_time').downcase %> <%= l event.end_time, format: :time_only %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= t('time.from_date') %> <%= l event.start_time, format: :full_date %>
+                    <br>
+                    <%= t('time.to_date') %> <%= l event.end_time, format: :full_date %>
+                  </td>
+                <% end %>
               <% end %>
 
               <td>

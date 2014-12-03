@@ -75,30 +75,24 @@ class Admin::EventsController < Admin::AdminController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+    final = nil
+    start = DateTime.strptime("#{event_params['start_time(1i)']}-#{event_params['start_time(2i)']}-#{event_params['start_time(3i)']}T#{event_params['start_time(4i)']}:#{event_params['start_time(5i)']}", '%Y-%m-%dT%H:%M')
+    unless params[:toggle_time].empty?
+      final = DateTime.strptime("#{event_params['end_time(1i)']}-#{event_params['end_time(2i)']}-#{event_params['end_time(3i)']}T#{event_params['end_time(4i)']}:#{event_params['end_time(5i)']}", '%Y-%m-%dT%H:%M')
+    end
     respond_to do |format|
-      if params[:toggle_time].empty?
-        start = DateTime.strptime("#{event_params['start_time(1i)']}-#{event_params['start_time(2i)']}-#{event_params['start_time(3i)']}T#{event_params['start_time(4i)']}:#{event_params['start_time(5i)']}", '%Y-%m-%dT%H:%M')
-        if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil)
-          Attending.where(event: @event).each do |a|
+      if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: final)
+        # TO DO if for notification
+        unless params[:notification].empty?
+          Attending.where(event: @event).where.not(going: 'no').each do |a|
             SystemMailer.event_update(@event, a.user).deliver
           end
-          format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: 'edit' }
-          format.json { render json: @event.errors, status: :unprocessable_entity }
         end
+        format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
+        format.json { head :no_content }
       else
-        if @event.update(event_params)
-          Attending.where(event: @event).each do |a|
-            SystemMailer.event_update(@event, a.user).deliver
-          end
-          format.html { redirect_to [:admin, @event], notice: 'Event was successfully updated.' }
-          format.json { head :no_content }
-        else
-          format.html { render action: 'edit' }
-          format.json { render json: @event.errors, status: :unprocessable_entity }
-        end
+        format.html { render action: 'edit' }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -123,6 +117,6 @@ class Admin::EventsController < Admin::AdminController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params.require(:event).permit(:title, :body, :start_time, :end_time)
+    params.require(:event).permit(:title, :body, :start_time, :end_time, :notification)
   end
 end

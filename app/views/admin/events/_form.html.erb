@@ -28,10 +28,16 @@
       <%= hidden_field_tag :toggle_time, '' %>
       <%= check_box_tag :toggle_time %> <%= t('events.attributes.end_time_toggle') %>
     </div>
+    <% if action_name == 'edit' %>
+      <div class="field">
+        <%= hidden_field_tag :notification, '' %>
+        <%= check_box_tag :notification %> <%= t('events.attributes.notification') %>
+      </div>
+    <% end %>
     <div id="event-end-time" class="field end-time-hide">
       <%= f.label :end_time %>
-      <%= f.date_select :end_time, {}, {class: "small-4 columns"}  %>
-      <%= f.time_select :end_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
+      <%= f.date_select :end_time, { include_blank: true}, {class: "small-4 columns"}  %>
+      <%= f.time_select :end_time, { include_blank: true, time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
     </div>
     <div class="actions">
       <%= f.submit class: "button right" %>
