@@ -9,21 +9,21 @@
     
     <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %>
 
-      <% if @admin_post.send('content_' + l).nil? %>
+      <% if @post.send('content_' + l).nil? %>
 
         <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 
       <% else %>
 
-        <h3 class="text-center"><%= @admin_post.send('title_' + l) %></h3>
+        <h3 class="text-center"><%= @post.send('title_' + l) %></h3>
         <hr>
-        <%= @admin_post.user.name %><br>
-        <%= t('posts.attributes.created_at') %>: <%= l @admin_post.created_at %><br>
-        <% if @admin_post.created_at.to_i != @admin_post.updated_at.to_i %>
-          <%= t('posts.attributes.updated_at') %>: <%= l @admin_post.updated_at %>
+        <%= @post.user.name %><br>
+        <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
+        <% if @post.created_at.to_i != @post.updated_at.to_i %>
+          <%= t('posts.attributes.updated_at') %>: <%= l @post.updated_at %>
         <% end %>
         <hr>
-        <%= @admin_post.send('content_' + l).html_safe %>
+        <%= @post.send('content_' + l).html_safe %>
 
       <% end %>
 

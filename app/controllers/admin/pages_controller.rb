@@ -4,7 +4,7 @@ class Admin::PagesController < Admin::AdminController
   # GET /admin/Pages
   # GET /admin/Pages.json
   def index
-    @admin_pages = Page.all
+    @pages = Page.all
   end
 
   # GET /admin/Pages/1
@@ -14,7 +14,7 @@ class Admin::PagesController < Admin::AdminController
 
   # GET /admin/Pages/new
   def new
-    @admin_page = Page.new
+    @page = Page.new
     attachments = Attachment.all
     @image_attachments = attachments.select do |s|
       s.image? == true
@@ -56,16 +56,16 @@ class Admin::PagesController < Admin::AdminController
   # POST /admin/Pages
   # POST /admin/Pages.json
   def create
-    @admin_page = Page.new(page_params)
+    @page = Page.new(page_params)
     @attachments = Attachment.all
 
     respond_to do |format|
-      if @admin_page.save
+      if @page.save
         format.html { redirect_to admin_pages_path, notice: 'Page was successfully created.' }
         format.json { render action: 'show', status: :created, location: admin_pages_path }
       else
         format.html { render action: 'new' }
-        format.json { render json: @admin_page.errors, status: :unprocessable_entity }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,12 +74,12 @@ class Admin::PagesController < Admin::AdminController
   # PATCH/PUT /admin/Pages/1.json
   def update
     respond_to do |format|
-      if @admin_page.update(page_params)
+      if @page.update(page_params)
         format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @admin_page.errors, status: :unprocessable_entity }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -87,7 +87,7 @@ class Admin::PagesController < Admin::AdminController
   # DELETE /admin/Pages/1
   # DELETE /admin/Pages/1.json
   def destroy
-    @admin_page.destroy
+    @page.destroy
     respond_to do |format|
       format.html { redirect_to admin_pages_url }
       format.json { head :no_content }

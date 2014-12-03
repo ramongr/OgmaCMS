@@ -9,19 +9,19 @@
       
     <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %>
 
-      <% if @admin_page.send('body_' + l).nil? %>
+      <% if @page.send('body_' + l).nil? %>
 
         <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 
       <% else %>
 
-        <h1 class="text-center"><%= @admin_page.send('title_' + l) %></h1>
+        <h1 class="text-center"><%= @page.send('title_' + l) %></h1>
 
         <strong><%= t('pages.attributes.slug') %>:</strong>
-        <p><%= @admin_page.slug %></p>
+        <p><%= @page.slug %></p>
 
         <strong><%= t('pages.attributes.body') %>:</strong>
-        <%= @admin_page.send('body_' + l).html_safe %>
+        <%= @page.send('body_' + l).html_safe %>
 
       <% end %>
 

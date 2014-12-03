@@ -2,7 +2,7 @@
 <div class="row">
   <div class="small-12">
     <%= link_to t('pages.name'), admin_pages_path, class: "button small" %>
-    <%= link_to t('common.edit'), edit_admin_page_path(@admin_page), class: "button small" %>
+    <%= link_to t('common.edit'), edit_admin_page_path(@page), class: "button small" %>
 
     <% if Setting.selected_languages.length < 2 %>
         <%= render 'single_language_show' %>

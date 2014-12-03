@@ -1,32 +1,33 @@
 <br>
 <div class="row">
   <%= link_to t('users.name'), admin_users_path, class: "button small" %>
-  <%= link_to t('common.edit'), edit_admin_user_path(@admin_user), class: "button small" %>
+  <%= link_to t('common.edit'), edit_admin_user_path(@user), class: "button small" %>
   <%= link_to t('common.destroy'), admin_user_path, method: :delete, data: {confirm: t('common.confirm')}, class: "button small alert" %>
 
   <div class="small-12">
-    <h1 class="text-center"><%= @admin_user.name %></h1>
+    <h1 class="text-center"><%= @user.name %></h1>
     <hr>
-    <p><strong><%= t('users.attributes.created_at') %>:</strong> <%= l @admin_user.created_at %></p>
-    <% if @admin_user.last_sign_in_at.nil? %>
+    <p><strong><%= t('users.attributes.created_at') %>:</strong> <%= l @user.created_at %></p>
+    <% if @user.last_sign_in_at.nil? %>
       <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= t('common.never') %></p>
     <% else %>
-      <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= @admin_user.last_sign_in_at.nil %></p>
+      <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= @user.last_sign_in_at.nil %></p>
     <% end %>
     <p>
-      <strong><%= t('users.attributes.email') %>:</strong> <%= @admin_user.email %>
-      <% if @admin_user.confirmed_at.nil? %>
+      <strong><%= t('users.attributes.email') %>:</strong> <%= @user.email %>
+      <% if @user.confirmed_at.nil? %>
         (<%= t('users.email.unconfirmed') %>)
       <% else %>
         (<%= t('users.email.confirmed') %>)
       <% end %>
     </p>
-    <p><strong><%= t('users.attributes.dob') %>:</strong> <%= @admin_user.dob %></p>
-    <p><strong><%= (t'users.attributes.country') %>:</strong> <%= @admin_user.country %></p>
-    <p><strong><%= t('users.attributes.language') %>:</strong> <%= t('language_name.' + I18n.locale.to_s, locale: @admin_user.language) %></p>
-    <p><strong><%= t('users.attributes.gender') %>:</strong> <%= @admin_user.gender %></p>
-    <p><strong><%= t('users.attributes.role') %>:</strong> <%= @admin_user.role.humanize %></p>
-    <p><strong><%= t('users.attributes.receive_newsletters')  %>:</strong> <%= t ('common.' + @admin_user.newsletter_subscribed.to_s) %></p>
+    <p><strong><%= t('users.attributes.dob') %>:</strong> <%= @user.dob %></p>
+    <p><strong><%= (t'users.attributes.country') %>:</strong> <%= @user.country %></p>
+    <p><strong><%= t('users.attributes.language') %>:</strong> <%= t('language_name.' + I18n.locale.to_s, locale: @user.language) %></p>
+    <p><strong><%= t('users.attributes.time_zone') %>:</strong> <%=  ActiveSupport::TimeZone.all.find{|t| t.name == @user.time_zone}.to_s.split.first %>
+    <p><strong><%= t('users.attributes.gender') %>:</strong> <%= @user.gender %></p>
+    <p><strong><%= t('users.attributes.role') %>:</strong> <%= @user.role.humanize %></p>
+    <p><strong><%= t('users.attributes.receive_newsletters')  %>:</strong> <%= t ('common.' + @user.newsletter_subscribed.to_s) %></p>
     <hr>
   </div>
 </div>
