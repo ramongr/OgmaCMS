@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::PagesControllerTest < ActionController::TestCase
   setup do
-    @admin_page = admin_pages(:one)
+    @page = admin_pages(:one)
   end
 
   test 'should get index' do
@@ -18,30 +18,30 @@ class Admin::PagesControllerTest < ActionController::TestCase
 
   test 'should create admin_page' do
     assert_difference('Admin::Page.count') do
-      post :create, admin_page: { body: @admin_page.body, slug: @admin_page.slug, title: @admin_page.title }
+      post :create, admin_page: { body: @page.body, slug: @page.slug, title: @page.title }
     end
 
     assert_redirected_to admin_page_path(assigns(:admin_page))
   end
 
   test 'should show admin_page' do
-    get :show, id: @admin_page
+    get :show, id: @page
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, id: @admin_page
+    get :edit, id: @page
     assert_response :success
   end
 
   test 'should update admin_page' do
-    patch :update, id: @admin_page, admin_page: { body: @admin_page.body, slug: @admin_page.slug, title: @admin_page.title }
+    patch :update, id: @page, admin_page: { body: @page.body, slug: @page.slug, title: @page.title }
     assert_redirected_to admin_page_path(assigns(:admin_page))
   end
 
   test 'should destroy admin_page' do
     assert_difference('Admin::Page.count', -1) do
-      delete :destroy, id: @admin_page
+      delete :destroy, id: @page
     end
 
     assert_redirected_to admin_pages_path

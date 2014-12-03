@@ -4,12 +4,12 @@
   <% end %>
 </ul>
 
-<%= form_for([:admin,@admin_page], data: {model: 'page'}) do |f| %>
-  <% if @admin_page.errors.any? %>
+<%= form_for([:admin,@page], data: {model: 'page'}) do |f| %>
+  <% if @page.errors.any? %>
     <div id="error_explanation">
-      <h4><%= t 'common.error_save', count: @admin_page.errors.count, model: Page.model_name.human %></h4>
+      <h4><%= t 'common.error_save', count: @page.errors.count, model: Page.model_name.human %></h4>
       <ul>
-      <% @admin_page.errors.full_messages.each do |msg| %>
+      <% @page.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

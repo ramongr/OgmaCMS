@@ -3,7 +3,7 @@
 <div class="row">
   <%= link_to t('pages.index.admin.new'), new_admin_page_path, class: "button tiny" %>
   <div class="small-12">
-    <% unless @admin_pages.empty? %>
+    <% unless @pages.empty? %>
       <table>
         <thead>
           <tr>
@@ -14,7 +14,7 @@
         </thead>
 
         <tbody>
-          <% @admin_pages.each do |admin_page| %>
+          <% @pages.each do |admin_page| %>
             <tr>
               <td><%= admin_page.title %></td>
               <td><%= admin_page.slug %></td>

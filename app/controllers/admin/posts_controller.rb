@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::AdminController
   # GET /admin/posts
   # GET /admin/posts.json
   def index
-    @admin_posts = Post.all
+    @posts = Post.all
   end
 
   # GET /admin/posts/1
@@ -14,7 +14,7 @@ class Admin::PostsController < Admin::AdminController
 
   # GET /admin/posts/new
   def new
-    @admin_post = Post.new
+    @post = Post.new
     attachments = Attachment.all
     @image_attachments = attachments.select do |s|
       s.image? == true
@@ -56,16 +56,16 @@ class Admin::PostsController < Admin::AdminController
   # POST /admin/posts
   # POST /admin/posts.json
   def create
-    @admin_post = current_user.posts.create(post_params)
+    @post = current_user.posts.create(post_params)
     @attachments = Attachment.all
 
     respond_to do |format|
-      if @admin_post.save
+      if @post.save
         format.html { redirect_to admin_posts_url, notice: 'post was successfully created.' }
         format.json { render action: 'show', status: :created, location: admin_posts_url }
       else
         format.html { render action: 'new' }
-        format.json { render json: @admin_post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,12 +74,12 @@ class Admin::PostsController < Admin::AdminController
   # PATCH/PUT /admin/posts/1.json
   def update
     respond_to do |format|
-      if @admin_post.update(post_params)
+      if @post.update(post_params)
         format.html { redirect_to admin_posts_url, notice: 'post was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @admin_post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -87,7 +87,7 @@ class Admin::PostsController < Admin::AdminController
   # DELETE /admin/posts/1
   # DELETE /admin/posts/1.json
   def destroy
-    @admin_post.destroy
+    @post.destroy
     respond_to do |format|
       format.html { redirect_to admin_posts_url }
       format.json { head :no_content }

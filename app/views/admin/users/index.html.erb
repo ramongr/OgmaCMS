@@ -3,7 +3,7 @@
 <div class="row">
   <%= link_to t('users.index.admin.new'), new_admin_user_path, class: "button tiny" %>
   <div class="small-12">
-    <% unless @admin_users.empty? %>
+    <% unless @users.empty? %>
       <table>
         <thead>
           <tr>
@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @admin_users.each do |user| %>
+          <% @users.each do |user| %>
             <tr>
               <td><%= user.name %></td>
               <td><%= user.email %></td>
