@@ -5,6 +5,7 @@ CKEDITOR.editorConfig = (config) ->
   config.disableNativeSpellChecker = false
   config.allowedContent = true
   config.extraPlugins = 'mediabutton,emoji'
+   
  
   config.toolbar_Editor = [
     { name: 'document', items: [ 'Source', '-', 'Preview', 'Print','-','Templates' ]},
