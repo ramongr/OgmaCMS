@@ -46,7 +46,9 @@ pt:
       body: Uma descrição aqui
       all-day: O evento é o dia todo? Clique aqui
       start-time: Início do evento
-      end-time: Fim do evento
+      end-time: Definir fim do evento?
+      # notification: Uncheck if you've made a small change and feel there is no need to notify
+      notification: Remova a selecção se as alterações são pequenas e não há necessidade de notificar
     # 
     # Galleries
     # 

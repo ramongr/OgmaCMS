@@ -28,38 +28,21 @@
       <%= hidden_field_tag :toggle_time, '' %>
       <%= check_box_tag :toggle_time %> <%= t('events.attributes.end_time_toggle') %>
     </div>
-    <% if action_name == 'edit' %>
-      <div class="field">
-        <%= hidden_field_tag :notification, '' %>
-        <%= check_box_tag :notification %> <%= t('events.attributes.notification') %>
-      </div>
-    <% end %>
+    <div id="dummy-end-time"></div>
     <div id="event-end-time" class="field end-time-hide">
       <%= f.label :end_time %>
       <%= f.date_select :end_time, { include_blank: true}, {class: "small-4 columns"}  %>
       <%= f.time_select :end_time, { include_blank: true, time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
     </div>
+    <% if action_name == 'edit' %>
+      <div id="event-notification" class="field">
+        <%= hidden_field_tag :notification, '' %>
+        <%= check_box_tag :notification, true, {checked: true} %> <%= t('events.attributes.notification') %>
+      </div>
+    <% end %>
     <div class="actions">
       <%= f.submit class: "button right" %>
     </div>
 <% end %>
-<!-- Joyride -->
-<div id="joyride-content">
-  <ol class="joyride-list" data-joyride>
-    <li data-id="event-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
-      <p><%= t 'joyride.event.title' %></p>
-    </li>
-    <li data-id="event-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.event.body' %></p>
-    </li>
-    <li data-id="event-all-day" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.event.all-day' %></p>
-    </li>
-    <li data-id="event-start-time" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.event.start-time' %></p>
-    </li>
-    <li data-id="event-end-time" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
-      <p><%= t 'joyride.event.end-time' %></p>
-    </li>
-  </ol>
-</div>
+
+<%= render 'joyride_instructions' %>

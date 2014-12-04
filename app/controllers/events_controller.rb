@@ -36,6 +36,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def notify
+    @event = Event.find(params[:event_id])
+    @attending = Attending.find_by(event: @event, user: current_user)
+    @attending.update(notification: !@attending.notification)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def not_going
     @event = Event.find(params[:event_id])
     @attending = Attending.find_by(event: @event, user: current_user)

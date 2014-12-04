@@ -19,6 +19,7 @@ OgmaCMS::Application.routes.draw do
       put 'going' => 'events#going', as: 'going'
       put 'not_going' => 'events#not_going', as: 'not_going'
       put 'maybe' => 'events#maybe', as: 'maybe'
+      put 'notify' => 'events#notify', as: 'notify'
     end
 
     resources :posts, only: [:index, :show] do

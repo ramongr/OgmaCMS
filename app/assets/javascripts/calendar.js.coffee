@@ -45,7 +45,8 @@ calendar = ->
         header:
           left: 'prev,next today'
           center: 'title'
-          right: 'month,agendaWeek,agendaDay'
+          right: 'month'
+        allDaySlot: true
         selectable: true
         selectHelper: true
         editable: true
@@ -54,7 +55,6 @@ calendar = ->
         timeFormat: 'HH:mm'
         events: 'admin/events.json'
         select: (start, end) ->
-          console.log start
           $('#event-start-time > select:eq(0)').val(start.date())
           $('#event-start-time > select:eq(1)').val(start.month()+1)
           $('#event-start-time > select:eq(2)').val(start.year())

@@ -64,3 +64,8 @@ pt:
     im_indecisive: Talvez vá
 
     end_time_after_start_time: tem que ser depois de início
+
+    notification_true: Estás a receber notificações
+    notification_false: Não estás a receber notificações
+    notification_true_false: Cancelar
+    notification_false_true: Activar

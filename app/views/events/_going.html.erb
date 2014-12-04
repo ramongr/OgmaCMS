@@ -30,6 +30,16 @@
         <%= link_to t('events.im_not_going'), event_not_going_path(@event), method: :put, remote: true %>
       <% end %>
     </p>
+    <p>
+      <% notif = Attending.find_by(event: @event, user: current_user).notification %>
+      <% if notif == true %>
+        <%= t('events.notification_true') %>
+        <%= link_to t('events.notification_true_false'), event_notify_path(@event), method: :put, remote: true  %>
+      <% else %>
+        <%= t('events.notification_false') %>
+        <%= link_to t('events.notification_false_true'), event_notify_path(@event), method: :put, remote: true  %>
+      <% end %>
+    </p>
   <% end %>
 
   <% unless attending.empty? %>

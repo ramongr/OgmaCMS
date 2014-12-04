@@ -63,3 +63,8 @@ en:
     im_indecisive: I'm indecisive
 
     end_time_after_start_time: date must be after start date
+
+    notification_true: You're receiving notifications
+    notification_false: You're not receiving notifications
+    notification_true_false: Cancel
+    notification_false_true: Activate
