@@ -1,0 +1,57 @@
+en:
+  unauthorized:
+    manage:
+      attachment: You don't have permission to manage this attachment.
+      comment: You don't have permission to manage this comment.
+      event: You don't have permission to manage this event.
+      gallery: You don't have permission to manage this gallery.
+      link: You don't have permission to manage this link.
+      newsletter: You don't have permission to managey this newsletter.
+      page: You don't have permission to manage this page.
+      post: You don't have permission to manage this post.
+      sidebar: You don't have permission to manage this menu.
+      slider: You don't have permission to manage this slider.
+      user: You don't have permission to manage this user.
+      visitor_comment: You don't have permission to manage this comment.
+
+    create:
+      attachment: You don't have permission to create an attachment.
+      comment: Only registered users are allowed to comment.
+      event: You don't have permission to create an event.
+      gallery: You don't have permission to create a gallery.
+      link: You don't have permission to create a link.
+      newsletter: You don't have permission to create a newsletter.
+      page: You don't have permission to create a page.
+      post: You don't have permission to create a post.
+      sidebar: You don't have permission to create a menu.
+      slider: You don't have permission to create an slider.
+      user: You don't have permission to create an user.
+      visitor_comment: You don't have permission to create an comentário.
+
+    read:
+      attachment: You don't have permission to view this attachment.
+      comment: You don't have permission to view this comment.
+      event: You don't have permission to view this event.
+      gallery: You don't have permission to view this gallery.
+      link: You don't have permission to view this link.
+      newsletter: You don't have permission to viewy this newsletter.
+      page: You don't have permission to view this page.
+      post: You don't have permission to view this post.
+      sidebar: You don't have permission to view this menu.
+      slider: You don't have permission to view this slider.
+      user: You don't have permission to view this user.
+      visitor_comment: You don't have permission to view this comment.
+
+    update:
+      attachment: You don't have permission to edit this attachment.
+      comment: You don't have permission to edit this comment.
+      event: You don't have permission to edit this event.
+      gallery: You don't have permission to edit this gallery.
+      link: You don't have permission to edit this link.
+      newsletter: You don't have permission to edit this newsletter.
+      page: You don't have permission to edit this page.
+      post: You don't have permission to edit this post.
+      sidebar: You don't have permission to edit this menu.
+      slider: You don't have permission to edit this slider.
+      user: You don't have permission to edit this user.
+      visitor_comment: You don't have permission to edit this comment.

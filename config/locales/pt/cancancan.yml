@@ -1,0 +1,57 @@
+pt:
+  unauthorized:
+    manage:
+      attachment: Não tem permissão para gerir este anexo.
+      comment: Não tem permissão para gerir este comentário.
+      event: Não tem permissão para gerir este evento.
+      gallery: Não tem permissão para gerir esta galeria.
+      link: Não tem permissão para gerir este link.
+      newsletter: Não tem permissão para gerir esta newsletter.
+      page: Não tem permissão para gerir esta página.
+      post: Não tem permissão para gerir este artigo.
+      sidebar: Não tem permissão para gerir este menu.
+      slider: Não tem permissão para gerir este painel rolante.
+      user: Não tem permissão para gerir este user.
+      visitor_comment: Não tem permissão para gerir este comentário.
+
+    create:
+      attachment: Não tem permissão para criar um anexo.
+      comment: Apenas utilizadores registados podem comentar.
+      event: Não tem permissão para criar um evento.
+      gallery: Não tem permissão para criar uma galeria.
+      link: Não tem permissão para criar um link.
+      newsletter: Não tem permissão para criar uma newsletter.
+      page: Não tem permissão para criar uma página.
+      post: Não tem permissão para criar um artigo.
+      sidebar: Não tem permissão para criar um menu.
+      slider: Não tem permissão para criar um painel rolante.
+      user: Não tem permissão para criar um user.
+      visitor_comment: Não tem permissão para criar um comentário.
+
+    read:
+      attachment: Não tem permissão para ver este anexo.
+      comment: Não tem permissão para ver este comentário.
+      event: Não tem permissão para ver este evento.
+      gallery: Não tem permissão para ver esta galeria.
+      link: Não tem permissão para ver este link.
+      newsletter: Não tem permissão para ver esta newsletter.
+      page: Não tem permissão para ver esta página.
+      post: Não tem permissão para ver este artigo.
+      sidebar: Não tem permissão para ver este menu.
+      slider: Não tem permissão para ver este painel rolante.
+      user: Não tem permissão para ver este user.
+      visitor_comment: Não tem permissão para ver este comentário.
+
+    update:
+      attachment: Não tem permissão para editar este anexo.
+      comment: Não tem permissão para editar este comentário.
+      event: Não tem permissão para editar este evento.
+      gallery: Não tem permissão para editar esta galeria.
+      link: Não tem permissão para editar este link.
+      newsletter: Não tem permissão para editar esta newsletter.
+      page: Não tem permissão para editar esta página.
+      post: Não tem permissão para editar este artigo.
+      sidebar: Não tem permissão para editar este menu.
+      slider: Não tem permissão para editar este painel rolante.
+      user: Não tem permissão para editar este user.
+      visitor_comment: Não tem permissão para editar este comentário.

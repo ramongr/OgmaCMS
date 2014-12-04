@@ -1,5 +1,4 @@
 class Admin::AttachmentsController < Admin::AdminController
-  before_action :set_attachment, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /admin/attachments
@@ -72,11 +71,6 @@ class Admin::AttachmentsController < Admin::AdminController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_attachment
-    @attachment = Attachment.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def attachment_params

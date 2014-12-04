@@ -10,6 +10,7 @@
   </head>
   <body id="<%= controller.controller_name %>">
     <%= render 'layouts/topbar' %>
+    <%= render 'layouts/messages' %>
     <br>
     <!-- Main Slider -->
     <div class="row">
@@ -101,8 +102,6 @@
         </div>
       </footer>
     <% end %>
-
-    <%= render 'layouts/messages' %>
 
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   </body>

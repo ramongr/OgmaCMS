@@ -22,7 +22,7 @@ RSpec.describe Admin::PagesController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested page to @admin_page' do
+    it 'assigns the requested page to @page' do
       page = create(:page)
       get :show, id: page
       expect(assigns(:admin_page)).to eq page
@@ -36,7 +36,7 @@ RSpec.describe Admin::PagesController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'assigns a new page to @admin_page' do
+    it 'assigns a new page to @page' do
       get :new
       expect(assigns(:admin_page)).to be_a_new(Page)
     end
@@ -48,7 +48,7 @@ RSpec.describe Admin::PagesController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested page to @admin_page' do
+    it 'assigns the requested page to @page' do
       page = create(:page)
       get :edit, id: page
       expect(assigns(:admin_page)).to eq page

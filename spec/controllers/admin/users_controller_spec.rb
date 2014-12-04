@@ -22,7 +22,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'assigns the requested user to @admin_user' do
+    it 'assigns the requested user to @user' do
       user = create(:admin)
       get :show, id: user
       expect(assigns(:admin_user)).to eq user
@@ -36,7 +36,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'assigns a new user to @admin_user' do
+    it 'assigns a new user to @user' do
       get :new
       expect(assigns(:admin_user)).to be_a_new(User)
     end
@@ -48,7 +48,7 @@ RSpec.describe Admin::UsersController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested user to @admin_user' do
+    it 'assigns the requested user to @user' do
       user = create(:admin)
       get :edit, id: user
       expect(assigns(:admin_user)).to eq user
@@ -91,7 +91,7 @@ RSpec.describe Admin::UsersController, type: :controller do
 
   describe 'PATCH #update' do
     context 'with valid attributes' do
-      it 'located the requested @admin_user' do
+      it 'located the requested @user' do
         patch :update, id: @user, user: attributes_for(:super_admin)
         expect(assigns(:admin_user)).to eq(@user)
       end

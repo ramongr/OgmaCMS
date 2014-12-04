@@ -1,10 +1,10 @@
-<%= form_for([:admin,@admin_user]) do |f| %>
-  <% if @admin_user.errors.any? %>
+<%= form_for([:admin,@user]) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h4><%= t 'common.error_save', count: @admin_user.errors.count, model: User.model_name.human %></h4>
+      <h4><%= t 'common.error_save', count: @user.errors.count, model: User.model_name.human %></h4>
 
       <ul>
-      <% @admin_user.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -19,7 +19,7 @@
     <%= f.label :email %>
     <%= f.email_field :email, autocomplete: :off %>
   </div>
-  <% if @admin_user.confirmed_at.nil? %>
+  <% if @user.confirmed_at.nil? %>
     <div class="field">
       <%= check_box_tag 'confirm_email' %>
       <%= label_tag t('users.email.confirm_email') %>
@@ -46,7 +46,7 @@
   </div>
   <div id="user-time-zone" class="field">
     <%= f.label :time_zone %>
-    <%= f.time_zone_select :time_zone %>
+    <%= f.select :time_zone, ActiveSupport::TimeZone.all.group_by(&:utc_offset).values.map {|t| [t.map.with_index {|t,i| i == 0 ? t.to_s : t.name}.join(", ").truncate(100), t.first.name]}, selected: @user.time_zone %>
   </div>
   <div id="user-password" class="field">
     <%= f.label :password, "Password" %>

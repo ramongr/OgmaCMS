@@ -305,6 +305,7 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "action"
   end
 
   create_table "users", force: true do |t|

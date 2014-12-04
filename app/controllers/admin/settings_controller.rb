@@ -1,5 +1,5 @@
 class Admin::SettingsController < Admin::AdminController
-  load_and_authorize_resource
+  authorize_resource
 
   def index
     @system_mails = SystemMail.all
@@ -43,10 +43,9 @@ class Admin::SettingsController < Admin::AdminController
       end
     end
 
-    new_default_time_zone = params[:default_time_zone].first
-    if Setting.default_time_zone != new_default_time_zone
-      if ActiveSupport::TimeZone.zones_map(&:name).keys.include?(new_default_time_zone)
-        Setting.default_time_zone = new_default_time_zone
+    if Setting.default_time_zone != params[:default_time_zone]
+      if ActiveSupport::TimeZone.zones_map(&:name).keys.include?(params[:default_time_zone])
+        Setting.default_time_zone = params[:default_time_zone]
       else
         errors << t('settings.errors.default_time_zone_not_available')
       end

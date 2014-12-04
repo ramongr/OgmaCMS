@@ -36,7 +36,7 @@ RSpec.describe Admin::PostsController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'assigns a post user to @admin_post' do
+    it 'assigns a post user to @post' do
       get :new
       expect(assigns(:admin_post)).to be_a_new(Post)
     end
@@ -48,7 +48,7 @@ RSpec.describe Admin::PostsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'assigns the requested post to @admin_post' do
+    it 'assigns the requested post to @post' do
       post = create(:post)
       get :edit, id: post
       expect(assigns(:admin_post)).to eq post
@@ -95,7 +95,7 @@ RSpec.describe Admin::PostsController, type: :controller do
     end
 
     context 'with valid attributes' do
-      it 'located the requested @admin_post' do
+      it 'located the requested @post' do
         patch :update, id: @post, post: attributes_for(:post)
         expect(assigns(:admin_post)).to eq(@post)
       end
