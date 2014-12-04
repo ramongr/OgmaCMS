@@ -39,10 +39,9 @@ OgmaCMS::Application.routes.draw do
       get '/', to: 'dashboard#index'
       resources :sidebars
       resources :pages
-      resources :posts
+      resources :events
       resources :links
       resources :users
-      resources :events
       resources :system_mails, except: [:new,:delete]
       resources :attachments do
         member do
@@ -67,6 +66,9 @@ OgmaCMS::Application.routes.draw do
           post 'remove_photo'
           post 'reorder'
         end
+      end
+      resources :posts do
+        put 'publish' => 'posts#publish', as: 'publish'
       end
 
       resources :settings, only: [:index]

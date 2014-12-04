@@ -5,6 +5,8 @@ pt:
     show: Ver
     new: Novo
     edit: Modificar
+    publish: Publicar
+    unpublish: Remover Publicação
     back: Retroceder
     destroy: Apagar
     'yes': Sim

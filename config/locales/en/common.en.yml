@@ -5,6 +5,8 @@ en:
     show: Show
     new: New
     edit: Edit
+    publish: Publish
+    unpublish: Unpublish
     back: Back
     destroy: Delete
     'yes': Yes
