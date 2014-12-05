@@ -1,7 +1,6 @@
 events = ->
-  $("#event_all_day").change ->
-    $("select#time_select").toggle()
-    return
+  $("#toggle_time[type=checkbox]").change ->
+    $('#event-end-time').toggleClass('end-time-hide')
   return
 
 $(document).ready(events)

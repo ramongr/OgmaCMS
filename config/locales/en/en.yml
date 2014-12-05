@@ -11,10 +11,12 @@ en:
 #
   time:
     formats:
-      date_only: '%A, %e de %B de %Y'
+      full_date: '%A, %e %B %Y at %H:%Mh'
+      date_only: '%A, %e %B %Y'
       time_only: '%H:%Mh'
 
     from_date: From
     to_date: To
     from_time: From
     to_time: To
+    at_time: At

@@ -9,8 +9,8 @@ en:
     unpublish: Unpublish
     back: Back
     destroy: Delete
-    'yes': Yes
-    'no': No
+    yes: Yes
+    no: No
     maybe: Maybe
     insert_attachment: Insert atttachment
     select_attachment: Select attachment

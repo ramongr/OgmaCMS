@@ -8,7 +8,6 @@ pt:
         body: Descrição
         start_time: Início
         end_time: Fim
-        all_day: Todo o dia
         created_at: Criado em
         updated_at: Modificado em
 
@@ -20,8 +19,8 @@ pt:
       body: Descrição
       date: Data
       start_time: Início
-      end_time: Fim
-      all_day: Todo o dia
+      end_time_toggle: Hora de fim?
+      notification: Avisar sobre alterações?
 
     index:
       admin:
@@ -65,3 +64,8 @@ pt:
     im_indecisive: Talvez vá
 
     end_time_after_start_time: tem que ser depois de início
+
+    notification_true: Estás a receber notificações
+    notification_false: Não estás a receber notificações
+    notification_true_false: Cancelar
+    notification_false_true: Activar

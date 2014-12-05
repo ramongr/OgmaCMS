@@ -9,8 +9,8 @@ pt:
     unpublish: Remover Publicação
     back: Retroceder
     destroy: Apagar
-    'yes': Sim
-    'no': Não
+    yes: Sim
+    no: Não
     maybe: Talvez
     insert_attachment: Inserir anexo
     select_attachment: Seleccionar anexo
