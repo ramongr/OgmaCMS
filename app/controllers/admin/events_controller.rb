@@ -18,7 +18,6 @@ class Admin::EventsController < Admin::AdminController
       # Presetting some values for the event
       body = nil
       final = nil
-      all_day = true
       
       # Building start time
       start = params[:start_time]
@@ -83,7 +82,7 @@ class Admin::EventsController < Admin::AdminController
       if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: final)
         # TO DO if for notification
         unless params[:notification].empty?
-          Attending.where(event: @event).where.not(going: 'no').where(notification: true).each do |a|
+          Attending.where(event: @event).where(notification: true).each do |a|
             SystemMailer.event_update(@event, a.user).deliver
           end
         end

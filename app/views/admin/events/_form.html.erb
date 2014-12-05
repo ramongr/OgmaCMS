@@ -21,7 +21,7 @@
     </div>
     <div id="event-start-time" class="field">
       <%= f.label :start_time %>
-      <%= f.date_select :start_time, {}, {class: "small-4 columns"} %>
+      <%= f.date_select :start_time, { order: [:day, :month, :year] }, {class: "small-4 columns"} %>
       <%= f.time_select :start_time, { time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"}  %>
     </div>
     <div class="field">
@@ -31,7 +31,7 @@
     <div id="dummy-end-time"></div>
     <div id="event-end-time" class="field end-time-hide">
       <%= f.label :end_time %>
-      <%= f.date_select :end_time, { include_blank: true}, {class: "small-4 columns"}  %>
+      <%= f.date_select :end_time, { include_blank: true, order: [:day, :month, :year] }, {class: "small-4 columns"}  %>
       <%= f.time_select :end_time, { include_blank: true, time_separator: "", ignore_date: true }, {class: "small-6 columns", id: "time_select"} %>
     </div>
     <% if action_name == 'edit' %>

@@ -18,7 +18,7 @@
       <!-- Start time -->
       <div id="event-start-time" class="field">
         <label>Start time</label>
-        <%= date_select "event", :start_time, {include_blank: true, order: [:day, :month, :year]}, {class: "small-4 columns", name: "start_time[]"} %>
+        <%= date_select "event", :start_time, {order: [:day, :month, :year]}, {class: "small-4 columns", name: "start_time[]"} %>
         <%= time_select "event", :start_time, { time_separator: "", ignore_date: true}, {class: "small-6 columns", id: "time_select", name: "start_time[]"}  %>
       </div>
       <!-- All day? -->
