@@ -219,3 +219,20 @@ SystemMail.create action: 'event_update',
 puts 'Created system mail 3'
 
 
+SystemMail.create action: 'birthday_email',
+                  name_pt: 'Email de Parabéns',
+                  subject_pt: '*site_name*:',
+                  content_pt: '<h2>Olá, *user_name*</h2>' \
+                           '<p>' \
+                             'Parabéns' \
+                           '</p>' \
+                           '<p>Os melhores cumprimentos, tenha um bom dia!</p>',
+
+                  name_en: 'Birthday Email',
+                  subject_en: '*site_name*:',
+                  content_en: '<h2>Hello, *user_name*</h2>' \
+                           '<p>' \
+                             'Congratulations' \
+                           '</p>' \
+                           '<p>Thanks for reading and have a great day!</p>'
+puts 'Created system mail 4'
