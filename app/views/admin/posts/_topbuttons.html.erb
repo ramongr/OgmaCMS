@@ -1,3 +1,3 @@
 <%= link_to t('posts.name'), admin_posts_path, class: "button small" %>
 <%= link_to t('common.edit'), edit_admin_post_path(@post), class: "button small" %>
-<%= link_to @post.publish ? t('common.unpublish') : t('common.publish'),  admin_post_publish_path(@post.id),method: :put, remote: true, class: "button small" + (@post.publish ? " alert" : "") %>
+<%= link_to @post.publish ? t('common.unpublish') : t('common.publish'),  admin_post_publish_path(@post.id), method: :put, remote: true, class: "button small" + (@post.publish ? " alert" : "") %>

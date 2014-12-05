@@ -38,7 +38,6 @@ OgmaCMS::Application.routes.draw do
     namespace :admin do
       get '/', to: 'dashboard#index'
       resources :sidebars
-      resources :pages
       resources :events
       resources :links
       resources :users
@@ -69,6 +68,9 @@ OgmaCMS::Application.routes.draw do
       end
       resources :posts do
         put 'publish' => 'posts#publish', as: 'publish'
+      end
+      resources :pages do
+        put 'publish' => 'pages#publish', as: 'publish'
       end
 
       resources :settings, only: [:index]

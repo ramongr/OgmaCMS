@@ -38,6 +38,9 @@ gem 'jquery-turbolinks'
 # Foundation Official Gem
 gem 'foundation-rails'
 
+# Foundation icon 3
+gem 'foundation-icons-sass-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder'
 

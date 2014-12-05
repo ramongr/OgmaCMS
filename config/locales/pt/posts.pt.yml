@@ -11,6 +11,7 @@ pt:
 
   posts:
     name: Artigos
+    published: Publicado
 
     attributes:
       title: Nome
