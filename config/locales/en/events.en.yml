@@ -8,10 +8,8 @@ en:
         body: Description
         start_time: Beginning
         end_time: End
-        all_day: All day
         created_at: Created at
         updated_at: Updated at
-        
   events:
     name: Events
 
@@ -20,8 +18,8 @@ en:
       body: Description
       date: Date
       start_time: Beginning
-      end_time: End
-      all_day: All day
+      end_time_toggle: End time?
+      notification: Warn about changes?
 
     index:
       admin:
@@ -65,3 +63,8 @@ en:
     im_indecisive: I'm indecisive
 
     end_time_after_start_time: date must be after start date
+
+    notification_true: You're receiving notifications
+    notification_false: You're not receiving notifications
+    notification_true_false: Cancel
+    notification_false_true: Activate

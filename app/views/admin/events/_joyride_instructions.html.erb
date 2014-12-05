@@ -1,0 +1,26 @@
+<!-- Joyride -->
+<div id="joyride-content">
+  <ol class="joyride-list" data-joyride>
+    <li data-id="event-title" data-text=<%= t 'joyride.next' %> data-options="tip_location: top; prev_button: false">
+      <p><%= t 'joyride.event.title' %></p>
+    </li>
+    <li data-id="event-body" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.body' %></p>
+    </li>
+    <li data-id="event-all-day" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.all-day' %></p>
+    </li>
+    <li data-id="event-start-time" data-text=<%= t 'joyride.next' %> data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: top">
+      <p><%= t 'joyride.event.start-time' %></p>
+    </li>
+    <%= content_tag :li, data: { id: "dummy-end-time", text: action_name == 'edit' ? t('joyride.next') : "Ok", prev_text: t('joyride.prev'), options: "tip_location: bottom" } do %>
+      <p><%= t 'joyride.event.end-time' %></p>
+    <% end %>
+    <% if action_name == 'edit' %>
+       <li data-id="event-notification" data-text="Ok" data-prev-text=<%= t 'joyride.prev' %> data-options="tip_location: bottom">
+        <p><%= t 'joyride.event.notification' %></p>
+      </li>
+    <% end %>
+
+  </ol>
+</div>

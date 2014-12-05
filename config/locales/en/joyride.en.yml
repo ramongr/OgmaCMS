@@ -46,7 +46,8 @@ en:
       body: Decription of the event
       all-day: All day event? Click here
       start-time: Start date of the event
-      end-time: End date of the event
+      end-time: Set end date of the event?
+      notification: Uncheck if you've made a small change and feel there is no need to notify
     # 
     # Galleries
     # 

@@ -11,6 +11,7 @@ pt:
 #
   time:
     formats:
+      full_date: '%A, %e de %B de %Y às %H:%Mh'
       date_only: '%A, %e de %B de %Y'
       time_only: '%H:%Mh'
 
@@ -18,3 +19,4 @@ pt:
     to_date: Até
     from_time: Das
     to_time: Até às
+    at_time: Às

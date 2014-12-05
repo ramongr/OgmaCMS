@@ -1,26 +1,22 @@
 <div id="going">
-  <% attending = Attending.yes.where(event: @event) %>
-  <% not_attending = Attending.no.where(event: @event) %>
-  <% indecisive = Attending.maybe.where(event: @event) %>
   <p>
-    <%= (t 'events.going_number', count: attending.count) %> 
-    <%= '| ' + (t 'events.not_going_number', count: not_attending.count) if not_attending.count > 0 %> 
-    <%= '| ' + (t 'events.indecisive_number', count: indecisive.count) if indecisive.count > 0 %>
+    <%= (t 'events.going_number', count: @going.count) %> 
+    <%= '| ' + (t 'events.not_going_number', count: @not_going.count) if @not_going.count > 0 %> 
+    <%= '| ' + (t 'events.indecisive_number', count: @indecisive.count) if @indecisive.count > 0 %>
   </p>
 
   <% if user_signed_in? %>
     <p>
-      <% attend = Attending.find_by(event: @event, user: current_user) %>
-      <% if attend.nil? %>
+      <% if @attending.nil? %>
         <%= t('events.going?') %> 
         <%= link_to t('common.yes'), event_going_path(@event), method: :put, remote: true %> |
         <%= link_to t('common.no'), event_not_going_path(@event), method: :put, remote: true  %> |
         <%= link_to t('common.maybe'), event_maybe_path(@event), method: :put, remote: true %>
-      <% elsif attend.yes? %>
+      <% elsif @attending.yes? %>
         <%= t('events.you_are_going') %>, <%= t('events.changed_your_mind?') %> 
         <%= link_to t('events.im_not_going'), event_not_going_path(@event), method: :put, remote: true  %> |
         <%= link_to t('events.im_indecisive'), event_maybe_path(@event), method: :put, remote: true %>
-      <% elsif attend.no? %>
+      <% elsif @attending.no? %>
         <%= t('events.you_are_not_going') %>, <%= t('events.changed_your_mind?') %> 
         <%= link_to t('events.im_going'), event_going_path(@event), method: :put, remote: true  %> |
         <%= link_to t('events.im_indecisive'), event_maybe_path(@event), method: :put, remote: true %>
@@ -30,25 +26,31 @@
         <%= link_to t('events.im_not_going'), event_not_going_path(@event), method: :put, remote: true %>
       <% end %>
     </p>
+    <p>
+      <% unless @attending.nil? %>
+        <%= @attending.notification == true ? t('events.notification_true') : t('events.notification_false') %>
+        <%= link_to @attending.notification == true ? t('events.notification_true_false') : t('events.notification_false_true'), event_notify_path(@event), method: :put, remote: true  %>
+      <% end %>
+    </p>
   <% end %>
 
-  <% unless attending.empty? %>
+  <% unless @going.empty? %>
     <strong><%= t('events.going') %>:</strong>
-    <% attending.each do |a| %>
+    <% @going.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless not_attending.empty? %>
+  <% unless @not_going.empty? %>
     <strong><%= t('events.not_going') %>:</strong>
-    <% not_attending.each do |a| %>
+    <% @not_going.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless indecisive.empty? %>
+  <% unless @indecisive.empty? %>
     <strong><%= t('events.indecisive') %>:</strong>
-    <% indecisive.each do |a| %>
+    <% @indecisive.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
