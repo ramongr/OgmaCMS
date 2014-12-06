@@ -1,7 +1,8 @@
 <br>
 <div class="row">
-  <%= link_to t('posts.name'), admin_posts_path, class: "button small" %>
-  <%= link_to t('common.edit'), edit_admin_post_path(@post), class: "button small" %>
+  <div id="top-button-container">
+    <%= render 'topbuttons' %>
+  </div>
 
   <div class="small-12">
     <% if Setting.selected_languages.length < 2 %>

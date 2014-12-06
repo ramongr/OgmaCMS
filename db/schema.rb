@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.string   "going"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "notification", default: true
   end
 
   create_table "comments", force: true do |t|
@@ -56,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.text     "body"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

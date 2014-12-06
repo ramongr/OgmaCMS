@@ -12,6 +12,14 @@ class Admin::PostsController < Admin::AdminController
   def show
   end
 
+  def publish
+    @post.update_attributes(publish: !@post.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /admin/posts/new
   def new
     @post = Post.new

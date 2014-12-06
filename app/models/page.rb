@@ -6,6 +6,8 @@ class Page < ActiveRecord::Base
   validates :slug, uniqueness: true, format: { with: /\A[a-z_]+\z/ }
   has_and_belongs_to_many :sidebars
 
+  scope :published, -> {where(publish: true)}
+
   include PgSearch
   pg_search_scope :search, against: [:title, :body],
                            using: { tsearch: { prefix: true } },

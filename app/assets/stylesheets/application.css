@@ -14,7 +14,7 @@
  *= require foundation_and_overrides
  *= require_tree .
  */
-
+@import 'foundation-icons';
 td {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -56,4 +56,12 @@ td {
 }
 .apple_pagination a:hover, .apple_pagination a:focus {
   text-decoration: underline;
+}
+
+.check{
+  color: #27ae60;
+}
+
+.uncheck{
+  color: #c0392b;
 }

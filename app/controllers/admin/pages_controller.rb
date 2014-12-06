@@ -12,6 +12,14 @@ class Admin::PagesController < Admin::AdminController
   def show
   end
 
+  def publish
+    @page.update_attributes(publish: !@page.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /admin/Pages/new
   def new
     @page = Page.new
