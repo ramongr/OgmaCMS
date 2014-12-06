@@ -13,7 +13,6 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def publish
-    @page = Page.find(params[:page_id])
     @page.update_attributes(publish: !@page.publish)
 
     respond_to do |format|
