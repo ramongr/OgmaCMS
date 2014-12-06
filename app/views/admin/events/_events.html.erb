@@ -1,5 +1,5 @@
-<%= hidden_field_tag :direction, params[:direction] %>
-<%= hidden_field_tag :sort, params[:sort] %>
+<%= sort_column %>
+<%= sort_direction %>
 
 <% unless @events.empty? %>
   <table>

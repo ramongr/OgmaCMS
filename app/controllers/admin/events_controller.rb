@@ -114,11 +114,21 @@ class Admin::EventsController < Admin::AdminController
   private
 
   def sort_column
-    Event.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+    if Event.column_names.include?(params[:sort])
+      Setting.admin_events_order = params[:sort]
+      Setting.admin_events_order
+    else
+      Setting.admin_events_order
+    end
   end
   
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+    if %w(asc desc).include?(params[:direction]) 
+      Setting.admin_events_direction = params[:direction]
+      Setting.admin_events_direction
+    else
+      Setting.admin_events_direction
+    end
   end
 
   def events_per_page

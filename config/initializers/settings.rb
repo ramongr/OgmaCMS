@@ -22,3 +22,5 @@ Setting.defaults[:default_time_zone]   = 'UTC'
 #
 
 Setting.defaults[:admin_events_pagination] = 30
+Setting.defaults[:admin_events_order] = 'title'
+Setting.defaults[:admin_events_direction] = 'asc'
