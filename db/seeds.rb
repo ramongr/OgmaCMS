@@ -224,15 +224,17 @@ SystemMail.create action: 'birthday_email',
                   subject_pt: '*site_name*:',
                   content_pt: '<h2>Olá, *user_name*</h2>' \
                            '<p>' \
-                             'Parabéns' \
+                             'O *site_name* deseja-lhe a maior das felicidades neste dia especial.' \
                            '</p>' \
-                           '<p>Os melhores cumprimentos, tenha um bom dia!</p>',
+                           '<p>Os melhores cumprimentos, tenha um bom dia!</p>' \
+                           '<p> *site_name* </p>',
 
                   name_en: 'Birthday Email',
                   subject_en: '*site_name*:',
                   content_en: '<h2>Hello, *user_name*</h2>' \
                            '<p>' \
-                             'Congratulations' \
+                             'The *site_name* wishes you the best on this special day' \
                            '</p>' \
-                           '<p>Thanks for reading and have a great day!</p>'
+                           '<p>Thanks for reading and have a great day!</p>' \
+                           '<p> *site_name* </p>'
 puts 'Created system mail 4'
