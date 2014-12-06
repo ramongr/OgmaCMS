@@ -6,9 +6,9 @@ class Admin::EventsController < Admin::AdminController
   # GET /events.json
   def index
     unless params[:search].blank?
-      @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).order(sort_column + " " + sort_direction)
+      @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
     else
-      @events = Event.page(params[:page]).per_page(events_per_page).order(sort_column + " " + sort_direction)
+      @events = Event.page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
     end
   end
 
