@@ -9,3 +9,5 @@ jQuery ->
     $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
     false
   )
+
+  return

@@ -9,14 +9,13 @@
       <%= form_tag admin_events_path, method: :get, id: "items_search" do %>
         <%= text_field_tag :search, params[:search], placeholder: t('common.search') %>
         <%= submit_tag t('common.search'), name: nil, class: "hide" %><br>
-      <% end %>
     </div>
 
     <div id="admin_events_index">
       <%= render 'events' %>
     </div>
 
-    <%= render 'pagination' %>
+    <% end %>
 
   </div>
 </div>
