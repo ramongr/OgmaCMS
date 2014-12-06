@@ -28,7 +28,7 @@
         <!-- Content div -->
         <%= content_tag :div, class: 'field', id: "post-content-" + l do %>
           <%= f.label t('posts.attributes.content', locale: l.to_sym) %>
-          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale} %>
+          <%= f.cktext_area ("content_" + l).to_sym, ckeditor: {language: I18n.locale, toolbar: 'Post'} %>
         <% end %>
       <% end %>
 
