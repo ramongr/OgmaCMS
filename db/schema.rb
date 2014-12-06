@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204161526) do
+ActiveRecord::Schema.define(version: 20141205160355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.string   "going"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "notification", default: true
   end
 
   create_table "comments", force: true do |t|
@@ -55,7 +56,6 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.text     "body"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.boolean  "all_day"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publish",    default: false
   end
 
   create_table "pages_sidebars", force: true do |t|
@@ -257,6 +258,7 @@ ActiveRecord::Schema.define(version: 20141204161526) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publish",    default: false
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree

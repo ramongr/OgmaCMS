@@ -39,7 +39,10 @@ OgmaCMS::Application.routes.draw do
     namespace :admin do
       get '/', to: 'dashboard#index'
       resources :sidebars
+
       resources :events
+      put 'events_pagination', to: 'events#pagination'
+
       resources :links
       resources :users
       resources :system_mails, except: [:new,:delete]

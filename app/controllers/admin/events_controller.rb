@@ -4,7 +4,7 @@ class Admin::EventsController < Admin::AdminController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order(:start_time)
+    @events = Event.page(params[:page]).per_page(Setting.admin_events_pagination).order(:start_time)
   end
 
   # GET /events/1
@@ -103,6 +103,18 @@ class Admin::EventsController < Admin::AdminController
     respond_to do |format|
       format.html { redirect_to admin_events_url }
       format.json { head :no_content }
+    end
+  end
+
+  def pagination
+    if params[:admin_events_pagination].to_i != Setting.admin_events_pagination
+      Setting.admin_events_pagination = params[:admin_events_pagination].to_i
+
+      @events = @events.page(params[:page]).per_page(Setting.admin_events_pagination).order(:start_time)
+    end
+
+    respond_to do |format|
+        format.js
     end
   end
 

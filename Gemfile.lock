@@ -21,24 +21,6 @@ GIT
     http_accept_language (2.0.2)
 
 GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 804b4edc1d8d7ca9865170e34f26da7d66f6d0d5
-  specs:
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
-
-GIT
-  remote: git://github.com/galetahub/ckeditor.git
-  revision: abc57f369af5fb037b62c9a11444c91a0203979a
-  specs:
-    ckeditor (4.1.0)
-      mime-types
-      orm_adapter (~> 0.5.0)
-
-GIT
   remote: git://github.com/radar/forem.git
   revision: 074629e37a2712fb346657449250eaf6b9d39881
   branch: rails4

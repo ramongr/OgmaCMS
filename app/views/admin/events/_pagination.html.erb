@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="small-3 columns">
+    <%= will_paginate @events %>
+  </div>
+
+  <div class="small-1 columns">
+    <%= form_tag [:admin_events_pagination], method: :put, remote: true do -%>
+      <%= number_field_tag :admin_events_pagination, Setting.admin_events_pagination, in: 1...200000001 %>
+  </div>
+
+  <div class="small-2 columns">
+    Por página.
+  </div>
+
+  <div class="hide">
+    <%= submit_tag 'submit' %>
+  </div>
+  <% end %>
+</div>
