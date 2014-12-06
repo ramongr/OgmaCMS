@@ -4,6 +4,11 @@ class Event < ActiveRecord::Base
   before_validation :validate_dates
   validates :title, :start_time, presence: true
 
+  include PgSearch
+  pg_search_scope :search, against: [:title, :body],
+                           using: { tsearch: { prefix: true } },
+                           ignoring: :accents
+
   private
 
   def validate_dates

@@ -29,4 +29,12 @@ module ApplicationHelper
 
     result
   end
+
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
+    direction_icon = column == sort_column ? (sort_direction == 'asc' ? '<i class="fi-arrow-up"></i>' : '<i class="fi-arrow-down"></i>') : ''
+    (link_to title, sort: column, direction: direction) + ' ' + direction_icon.html_safe
+  end
+
 end

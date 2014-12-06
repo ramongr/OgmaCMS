@@ -1,10 +1,10 @@
 <% unless @events.empty? %>
   <table>
     <thead>
-      <tr>
-        <th><%= t('events.attributes.title') %></th>
-        <th><%= t('events.attributes.date')  %></th>
-        <th>                                   </th>
+      <tr> 
+        <th><%= sortable 'title', t('events.attributes.title') %></th>
+        <th><%= sortable 'start_time', t('events.attributes.date') %></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -46,5 +46,3 @@
     </tbody>
   </table>
 <% end %>
-
-<%= render 'pagination' %>

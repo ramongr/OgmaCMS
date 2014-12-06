@@ -1,10 +1,15 @@
 class Admin::EventsController < Admin::AdminController
   load_and_authorize_resource
+  helper_method :sort_column, :sort_direction
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.page(params[:page]).per_page(Setting.admin_events_pagination).order(:start_time)
+    unless params[:search].blank?
+      @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).order(sort_column + " " + sort_direction)
+    else
+      @events = Event.page(params[:page]).per_page(events_per_page).order(sort_column + " " + sort_direction)
+    end
   end
 
   # GET /events/1
@@ -106,19 +111,25 @@ class Admin::EventsController < Admin::AdminController
     end
   end
 
-  def pagination
-    if params[:admin_events_pagination].to_i != Setting.admin_events_pagination
-      Setting.admin_events_pagination = params[:admin_events_pagination].to_i
+  private
 
-      @events = @events.page(params[:page]).per_page(Setting.admin_events_pagination).order(:start_time)
-    end
-
-    respond_to do |format|
-        format.js
-    end
+  def sort_column
+    Event.column_names.include?(params[:sort]) ? params[:sort] : 'title'
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
   end
 
-  private
+  def events_per_page
+    per_page = params[:per_page].to_i
+    if (1..200000001).include? per_page
+      Setting.admin_events_pagination = per_page
+      per_page
+    else
+      Setting.admin_events_pagination
+    end
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
