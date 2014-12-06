@@ -121,6 +121,9 @@ gem 'http_accept_language', git: 'git://github.com/iain/http_accept_language.git
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
+# Cron job manager
+gem 'rufus-scheduler', '3.0.9'
+
 group :production, :stagin do
   gem 'rails_12factor'
 end

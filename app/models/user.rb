@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   validates_inclusion_of :language, in: Setting.selected_languages
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name).keys
 
+  scope :birthdays, -> { where.not(dob: nil) }
+
   def forem_name
     email
   end
@@ -74,5 +76,15 @@ class User < ActiveRecord::Base
     begin
       self.unsubscribe_token = SecureRandom.hex[0, 10].upcase
     end while self.class.exists?(unsubscribe_token: unsubscribe_token)
+  end
+
+  def self.birthday_email
+    @user = User.birthdays
+    t = Time.now.to_date
+    @user.each do |u|
+      if u.dob.day == t.day && u.dob.month ==  t.month
+        SystemMailer.birthday_email(u).deliver
+      end
+    end
   end
 end
