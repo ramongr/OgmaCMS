@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   before_validation :set_language
   before_validation :set_time_zone
+  before_validation :set_registration_due_date
   before_save :set_forem_role
   validate :name, :role, presence: true
   validate :name, length: { in: 2..69 }
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name).keys
 
   scope :birthdays, -> { where.not(dob: nil) }
+  scope :unconfirmed, -> { where(confirmed_at: nil)}
 
   def forem_name
     email
@@ -76,6 +78,20 @@ class User < ActiveRecord::Base
     begin
       self.unsubscribe_token = SecureRandom.hex[0, 10].upcase
     end while self.class.exists?(unsubscribe_token: unsubscribe_token)
+  end
+
+  def set_registration_due_date
+    self.registration_due_date = 5.days.from_now
+  end
+
+  def self.remove_user
+    @user = User.unconfirmed
+    t = Time.now.to_date
+    @user.each do |u|
+      if u.registration_due_date < t
+        u.destroy
+      end
+    end
   end
 
   def self.birthday_email
