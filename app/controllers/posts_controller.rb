@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.page(params[:page]).per_page(2).order('created_at DESC')
+    @posts = Post.published.page(params[:page]).per_page(2).order('created_at DESC')
   end
 
   # GET /posts/1

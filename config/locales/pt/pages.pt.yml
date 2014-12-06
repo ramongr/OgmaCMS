@@ -12,6 +12,7 @@ pt:
 
   pages:
     name: Páginas
+    published: Publicado
 
     attributes:
       title: Nome

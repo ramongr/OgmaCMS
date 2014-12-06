@@ -1,5 +1,5 @@
-# Settings default values
-
+# # Settings default values
+Setting.save_default(:backup, true) if ActiveRecord::Base.connection.table_exists? 'settings'
 #
 # Site
 #
