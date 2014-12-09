@@ -118,6 +118,9 @@ gem 'pg_search'
 # A gem which helps you detect the users preferred language, as sent by the "Accept-Language" HTTP header.
 gem 'http_accept_language', git: 'git://github.com/iain/http_accept_language.git'
 
+# Internationalization support for Ruby.
+gem 'i18n'
+
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 
