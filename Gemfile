@@ -1,65 +1,65 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 4.1.8'
 
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.5'
 
 # Authentication
-gem 'devise'
-gem 'devise-i18n'
+gem 'devise', '~> 3.4.1'
+gem 'devise-i18n', '~> 0.11.2'
 
 # CanCanCan is an authorization library for Ruby on Rails which restricts what resources a given user is allowed to access.
-gem 'cancancan'
+gem 'cancancan', '~> 1.9.2'
 
 # Web-server
-gem 'thin'
+gem 'thin', '~> 1.6.3'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier'
+gem 'uglifier', '~> 2.6.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails'
+gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', '~> 0.12.1', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '>= 3.0.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'turbolinks', '~> 2.5.3'
+gem 'jquery-turbolinks', '~> 2.1.0'
 
 # Foundation Official Gem
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.4.5.0'
 
 # Foundation icon 3
-gem 'foundation-icons-sass-rails'
+gem 'foundation-icons-sass-rails', '~> 3.0.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.2.5'
 
 # Globalize builds on the I18n API in Ruby on Rails to add model translations to ActiveRecord models.
-gem 'globalize'
+gem 'globalize', '~> 4.0.3'
 
 # Easily access (read and write) globalize translated fields without fiddling with locale
-gem 'globalize-accessors', github: 'globalize/globalize-accessors', branch: 'master'
+gem 'globalize-accessors', '~> 0.1.5', github: 'globalize/globalize-accessors', branch: 'master'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', '~> 0.4.1', require: false
 end
 
 group :development do
-  gem 'better_errors'
-  gem 'bullet'
-  gem 'meta_request'
-  gem 'binding_of_caller'
+  gem 'better_errors', '~> 2.0.0'
+  gem 'bullet', '~> 4.14.0'
+  gem 'meta_request', '~> 0.3.4'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
 # Use ActiveModel has_secure_password
@@ -74,56 +74,57 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'forem', github: 'radar/forem', branch: 'rails4'
+gem 'forem', '~> 1.0.0.beta1', github: 'radar/forem', branch: 'rails4'
 
-gem 'will_paginate'
-gem 'will-paginate-i18n'
+gem 'will_paginate', '~> 3.0.7'
+gem 'will-paginate-i18n', '~> 0.1.15'
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'rspec-collection_matchers'
-  gem 'guard-rspec'
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'rspec-collection_matchers', '~> 1.1.2'
+  gem 'guard-rspec', '~> 4.4.2'
   # gem 'shoulda-matchers', '~> 2.6.2'
 end
 
 group :test do
-  gem 'faker'
-  gem 'capybara'
-  gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
+  gem 'faker', '~> 1.4.3'
+  gem 'capybara', '~> 2.4.4'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'launchy', '~> 2.4.3'
+  gem 'selenium-webdriver', '~> 2.44.0'
 end
 
 # ready-for-use HTML text editor
-gem 'ckeditor', git: 'git://github.com/galetahub/ckeditor.git'
+gem 'ckeditor', '~> 4.1.1', git: 'git://github.com/galetahub/ckeditor.git'
 
 # Paperclip file attachment library
-gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip', '~> 4.2.0', git: 'git://github.com/thoughtbot/paperclip.git'
 
 # Calendar javascript lib
-gem 'fullcalendar-rails'
+gem 'fullcalendar-rails', '~> 2.2.3.0'
+
 # Parse, validate, manipulate, and display dates in javascript. (fullcalendar dependency)
-gem 'momentjs-rails'
+gem 'momentjs-rails', '~> 2.8.3'
 
 # Use jquery-ui library
-gem 'jquery-ui-rails'
+gem 'jquery-ui-rails', '~> 5.0.3'
 
 # Handle settings with caching, manages a table of global key, value pairs.
-gem 'rails-settings-cached'
+gem 'rails-settings-cached', '~> 0.4.1'
 
 # PgSearch builds named scopes that take advantage of PostgreSQL's full text search.
-gem 'pg_search'
+gem 'pg_search', '~> 0.7.8'
 
 # A gem which helps you detect the users preferred language, as sent by the "Accept-Language" HTTP header.
-gem 'http_accept_language', git: 'git://github.com/iain/http_accept_language.git'
+gem 'http_accept_language', '~> 2.0.2', git: 'git://github.com/iain/http_accept_language.git'
 
 # Central point to collect locale data for use in Ruby on Rails.
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
+gem 'rails-i18n', '~> 4.0.3', github: 'svenfuchs/rails-i18n', branch: 'master'
 
 # Cron job manager
 gem 'rufus-scheduler', '3.0.9'
 
 group :production, :stagin do
-  gem 'rails_12factor'
+  gem 'rails_12factor', '~> 0.0.3'
 end
