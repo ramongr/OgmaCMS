@@ -1,52 +1,57 @@
 <% unless @events.empty? %>
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= sortable 'title', t('events.attributes.title') %></th>
-        <th><%= sortable 'start_time', t('events.attributes.date') %></th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @events.each do |event| %>
+  <%= form_tag update_multiple_admin_events_path, method: :put do %>
+
+    <%= submit_tag t('common.show'), name: 'show', class: 'button tiny' %>
+    <%= submit_tag t('common.edit'), name: 'edit', class: 'button tiny' %>
+    <%= submit_tag t('common.destroy'), name: 'destroy', data: { confirm: t('common.confirm') }, class: 'button tiny' %>
+
+    <table>
+      <thead>
         <tr>
-          <td><%= check_box_tag "event_ids[]" %></td>
-          <td><%= event.title %></td>
-          <% if event.end_time.nil? %>
-            <td>
-              <%= l event.start_time, format: :date_only %>
-              <br>
-              <%= t('time.at_time') %> <%= l event.start_time, format: :time_only %>
-            </td>
-          <% else %>
-            <% if event.start_time.day == event.end_time.day %>
+          <th></th>
+          <th><%= sortable 'title', t('events.attributes.title') %></th>
+          <th><%= sortable 'start_time', t('events.attributes.date') %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= check_box_tag 'event_ids[]', event.id %></td>
+            <td><%= event.title %></td>
+            <% if event.end_time.nil? %>
               <td>
                 <%= l event.start_time, format: :date_only %>
                 <br>
-                <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
-                <%= t('time.to_time').downcase %> <%= l event.end_time, format: :time_only %>
+                <%= t('time.at_time') %> <%= l event.start_time, format: :time_only %>
               </td>
             <% else %>
-              <td>
-                <%= t('time.from_date') %> <%= l event.start_time, format: :full_date %>
-                <br>
-                <%= t('time.to_date') %> <%= l event.end_time, format: :full_date %>
-              </td>
+              <% if event.start_time.day == event.end_time.day %>
+                <td>
+                  <%= l event.start_time, format: :date_only %>
+                  <br>
+                  <%= t('time.from_time') %> <%= l event.start_time, format: :time_only %>
+                  <%= t('time.to_time').downcase %> <%= l event.end_time, format: :time_only %>
+                </td>
+              <% else %>
+                <td>
+                  <%= t('time.from_date') %> <%= l event.start_time, format: :full_date %>
+                  <br>
+                  <%= t('time.to_date') %> <%= l event.end_time, format: :full_date %>
+                </td>
+              <% end %>
             <% end %>
-          <% end %>
 
-          <td>
-            <%= link_to t('common.show'), [:admin,event], class: "button tiny" %>
-            <%= link_to t('common.edit'), edit_admin_event_path(event), class: "button tiny" %>
-            <%= link_to t('common.destroy'), [:admin,event], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
-          </td>
+          </tr>
+        <% end %>
 
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+
+  <% end %>
+
 <% end %>
 
 <%= render 'pagination' %>

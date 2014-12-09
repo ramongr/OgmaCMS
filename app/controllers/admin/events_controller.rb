@@ -100,6 +100,17 @@ class Admin::EventsController < Admin::AdminController
     end
   end
 
+  def update_multiple
+    case params[:commit]
+      when 'show'
+        redirect_to admin_events_url
+      when 'edit'
+        redirect_to admin_events_url
+      when 'destroy'
+        redirect_to admin_events_url
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy

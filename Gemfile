@@ -124,6 +124,9 @@ gem 'i18n'
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n'
 
+#Rails I18n timezone
+gem 'i18n-timezones'
+
 # Cron job manager
 gem 'rufus-scheduler', '3.0.9'
 
