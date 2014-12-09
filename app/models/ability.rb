@@ -18,6 +18,7 @@ class Ability
       can :update, [Comment, VisitorComment], user_id: user.id
       can :read, [Attachment, Post, Comment, VisitorComment, Sidebar, Page, Link, Event]
     else
+      can :create, [VisitorComment]
       can :read, [Attachment, Post, Comment, VisitorComment, Sidebar, Page, Link, Event]
     end
   end

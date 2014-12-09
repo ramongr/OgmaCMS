@@ -1,7 +1,8 @@
 <% unless @events.empty? %>
   <table>
     <thead>
-      <tr> 
+      <tr>
+        <th></th>
         <th><%= sortable 'title', t('events.attributes.title') %></th>
         <th><%= sortable 'start_time', t('events.attributes.date') %></th>
         <th></th>
@@ -11,6 +12,7 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
+          <td><%= check_box_tag "event_ids[]" %></td>
           <td><%= event.title %></td>
           <% if event.end_time.nil? %>
             <td>

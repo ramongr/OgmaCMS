@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205160355) do
+ActiveRecord::Schema.define(version: 20141206172202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -339,6 +339,7 @@ ActiveRecord::Schema.define(version: 20141205160355) do
     t.string   "unsubscribe_token"
     t.boolean  "newsletter_subscribed",  default: false
     t.string   "time_zone"
+    t.date     "registration_due_date"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

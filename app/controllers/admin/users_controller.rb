@@ -57,6 +57,8 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
+end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
