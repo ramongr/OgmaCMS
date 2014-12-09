@@ -101,13 +101,22 @@ class Admin::EventsController < Admin::AdminController
   end
 
   def update_multiple
-    case params[:commit]
-      when 'show'
-        redirect_to admin_events_url
-      when 'edit'
-        redirect_to admin_events_url
-      when 'destroy'
-        redirect_to admin_events_url
+    unless params[:show].nil?
+      redirect_to admin_events_url
+    end
+    unless params[:edit].nil?
+      redirect_to admin_events_url
+    end
+    unless params[:destroy].nil?
+      Event.destroy_all(id: params[:event_ids])
+      unless params[:search].blank?
+        @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
+      else
+        @events = Event.page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
+      end
+      respond_to do |format|
+        format.js { render action: 'index'}
+      end
     end
   end
 

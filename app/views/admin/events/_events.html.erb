@@ -1,6 +1,6 @@
 <% unless @events.empty? %>
 
-  <%= form_tag update_multiple_admin_events_path, method: :put do %>
+  <%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
 
     <%= submit_tag t('common.show'), name: 'show', class: 'button tiny' %>
     <%= submit_tag t('common.edit'), name: 'edit', class: 'button tiny' %>
