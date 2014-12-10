@@ -21,8 +21,13 @@ $('a#emoji').on 'click', ->
     when 'newsletter' then CKEDITOR.instances['newsletter_body_'+lang].insertHtml(emoji)
   return
 
-$('#search-field').on 'keyup, keydown', ->
-  str = $(this).val()
+$('#search-field').on 'keyup', (key) ->
+  console.log(key)
+  if (key.keyCode >= 48 && key.keyCode <= 58) || (key.keyCode >= 65 && key.keyCode <= 90) || (key.keyCode >= 97 && key.keyCode <= 122)
+    str = $(this).val() + String.fromCharCode(key.keyCode)
+  else
+    str = $(this).val()
+
   if str.length > 0
     $('#emoji-panel').removeClass('active')
     $('#emojiPanel1').removeClass('active')
@@ -30,13 +35,14 @@ $('#search-field').on 'keyup, keydown', ->
     $('#search-panel').show(250).addClass('active')
     $('#emojiPanel6').addClass('active')
     arr = []
-    regexp = new RegExp(str.substring(1, str.length),'gi')
+    regexp = new RegExp(str, 'i')
     $.each $('#emojiPanel6 > a'), (i, v) ->
       (if regexp.test($(this).attr('title')) then $(this).show() else $(this).hide())
       return
   
   if str.length == 0
     $('#search-panel').removeClass('active')
+    $('#search-panel').hide(250)
     $('#emojiPanel6').removeClass('active')
     $('[id=emoji-panel]').show(250)
     $('#emoji-panel').addClass('active')
