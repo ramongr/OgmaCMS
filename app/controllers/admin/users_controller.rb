@@ -57,12 +57,11 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
-end
-
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:name, :email, :dob, :country, :language, :time_zone, :gender, :newsletter_subscribed, :password, :password_confirmation, :role)
   end
+
 end
