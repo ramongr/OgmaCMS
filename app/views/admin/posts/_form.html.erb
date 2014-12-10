@@ -18,7 +18,7 @@
     </div>
     <div id="post-content-<%=I18n.locale %>" class="field">
       <%= f.label :content %>
-      <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale} %>
+      <%= f.cktext_area ("content_" + I18n.locale.to_s).to_sym, ckeditor: {language: I18n.locale, toolbar: 'Post'} %>
     </div>
     <br>
     <div class="actions">

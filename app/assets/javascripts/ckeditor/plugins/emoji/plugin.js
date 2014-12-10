@@ -1,3 +1,4 @@
+$(document).foundation();
 CKEDITOR.plugins.add('emoji',{
   icons: 'emoji',
   init: function(editor){
