@@ -122,6 +122,9 @@ gem 'http_accept_language', '~> 2.0.2', git: 'git://github.com/iain/http_accept_
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', '~> 4.0.3', github: 'svenfuchs/rails-i18n', branch: 'master'
 
+# The purpose of this gem is to simply provide timezone translations.
+gem 'i18n-timezones'
+
 # Cron job manager
 gem 'rufus-scheduler', '3.0.9'
 

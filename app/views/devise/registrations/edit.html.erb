@@ -45,7 +45,7 @@
 
       <div id="user-time-zone" class="field">
         <%= f.label :time_zone %>
-        <%= f.select :time_zone, ActiveSupport::TimeZone.all.group_by(&:utc_offset).values.map {|t| [t.map.with_index {|t,i| i == 0 ? t.to_s : t.name}.join(", ").truncate(100), t.first.name]}, selected: @user.time_zone %>
+        <%= f.select :time_zone, ActiveSupport::TimeZone.all.group_by(&:utc_offset).values.map {|t| [t.map.with_index {|t,i| i == 0 ? t.to_s : t.to_s.split.drop(1).join(' ')}.join(", ").truncate(100), t.first.name]}, selected: @user.time_zone %>
       </div>
  
       <div class="field"><%= f.label :password %> <i><%= t('devise.leave_blank') %></i><br />
