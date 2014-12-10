@@ -16,7 +16,7 @@
 
     <div class="field">
       <%= label_tag t('settings.default_time_zone') %>
-      <%= select_tag "default_time_zone", options_from_collection_for_select(ActiveSupport::TimeZone.all.group_by(&:utc_offset).values.map {|t| [t.map.with_index {|t,i| i == 0 ? t.to_s : t.name}.join(", ").truncate(100), t.first.name]}, 'second', 'first', Setting.default_time_zone) %>
+      <%= select_tag "default_time_zone", options_from_collection_for_select(ActiveSupport::TimeZone.all.group_by(&:utc_offset).values.map {|t| [t.map.with_index {|t,i| i == 0 ? t.to_s : t.to_s.split.drop(1).join(' ')}.join(", ").truncate(100), t.first.name]}, 'second', 'first', Setting.default_time_zone) %>
     </div>
 
 </div>

@@ -37,6 +37,11 @@ GIT
       workflow (= 1.0.0)
 
 GIT
+<<<<<<< HEAD
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 679c1cf8491e755a3afd940c1daeb6f80d92d11c
+  specs:
+=======
   remote: git://github.com/svenfuchs/rails-i18n.git
   revision: d01f64822695cc0674ec1d8998f466af4d25548a
   branch: master
@@ -49,6 +54,7 @@ GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 679c1cf8491e755a3afd940c1daeb6f80d92d11c
   specs:
+>>>>>>> develop
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -352,6 +358,46 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
+  better_errors
+  binding_of_caller
+  bullet
+  cancancan
+  capybara
+  ckeditor!
+  coffee-rails
+  database_cleaner
+  devise
+  devise-i18n
+  factory_girl_rails
+  faker
+  forem!
+  foundation-icons-sass-rails
+  foundation-rails
+  fullcalendar-rails
+  globalize
+  globalize-accessors!
+  guard-rspec
+  http_accept_language!
+  i18n
+  i18n-timezones
+  jbuilder
+  jquery-rails
+  jquery-turbolinks
+  jquery-ui-rails
+  launchy
+  meta_request
+  momentjs-rails
+  paperclip!
+  pg
+  pg_search
+  rails
+  rails-i18n
+  rails-settings-cached
+  rails_12factor
+  rspec-collection_matchers
+  rspec-rails
+=======
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.14.0)
@@ -389,6 +435,7 @@ DEPENDENCIES
   rails_12factor (~> 0.0.3)
   rspec-collection_matchers (~> 1.1.2)
   rspec-rails (~> 3.1.0)
+>>>>>>> develop
   rufus-scheduler (= 3.0.9)
   sass-rails (~> 4.0.5)
   sdoc (~> 0.4.1)

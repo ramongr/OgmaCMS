@@ -16,7 +16,7 @@
   </div>  
   <div class="field">
     <%= f.label :content %>
-    <%= f.text_area :content, rows: 6 %>
+    <%= f.cktext_area :content, ckeditor: {language: I18n.locale, toolbar: 'Comments'} %>
   </div>
   <div class="actions">
       <%= f.submit class: "button small" %>
