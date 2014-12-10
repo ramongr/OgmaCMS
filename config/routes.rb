@@ -46,7 +46,6 @@ OgmaCMS::Application.routes.draw do
         end
       end
 
-
       resources :links
       resources :users
       resources :system_mails, except: [:new,:delete]

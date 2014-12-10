@@ -2,7 +2,6 @@
 
   <%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
 
-    <%= submit_tag t('common.show'), name: 'show', class: 'button tiny' %>
     <%= submit_tag t('common.edit'), name: 'edit', class: 'button tiny' %>
     <%= submit_tag t('common.destroy'), name: 'destroy', data: { confirm: t('common.confirm') }, class: 'button tiny' %>
 
@@ -12,6 +11,7 @@
           <th></th>
           <th><%= sortable 'title', t('events.attributes.title') %></th>
           <th><%= sortable 'start_time', t('events.attributes.date') %></th>
+          <th><%= sortable 'updated_at', t('events.attributes.updated_at') %></th>
         </tr>
       </thead>
 
@@ -20,7 +20,7 @@
         <% @events.each do |event| %>
           <tr>
             <td><%= check_box_tag 'event_ids[]', event.id %></td>
-            <td><%= event.title %></td>
+            <td><%= link_to event.title, [:admin,event] %></td>
             <% if event.end_time.nil? %>
               <td>
                 <%= l event.start_time, format: :date_only %>
@@ -43,6 +43,11 @@
                 </td>
               <% end %>
             <% end %>
+            <td>
+              <%= l event.updated_at, format: :date_only %>
+              <br>
+              <%= t('time.at_time') %> <%= l event.updated_at, format: :time_only %>
+            </td>
 
           </tr>
         <% end %>
