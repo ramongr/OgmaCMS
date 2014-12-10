@@ -101,9 +101,6 @@ class Admin::EventsController < Admin::AdminController
   end
 
   def update_multiple
-    unless params[:edit].nil?
-      redirect_to admin_events_url
-    end
     unless params[:destroy].nil?
       Event.destroy_all(id: params[:event_ids])
       unless params[:search].blank?

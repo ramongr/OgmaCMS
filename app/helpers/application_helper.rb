@@ -12,9 +12,9 @@ module ApplicationHelper
     end
 
     if event
-      date = l(event.start_time, format: :full_date, locale: user.language.to_sym).to_s
+      date = l(event.start_time, format: :full_datetime, locale: user.language.to_sym).to_s
       unless event.end_time.nil?
-        date = date + " - " + l(event.end_time, format: :full_date, locale: user.language.to_sym).to_s
+        date = date + " - " + l(event.end_time, format: :full_datetime, locale: user.language.to_sym).to_s
       end
       result = result.gsub(/[*]event_name[*]/, event.title)
       .gsub(/[*]event_description[*]/, event.body)

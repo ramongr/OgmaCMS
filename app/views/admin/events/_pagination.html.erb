@@ -5,7 +5,7 @@
 
   <div class="small-1 columns">
     <%= form_tag admin_events_path, method: :get do %>
-      <%= number_field_tag :per_page, Setting.admin_events_pagination, in: 1...200000001 %>
+      <%= number_field_tag :per_page, Setting.admin_events_pagination, in: 1...200000001, title: t('common.per_page') %>
   </div>
 
   <div class="hide">

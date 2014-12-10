@@ -20,7 +20,8 @@ pt:
       date: Data
       start_time: Início
       created_at: Criado em
-      updated_at: Modificado em
+      updated_at: Última modificação
+      user: Autor
       end_time_toggle: Hora de fim?
       notification: Avisar sobre alterações?
 

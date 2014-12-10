@@ -21,6 +21,7 @@ en:
       start_time: Beginning
       created_at: Created at
       updated_at: Updated at
+      user: Author
       end_time_toggle: End time?
       notification: Warn about changes?
 
