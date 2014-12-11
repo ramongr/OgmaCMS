@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   has_many :visitor_comments
   has_many :attachments
   has_many :events, through: :attendings
+  has_many :events_created, class_name: 'Event', foreign_key: 'created_by_id'
+  has_many :events_modified, class_name: 'Event', foreign_key: 'updated_by_id'
   has_and_belongs_to_many :newsletters
 
   ROLES = %w(registered author admin super_admin)

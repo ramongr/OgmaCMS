@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :users, through: :attendings
+  belongs_to :created_by, class_name: 'User'
+  belongs_to :updated_by, class_name: 'User'
 
   before_validation :validate_dates
   validates :title, :start_time, presence: true

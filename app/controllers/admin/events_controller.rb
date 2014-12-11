@@ -14,6 +14,7 @@ class Admin::EventsController < Admin::AdminController
 
   # GET /events/new
   def new
+    # The new method is used by the Calendar js event creator
     unless params[:ajax].nil?
       # Presetting some values for the event
       body = nil
@@ -33,7 +34,7 @@ class Admin::EventsController < Admin::AdminController
         body = params[:body]
       end
 
-      @event = Event.new(title: params[:title], body: body, start_time: start_time, end_time: final_time)
+      @event = Event.new(title: params[:title], body: body, start_time: start_time, end_time: final_time, created_by: current_user, updated_by: current_user)
 
       respond_to do |format|
         if @event.save
@@ -54,9 +55,11 @@ class Admin::EventsController < Admin::AdminController
   def create
     if params[:toggle_time].empty?
       start = DateTime.strptime("#{event_params['start_time(1i)']}-#{event_params['start_time(2i)']}-#{event_params['start_time(3i)']}T#{event_params['start_time(4i)']}:#{event_params['start_time(5i)']}", '%Y-%m-%dT%H:%M')
-      @event = Event.new(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil)
+      @event = Event.new(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil, created_by: current_user, updated_by: current_user)
     else
       @event = Event.new(event_params)
+      @event.created_by = current_user
+      @event.updated_by = current_user
     end
 
     respond_to do |format|
@@ -79,7 +82,7 @@ class Admin::EventsController < Admin::AdminController
       final = DateTime.strptime("#{event_params['end_time(1i)']}-#{event_params['end_time(2i)']}-#{event_params['end_time(3i)']}T#{event_params['end_time(4i)']}:#{event_params['end_time(5i)']}", '%Y-%m-%dT%H:%M')
     end
     respond_to do |format|
-      if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: final)
+      if @event.update(title: event_params[:title], body: event_params[:body], start_time: start, end_time: final, updated_by: current_user)
         # TO DO if for notification
         unless params[:notification].empty?
           Attending.where(event: @event).where(notification: true).each do |a|
