@@ -1,7 +1,7 @@
 en:
   activerecord:
     models:
-      attachment: attachment
+      attachment: file
     attributes:
       attachment:
         name: Name
@@ -11,7 +11,7 @@ en:
         updated_at: Updated at
         
   attachments:
-    name: Attachments
+    name: Files
 
     attributes:
       name: Name
@@ -24,13 +24,13 @@ en:
 
     index:
       admin:
-        title: Attachments
-        new: New attachment
+        title: Files
+        new: New file
 
     new:
       admin:
-        title: New attachment
+        title: New file
 
     edit:
       admin:
-        title: Edit attachment
+        title: Edit file
