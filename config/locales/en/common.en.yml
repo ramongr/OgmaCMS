@@ -36,3 +36,5 @@ en:
     'false': No
     translation_missing: There is no translation available
     per_page: Items per page
+    published: Published
+    not_published: Not published
