@@ -21,9 +21,10 @@ OgmaCMS::Application.routes.draw do
       put 'maybe' => 'events#maybe', as: 'maybe'
       put 'notify' => 'events#notify', as: 'notify'
     end
-
+    
     resources :posts, only: [:index, :show] do
       resources :comments, shallow: true
+      post 'toggle_read'
     end
     resources :search, only: :index
     resources :visitor_comments, except: :show
