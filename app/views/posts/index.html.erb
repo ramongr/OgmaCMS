@@ -17,18 +17,18 @@
         <% end %>
         <% if can? :update, post %>
           <div id="admin-area">
-            <%= link_to t('common.edit'), edit_admin_post_path(post)%> | 
+            <%= link_to t('common.edit'), edit_admin_post_path(post) %>
             <% if can? :destroy, post %>
                | <%= link_to t('common.destroy'), [:admin,post], method: :delete, data: {confirm: t('common.confirm') } %>
             <% end %>
           </div>
         <% end %>
+        <hr>
         <div id="post-content">
           <%= post.content.html_safe %>
           <%= link_to t('common.read_more'), post_toggle_read_path(post, more: true), method: :post, remote: true %>
           </span>
         </div>
-        <hr>
       <% end %>
     <% end %>
     <div class="apple_pagination">
