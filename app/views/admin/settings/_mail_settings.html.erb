@@ -2,19 +2,24 @@
   <div class="row">
     <div class="small-12">
       <% unless @system_mails.empty? %>
-      <% @system_mails.each do |system_mail| %>
-        <div class="small-7 columns">
-          <%= system_mail.name %>
-        </div>
-        <div class="small-2 columns">
-          <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
-        </div>
-        <div class="small-2 columns">
-          <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
-        </div>
-      <br>
+        <% @system_mails.each do |system_mail| %>
+          <div class="row">
+            <div class="small-7 columns">
+              <%= system_mail.name %>
+            </div>
+            <div class="small-2 columns">
+              <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
+            </div>
+            <div class="small-2 columns">
+              <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-      <% end %>
+      <div class="small-12">
+        <%= t 'settings.birthday_email_toggle' %>
+        <%= check_box_tag :birthday_email_toggle, Setting.birthday_email_toggle, Setting.birthday_email_toggle %>
+      </div>
     </div>
   </div>
 </div>

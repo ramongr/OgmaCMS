@@ -2,7 +2,7 @@ en:
   activerecord:
     models:
       setting: setting
-      
+
   settings:
     name: Settings
 
@@ -25,6 +25,8 @@ en:
     available_languages: Available languages
     default_language: Default language
     default_time_zone: Default time zone
+
+    birthday_email_toggle: Allow birthday email?
 
     #Success/Failure
     notice:

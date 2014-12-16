@@ -26,6 +26,8 @@ pt:
     default_language: Língua predefinida
     default_time_zone: Fuso horário predefinido
 
+    birthday_email_toggle: Envio email parabéns?
+
     #Success/Failure
     notice:
       save_success: Definições gravadas com sucesso

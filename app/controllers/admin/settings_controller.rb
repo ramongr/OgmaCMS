@@ -51,6 +51,18 @@ class Admin::SettingsController < Admin::AdminController
       end
     end
 
+    # E-Mail
+
+    if params[:birthday_email_toggle]
+      if Setting.birthday_email_toggle != params[:birthday_email_toggle]
+        Setting.birthday_email_toggle = !Setting.birthday_email_toggle
+      end
+    else
+      if Setting.birthday_email_toggle != false
+        Setting.birthday_email_toggle = !Setting.birthday_email_toggle
+      end
+    end
+
     if errors.empty?
       redirect_to admin_settings_url, notice: t('settings.notice.save_success')
     else

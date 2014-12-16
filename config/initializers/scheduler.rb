@@ -3,8 +3,10 @@ require 'rufus-scheduler'
 scheduler = Rufus::Scheduler.new
 
 #Everyday at 04am, check for users birthdays
-scheduler.cron '00 04 * * *' do
-  User.birthday_email
+if Setting.birthday_email_toggle
+  scheduler.cron '00 04 * * *' do
+    User.birthday_email
+  end
 end
 
 #Everyday at 03am, check if there are any users with unconfirmed accounts to remove
