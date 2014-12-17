@@ -19,7 +19,6 @@ class PostsController < ApplicationController
     if params[:more] == 'true'
       @post = Post.find(params[:post_id])
     else
-      p "Here"
       @post = Post.find(params[:post_id])
       @post.content = @post.content.truncate(500)
     end
