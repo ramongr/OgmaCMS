@@ -21,6 +21,7 @@ en:
     logout: Logout
     register: Register
     read_more: Read more
+    read_less: Read less
     no_results_found: No results found
     error_save: 
       one: '1 error prohibited %{model} from being saved'
