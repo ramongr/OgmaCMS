@@ -35,6 +35,7 @@ class Admin::GalleriesController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
+      @gallery.update_attributes(updated_by: current_user)
       @added_images = @gallery.photos.order(position: :asc)
       render edit: { id: @photo.id }, status: :ok
     else
@@ -59,7 +60,9 @@ class Admin::GalleriesController < Admin::AdminController
         photo = Photo.find(id)
         photo.position = n
         n += 1
-        photo.save
+        if photo.save
+          @gallery.update_attributes(updated_by: current_user)
+        end
       end
     end
     render json: nil, status: :ok
@@ -69,6 +72,7 @@ class Admin::GalleriesController < Admin::AdminController
   # POST /admin/galleries.json
   def create
     @gallery = Gallery.new(gallery_params)
+    @gallery.created_by = @gallery.updated_by = current_user
 
     respond_to do |format|
       if @gallery.save
@@ -85,7 +89,7 @@ class Admin::GalleriesController < Admin::AdminController
   # PATCH/PUT /admin/galleries/1.json
   def update
     respond_to do |format|
-      if @gallery.update(gallery_params)
+      if @gallery.update(gallery_params.merge(updated_by: current_user))
         format.html { redirect_to admin_galleries_url, notice: 'Gallery was successfully updated.' }
         format.json { head :no_content }
       else

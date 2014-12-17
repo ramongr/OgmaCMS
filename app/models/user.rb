@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
+  # Include default devise modules. Others available are: 
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :confirmable
@@ -8,9 +8,17 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :visitor_comments
   has_many :attachments
+
   has_many :events, through: :attendings
   has_many :events_created, class_name: 'Event', foreign_key: 'created_by_id'
-  has_many :events_modified, class_name: 'Event', foreign_key: 'updated_by_id'
+  has_many :events_updated, class_name: 'Event', foreign_key: 'updated_by_id'
+
+  has_many :attachments_created, class_name: 'Attachment', foreign_key: 'created_by_id'
+  has_many :attachments_updated, class_name: 'Attachment', foreign_key: 'updated_by_id'
+
+  has_many :galleries_created, class_name: 'Gallery', foreign_key: 'created_by_id'
+  has_many :galleries_updated, class_name: 'Gallery', foreign_key: 'updated_by_id'
+
   has_and_belongs_to_many :newsletters
 
   ROLES = %w(registered author admin super_admin)
@@ -19,7 +27,7 @@ class User < ActiveRecord::Base
   before_validation :set_time_zone
   before_validation :set_registration_due_date
   before_save :set_forem_role
-  validate :name, :role, presence: true
+  validates_presence_of :name, :role, :created_by, :updated_by
   validate :name, length: { in: 2..69 }
   validates_inclusion_of :role, in: ROLES
   validates_inclusion_of :language, in: Setting.selected_languages
@@ -27,6 +35,8 @@ class User < ActiveRecord::Base
 
   scope :birthdays, -> { where.not(dob: nil) }
   scope :unconfirmed, -> { where(confirmed_at: nil)}
+
+
 
   def forem_name
     email

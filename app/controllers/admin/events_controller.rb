@@ -58,8 +58,7 @@ class Admin::EventsController < Admin::AdminController
       @event = Event.new(title: event_params[:title], body: event_params[:body], start_time: start, end_time: nil, created_by: current_user, updated_by: current_user)
     else
       @event = Event.new(event_params)
-      @event.created_by = current_user
-      @event.updated_by = current_user
+      @event.created_by = @event.updated_by = current_user
     end
 
     respond_to do |format|

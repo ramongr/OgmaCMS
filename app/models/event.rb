@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   belongs_to :updated_by, class_name: 'User'
 
   before_validation :validate_dates
-  validates :title, :start_time, presence: true
+  validates_presence_of :title, :start_time, :created_by, :updated_by
 
   private
 
