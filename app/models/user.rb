@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
          :rememberable, :trackable, :validatable, :confirmable
 
   has_many :posts
-  has_many :comments
   has_many :visitor_comments
-  has_many :attachments
+
+  has_many :comments_created, class_name: 'Comments', foreign_key: 'created_by_id'
 
   has_many :events, through: :attendings
   has_many :events_created, class_name: 'Event', foreign_key: 'created_by_id'

@@ -34,7 +34,7 @@
         <% @postcomments.each do |comment| %>
           <div class="small-12">
             <hr>
-            <%= comment.user.name %><br>
+            <%= comment.created_by.name %><br>
             <% if comment.created_at.to_i == comment.updated_at.to_i %>
               <%= t('comments.attributes.created_at') %>
             <% else %>
@@ -47,9 +47,9 @@
             <div id="button-container">
               <% if can? :update, comment %>
                 <%= link_to t('common.edit'), edit_comment_path(comment), class: "button tiny" %>
-                <% if can? :destroy, comment %>
-                  <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
-                <% end %>
+              <% end %>
+              <% if can? :destroy, comment %>
+                <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               <% end %>
             </div>
           </div>
