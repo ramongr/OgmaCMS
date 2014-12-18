@@ -26,6 +26,14 @@ pt:
     default_language: Língua predefinida
     default_time_zone: Fuso horário predefinido
 
+    birthday_email_toggle: Enviar email de aniversário?
+
+    user_registration: Permitir novos registos?
+    registration_closed: Os registos estão temporariamente desactivados
+
+    user_delete: Apagar contas não confirmadas?
+    days_until_delete: Dias para confirmação da conta
+
     #Success/Failure
     notice:
       save_success: Definições gravadas com sucesso
