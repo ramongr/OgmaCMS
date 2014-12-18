@@ -4,9 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable,
          :rememberable, :trackable, :validatable, :confirmable
 
-  has_many :posts
-  has_many :visitor_comments
-
   has_many :comments_created, class_name: 'Comments', foreign_key: 'created_by_id'
 
   has_many :events, through: :attendings
@@ -19,7 +16,23 @@ class User < ActiveRecord::Base
   has_many :galleries_created, class_name: 'Gallery', foreign_key: 'created_by_id'
   has_many :galleries_updated, class_name: 'Gallery', foreign_key: 'updated_by_id'
 
+  has_many :newsletters_created, class_name: 'Newsletter', foreign_key: 'created_by_id'
+  has_many :newsletters_updated, class_name: 'Newsletter', foreign_key: 'updated_by_id'
   has_and_belongs_to_many :newsletters
+
+  has_many :pages_created, class_name: 'Page', foreign_key: 'created_by_id'
+  has_many :pages_updated, class_name: 'Page', foreign_key: 'updated_by_id'
+
+  has_many :posts_created, class_name: 'Post', foreign_key: 'created_by_id'
+  has_many :posts_updated, class_name: 'Post', foreign_key: 'updated_by_id'
+
+  has_many :sidebars_created, class_name: 'Sidebar', foreign_key: 'created_by_id'
+  has_many :sidebars_updated, class_name: 'Sidebar', foreign_key: 'updated_by_id'
+
+  has_many :sliders_created, class_name: 'Slider', foreign_key: 'created_by_id'
+  has_many :sliders_updated, class_name: 'Slider', foreign_key: 'updated_by_id'
+
+  has_many :visitor_comments_created, class_name: 'VisitorComment', foreign_key: 'created_by_id'
 
   ROLES = %w(registered author admin super_admin)
 
@@ -27,8 +40,8 @@ class User < ActiveRecord::Base
   before_validation :set_time_zone
   before_validation :set_registration_due_date
   before_save :set_forem_role
-  validates_presence_of :name, :role, :created_by, :updated_by
-  validate :name, length: { in: 2..69 }
+  validates_presence_of :name, :role
+  validates_length_of :name, within: 2..70
   validates_inclusion_of :role, in: ROLES
   validates_inclusion_of :language, in: Setting.selected_languages
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name).keys

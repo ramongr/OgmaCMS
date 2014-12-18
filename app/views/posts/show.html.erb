@@ -6,7 +6,7 @@
   <div class="small-12">
     <h3 class="text-center"><%= @post.title %></h3>
     <hr>
-    <%= @post.user.name %><br>
+    <%= @post.created_by.name %><br>
     <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
     <% if can? :update, @post %>
       <%= link_to t('common.edit'), edit_admin_post_path(@post) %>

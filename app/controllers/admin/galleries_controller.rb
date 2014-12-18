@@ -47,6 +47,7 @@ class Admin::GalleriesController < Admin::AdminController
   def remove_photo
     @photo = Photo.find(params[:photo_id])
     @photo.destroy
+    @gallery.update_attributes(updated_by: current_user)
     render json: nil, status: :ok
   end
 
