@@ -34,4 +34,10 @@ Setting.defaults[:event_update] =
   '</p>' \
   '<p>Thanks for reading and have a great day!</p>'
 
-  Setting.defaults[:birthday_email_toggle] = true
+Setting.defaults[:birthday_email_toggle] = true
+
+Setting.defaults[:user_registration] = false
+
+Setting.defaults[:user_delete] = true
+
+Setting.defaults[:days_until_delete] = 10

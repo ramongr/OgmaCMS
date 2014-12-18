@@ -14,5 +14,8 @@
         <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name, id: img.id} %>
       <% end %>
     <% end %>
+    <% if @images.size % 3 != 0 %>
+      </div>
+    <% end %>
   <% end %>
 </div>

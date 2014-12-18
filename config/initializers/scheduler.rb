@@ -10,6 +10,8 @@ if Setting.birthday_email_toggle
 end
 
 #Everyday at 03am, check if there are any users with unconfirmed accounts to remove
-scheduler.cron '00 03 * * *' do
-  User.remove_user
+if Setting.user_delete
+  scheduler.cron '00 03 * * *' do
+    User.remove_user
+  end
 end

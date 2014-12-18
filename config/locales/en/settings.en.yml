@@ -28,6 +28,12 @@ en:
 
     birthday_email_toggle: Allow birthday email?
 
+    user_registration: Allow new users to register?
+    registration_closed: Registrations are temporarily closed
+
+    user_delete: Allow unconfirmed accounts to be removed?
+    days_until_delete: How many days until removal?
+
     #Success/Failure
     notice:
       save_success: 'Settings saved successfully'

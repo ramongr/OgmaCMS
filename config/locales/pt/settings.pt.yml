@@ -28,6 +28,12 @@ pt:
 
     birthday_email_toggle: Envio email parabéns?
 
+    user_registration: Permitir novos registos?
+    registration_closed: Os registos estão temporariamente desactivados
+
+    user_delete: Permitir que as contas não confirmadas sejam apagadas?
+    days_until_delete: Quantos dias até à remoção?
+
     #Success/Failure
     notice:
       save_success: Definições gravadas com sucesso

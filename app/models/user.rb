@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
   end
 
   def set_registration_due_date
-    self.registration_due_date = 5.days.from_now
+    self.registration_due_date = Setting.days_until_delete.days.from_now
   end
 
   def self.remove_user
