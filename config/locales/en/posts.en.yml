@@ -11,6 +11,8 @@ en:
         
   posts:
     name: Posts
+    admin: Manage posts
+    published: Published
 
     attributes:
       title: Name

@@ -1,0 +1,1 @@
+$('#post-content').html("<%= escape_javascript @post.content.html_safe %>").append("<%= escape_javascript link_to @post.content.size > 500 ? t('common.read_less') : t('common.read_more'), post_toggle_read_path(@post, more: !(@post.content.size > 500)), method: :post, remote: true %>")

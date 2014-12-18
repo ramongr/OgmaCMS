@@ -21,6 +21,7 @@ pt:
     logout: Logout
     register: Registar
     read_more: Ler mais
+    read_less: Reduzir
     no_results_found: Não foram encontrados resultados
     error_save: 
       one: '1 erro não permitiu criar o %{model}'
