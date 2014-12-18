@@ -26,12 +26,12 @@ en:
     default_language: Default language
     default_time_zone: Default time zone
 
-    birthday_email_toggle: Allow birthday email?
+    birthday_email_toggle: Send birthday email?
 
     user_registration: Allow new users to register?
     registration_closed: Registrations are temporarily closed
 
-    user_delete: Allow unconfirmed accounts to be removed?
+    user_delete: Remove unconfirmed users?
     days_until_delete: How many days until removal?
 
     #Success/Failure
