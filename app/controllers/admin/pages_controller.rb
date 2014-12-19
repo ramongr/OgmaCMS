@@ -85,7 +85,7 @@ class Admin::PagesController < Admin::AdminController
     respond_to do |format|
       if @page.update(page_params)
         format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: 'edit' }
         format.json { render json: @page.errors, status: :unprocessable_entity }

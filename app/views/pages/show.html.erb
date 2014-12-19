@@ -1,5 +1,5 @@
 <br>
-<div class="row">
+<div id="best-in-place-container" class="row">
   <% if can? :update, @page %>
     <%= link_to t('pages.name'), pages_path, class: "button small" %>
     <%= link_to t('common.edit'), edit_admin_page_path(@page), class: "button small" %>
@@ -10,10 +10,11 @@
   <br/>
 
   <div class="small-12">
-    <h1 class="text-center"><%= @page.title %></h1>
+    <h1 class="text-center"><%= best_in_place_if (can? :update, @page), @page, "title_"+I18n.locale.to_s, data: {bip_url: admin_page_path(@page.id), title: t('common.inline_editing_title')} %></h1>
 
-    <%= @page.body.html_safe %>
-
+    <div contenteditable="true">
+      <p><%= @page.body.html_safe %></p>
+    </div>
     <br/>
   </div>
 </div>

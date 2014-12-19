@@ -128,6 +128,9 @@ gem 'i18n-timezones'
 # Cron job manager
 gem 'rufus-scheduler', '3.0.9'
 
+#Inline Editing
+gem 'best_in_place', '~> 3.0.1'
+
 group :production, :stagin do
   gem 'rails_12factor', '~> 0.0.3'
 end

@@ -8,7 +8,7 @@
   <div class="small-12">
     <% unless @posts.empty? %>
       <% @posts.each do |post| %>
-        <h3 class="text-center"><%= link_to post.title, post %></h3>
+        <h3 class="text-center"><%= link_to_if (can? :update, post), post.title, post %></h3>
         <%= post.user.name %><br>
         <% if post.created_at.to_i == post.updated_at.to_i %>
           <%= t('posts.attributes.created_at') %>: <%= l post.created_at %>
