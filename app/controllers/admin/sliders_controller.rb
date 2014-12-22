@@ -13,6 +13,15 @@ class Admin::SlidersController < Admin::AdminController
     @added_images = @slider.photos.order(position: :asc)
   end
 
+  def publish
+    @slider = Slider.find(params[:slider_id])
+    @slider.update_attributes(publish: !@slider.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /admin/sliders/new
   def new
     @slider = Slider.new

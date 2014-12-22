@@ -13,6 +13,15 @@ class Admin::GalleriesController < Admin::AdminController
     @added_images = @gallery.photos.order(position: :asc)
   end
 
+  def publish
+    @gallery = Gallery.find(params[:gallery_id])
+    @gallery.update_attributes(publish: !@gallery.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /admin/galleries/new
   def new
     @gallery = Gallery.new

@@ -50,7 +50,6 @@ class User < ActiveRecord::Base
   scope :unconfirmed, -> { where(confirmed_at: nil)}
 
 
-
   def forem_name
     email
   end

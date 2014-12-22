@@ -15,6 +15,15 @@ class Admin::SidebarsController < Admin::AdminController
     @sidebar = Sidebar.new
   end
 
+  def publish
+    @sidebar = Sidebar.find(params[:sidebar_id])
+    @sidebar.update_attributes(publish: !@sidebar.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /sidebar2s/1/edit
   def edit
   end

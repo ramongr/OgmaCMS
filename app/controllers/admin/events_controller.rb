@@ -12,6 +12,15 @@ class Admin::EventsController < Admin::AdminController
   def show
   end
 
+  def publish
+    @event = Event.find(params[:event_id])
+    @event.update_attributes(publish: !@event.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /events/new
   def new
     # The new method is used by the Calendar js event creator
