@@ -6,7 +6,7 @@
 
   <h3 class="text-center"><%= @post.send('title_' + I18n.locale.to_s) %></h3>
   <hr>
-  <%= @post.user.name %><br>
+  <%= @post.created_by.name %><br>
   <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
   <% if @post.created_at.to_i != @post.updated_at.to_i %>
     <%= t('posts.attributes.updated_at') %>: <%= l @post.updated_at %>

@@ -66,6 +66,7 @@ class Admin::NewslettersController < Admin::AdminController
   # POST /admin/newsletters.json
   def create
     @newsletter = Newsletter.new(newsletter_params)
+    @newsletter.created_by = @newsletter.updated_by = current_user
 
     params[:newsletter][:user_ids] ||= []
     @newsletter.user_ids = params[:newsletter][:user_ids]
@@ -88,7 +89,7 @@ class Admin::NewslettersController < Admin::AdminController
     @newsletter.user_ids = params[:newsletter][:user_ids]
 
     respond_to do |format|
-      if @newsletter.update(newsletter_params)
+      if @newsletter.update(newsletter_params.merge(updated_by: current_user))
         format.html { redirect_to [:admin, @newsletter], notice: 'Newsletter was successfully updated.' }
         format.json { head :no_content }
       else

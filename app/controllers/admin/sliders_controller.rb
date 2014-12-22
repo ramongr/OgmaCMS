@@ -13,6 +13,15 @@ class Admin::SlidersController < Admin::AdminController
     @added_images = @slider.photos.order(position: :asc)
   end
 
+  def publish
+    @slider = Slider.find(params[:slider_id])
+    @slider.update_attributes(publish: !@slider.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /admin/sliders/new
   def new
     @slider = Slider.new
@@ -36,6 +45,7 @@ class Admin::SlidersController < Admin::AdminController
     @photo.position = 1
 
     if @photo.save
+      @gallery.update_attributes(updated_by: current_user)
       @added_images = @slider.photos.order(position: :asc)
       render edit: { id: @photo.id }, status: :ok
     else
@@ -47,6 +57,7 @@ class Admin::SlidersController < Admin::AdminController
   def remove_photo
     @photo = Photo.find(params[:photo_id])
     @photo.destroy
+    @gallery.update_attributes(updated_by: current_user)
     render json: nil, status: :ok
   end
 
@@ -60,7 +71,9 @@ class Admin::SlidersController < Admin::AdminController
         photo = Photo.find(id)
         photo.position = n
         n += 1
-        photo.save
+        if photo.save
+          @gallery.update_attributes(updated_by: current_user)
+        end
       end
     end
     render json: nil, status: :ok
@@ -70,6 +83,7 @@ class Admin::SlidersController < Admin::AdminController
   # POST /admin/sliders.json
   def create
     @slider = Slider.new(slider_params)
+    @slider.created_by = @slider.updated_by = current_user
     selection_handler(params[:slider][:selected])
 
     respond_to do |format|
@@ -89,7 +103,7 @@ class Admin::SlidersController < Admin::AdminController
     selection_handler(params[:slider][:selected])
 
     respond_to do |format|
-      if @slider.update(slider_params)
+      if @slider.update(slider_params.merge(updated_by: current_user))
         format.html { redirect_to admin_sliders_url, notice: 'Slider was successfully updated.' }
         format.json { head :no_content }
       else

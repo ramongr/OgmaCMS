@@ -1,9 +1,12 @@
 class Sidebar < ActiveRecord::Base
+
+  belongs_to :created_by, class_name: 'User'
+  belongs_to :updated_by, class_name: 'User'
   has_and_belongs_to_many :links
   has_and_belongs_to_many :pages
 
-  validates :title, :type_mask, presence: true
-
+  validates_presence_of :title, :type_mask, :created_by, :updated_by
+  
   scope :left, -> { where(type_mask: LEFT) }
   scope :right, -> { where(type_mask: RIGHT) }
   scope :top, -> { where(type_mask: TOP) }
