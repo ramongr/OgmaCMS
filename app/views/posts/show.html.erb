@@ -25,7 +25,7 @@
     </p>
     <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button tiny" %>
     <!-- Comments -->
-    <% unless @postcomments.empty? %>
+    <% unless @postcomments.blank? %>
       <hr>
       <div class="small-7 small-offset-2" id="comments-container">
 

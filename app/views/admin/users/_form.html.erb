@@ -19,7 +19,7 @@
     <%= f.label :email %>
     <%= f.email_field :email, autocomplete: :off %>
   </div>
-  <% if @user.confirmed_at.nil? %>
+  <% if @user.confirmed_at.blank? %>
     <div class="field">
       <%= check_box_tag 'confirm_email' %>
       <%= label_tag t('users.email.confirm_email') %>

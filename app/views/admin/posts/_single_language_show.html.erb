@@ -1,4 +1,4 @@
-<% if @post.send('content_' + I18n.locale.to_s).nil? %>
+<% if @post.send('content_' + I18n.locale.to_s).blank? %>
 
   <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 

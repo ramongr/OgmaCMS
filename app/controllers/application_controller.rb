@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   around_filter :set_time_zone
 
   def user_language
-    unless current_user.try(:language).nil?
+    unless current_user.try(:language).blank?
       if Setting.selected_languages.include?(current_user.language)
         current_user.language.to_sym
       else
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_i18n_locale
-    if !params[:locale].nil? && Setting.selected_languages.include?(params[:locale])
+    if !params[:locale].blank? && Setting.selected_languages.include?(params[:locale])
       if params[:locale] != I18n.locale.to_s
         I18n.locale = params[:locale]
         if user_signed_in?
