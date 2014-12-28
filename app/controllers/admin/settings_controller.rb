@@ -51,6 +51,44 @@ class Admin::SettingsController < Admin::AdminController
       end
     end
 
+    # E-Mail
+
+    if params[:birthday_email_toggle]
+      if Setting.birthday_email_toggle != params[:birthday_email_toggle]
+        Setting.birthday_email_toggle = !Setting.birthday_email_toggle
+      end
+    else
+      if Setting.birthday_email_toggle != false
+        Setting.birthday_email_toggle = !Setting.birthday_email_toggle
+      end
+    end
+
+    if params[:user_registration]
+      if Setting.user_registration != params[:user_registration]
+        Setting.user_registration = !Setting.user_registration
+      end
+    else
+      if Setting.user_registration != false
+        Setting.user_registration = !Setting.user_registration
+      end
+    end
+
+    if params[:user_delete]
+      if Setting.user_delete != params[:user_delete]
+        Setting.user_delete = !Setting.user_delete
+      end
+    else
+      if Setting.user_delete != false
+        Setting.user_delete = !Setting.user_delete
+      end
+    end
+
+    if params[:days_until_delete]
+      if Setting.days_until_delete != params[:days_until_delete]
+        Setting.days_until_delete = params[:days_until_delete]
+      end
+    end
+
     if errors.blank?
       redirect_to admin_settings_url, notice: t('settings.notice.save_success')
     else

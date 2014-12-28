@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206172202) do
+ActiveRecord::Schema.define(version: 20141217173440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,12 +24,14 @@ ActiveRecord::Schema.define(version: 20141206172202) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
   end
 
-  add_index "attachments", ["user_id"], name: "index_attachments_on_user_id", using: :btree
+  add_index "attachments", ["created_by_id"], name: "index_attachments_on_created_by_id", using: :btree
+  add_index "attachments", ["updated_by_id"], name: "index_attachments_on_updated_by_id", using: :btree
 
   create_table "attendings", force: true do |t|
     t.integer  "event_id"
@@ -42,14 +44,14 @@ ActiveRecord::Schema.define(version: 20141206172202) do
 
   create_table "comments", force: true do |t|
     t.text     "content"
-    t.integer  "user_id"
+    t.integer  "created_by_id"
     t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["created_by_id"], name: "index_comments_on_created_by_id", using: :btree
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -58,7 +60,12 @@ ActiveRecord::Schema.define(version: 20141206172202) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
   end
+
+  add_index "events", ["created_by_id"], name: "index_events_on_created_by_id", using: :btree
+  add_index "events", ["updated_by_id"], name: "index_events_on_updated_by_id", using: :btree
 
   create_table "forem_categories", force: true do |t|
     t.string   "name",       null: false
@@ -161,7 +168,12 @@ ActiveRecord::Schema.define(version: 20141206172202) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "created_by_id"
+    t.integer  "updated_by_id"
   end
+
+  add_index "galleries", ["created_by_id"], name: "index_galleries_on_created_by_id", using: :btree
+  add_index "galleries", ["updated_by_id"], name: "index_galleries_on_updated_by_id", using: :btree
 
   create_table "links", force: true do |t|
     t.string   "value"

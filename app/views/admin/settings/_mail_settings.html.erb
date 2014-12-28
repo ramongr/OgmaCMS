@@ -2,19 +2,38 @@
   <div class="row">
     <div class="small-12">
       <% unless @system_mails.blank? %>
-      <% @system_mails.each do |system_mail| %>
-        <div class="small-7 columns">
-          <%= system_mail.name %>
-        </div>
-        <div class="small-2 columns">
-          <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
-        </div>
-        <div class="small-2 columns">
-          <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
-        </div>
-      <br>
+        <% @system_mails.each do |system_mail| %>
+          <div class="row">
+            <div class="small-7 columns">
+              <%= system_mail.name %>
+            </div>
+            <div class="small-2 columns">
+              <%= link_to t('common.show'), [:admin,system_mail], class: "button tiny" %>
+            </div>
+            <div class="small-2 columns">
+              <%= link_to t('common.edit'), edit_admin_system_mail_path(system_mail), class: "button tiny" %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-      <% end %>
+      <div class="small-12">
+        <%= t 'settings.birthday_email_toggle' %>
+        <%= check_box_tag :birthday_email_toggle, Setting.birthday_email_toggle, Setting.birthday_email_toggle %>
+      </div>
+      <div class="small-12">
+        <%= t 'settings.user_registration' %>
+        <%= check_box_tag :user_registration, Setting.user_registration, Setting.user_registration %>
+      </div>
+      <div class="small-12">
+        <%= t 'settings.user_delete' %>
+        <%= check_box_tag :user_delete, Setting.user_delete, Setting.user_delete %>
+      </div>
+      <div class="small-12">
+        <%= t 'settings.days_until_delete' %>
+        <div class="small-1">
+          <%= number_field_tag :days_until_delete, Setting.days_until_delete, in: 1...365 %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
