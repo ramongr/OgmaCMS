@@ -1,7 +1,7 @@
 <div class="content" id="mailer">
   <div class="row">
     <div class="small-12">
-      <% unless @system_mails.empty? %>
+      <% unless @system_mails.blank? %>
       <% @system_mails.each do |system_mail| %>
         <div class="small-7 columns">
           <%= system_mail.name %>

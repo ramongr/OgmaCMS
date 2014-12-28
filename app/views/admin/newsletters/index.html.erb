@@ -3,7 +3,7 @@
 <div class="row">
   <%= link_to t('newsletters.index.admin.new'), new_admin_newsletter_path, class: "button tiny" %>
   <div class="small-12">
-    <% unless @newsletters.empty? %>
+    <% unless @newsletters.blank? %>
       <table>
         <thead>
           <tr>

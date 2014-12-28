@@ -3,7 +3,7 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 
 <h1><%= t('pages.search.title') %></h1>
-  <% unless @pages.empty? %>
+  <% unless @pages.blank? %>
     <table>
       <thead>
         <tr>
@@ -35,7 +35,7 @@
 
   <h1><%= t('posts.search.title') %></h1>
 
-  <% unless @posts.empty? %>
+  <% unless @posts.blank? %>
     <table>
       <thead>
         <tr>

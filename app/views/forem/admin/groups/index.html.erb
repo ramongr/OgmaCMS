@@ -5,7 +5,7 @@
     <%= link_to t('back_to_admin'), forem.admin_root_path, class: "button small" %>
     <%= link_to t('forem.admin.group.new'), forem.new_admin_group_path, class: "button small" %>
     <br><br>
-    <% unless @groups.empty? %>
+    <% unless @groups.blank? %>
       <% @groups.each_with_index do |group, index| %>
 
         <%= index > 0 ? "<hr>".html_safe : "" %>

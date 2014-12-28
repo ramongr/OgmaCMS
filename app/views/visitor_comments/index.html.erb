@@ -7,13 +7,13 @@
   <br>
 
   <div class="small-9">
-    <% unless @visitor_comments.empty? %>
+    <% unless @visitor_comments.blank? %>
       <% @visitor_comments.each do |visitor_comment| %>
 
           <h3 class="text-center"><%= visitor_comment.subject %></h3>
           <hr>          
-          <% if visitor_comment.user.nil? %>
-            <%= visitor_comment.user.nil? ? "Guest" : visitor_comment.user.name %>
+          <% if visitor_comment.user.blank? %>
+            <%= visitor_comment.user.blank? ? "Guest" : visitor_comment.user.name %>
           <% elsif can? :read, User %>
             <%= link_to visitor_comment.user.name, [:admin,visitor_comment.user] %>
           <% end %>

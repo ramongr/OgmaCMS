@@ -25,7 +25,7 @@ class Admin::SettingsController < Admin::AdminController
         selected_languages << l
       end
     end
-    unless selected_languages.empty?
+    unless selected_languages.blank?
       if selected_languages.include?(params[:default_language])
         Setting.selected_languages = selected_languages
       else
@@ -51,7 +51,7 @@ class Admin::SettingsController < Admin::AdminController
       end
     end
 
-    if errors.empty?
+    if errors.blank?
       redirect_to admin_settings_url, notice: t('settings.notice.save_success')
     else
       redirect_to admin_settings_url, alert: errors.join('. ')

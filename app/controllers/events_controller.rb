@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     @going = Attending.yes.where(event: @event)
     @not_going = Attending.no.where(event: @event)
     @indecisive = Attending.maybe.where(event: @event)
-    if @attending.nil?
+    if @attending.blank?
       @attending = Attending.new(user: current_user, event: @event, going: 'yes')
       respond_to do |format|
         if @attending.save
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
     @going = Attending.yes.where(event: @event)
     @not_going = Attending.no.where(event: @event)
     @indecisive = Attending.maybe.where(event: @event)
-    if @attending.nil?
+    if @attending.blank?
       @attending = Attending.new(user: current_user, event: @event, going: 'no', notification: false)
       respond_to do |format|
         if @attending.save
@@ -85,7 +85,7 @@ class EventsController < ApplicationController
     @going = Attending.yes.where(event: @event)
     @not_going = Attending.no.where(event: @event)
     @indecisive = Attending.maybe.where(event: @event)
-    if @attending.nil?
+    if @attending.blank?
       @attending = Attending.new(user: current_user, event: @event, going: 'maybe')
       respond_to do |format|
         if @attending.save

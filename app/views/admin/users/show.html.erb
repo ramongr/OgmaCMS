@@ -8,14 +8,14 @@
     <h1 class="text-center"><%= @user.name %></h1>
     <hr>
     <p><strong><%= t('users.attributes.created_at') %>:</strong> <%= l @user.created_at %></p>
-    <% if @user.last_sign_in_at.nil? %>
+    <% if @user.last_sign_in_at.blank? %>
       <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= t('common.never') %></p>
     <% else %>
       <p><strong><%= t('users.attributes.last_sign_in_at') %>:</strong> <%= @user.last_sign_in_at.nil %></p>
     <% end %>
     <p>
       <strong><%= t('users.attributes.email') %>:</strong> <%= @user.email %>
-      <% if @user.confirmed_at.nil? %>
+      <% if @user.confirmed_at.blank? %>
         (<%= t('users.email.unconfirmed') %>)
       <% else %>
         (<%= t('users.email.confirmed') %>)

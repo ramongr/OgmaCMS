@@ -1,10 +1,10 @@
-<% if @newsletter.send('body_' + I18n.locale.to_s).nil? %>
+<% if @newsletter.send('body_' + I18n.locale.to_s).blank? %>
 
   <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 
 <% else %>
 
-  <% unless @newsletter.users.empty? %>
+  <% unless @newsletter.users.blank? %>
     <hr>
     <div>
       <strong><%= t('newsletters.to') %>:</strong>
@@ -19,7 +19,7 @@
   <%= @newsletter.send('body_' + I18n.locale.to_s).html_safe %>
 
   <div id="send_newsletter">
-    <%= unless @newsletter.users.empty?
+    <%= unless @newsletter.users.blank?
           link_to t('newsletters.send'), send_newsletter_admin_newsletter_path(@newsletter), remote: true, class: 'button small'
         else
           link_to t('newsletters.cant_send'), edit_admin_newsletter_path(@newsletter), class: 'button small alert'
