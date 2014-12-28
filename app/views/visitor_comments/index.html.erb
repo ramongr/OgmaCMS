@@ -12,8 +12,8 @@
 
           <h3 class="text-center"><%= visitor_comment.subject %></h3>
           <hr>          
-          <% if visitor_comment.created_by.nil? %>
-            <%= visitor_comment.created_by.nil? ? "Guest" : visitor_comment.created_by.name %>
+          <% if visitor_comment.created_by.blank? %>
+            <%= visitor_comment.created_by.blank? ? "Guest" : visitor_comment.created_by.name %>
           <% elsif can? :read, User %>
             <%= link_to visitor_comment.created_by.name, [:admin,visitor_comment.created_by] %>
           <% end %>
