@@ -111,6 +111,20 @@ class Admin::EventsController < Admin::AdminController
     end
   end
 
+  def update_multiple
+    unless params[:destroy].nil?
+      Event.destroy_all(id: params[:event_ids])
+      unless params[:search].blank?
+        @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
+      else
+        @events = Event.page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
+      end
+      respond_to do |format|
+        format.js { render action: 'index'}
+      end
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy

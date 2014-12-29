@@ -1,4 +1,21 @@
+<<<<<<< HEAD
 <% unless @events.blank? %>
+  <table>
+    <thead>
+      <tr> 
+        <th><%= sortable 'title', t('events.attributes.title') %></th>
+        <th><%= sortable 'start_time', t('events.attributes.date') %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <% if event.end_time.blank? %>
+=======
+<% unless @events.empty? %>
 
   <%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
 
@@ -21,13 +38,14 @@
           <tr>
             <td><%= check_box_tag 'event_ids[]', event.id %></td>
 
+>>>>>>> e678eaaedcbb202af3aacc62f7b9b679986899ce
             <td>
               <%= link_to event.title, [:admin,event], title: t('common.show') %>              
               <%= link_to content_tag(:i, '', class: 'fi-pencil pencil', title: t('common.edit')), edit_admin_event_path(event) %>
               <%= link_to content_tag(:i, '', class: 'fi-trash trash', title: t('common.destroy')), update_multiple_admin_events_path, method: :put, remote: true, data: { confirm: t('common.confirm') } %>
             </td>
 
-            <% if event.end_time.blank? %>
+            <% if event.end_time.nil? %>
               <td>
                 <%= l event.start_time, format: :semi_datetime %>
               </td>

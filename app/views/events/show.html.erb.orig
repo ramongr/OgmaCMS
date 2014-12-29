@@ -10,8 +10,13 @@
       <p><%= @event.body %></p>
     <% end %>
     <h4><%= t('events.attributes.start_time') %>:</h4>
-    <p><%= l @event.start_time, format: :full_datetime %></p>
+<<<<<<< HEAD
+    <p><%= l @event.start_time, format: :full_date %></p>
     <% unless @event.end_time.blank? %>
+=======
+    <p><%= l @event.start_time, format: :full_datetime %></p>
+    <% unless @event.end_time.nil? %>
+>>>>>>> e678eaaedcbb202af3aacc62f7b9b679986899ce
       <h4><%= t('events.attributes.end_time') %>:</h4>
       <p><%= l @event.end_time, format: :full_datetime %></p>
     <% end %>

@@ -7,7 +7,7 @@
       <table>
         <thead>
           <tr>
-            <th><%= t 'posts.published' %></th>
+            <th></th>
             <th><%= t 'posts.attributes.title' %></th>
             <th><%= t 'posts.attributes.author' %></th>
             <th><%= t 'posts.attributes.updated_at' %></th>
@@ -20,8 +20,13 @@
             <tr>
               <td><h4 class="text-center"><%= content_tag :i, '', class: (post.publish ?  "fi-check check" : "fi-x uncheck"), title: (post.publish ? t('common.published') : t('common.not_published')) %></h4></td>
               <td><%= post.title %></td>
+<<<<<<< HEAD
               <td><%= post.created_by.name %></td>
+              <td><%= l post.updated_at %></td>
+=======
+              <td><%= post.user.name %></td>
               <td><%= l post.updated_at, format: :semi_datetime %></td>
+>>>>>>> e678eaaedcbb202af3aacc62f7b9b679986899ce
               <td>
                 <%= link_to t('common.show'), [:admin,post], class: "button tiny" %>
                 <%= link_to t('common.edit'), edit_admin_post_path(post), class: "button tiny" %>
