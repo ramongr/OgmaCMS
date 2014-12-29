@@ -3,7 +3,7 @@
     <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
 
     <%= forem_pages_widget(@topics) %>
-    <% unless @topics.empty? %>
+    <% unless @topics.blank? %>
       <table>
         <thead>
           <tr>

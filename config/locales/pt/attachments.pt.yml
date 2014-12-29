@@ -1,7 +1,7 @@
 pt:
   activerecord:
     models:
-      attachment: anexo
+      attachment: ficheiro
     attributes:
       attachment:
         name: Nome
@@ -11,7 +11,7 @@ pt:
         updated_at: Modificado em
 
   attachments:
-    name: Anexos
+    name: Ficheiros
 
     attributes:
       name: Nome
@@ -24,13 +24,13 @@ pt:
 
     index:
       admin:
-        title: Anexos
-        new: Novo anexo
+        title: Ficheiros
+        new: Novo ficheiro
 
     new:
       admin:
-        title: Novo anexo
+        title: Novo ficheiro
 
     edit:
       admin:
-        title: Modificar anexo
+        title: Modificar ficheiro

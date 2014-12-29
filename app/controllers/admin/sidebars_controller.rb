@@ -15,6 +15,15 @@ class Admin::SidebarsController < Admin::AdminController
     @sidebar = Sidebar.new
   end
 
+  def publish
+    @sidebar = Sidebar.find(params[:sidebar_id])
+    @sidebar.update_attributes(publish: !@sidebar.publish)
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /sidebar2s/1/edit
   def edit
   end
@@ -23,6 +32,7 @@ class Admin::SidebarsController < Admin::AdminController
   # POST /sidebar2s.json
   def create
     @sidebar = Sidebar.new(sidebar_params)
+    @sidebar.created_by = @sidebar.updated_by = current_user
 
     params[:sidebar][:link_ids] ||= []
     params[:sidebar][:page_ids] ||= []
@@ -51,7 +61,7 @@ class Admin::SidebarsController < Admin::AdminController
     @sidebar.page_ids = params[:sidebar][:page_ids]
 
     respond_to do |format|
-      if @sidebar.update(sidebar_params)
+      if @sidebar.update(sidebar_params.merge(updated_by: current_user))
         format.html { redirect_to [:admin, @sidebar], notice: 'Sidebar was successfully updated.' }
         format.json { head :no_content }
       else

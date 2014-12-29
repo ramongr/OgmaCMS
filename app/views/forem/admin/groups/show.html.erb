@@ -11,9 +11,9 @@
     <% end %>
   </div>
   <hr>
-  <% unless @group.members.empty? %>
+  <% unless @group.members.blank? %>
     <h3><%= t('.current_members') %></h3>
-    <% unless @group.members.empty? %>
+    <% unless @group.members.blank? %>
         <% @group.members.each_with_index do |member, index| %>
 
           <%= index > 0 ? "<hr>".html_safe : "" %>

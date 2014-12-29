@@ -4,7 +4,7 @@
   <%= link_to t('sidebars.index.admin.new'), new_admin_sidebar_path, class: "button tiny" %>
   <br><br>
   <div class="small-12">
-    <% unless @sidebars.empty? %>
+    <% unless @sidebars.blank? %>
       <table>
         <thead>
           <tr>

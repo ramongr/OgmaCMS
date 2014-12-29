@@ -6,10 +6,16 @@
   <div class="small-12">
     <h3 class="text-center"><%= @post.title %></h3>
     <hr>
-    <%= @post.user.name %><br>
+    <%= @post.created_by.name %><br>
     <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
-    <hr>
-    <%= @post.content.html_safe %>
+    <% if can? :update, @post %>
+      <%= link_to t('common.edit'), edit_admin_post_path(@post) %>
+      <% if can? :destroy, @post %>
+        | <%= link_to t('common.destroy'), [:admin,@post], method: :delete, data: { confirm: t('common.confirm') } %>
+      <% end %>
+    <% end %>
+    <br><br>
+    <p><%= @post.content.html_safe %></p>
     <p class="text-right">
       <small>
         <% if @post.created_at.to_i != @post.updated_at.to_i %>
@@ -17,17 +23,9 @@
         <% end %>
       </small>
     </p>
-    
     <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button tiny" %>
-    <% if can? :update, @post %>
-      <%= link_to t('common.edit'), edit_admin_post_path(@post), class: "button tiny" %>
-      <% if can? :destroy, @post %>
-        <%= link_to t('common.destroy'), [:admin,@post], method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
-      <% end %>
-    <% end %>
-
     <!-- Comments -->
-    <% unless @postcomments.empty? %>
+    <% unless @postcomments.blank? %>
       <hr>
       <div class="small-7 small-offset-2" id="comments-container">
 
@@ -36,7 +34,7 @@
         <% @postcomments.each do |comment| %>
           <div class="small-12">
             <hr>
-            <%= comment.user.name %><br>
+            <%= comment.created_by.name %><br>
             <% if comment.created_at.to_i == comment.updated_at.to_i %>
               <%= t('comments.attributes.created_at') %>
             <% else %>
@@ -49,9 +47,9 @@
             <div id="button-container">
               <% if can? :update, comment %>
                 <%= link_to t('common.edit'), edit_comment_path(comment), class: "button tiny" %>
-                <% if can? :destroy, comment %>
-                  <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
-                <% end %>
+              <% end %>
+              <% if can? :destroy, comment %>
+                <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               <% end %>
             </div>
           </div>

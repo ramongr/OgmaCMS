@@ -27,4 +27,9 @@ class SystemMailer < ActionMailer::Base
     end
   end
 
+  def birthday_email(user)
+    @user = user
+    @mail = SystemMail.find_by(action: 'birthday_email')
+    mail(to: @user.email, subject: parseEmail(@mail.send('subject_' + @user.language), user: @user))
+  end
 end

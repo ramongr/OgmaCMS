@@ -9,7 +9,7 @@
       
     <%= content_tag :div, class: "content " + (l == I18n.locale.to_s ? "active" : ""), id: "langtab-" + l do %>
 
-      <% if @page.send('body_' + l).nil? %>
+      <% if @page.send('body_' + l).blank? %>
 
         <h2 class="text-center"><%= t('common.translation_missing') %></h2>
 

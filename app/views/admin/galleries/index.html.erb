@@ -3,7 +3,7 @@
 <div class="row">
   <%= link_to t('galleries.index.admin.new'), new_admin_gallery_path, class: "button tiny" %>
   <div class="small-12">
-  <% unless @galleries.empty? %>
+  <% unless @galleries.blank? %>
     <table>
       <thead>
         <tr>

@@ -2,7 +2,7 @@ en:
   activerecord:
     models:
       setting: setting
-      
+
   settings:
     name: Settings
 
@@ -25,6 +25,14 @@ en:
     available_languages: Available languages
     default_language: Default language
     default_time_zone: Default time zone
+
+    birthday_email_toggle: Send birthday email?
+
+    user_registration: Allow new users to register?
+    registration_closed: Registrations are temporarily closed
+
+    user_delete: Remove unconfirmed users?
+    days_until_delete: How many days until removal?
 
     #Success/Failure
     notice:

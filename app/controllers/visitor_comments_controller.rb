@@ -25,7 +25,8 @@ class VisitorCommentsController < ApplicationController
   # POST /visitor_comments
   # POST /visitor_comments.json
   def create
-    @visitor_comment = current_user.visitor_comments.create(visitor_comment_params)
+    @visitor_comment = VisitorComment.create(visitor_comment_params)
+    @visitor_comment.created_by = current_user
 
     respond_to do |format|
       if @visitor_comment.save

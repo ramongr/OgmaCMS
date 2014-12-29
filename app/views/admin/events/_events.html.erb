@@ -1,4 +1,4 @@
-<% unless @events.empty? %>
+<% unless @events.blank? %>
   <table>
     <thead>
       <tr> 
@@ -12,7 +12,7 @@
       <% @events.each do |event| %>
         <tr>
           <td><%= event.title %></td>
-          <% if event.end_time.nil? %>
+          <% if event.end_time.blank? %>
             <td>
               <%= l event.start_time, format: :date_only %>
               <br>

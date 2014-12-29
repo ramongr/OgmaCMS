@@ -1,6 +1,6 @@
 <div id="attachment-modal" class="reveal-modal" data-reveal>
   <a class="close-reveal-modal">&#215;</a>
-  <% unless @images.empty? %>
+  <% unless @images.blank? %>
     <h3 class="text-center">Click on the images to add them</h3>
     <% @images.each_with_index do |img, index| %>
       <% if index == 0 %>
@@ -13,6 +13,9 @@
         <%= img.name %>
         <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name, id: img.id} %>
       <% end %>
+    <% end %>
+    <% if @images.size % 3 != 0 %>
+      </div>
     <% end %>
   <% end %>
 </div>
