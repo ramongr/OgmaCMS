@@ -19,8 +19,9 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-    @comment = current_user.comments.create(comment_params)
+    @comment = Comment.create(comment_params)
     @comment.post = @post
+    @comment.created_by = current_user
 
     respond_to do |format|
       if @comment.save

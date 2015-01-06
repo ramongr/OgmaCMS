@@ -7,7 +7,7 @@
 
   <% if user_signed_in? %>
     <p>
-      <% if @attending.nil? %>
+      <% if @attending.blank? %>
         <%= t('events.going?') %> 
         <%= link_to t('common.yes'), event_going_path(@event), method: :put, remote: true %> |
         <%= link_to t('common.no'), event_not_going_path(@event), method: :put, remote: true  %> |
@@ -27,28 +27,28 @@
       <% end %>
     </p>
     <p>
-      <% unless @attending.nil? %>
+      <% unless @attending.blank? %>
         <%= @attending.notification == true ? t('events.notification_true') : t('events.notification_false') %>
         <%= link_to @attending.notification == true ? t('events.notification_true_false') : t('events.notification_false_true'), event_notify_path(@event), method: :put, remote: true  %>
       <% end %>
     </p>
   <% end %>
 
-  <% unless @going.empty? %>
+  <% unless @going.blank? %>
     <strong><%= t('events.going') %>:</strong>
     <% @going.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless @not_going.empty? %>
+  <% unless @not_going.blank? %>
     <strong><%= t('events.not_going') %>:</strong>
     <% @not_going.each do |a| %>
       <p><%= a.user.name %></p>
     <% end %>
   <% end %>
 
-  <% unless @indecisive.empty? %>
+  <% unless @indecisive.blank? %>
     <strong><%= t('events.indecisive') %>:</strong>
     <% @indecisive.each do |a| %>
       <p><%= a.user.name %></p>

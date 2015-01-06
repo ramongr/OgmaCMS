@@ -7,15 +7,15 @@
   <br>
 
   <div class="small-9">
-    <% unless @visitor_comments.empty? %>
+    <% unless @visitor_comments.blank? %>
       <% @visitor_comments.each do |visitor_comment| %>
 
           <h3 class="text-center"><%= visitor_comment.subject %></h3>
           <hr>          
-          <% if visitor_comment.user.nil? %>
-            <%= visitor_comment.user.nil? ? "Guest" : visitor_comment.user.name %>
+          <% if visitor_comment.created_by.blank? %>
+            <%= visitor_comment.created_by.blank? ? "Guest" : visitor_comment.created_by.name %>
           <% elsif can? :read, User %>
-            <%= link_to visitor_comment.user.name, [:admin,visitor_comment.user] %>
+            <%= link_to visitor_comment.created_by.name, [:admin,visitor_comment.created_by] %>
           <% end %>
           <p><%= t('visitor_comments.attributes.created_at') %>: <%= l visitor_comment.created_at %></p>
           <% if visitor_comment.created_at != visitor_comment.updated_at %>

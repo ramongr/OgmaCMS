@@ -6,10 +6,10 @@
   <% end %>
 
   <div class="small-12">
-    <% unless @posts.empty? %>
+    <% unless @posts.blank? %>
       <% @posts.each do |post| %>
         <h3 class="text-center"><%= link_to_if (can? :update, post), post.title, post %></h3>
-        <%= post.user.name %><br>
+        <%= post.created_by.name %><br>
         <% if post.created_at.to_i == post.updated_at.to_i %>
           <%= t('posts.attributes.created_at') %>: <%= l post.created_at %>
         <% else %>

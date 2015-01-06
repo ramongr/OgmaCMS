@@ -65,6 +65,8 @@ class Admin::PostsController < Admin::AdminController
   # POST /admin/posts
   # POST /admin/posts.json
   def create
+    @post = current_user.posts.create(post_params)
+	@post.created_by = @post.updated_by = current_user
     @attachments = Attachment.all
 
     respond_to do |format|
@@ -82,7 +84,7 @@ class Admin::PostsController < Admin::AdminController
   # PATCH/PUT /admin/posts/1.json
   def update
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.update(post_params.merge(updated_by: current_user))
         format.html { redirect_to admin_posts_url, notice: 'post was successfully updated.' }
         format.json { head :ok }
       else

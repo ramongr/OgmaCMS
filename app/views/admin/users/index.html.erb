@@ -3,7 +3,7 @@
 <div class="row">
   <%= link_to t('users.index.admin.new'), new_admin_user_path, class: "button tiny" %>
   <div class="small-12">
-    <% unless @users.empty? %>
+    <% unless @users.blank? %>
       <table>
         <thead>
           <tr>

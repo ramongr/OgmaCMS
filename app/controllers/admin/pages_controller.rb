@@ -66,6 +66,7 @@ class Admin::PagesController < Admin::AdminController
   # POST /admin/Pages.json
   def create
     @page = Page.new(page_params)
+    @page.created_by = @page.updated_by = current_user
     @attachments = Attachment.all
 
     respond_to do |format|
@@ -83,7 +84,7 @@ class Admin::PagesController < Admin::AdminController
   # PATCH/PUT /admin/Pages/1.json
   def update
     respond_to do |format|
-      if @page.update(page_params)
+      if @page.update(page_params.merge(updated_by: current_user))
         format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
         format.json { head :ok }
       else

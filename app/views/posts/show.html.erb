@@ -6,7 +6,7 @@
   <div class="small-12">
     <h3 class="text-center"><%= best_in_place_if (can? :update, @post), @post, "title_"+I18n.locale.to_s, data: {bip_url: admin_post_path(@post), title: t('common.inline_editing_title')} %></h3>
     <hr>
-    <%= @post.user.name %><br>
+    <%= @post.created_by.name %><br>
     <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
     <% if can? :update, @post %>
       <%= link_to t('common.edit'), edit_admin_post_path(@post) %>
@@ -25,7 +25,7 @@
     </p>
     <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button tiny" %>
     <!-- Comments -->
-    <% unless @postcomments.empty? %>
+    <% unless @postcomments.blank? %>
       <hr>
       <div class="small-7 small-offset-2" id="comments-container">
 
@@ -34,7 +34,7 @@
         <% @postcomments.each do |comment| %>
           <div class="small-12">
             <hr>
-            <%= comment.user.name %><br>
+            <%= comment.created_by.name %><br>
             <% if comment.created_at.to_i == comment.updated_at.to_i %>
               <%= t('comments.attributes.created_at') %>
             <% else %>
@@ -47,9 +47,9 @@
             <div id="button-container">
               <% if can? :update, comment %>
                 <%= link_to t('common.edit'), edit_comment_path(comment), class: "button tiny" %>
-                <% if can? :destroy, comment %>
-                  <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
-                <% end %>
+              <% end %>
+              <% if can? :destroy, comment %>
+                <%= link_to t('common.destroy'), comment, method: :delete, data: { confirm: t('common.confirm') }, class: "button tiny alert" %>
               <% end %>
             </div>
           </div>
