@@ -36,3 +36,4 @@ en:
     'true': Yes
     'false': No
     translation_missing: There is no translation available
+    inline_editing_title: Click to edit

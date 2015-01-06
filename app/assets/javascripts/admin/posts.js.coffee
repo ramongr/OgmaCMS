@@ -1,5 +1,5 @@
 post = ->
-  if $('#post-container').length > 0 
+  if $('#post-container').length > 0
     # Selects the first non-null tab from attachments
     $('#modal-tab').addClass('active')
     # Selects corresponding div

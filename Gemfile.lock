@@ -1,24 +1,35 @@
 GIT
-  remote: git://github.com/galetahub/ckeditor.git
-  revision: d0bc44a6fc9fa67d4b007877688f89e5a0cbf79f
-  specs:
-    ckeditor (4.1.1)
-      cocaine
-      orm_adapter (~> 0.5.0)
-
-GIT
-  remote: git://github.com/globalize/globalize-accessors.git
-  revision: b0e4783f146d8c85d7213363d86a8f83f51d913f
+  remote: git://github.com/svenfuchs/rails-i18n.git
+  revision: d01f64822695cc0674ec1d8998f466af4d25548a
   branch: master
   specs:
-    globalize-accessors (0.1.5)
-      globalize (>= 3)
+    rails-i18n (4.0.3)
+      i18n (~> 0.6)
+      railties (~> 4.0)
 
 GIT
   remote: git://github.com/iain/http_accept_language.git
   revision: b107264272f4d8a262251221d7fcdf9a0f1f8dcf
   specs:
     http_accept_language (2.0.2)
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 679c1cf8491e755a3afd940c1daeb6f80d92d11c
+  specs:
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
+GIT
+  remote: git://github.com/galetahub/ckeditor.git
+  revision: d0bc44a6fc9fa67d4b007877688f89e5a0cbf79f
+  specs:
+    ckeditor (4.1.1)
+      cocaine
+      orm_adapter (~> 0.5.0)
 
 GIT
   remote: git://github.com/radar/forem.git
@@ -37,10 +48,14 @@ GIT
       workflow (= 1.0.0)
 
 GIT
-  remote: git://github.com/svenfuchs/rails-i18n.git
-  revision: d01f64822695cc0674ec1d8998f466af4d25548a
+  remote: git://github.com/globalize/globalize-accessors.git
+  revision: b0e4783f146d8c85d7213363d86a8f83f51d913f
   branch: master
   specs:
+<<<<<<< HEAD
+    globalize-accessors (0.1.5)
+      globalize (>= 3)
+=======
     rails-i18n (4.0.3)
       i18n (~> 0.6)
       railties (~> 4.0)
@@ -54,6 +69,7 @@ GIT
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.5)
       mime-types
+>>>>>>> develop
 
 GEM
   remote: https://rubygems.org/
@@ -96,6 +112,9 @@ GEM
     addressable (2.3.6)
     arel (6.0.0)
     bcrypt (3.1.9)
+    best_in_place (3.0.1)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -374,6 +393,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place (~> 3.0.1)
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.14.0)

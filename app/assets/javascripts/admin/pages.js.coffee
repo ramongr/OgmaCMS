@@ -1,5 +1,6 @@
 page = ->
   if $('#pages-form').length > 0
+    $(".best_in_place").best_in_place()
     # Selects the first non-null tab from attachments
     $('#modal-tab').addClass('active')
     # Selects corresponding div

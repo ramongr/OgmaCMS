@@ -8,7 +8,7 @@ en:
         content: Content
         created_at: Created at
         updated_at: Updated at
-        
+
   posts:
     name: Posts
     admin: Manage posts
