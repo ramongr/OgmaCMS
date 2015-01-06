@@ -15,9 +15,7 @@
       <% end %>
     <% end %>
     <br><br>
-    <div id="ckeditor-content" contenteditable="true">
-      <p><%= @post.content.html_safe %></p>
-    </div>
+    <p><%= @post.content.html_safe %></p>
     <p class="text-right">
       <small>
         <% if @post.created_at.to_i != @post.updated_at.to_i %>

@@ -11,10 +11,7 @@
 
   <div class="small-12">
     <h1 class="text-center"><%= best_in_place_if (can? :update, @page), @page, "title_"+I18n.locale.to_s, data: {bip_url: admin_page_path(@page.id), title: t('common.inline_editing_title')} %></h1>
-
-    <div contenteditable="true">
-      <p><%= @page.body.html_safe %></p>
-    </div>
+    <p><%= @page.body.html_safe %></p>
     <br/>
   </div>
 </div>
