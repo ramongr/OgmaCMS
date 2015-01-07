@@ -83,13 +83,23 @@ class Admin::PagesController < Admin::AdminController
   # PATCH/PUT /admin/Pages/1
   # PATCH/PUT /admin/Pages/1.json
   def update
-    respond_to do |format|
-      if @page.update(page_params.merge(updated_by: current_user))
-        format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+    if params[:ajax]
+      # Update HERE from AJAX
+      @page.update_attributes("#{params[:post][:lang]}".to_sym => params[:post][:body], updated_by: current_user)
+      @page.save!
+
+      respond_to do |format|
+        format.json {render action: 'show'}
+      end
+    else
+      respond_to do |format|
+        if @page.update(page_params.merge(updated_by: current_user))
+          format.html { redirect_to admin_pages_path, notice: 'Page was successfully updated.' }
+          format.json { head :ok }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @page.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
