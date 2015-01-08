@@ -1,5 +1,45 @@
 #sortable { list-style-type: none; margin: 0; padding: 0; }
-#sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 200px; height: 300px; font-size: 4em; text-align: center; }
+#sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 200px; height: 150px; font-size: 4em; text-align: center; }
 
 #sortable-show { list-style-type: none; margin: 0; padding: 0; }
 #sortable-show li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 200px; height: 180px; font-size: 4em; text-align: center; }
+
+.image:hover {
+  cursor: pointer;
+  height: auto;
+  width: auto;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 1px #111111;
+  z-index: 1;
+}
+
+.image {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+.image .corner {
+  color: #e74c3c;
+  opacity: 0;
+  
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  padding: 2px 0px;
+  
+  text-decoration: none;
+  text-align: center;
+}
+
+.image:hover .corner {
+  opacity: 0.8;
+  top: 0;
+  padding-left: 92%;
+  margin-top: -58px;
+}
+
+.image:hover .corner > i{
+  font-size: 18px;
+}
