@@ -20,6 +20,7 @@
 //= require ckeditor/init
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/lang-all
 //= require_tree .
 $(function(){
   $(document).foundation();
