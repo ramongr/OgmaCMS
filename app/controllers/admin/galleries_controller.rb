@@ -57,7 +57,7 @@ class Admin::GalleriesController < Admin::AdminController
     @photo = Photo.find(params[:photo_id])
     @photo.destroy
     @gallery.update_attributes(updated_by: current_user)
-    render json: nil, status: :ok
+    redirect_to request.env['HTTP_REFERER']
   end
 
   # Assuming Photos already created (just updates positions)

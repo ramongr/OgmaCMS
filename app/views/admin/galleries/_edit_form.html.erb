@@ -23,14 +23,15 @@
       <%= f.label :date %>
       <%= f.date_select :date, {}, {class: "small-4 columns"} %>
     </div>
-    <div id="gallery-add-image" class="field">
-      <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('galleries.add_image') %></button>
+    <!-- Submit and add photo buttons -->
+    <div id="gallery-add-image" class="small-12 actions" class="field">
+      <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal">
+        <%= t('galleries.add_image') %>
+      </button>
+      <%= f.submit class: "button right" %>
     </div>
     <div id="selected-images-container" class="field">
       <%= render 'selected_images' %>
-    </div>
-    <div class="small-12 actions" class="field">
-      <%= f.submit class: "button right" %>
     </div>
   </div>
 <% end %>
