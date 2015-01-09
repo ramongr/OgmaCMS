@@ -20,11 +20,11 @@
     <ul id="sortable-show">
       <% @added_images.each do |image| %>
         <li class="ui-state-default" id="<%= image.id %>">
-          <div class="image">
-            <a href="<%= download_attachment_url(image.attachment)%>">
-              <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
-            </a>
-            <%= link_to content_tag(:i, '', class: "fi-x"), {action: 'remove_photo', controller: 'admin/galleries', photo_id: image.id}, method: :post, class: "corner" %>
+          <div class="img-wrap">
+              <span class="close"><%= link_to content_tag(:i, '', class: "fi-x"), {action: 'remove_photo', controller: 'admin/galleries', photo_id: image.id}, method: :post, class: "close" %></span>
+              <a href="<%= download_attachment_url(image.attachment)%>">
+                <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+              </a>
           </div> 
         </li>
       <% end %>
