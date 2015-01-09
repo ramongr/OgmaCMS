@@ -41,7 +41,11 @@ calendar = ->
   if $('#calendar-container').length > 0
     if $('#event-modal-container').length > 0
       $('#calendar-content').fullCalendar
+        lang: $('#calendar-content').attr('data-lang')
         theme: false
+        titleFormat: {
+          month: 'MMMM YYYY'
+        }
         header:
           left: 'prev,next today'
           center: 'title'
@@ -74,7 +78,11 @@ calendar = ->
           return
     else
       $('#calendar-content').fullCalendar
+        lang: $('#calendar-content').attr('data-lang')
         theme: false
+        titleFormat: {
+          month: 'MMMM YYYY'
+        }
         header:
           left: 'prev,next today'
           center: 'title'
