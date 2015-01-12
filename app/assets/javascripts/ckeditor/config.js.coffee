@@ -41,7 +41,7 @@ CKEDITOR.editorConfig = (config) ->
   ]
 
   config.toolbar_Comments = [
-    { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript', 'RemoveFormat', '-', 'Image', 'Link', 'Unlink', '-', 'Emoji' ] }
+    { name: 'custom', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript', 'RemoveFormat', '-', 'Image', 'Link', 'Unlink', '-', 'Emoji' ] }
   ]
 
   config.toolbar = 'Editor'
