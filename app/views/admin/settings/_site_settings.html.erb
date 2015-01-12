@@ -8,7 +8,15 @@
     <%= text_area_tag :site_description, Setting.site_description, rows: 5 %>
   </div>
   <div id="site-logo" class="field">
-    <%= label_tag t('settings.site_logo') %>
-    <%= text_field_tag :site_logo, Setting.site_logo %>
+    <!-- Checking if it's the default value -->
+    <div id="logo-container">
+      <% unless Setting.site_logo == 'default' %>
+        <%= image_tag download_attachment_url(Setting.site_logo) %>
+      <% end %>
+    </div>
+    <input id="site-logo-id" name="site_logo" type="hidden" value="">
+    <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= t('settings.site_logo') %></button>
   </div>
 </div>
+
+<%= render 'admin/attachments/image_modal' %>
