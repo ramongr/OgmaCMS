@@ -1,0 +1,38 @@
+<% if can? :manage, Post %>
+  <%= link_to t('posts.admin'), admin_posts_path, class: "button small" %>
+<% end %>
+<% if can? :create, Post %>
+  <%= link_to t('posts.index.public.new'), new_admin_post_path, class: "button small" %>
+<% end %>
+<% if Setting.author_publish && current_user.author? %>
+  <%= link_to t('posts.unpublished_list'), unpublished_path, method: :post, remote: true, class: "button small" %>
+<% end %>
+<% unless @posts.blank? %>
+  <% @posts.each do |post| %>
+    <div id="post-container-<%= post.id %>">
+      <h3 class="text-center"><%= link_to_if (can? :update, Post), post.title, post %></h3>
+      <p><%= post.created_by.name %></p>
+      <% if post.created_at.to_i == post.updated_at.to_i %>
+        <%= t('posts.attributes.created_at') %>: <%= l post.created_at %>
+      <% else %>
+        <%= t('posts.attributes.updated_at') %>: <%= l post.updated_at %>
+      <% end %>
+      <% if can? :update, post %>
+        <div id="admin-area">
+          <%= link_to t('common.edit'), edit_admin_post_path(post) %>
+          <% if can? :destroy, post %>
+             | <%= link_to t('common.destroy'), [:admin,post], method: :delete, data: {confirm: t('common.confirm') } %>
+          <% end %>
+        </div>
+      <% end %>
+      <br>
+      <%= link_to post.publish ? t('common.unpublish') : t('common.publish'),  post_publish_path(post.id), method: :put, remote: true, class: "button tiny" + (post.publish ? " alert" : "") %>
+      <hr>
+      <div id="post-content">
+        <%= post.content.html_safe %>
+        <%= link_to t('common.read_more'), post_toggle_read_path(post, more: true), method: :post, remote: true %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+<% end %>

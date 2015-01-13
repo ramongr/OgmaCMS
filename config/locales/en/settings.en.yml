@@ -20,6 +20,7 @@ en:
     site_subtitle: Subtitle
     site_description: Description
     site_logo: Logo
+    author_publish: Authors can publish
 
     #Internationalization
     available_languages: Available languages

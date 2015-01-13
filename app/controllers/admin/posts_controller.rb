@@ -14,11 +14,7 @@ class Admin::PostsController < Admin::AdminController
 
   def publish
     @post = Post.find(params[:post_id])
-    @post.update_attributes(publish: !@post.publish)
-
-    respond_to do |format|
-      format.js
-    end
+    @post.update_attributes(publish: !@post.publish, updated_by: current_user)
   end
 
   # GET /admin/posts/new

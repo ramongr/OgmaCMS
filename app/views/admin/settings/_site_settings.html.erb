@@ -11,4 +11,11 @@
     <%= label_tag t('settings.site_logo') %>
     <%= text_field_tag :site_logo, Setting.site_logo %>
   </div>
+  <div id="author-functionality">
+    <%= label_tag t 'settings.author_publish' %>
+    <div class="switch">
+      <%= check_box_tag 'author_publish', !Setting.author_publish, Setting.author_publish %>
+      <label for="author_publish"></label>
+    </div>
+  </div>
 </div>

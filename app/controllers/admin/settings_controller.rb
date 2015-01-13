@@ -18,6 +18,11 @@ class Admin::SettingsController < Admin::AdminController
       Setting.site_logo = params[:site_logo]
     end
 
+    if params[:author_publish]
+      Setting.author_publish = params[:author_publish]
+    end
+
+
     # I18N
     selected_languages = []
     Setting.available_languages.each do |l|

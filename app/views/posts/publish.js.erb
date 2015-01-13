@@ -1,0 +1,2 @@
+$('#post-list-container').html("<%= escape_javascript(render 'unpublished_posts') %>")
+$('#post-list-container').remove($('#post-container-<%= @post.id %>'))
