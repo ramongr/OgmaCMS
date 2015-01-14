@@ -28,7 +28,6 @@ OgmaCMS::Application.routes.draw do
     
     resources :pages, only: [:index, :show]
 
-    post 'posts/unpublished', to: 'posts#unpublished', as: :unpublished
     resources :posts, only: [:index, :show] do
       resources :comments, shallow: true
       post 'toggle_read'

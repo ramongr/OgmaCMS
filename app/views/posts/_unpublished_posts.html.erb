@@ -1,12 +1,26 @@
-<% if can? :manage, Post %>
-  <%= link_to t('posts.admin'), admin_posts_path, class: "button small" %>
-<% end %>
-<% if can? :create, Post %>
-  <%= link_to t('posts.index.public.new'), new_admin_post_path, class: "button small" %>
-<% end %>
-<% if Setting.author_publish && current_user.author? %>
-  <%= link_to t('posts.name'), posts_path, class: "button small" %>
-<% end %>
+<!-- Top buttons -->
+<div class="row">
+  <div class="small-12">
+    <% if can? :manage, Post %>
+      <div class="small-4 columns">
+        <%= link_to t('posts.admin'), admin_posts_path, class: "button small" %>
+      </div>
+    <% end %>
+    <% if can? :create, Post %>
+      <div class="small-4 columns">
+        <%= link_to t('posts.index.public.new'), new_admin_post_path, class: "button small" %>
+      </div>
+    <% end %>
+    <% if Setting.author_publish && current_user.author? %>
+      <div class="small-4 columns">
+        <%= form_tag posts_path, method: :get do %>
+          <%= hidden_field_tag :unpublish %>
+          <%= submit_tag t('posts.unpublished_list'), class: "button small" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 <% unless @unpublished_posts.blank? %>
   <% @unpublished_posts.each do |post| %>
     <div id="post-container-<%= post.id %>">

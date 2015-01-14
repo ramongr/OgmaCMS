@@ -3,15 +3,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.published.page(params[:page]).per_page(2).order('updated_at DESC')
-    @posts.each do |p|
-      p.content = p.content.truncate(500)
-    end
-  end
 
-  # Listing unpublished posts
-  def unpublished
-    @unpublished_posts = Post.unpublished.page(params[:page]).per_page(2).order('updated_at DESC')
-    @unpublished_posts.each do |p|
+    if params[:unpublish]
+      @posts = Post.unpublished.page(params[:page]).per_page(2).order('updated_at DESC')
+    end
+
+    @posts.each do |p|
       p.content = p.content.truncate(500)
     end
   end
@@ -20,6 +17,8 @@ class PostsController < ApplicationController
   def publish
     @post = Post.find(params[:post_id])
     @post.update_attributes(publish: !@post.publish, updated_by: current_user)
+
+    redirect_to request.env['HTTP_REFERER']
   end
 
   # GET /posts/1
