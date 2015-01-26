@@ -10,7 +10,8 @@ class Admin::EventsController < Admin::AdminController
                            [t('events.attributes.body'), 'body']
                           ]
 
-    if params[:search_query].blank?
+    if params[:search_query].blank? && params[:search_startdate].blank? && params[:search_enddate].blank? && 
+       params[:search_created_by].blank? && params[:search_updated_by].blank?
       @events = Event.page(params[:page]).per_page(events_per_page)
                      .reorder(sort_column + " " + sort_direction)
 
@@ -19,11 +20,9 @@ class Admin::EventsController < Admin::AdminController
                      .send(('search_by_' + params[:search_column]),params[:search_query])
                      .where('start_time >= ?', params[:search_startdate])
                      .where('end_time <= ? OR end_time IS NULL', params[:search_enddate])
-                     .search_by_created_by_id(params[:search_created_by])
-                     .search_by_updated_by_id(params[:search_updated_by])
+                     .search_by_created_by(params[:search_created_by])
+                     .search_by_updated_by(params[:search_updated_by])
                      .reorder(sort_column + " " + sort_direction)
-                                      
-
     end
   end
 

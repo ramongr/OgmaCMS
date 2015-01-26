@@ -15,33 +15,33 @@ $(document).on "click", "#admin_events_index th a", ->
   $.getScript @href
   return false
 
-#Advanced search
+# Advanced search Show/Hide
 $(document).on "click", "#toggle_asearch", ->
   $('#advanced_search').toggle()
   return
 
+# Ajax search on submit
+$("#events_search").submit ->
+  $.get @action, $(this).serialize(), null, "script"
+  false
+
 # Ajax search on keyup
-$('#events_search #search_query').keyup( ->
-  $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
+$('#events_search #search_query').change ->
+  $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, 'script')
   false
-)
 
-$('#events_search #search_startdate').keyup( ->
-  $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
+$('#events_search #search_startdate').change ->
+  $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, 'script')
   false
-)
 
-$('#events_search #search_enddate').keyup( ->
-  $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
+$('#events_search #search_enddate').change ->
+  $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, 'script')
   false
-)
 
-$('#events_search #search_created_by').keyup( ->
-  $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
+$('#events_search #search_created_by').change ->
+  $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, 'script')
   false
-)
 
-$('#events_search #search_updated_by').keyup( ->
-  $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, 'script')
+$('#events_search #search_updated_by').change ->
+  $.get($("#events_search").attr("action"), $("#events_search").serialize(), null, 'script')
   false
-)

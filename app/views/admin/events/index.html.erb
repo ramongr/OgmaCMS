@@ -10,9 +10,9 @@
 
     <div class="small-12">
 
+      <%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
       <div class="row collapse">
         <div class="small-3 columns">
-          <%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
           <%= text_field_tag :search_query, params[:search_query], placeholder: t('common.search'), id: 'search_query' %>
         </div>
         <div class="small-1 columns">

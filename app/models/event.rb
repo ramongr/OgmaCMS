@@ -16,11 +16,11 @@ class Event < ActiveRecord::Base
                                     using: { tsearch: { prefix: true } },
                                     ignoring: :accents
 
-  pg_search_scope :search_by_created_by_id, associated_against: { created_by: :name },
-                                            using: { tsearch: { prefix: true } }
+  pg_search_scope :search_by_created_by, associated_against: { created_by: :name },
+                                         using: { tsearch: { prefix: true } }
 
-  pg_search_scope :search_by_updated_by_id, associated_against: { updated_by: :name },
-                                            using: { tsearch: { prefix: true } }
+  pg_search_scope :search_by_updated_by, associated_against: { updated_by: :name },
+                                         using: { tsearch: { prefix: true } }
 
   private
 
