@@ -5,10 +5,25 @@ class Admin::EventsController < Admin::AdminController
   # GET /events
   # GET /events.json
   def index
-    unless params[:search].blank?
-      @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
-    else
-      @events = Event.page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
+    @searchable_columns = [
+                           [t('events.attributes.title'), 'title'], 
+                           [t('events.attributes.body'), 'body']
+                          ]
+
+    if params[:search_query].blank?
+      @events = Event.page(params[:page]).per_page(events_per_page)
+                     .reorder(sort_column + " " + sort_direction)
+
+    elsif @searchable_columns.map(&:second).include?(params[:search_column])
+      @events = Event.page(params[:page]).per_page(events_per_page)
+                     .send(('search_by_' + params[:search_column]),params[:search_query])
+                     .where('start_time >= ?', params[:search_startdate])
+                     .where('end_time <= ? OR end_time IS NULL', params[:search_enddate])
+                     .search_by_created_by_id(params[:search_created_by])
+                     .search_by_updated_by_id(params[:search_updated_by])
+                     .reorder(sort_column + " " + sort_direction)
+                                      
+
     end
   end
 
@@ -18,9 +33,9 @@ class Admin::EventsController < Admin::AdminController
   end
 
   def publish
-    @event = Event.find(params[:event_id])
     @event.update_attributes(publish: !@event.publish)
-
+    index
+    
     respond_to do |format|
       format.js
     end
@@ -112,16 +127,17 @@ class Admin::EventsController < Admin::AdminController
   end
 
   def update_multiple
+    unless params[:unpublish].nil?
+      Event.where(id: params[:event_ids]).update_all(publish: false)
+    end
+    unless params[:publish].nil?
+      Event.where(id: params[:event_ids]).update_all(publish: true)
+    end
     unless params[:destroy].nil?
       Event.destroy_all(id: params[:event_ids])
-      unless params[:search].blank?
-        @events = Event.search(params[:search]).page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
-      else
-        @events = Event.page(params[:page]).per_page(events_per_page).reorder(sort_column + " " + sort_direction)
-      end
-      respond_to do |format|
-        format.js { render action: 'index'}
-      end
+    end
+    respond_to do |format|
+        format.js { index; render action: 'index' }
     end
   end
 
@@ -132,6 +148,7 @@ class Admin::EventsController < Admin::AdminController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to admin_events_url }
+      format.js   { index; render action: 'index' }
       format.json { head :no_content }
     end
   end

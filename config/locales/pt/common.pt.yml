@@ -39,3 +39,5 @@ pt:
     per_page: Items por página
     published: Publicado
     not_published: Não publicado
+    by: por
+    admin_reserved: Reservado a administradores

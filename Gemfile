@@ -36,7 +36,7 @@ gem 'turbolinks', '~> 2.5.3'
 gem 'jquery-turbolinks', '~> 2.1.0'
 
 # Foundation Official Gem
-gem 'foundation-rails', '~> 5.4.5.0'
+gem 'foundation-rails', '~> 5.5.0.0'
 
 # Foundation icon 3
 gem 'foundation-icons-sass-rails', '~> 3.0.0'

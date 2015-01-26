@@ -9,6 +9,8 @@ en:
         file: File
         created_at: Created at
         updated_at: Updated at
+        created_by: Created by
+        updated_by: Updated by
         
   attachments:
     name: Files
@@ -21,6 +23,8 @@ en:
       uploaded_by: Uploaded by
       created_at: Created at
       updated_at: Updated at
+      created_by: Created by
+      updated_by: Updated by
 
     index:
       admin:

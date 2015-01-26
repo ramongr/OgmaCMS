@@ -1,63 +1,62 @@
-<% unless @events.blank? %>
+<%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
 
-  <%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <%= button_tag content_tag(:i, '', class: 'fi-page-export check', title: t('common.publish')), name: 'publish', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
+          
+          <%= button_tag content_tag(:i, '', class: 'fi-page-delete uncheck', title: t('common.unpublish')), name: 'unpublish', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
 
-    <%= submit_tag t('common.destroy'), name: 'destroy', data: { confirm: t('common.confirm') }, class: 'button tiny' %>
+          <%= button_tag content_tag(:i, '', class: 'fi-x trash', title: t('common.destroy')), name: 'destroy', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
+        </th>
+        <th><%= sortable 'title', t('events.attributes.title') %></th>
+        <th><%= sortable 'start_time', t('events.attributes.date') %></th>
+        <th><%= sortable 'updated_at', t('events.attributes.updated_at') %></th>
+      </tr>
+    </thead>
 
-    <table>
-      <thead>
+    <tbody>
+
+      <% @events.each do |event| %>
         <tr>
-          <th class="small-0"></th>
-          <th class="small-3"><%= sortable 'title', t('events.attributes.title') %></th>
-          <th class="small-4"><%= sortable 'start_time', t('events.attributes.date') %></th>
-          <th class="small-3"><%= sortable 'updated_at', t('events.attributes.updated_at') %></th>
-          <th class="small-3"><%= sortable 'user', t('events.attributes.user') %></th>
-        </tr>
-      </thead>
+          <td><%= check_box_tag 'event_ids[]', event.id %></td>
 
-      <tbody>
+          <td>
+            <%= link_to content_tag(:i, '', class: (event.publish ?  "fi-page-export check" : "fi-page-delete uncheck"), title: (event.publish ? t('common.published') : t('common.not_published'))), publish_admin_event_path(event), method: :put, remote: true %>
+            <%= link_to event.title, [:admin,event], title: t('common.show') %>              
+            <%= link_to content_tag(:i, '', class: 'fi-pencil pencil', title: t('common.edit')), edit_admin_event_path(event) %>
+            <%= link_to content_tag(:i, '', class: 'fi-x trash', title: t('common.destroy')), [:admin,event], method: :delete, remote: true, data: { confirm: t('common.confirm') } %>
+          </td>
 
-        <% @events.each do |event| %>
-          <tr>
-            <td><%= check_box_tag 'event_ids[]', event.id %></td>
-
+          <% if event.end_time.blank? %>
             <td>
-              <%= link_to event.title, [:admin,event], title: t('common.show') %>              
-              <%= link_to content_tag(:i, '', class: 'fi-pencil pencil', title: t('common.edit')), edit_admin_event_path(event) %>
-              <%= link_to content_tag(:i, '', class: 'fi-trash trash', title: t('common.destroy')), update_multiple_admin_events_path, method: :put, remote: true, data: { confirm: t('common.confirm') } %>
+              <%= l event.start_time, format: :semi_datetime %>
             </td>
-
-            <% if event.end_time.blank? %>
+          <% else %>
+            <% if event.start_time.day == event.end_time.day %>
               <td>
-                <%= l event.start_time, format: :semi_datetime %>
+                <%= l event.start_time, format: :semi_date %>
+                <br>
+                <%= t('time.from_time') %> <%= l event.start_time, format: :full_time %>
+                <%= t('time.to_time').downcase %> <%= l event.end_time, format: :full_time %>
               </td>
             <% else %>
-              <% if event.start_time.day == event.end_time.day %>
-                <td>
-                  <%= l event.start_time, format: :semi_date %>
-                  <br>
-                  <%= t('time.from_time') %> <%= l event.start_time, format: :full_time %>
-                  <%= t('time.to_time').downcase %> <%= l event.end_time, format: :full_time %>
-                </td>
-              <% else %>
-                <td>
-                  <%= t('time.from_date') %> <%= l event.start_time, format: :semi_datetime %>
-                  <br>
-                  <%= t('time.to_date') %> <%= l event.end_time, format: :semi_datetime %>
-                </td>
-              <% end %>
+              <td>
+                <%= t('time.from_date') %> <%= l event.start_time, format: :semi_datetime %>
+                <br>
+                <%= t('time.to_date') %> <%= l event.end_time, format: :semi_datetime %>
+              </td>
             <% end %>
-            <td>
-              <%= l event.updated_at, format: :mini_datetime %>
-            </td>
+          <% end %>
+          <td>
+            <%= l event.updated_at, format: :mini_datetime %> <%= t('common.by') %> <%= event.created_by.name %>
+          </td>
+        </tr>
+      <% end %>
 
-          </tr>
-        <% end %>
-
-      </tbody>
-    </table>
-
-  <% end %>
+    </tbody>
+  </table>
 
 <% end %>
 

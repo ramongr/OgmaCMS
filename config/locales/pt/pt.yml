@@ -18,7 +18,7 @@ pt:
       semi_datetime: '%e de %B de %Y às %H:%M'
       semi_date: '%e de %B de %Y'
 
-      mini_datetime: '%e/%m/%Y, %H:%M'
+      mini_datetime: '%e/%m/%Y às %H:%M'
       mini_date: '%e/%m/%Y'
 
     from_date: De

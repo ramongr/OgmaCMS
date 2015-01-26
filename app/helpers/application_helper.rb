@@ -32,9 +32,20 @@ module ApplicationHelper
 
   def sortable(column, title = nil)
     title ||= column.titleize
-    direction = column == sort_column && sort_direction == 'asc' ? 'desc' : 'asc'
-    direction_icon = column == sort_column ? (sort_direction == 'asc' ? '<i class="fi-arrow-up"></i>' : '<i class="fi-arrow-down"></i>') : ''
-    (link_to title, params.merge(:sort => column, :direction => direction, :page => nil)) + ' ' + direction_icon.html_safe
+
+    if column == sort_column
+      if sort_direction == 'asc'
+        direction = 'desc'
+        direction_icon = '<i class="fi-arrow-down"></i>'
+      else
+        direction = 'asc'
+        direction_icon = '<i class="fi-arrow-up"></i>'
+      end
+    else
+      direction_icon = ''
+    end
+
+    (link_to title, params.merge(sort: column, direction: direction, page: nil)) + ' ' + direction_icon.html_safe
   end
 
 end

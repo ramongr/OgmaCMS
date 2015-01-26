@@ -1,22 +1,39 @@
 <h1 class="text-center"><%= t('events.index.admin.title') %></h1>
+
 <div class="row">
-  <%= link_to t('events.index.admin.new'), new_admin_event_path, class: "button tiny" %>
-  <%= link_to t('calendar.name'), calendar_index_path, class: "button tiny" %>
+  <%= link_to t('events.index.admin.new'), new_admin_event_path, class: 'button tiny' %>
+  <%= link_to t('calendar.name'), calendar_index_path, class: 'button tiny' %>
   
   <br>
 
-  <div class="small-12">
+  <% unless @events.blank? %>
 
-    <div class="small-4">
-      <%= form_tag admin_events_path, method: :get, id: "items_search" do %>
-        <%= text_field_tag :search, params[:search], placeholder: t('common.search') %>
-        <%= submit_tag t('common.search'), name: nil, class: "hide" %><br>
+    <div class="small-12">
+
+      <div class="row collapse">
+        <div class="small-3 columns">
+          <%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
+          <%= text_field_tag :search_query, params[:search_query], placeholder: t('common.search'), id: 'search_query' %>
+        </div>
+        <div class="small-1 columns">
+          <%= select_tag 'search_column', options_for_select(@searchable_columns) %>
+        </div>
+        <div class="small-2 columns end">
+          <%= link_to 'Advanced search', nil, remote: true, id: 'toggle_asearch' %>
+        </div>
+      </div>
+
+      <%= render 'advanced_search' %>
+ 
+      <%= submit_tag t('common.search'), name: nil, class: 'hide' %>
       <% end %>
+
+      <div id="admin_events_index">
+        <%= render 'events' %>
+      </div>
+
     </div>
 
-    <div id="admin_events_index">
-      <%= render 'events' %>
-    </div>
+  <% end %>
 
-  </div>
 </div>
