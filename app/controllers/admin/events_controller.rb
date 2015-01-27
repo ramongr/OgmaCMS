@@ -6,24 +6,19 @@ class Admin::EventsController < Admin::AdminController
   # GET /events.json
   def index
     @searchable_columns = [
-                           [t('events.attributes.title'), 'title'], 
-                           [t('events.attributes.body'), 'body']
+                            [t('events.attributes.title'), 'title'], 
+                            [t('events.attributes.body'), 'body']
                           ]
 
-    if params[:search_query].blank? && params[:search_startdate].blank? && params[:search_enddate].blank? && 
-       params[:search_created_by].blank? && params[:search_updated_by].blank?
-      @events = Event.page(params[:page]).per_page(events_per_page)
-                     .reorder(sort_column + " " + sort_direction)
+    @events = Event.page(params[:page]).per_page(events_per_page)
 
-    elsif @searchable_columns.map(&:second).include?(params[:search_column])
-      @events = Event.page(params[:page]).per_page(events_per_page)
-                     .send(('search_by_' + params[:search_column]),params[:search_query])
-                     .where('start_time >= ?', params[:search_startdate])
-                     .where('end_time <= ? OR end_time IS NULL', params[:search_enddate])
-                     .search_by_created_by(params[:search_created_by])
-                     .search_by_updated_by(params[:search_updated_by])
-                     .reorder(sort_column + " " + sort_direction)
-    end
+    @events = @events.send('search_by_' + params[:column], params[:query]) unless params[:query].blank? || !(@searchable_columns.map(&:second).include?(params[:column]))
+    @events = @events.where('start_time >= ?', params[:start_date]) unless params[:start_date].blank?
+    @events = @events.where('end_time <= ? OR end_time IS NULL', params[:end_date]) unless params[:end_date].blank?
+    @events = @events.search_by_created_by(params[:created_by]) unless params[:created_by].blank?
+    @events = @events.search_by_updated_by(params[:updated_by]) unless params[:updated_by].blank?
+    @events = @events.reorder(sort_column + ' ' + sort_direction)
+
   end
 
   # GET /events/1

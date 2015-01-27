@@ -1,0 +1,57 @@
+<%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
+
+  <div class="row collapse">
+  
+    <div class="small-3 columns">
+      <%= text_field_tag :query, nil, placeholder: t('common.search'), id: 'search_query' %>
+    </div>
+
+    <div class="small-1 columns">
+      <%= select_tag 'column', options_for_select(@searchable_columns) %>
+    </div>
+
+    <div class="small-2 columns">
+      <%= submit_tag t('common.search'), name: nil, class: 'button tiny' %>
+    </div>
+
+    <div class="small-2 columns end">
+      <span class="button tiny" id='toggle_asearch'><%= t('common.advanced_search') %></span>
+    </div>
+
+  </div>
+
+  <div id="advanced_search" style="display: none">
+
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <%= text_field_tag :start_date, nil, placeholder: t('events.attributes.start_time'), id: 'datepicker' %>   
+      </div>
+
+      <div class="small-1 columns">
+        <i class="fi-calendar button tiny"></i>
+      </div>
+
+      <div class="small-2 columns">
+        <%= text_field_tag :end_date, nil, placeholder: t('events.attributes.end_time'), id: 'datepicker' %>
+      </div>
+
+      <div class="small-1 columns end">
+        <i class="fi-calendar button tiny"></i>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="small-3 columns">
+        <%= text_field_tag :created_by, nil, placeholder: t('events.attributes.created_by') %>
+      </div>
+
+      <div class="small-3 columns end">
+        <%= text_field_tag :updated_by, nil, placeholder: t('events.attributes.updated_by') %>
+      </div>
+
+    </div>
+
+  </div>
+
+<% end %>
