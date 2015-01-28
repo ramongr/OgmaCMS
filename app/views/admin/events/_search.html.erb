@@ -1,9 +1,9 @@
-<%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
+<%= form_tag admin_events_path, method: :get, remote: true, id: 'events_search' do %>
 
   <div class="row collapse">
   
     <div class="small-3 columns">
-      <%= text_field_tag :query, nil, placeholder: t('common.search'), id: 'search_query' %>
+      <%= text_field_tag :query, params[:query], placeholder: t('common.search'), id: 'search_query' %>
     </div>
 
     <div class="small-1 columns">
@@ -24,7 +24,7 @@
 
     <div class="row collapse">
       <div class="small-2 columns">
-        <%= text_field_tag :start_date, nil, placeholder: t('events.attributes.start_time'), id: 'datepicker' %>   
+        <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'datepicker' %>   
       </div>
 
       <div class="small-1 columns">
@@ -32,7 +32,7 @@
       </div>
 
       <div class="small-2 columns">
-        <%= text_field_tag :end_date, nil, placeholder: t('events.attributes.end_time'), id: 'datepicker' %>
+        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time'), id: 'datepicker' %>
       </div>
 
       <div class="small-1 columns end">
@@ -43,11 +43,11 @@
     <div class="row">
 
       <div class="small-3 columns">
-        <%= text_field_tag :created_by, nil, placeholder: t('events.attributes.created_by') %>
+        <%= text_field_tag :created_by, params[:created_by], placeholder: t('events.attributes.created_by') %>
       </div>
 
       <div class="small-3 columns end">
-        <%= text_field_tag :updated_by, nil, placeholder: t('events.attributes.updated_by') %>
+        <%= text_field_tag :updated_by, params[:updated_by], placeholder: t('events.attributes.updated_by') %>
       </div>
 
     </div>

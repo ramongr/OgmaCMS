@@ -8,7 +8,7 @@ $(document).on('page:load', events)
 
 # Ordering columns
 $(document).on "click", "#admin_events_index th a", ->
-  $.getScript @href
+  $.getScript @href  
   return false
 
 # Advanced search show/hide
@@ -18,7 +18,22 @@ $(document).on "click", "#toggle_asearch", ->
     $('#advanced_search input').val('');
   return
 
-# Ajax search on submit
-$("#events_search").submit ->
-  $.get @action, $(this).serialize(), null, "script"
-  false
+if history and history.pushState
+  $ ->
+    $("#events_search").submit ->
+      history.pushState(null, "", $("#events_search").attr("action") + "?" + $("#events_search").serialize());
+      return
+
+    $("#events_pagination").submit ->
+      history.pushState(null, "", $("#events_pagination").attr("action") + "?" + $("#events_pagination").serialize());
+      return
+
+    $(document).on "click", "#admin_events_index th a", ->
+      history.pushState(null, "", this.href)
+      return
+
+    $(window).bind "popstate", ->
+      $.getScript location.href
+      return
+
+    return
