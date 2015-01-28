@@ -2,12 +2,12 @@
 
   <div class="row collapse">
   
-    <div class="small-3 columns">
-      <%= text_field_tag :query, params[:query], placeholder: t('common.search'), id: 'search_query' %>
+    <div class="small-1 columns">
+      <%= select_tag 'column', options_for_select(@searchable_columns) %>      
     </div>
 
-    <div class="small-1 columns">
-      <%= select_tag 'column', options_for_select(@searchable_columns) %>
+    <div class="small-3 columns">
+      <%= text_field_tag :query, params[:query], placeholder: t('common.search'), id: 'search_query' %>
     </div>
 
     <div class="small-2 columns">
@@ -24,18 +24,19 @@
 
     <div class="row collapse">
       <div class="small-2 columns">
-        <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'datepicker' %>   
+        <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'start_date' %>   
       </div>
 
       <div class="small-1 columns">
-        <span class="postfix"><i class="fi-calendar"></i></span>
+        <span id="edpstart" class="postfix"><i class="fi-calendar"></i></span>
       </div>
-      <div class="small-2 columns">
-        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time') %>
+
+      <div class="small-2 small-offset-1 columns">
+        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time'), id: 'end_date' %>
       </div>
 
       <div class="small-1 columns end">
-        <span id="datepicker" class="postfix"><i class="fi-calendar"></i></span>
+        <span id="edpend" class="postfix"><i class="fi-calendar"></i></span>
       </div>
     </div>
 
