@@ -28,15 +28,14 @@
       </div>
 
       <div class="small-1 columns">
-        <i class="fi-calendar button tiny"></i>
+        <span class="postfix"><i class="fi-calendar"></i></span>
       </div>
-
       <div class="small-2 columns">
-        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time'), id: 'datepicker' %>
+        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time') %>
       </div>
 
       <div class="small-1 columns end">
-        <i class="fi-calendar button tiny"></i>
+        <span id="datepicker" class="postfix"><i class="fi-calendar"></i></span>
       </div>
     </div>
 

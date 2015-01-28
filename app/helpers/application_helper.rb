@@ -36,16 +36,16 @@ module ApplicationHelper
     if column == sort_column
       if sort_direction == 'asc'
         direction = 'desc'
-        direction_icon = '<i class="fi-arrow-down"></i>'
+        direction_css = 'fi-arrow-down'
       else
         direction = 'asc'
-        direction_icon = '<i class="fi-arrow-up"></i>'
+        direction_css = 'fi-arrow-up'
       end
     else
-      direction_icon = ''
+      direction_css = ''
     end
 
-    (link_to title, params.merge(sort: column, direction: direction, page: nil)) + ' ' + direction_icon.html_safe
+    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(sort: column, direction: direction, page: nil)
   end
 
 end

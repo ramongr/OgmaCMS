@@ -4,11 +4,11 @@
     <thead>
       <tr>
         <th>
-          <%= button_tag content_tag(:i, '', class: 'fi-page-export item_published', title: t('common.publish')), name: 'publish', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
+          <%= button_tag content_tag(:i, '', class: 'fi-page-export item_published'), name: 'publish', title: t('common.publish'), data: { confirm: t('common.confirm') },  class: 'label round secondary' %>
           
-          <%= button_tag content_tag(:i, '', class: 'fi-page-delete item_unpublished', title: t('common.unpublish')), name: 'unpublish', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
+          <%= button_tag content_tag(:i, '', class: 'fi-page-delete item_unpublished'), name: 'unpublish', title: t('common.unpublish'), data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
 
-          <%= button_tag content_tag(:i, '', class: 'fi-x item_delete', title: t('common.destroy')), name: 'destroy', data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
+          <%= button_tag content_tag(:i, '', class: 'fi-x item_delete'), name: 'destroy', title: t('common.destroy'), data: { confirm: t('common.confirm') }, class: 'label round secondary' %>
         </th>
         <th><%= sortable 'title', t('events.attributes.title') %></th>
         <th><%= sortable 'start_time', t('events.attributes.date') %></th>

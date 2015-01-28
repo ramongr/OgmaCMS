@@ -29,9 +29,9 @@ class Admin::EventsController < Admin::AdminController
   def publish
     @event.update_attributes(publish: !@event.publish)
     index
-    
+
     respond_to do |format|
-      format.js
+      format.js { }
     end
   end
 
