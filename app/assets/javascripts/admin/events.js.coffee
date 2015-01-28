@@ -6,7 +6,7 @@ events = ->
 $(document).ready(events)
 $(document).on('page:load', events)
 
-# Ordering columns
+# Column ordering
 $(document).on "click", "#admin_events_index th a", ->
   $.getScript @href  
   return false
@@ -20,14 +20,17 @@ $(document).on "click", "#toggle_asearch", ->
 
 if history and history.pushState
   $ ->
+    # Search history
     $("#events_search").submit ->
       history.pushState(null, "", $("#events_search").attr("action") + "?" + $("#events_search").serialize());
       return
 
+    # Pagination history
     $("#events_pagination").submit ->
       history.pushState(null, "", $("#events_pagination").attr("action") + "?" + $("#events_pagination").serialize());
       return
 
+    # Column ordering history
     $(document).on "click", "#admin_events_index th a", ->
       history.pushState(null, "", this.href)
       return
