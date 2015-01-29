@@ -3,6 +3,7 @@ class Admin::SettingsController < Admin::AdminController
 
   def index
     @system_mails = SystemMail.all
+    @images = Attachment.images
   end
 
   def update_all
@@ -15,7 +16,7 @@ class Admin::SettingsController < Admin::AdminController
       Setting.site_description = params[:site_description]
     end
     if Setting.site_logo != params[:site_logo]
-      Setting.site_logo = params[:site_logo]
+      Setting.site_logo = Attachment.find(params[:site_logo])
     end
 
     if params[:author_publish]

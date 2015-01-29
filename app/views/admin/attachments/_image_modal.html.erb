@@ -9,9 +9,16 @@
         </div>
         <div class="small-12 columns">
       <% end %>
-      <%= link_to 'javascript:void(0)', class: "small-4 columns", id: 'ins-images' do %>
-        <%= img.name %>
-        <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name, id: img.id} %>
+      <% if controller_name == 'settings' %>
+        <div class="small-4 columns">
+          <%= label_tag img.name %>
+          <%= image_tag download_attachment_url(img), name: img.name, id: 'images', data:{id: img.id} %>
+        </div>
+      <% else %>
+        <%= link_to 'javascript:void(0)', class: "small-4 columns", id: 'ins-images' do %>
+          <%= img.name %>
+          <%= image_tag download_attachment_url(img), data: {addr: download_attachment_url(img), name: img.name, id: img.id} %>
+        <% end %>
       <% end %>
     <% end %>
     <% if @images.size % 3 != 0 %>
