@@ -7,7 +7,8 @@ Setting.save_default(:backup, true) if ActiveRecord::Base.connection.table_exist
 
 Setting.defaults[:site_name]        = 'My Website'
 Setting.defaults[:site_description] = 'My Description'
-Setting.defaults[:site_logo]        = 'My_Site_Logo.png'
+Setting.defaults[:site_logo]        = 'default'
+Setting.defaults[:author_publish]   = false
 
 #
 # I18n

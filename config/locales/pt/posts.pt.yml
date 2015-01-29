@@ -13,6 +13,8 @@ pt:
     name: Artigos
     admin: Gerir artigos
     published: Publicado
+    no_unpublished: Não há artigos por publicar
+    unpublished_list: Artigos por publicar
 
     attributes:
       title: Nome

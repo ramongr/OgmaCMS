@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222105909) do
+ActiveRecord::Schema.define(version: 20150113154926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(version: 20141222105909) do
     t.boolean  "notification", default: true
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.integer  "categorizable_id"
-    t.string   "categorizable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "created_by_id"
@@ -77,10 +69,11 @@ ActiveRecord::Schema.define(version: 20141222105909) do
   add_index "events", ["updated_by_id"], name: "index_events_on_updated_by_id", using: :btree
 
   create_table "forem_categories", force: true do |t|
-    t.string   "name",       null: false
+    t.string   "name",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "position",   default: 0
   end
 
   add_index "forem_categories", ["slug"], name: "index_forem_categories_on_slug", unique: true, using: :btree
@@ -91,6 +84,7 @@ ActiveRecord::Schema.define(version: 20141222105909) do
     t.integer "category_id"
     t.integer "views_count", default: 0
     t.string  "slug"
+    t.integer "position",    default: 0
   end
 
   add_index "forem_forums", ["slug"], name: "index_forem_forums_on_slug", unique: true, using: :btree

@@ -20,6 +20,8 @@ pt:
     site_subtitle: Subtítulo
     site_description: Descrição
     site_logo: Logo
+    site_logo_change: Mudar logo
+    author_publish: Autores podem publicar
 
     #Internationalization
     available_languages: Línguas disponíveis

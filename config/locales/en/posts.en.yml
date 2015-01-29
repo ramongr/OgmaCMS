@@ -13,6 +13,8 @@ en:
     name: Posts
     admin: Manage posts
     published: Published
+    no_unpublished: No posts left to publish
+    unpublished_list: Unpublished posts
 
     attributes:
       title: Name

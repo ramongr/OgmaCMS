@@ -15,4 +15,5 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :content, :created_by, :updated_by
 
   scope :published, -> { where(publish: true)}
+  scope :unpublished, -> { where(publish: false)}
 end
