@@ -1,5 +1,7 @@
 <%= form_tag update_multiple_admin_events_path, method: :put, remote: true do %>
 
+  <%= render 'hidden_params' %>
+  
   <table>
     <thead>
       <tr>
@@ -23,7 +25,7 @@
           <td><%= check_box_tag 'event_ids[]', event.id %></td>
 
           <td>
-            <%= link_to content_tag(:i, '', class: (event.publish ?  "fi-page-export item_published" : "fi-page-delete item_unpublished"), title: (event.publish ? t('common.published') : t('common.not_published'))), publish_admin_event_path(event), method: :put, remote: true %>
+            <%= link_to content_tag(:i, '', class: (event.publish ?  "fi-page-export item_published" : "fi-page-delete item_unpublished"), title: (event.publish ? t('common.published') : t('common.not_published'))), publish_admin_event_path(params.merge(id: event.id)), method: :put, remote: true %>
             <%= link_to event.title, [:admin,event], title: t('common.show') %>              
             <%= link_to content_tag(:i, '', class: 'fi-pencil item_edit', title: t('common.edit')), edit_admin_event_path(event) %>
             <%= link_to content_tag(:i, '', class: 'fi-x item_delete', title: t('common.destroy')), [:admin,event], method: :delete, remote: true, data: { confirm: t('common.confirm') } %>

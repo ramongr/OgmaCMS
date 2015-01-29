@@ -45,7 +45,7 @@ module ApplicationHelper
       direction_css = ''
     end
 
-    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(params.merge(sort: column, direction: direction, page: nil))
+    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(params.merge(sort: column, direction: direction, page: nil)), remote: true
   end
 
 end

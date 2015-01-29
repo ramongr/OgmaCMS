@@ -31,7 +31,7 @@ class Admin::EventsController < Admin::AdminController
     index
 
     respond_to do |format|
-      format.js { }
+      format.js
     end
   end
 

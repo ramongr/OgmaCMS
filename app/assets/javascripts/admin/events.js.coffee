@@ -15,11 +15,6 @@ events = ->
 $(document).ready(events)
 $(document).on('page:load', events)
 
-# Column ordering
-$(document).on "click", "#admin_events_index th a", ->
-  $.getScript @href  
-  return false
-
 # Advanced search show/hide
 $(document).on "click", "#toggle_asearch", ->
   $('#advanced_search').toggle()

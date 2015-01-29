@@ -3,13 +3,13 @@
     <%= will_paginate @events %>
   </div>
 
-  <div class="small-1 columns">
+  <div class="small-1 columns end">
     <%= form_tag admin_events_path, method: :get, remote: true, id: 'events_pagination' do %>
-      <%= number_field_tag :per_page, Setting.admin_events_pagination, in: 1...200000001, title: t('common.per_page') %>
+      <%= number_field_tag :per_page, Setting.admin_events_pagination, in: 1...200000001, title: t('events.name') + ' ' + t('common.per_page') %>
+      <%= render 'hidden_params' %>
+      <%= submit_tag 'submit', name: nil, class: 'hide' %>
+    <% end %>
   </div>
 
-  <div class="hide">
-    <%= submit_tag 'submit', name: nil %>
-  </div>
-  <% end %>
+  
 </div>

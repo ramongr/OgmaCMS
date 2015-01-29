@@ -6,7 +6,7 @@ pt:
     new: Novo
     edit: Modificar
     publish: Publicar
-    unpublish: Remover Publicação
+    unpublish: Cancelar publicação
     back: Retroceder
     destroy: Apagar
     yes: Sim
@@ -36,7 +36,7 @@ pt:
     'true': Sim
     'false': Não
     translation_missing: Não existe tradução disponível
-    per_page: Items por página
+    per_page: por página
     published: Publicado
     not_published: Não publicado
     by: por
