@@ -10,11 +10,11 @@
       <%= text_field_tag :query, params[:query], placeholder: t('common.search'), id: 'search_query' %>
     </div>
 
-    <div class="small-2 columns">
-      <%= submit_tag t('common.search'), name: nil, class: 'button tiny' %>
+    <div class="small-1 columns">
+      <%= button_tag content_tag(:i, '', class: 'fi-magnifying-glass'), name: nil, class: 'button postfix' %>
     </div>
 
-    <div class="small-2 columns end">
+    <div class="small-2 small-offset-1 columns end">
       <span class="button tiny" id='toggle_asearch'><%= t('common.advanced_search') %></span>
     </div>
 
@@ -28,7 +28,7 @@
       </div>
 
       <div class="small-1 columns">
-        <span id="edpstart" class="postfix"><i class="fi-calendar"></i></span>
+        <i class="fi-calendar button large postfix" id="edpstart"></i>
       </div>
 
       <div class="small-2 small-offset-1 columns">
@@ -36,7 +36,7 @@
       </div>
 
       <div class="small-1 columns end">
-        <span id="edpend" class="postfix"><i class="fi-calendar"></i></span>
+        <i class="fi-calendar button large postfix" id="edpend"></i>
       </div>
     </div>
 
