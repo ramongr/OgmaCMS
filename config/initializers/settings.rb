@@ -21,9 +21,9 @@ Setting.defaults[:default_time_zone] = 'UTC'
 # Pagination
 #
 
-Setting.defaults[:admin_events_pagination] = 30
-Setting.defaults[:admin_events_order] = 'title'
-Setting.defaults[:admin_events_direction] = 'asc'
+Setting.defaults[:events_pagination] = 30
+Setting.defaults[:events_order] = 'title'
+Setting.defaults[:events_direction] = 'asc'
 
 #
 # Uncategorized

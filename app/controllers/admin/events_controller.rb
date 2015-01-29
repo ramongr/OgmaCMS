@@ -18,7 +18,6 @@ class Admin::EventsController < Admin::AdminController
     @events = @events.search_by_created_by(params[:created_by]) unless params[:created_by].blank?
     @events = @events.search_by_updated_by(params[:updated_by]) unless params[:updated_by].blank?
     @events = @events.reorder(sort_column + ' ' + sort_direction)
-
   end
 
   # GET /events/1
@@ -151,29 +150,26 @@ class Admin::EventsController < Admin::AdminController
 
   def sort_column
     if Event.column_names.include?(params[:sort])
-      Setting.admin_events_order = params[:sort]
-      Setting.admin_events_order
+      cookies[:events_order] = params[:sort]
     else
-      Setting.admin_events_order
+      Setting.events_order
     end
   end
   
   def sort_direction
     if %w(asc desc).include?(params[:direction]) 
-      Setting.admin_events_direction = params[:direction]
-      Setting.admin_events_direction
+      cookies[:events_direction] = params[:direction]
     else
-      Setting.admin_events_direction
+      Setting.events_direction
     end
   end
 
   def events_per_page
     per_page = params[:per_page].to_i
     if (1..200000001).include? per_page
-      Setting.admin_events_pagination = per_page
-      per_page
+      cookies[:events_pagination] = per_page
     else
-      Setting.admin_events_pagination
+      Setting.events_pagination
     end
   end
 

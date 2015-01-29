@@ -45,7 +45,15 @@ module ApplicationHelper
       direction_css = ''
     end
 
-    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(params.merge(sort: column, direction: direction, page: nil)), remote: true
+    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(params.merge(sort: column, direction: direction, page: nil))
+  end
+
+  def cookie_or_setting(thing)
+    if cookies[thing].blank?
+      Setting[thing]
+    else
+      cookies[thing]
+    end
   end
 
 end

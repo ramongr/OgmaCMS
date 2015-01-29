@@ -1,5 +1,6 @@
-<%= form_tag admin_events_path, method: :get, remote: true, id: 'events_search' do %>
-
+<%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
   <div class="row collapse">
   
     <div class="small-1 columns">
@@ -21,14 +22,13 @@
   </div>
 
   <div id="advanced_search" style="display: none">
-
     <div class="row collapse">
       <div class="small-2 columns">
         <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'start_date' %>   
       </div>
 
       <div class="small-1 columns">
-        <i class="fi-calendar button large postfix" id="edpstart"></i>
+        <i class="fi-calendar button large postfix" id="edpstart", data-date-language="<%= I18n.locale.to_s %>"></i>
       </div>
 
       <div class="small-2 small-offset-1 columns">
@@ -36,7 +36,7 @@
       </div>
 
       <div class="small-1 columns end">
-        <i class="fi-calendar button large postfix" id="edpend"></i>
+        <i class="fi-calendar button large postfix" id="edpend" data-date-language="<%= I18n.locale.to_s %>"></i>
       </div>
     </div>
 
