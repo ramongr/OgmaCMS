@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(version: 20150113154926) do
     t.boolean  "notification", default: true
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.integer  "categorizable_id"
-    t.string   "categorizable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "comments", force: true do |t|
     t.text     "content"
     t.integer  "created_by_id"
