@@ -17,6 +17,12 @@
     <input id="site-logo-id" name="site_logo" type="hidden" value="">
     <button class="attachment-btn" id="insert-attachment" data-reveal-id="attachment-modal"><%= (Setting.site_logo == 'default') ?  t('settings.site_logo') : t('settings.site_logo_change') %></button>
   </div>
+  <div id="author-functionality">
+    <%= label_tag t 'settings.author_publish' %>
+    <div class="switch">
+      <%= check_box_tag 'author_publish', !Setting.author_publish, Setting.author_publish %>
+      <label for="author_publish"></label>
+    </div>
+  </div>
 </div>
-
 <%= render 'admin/attachments/image_modal' %>

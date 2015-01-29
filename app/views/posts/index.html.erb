@@ -1,39 +1,65 @@
 <br>
 <div class="row">
-  <% if can? :create, Post %>
-    <%= link_to t('posts.admin'), admin_posts_path, class: "button small" %>
-    <%= link_to t('posts.index.public.new'), new_admin_post_path, class: "button small" %>
-  <% end %>
-
-  <div class="small-12">
-    <% unless @posts.blank? %>
-      <% @posts.each do |post| %>
-        <h3 class="text-center"><%= link_to_if (can? :update, post), post.title, post %></h3>
-        <%= post.created_by.name %><br>
-        <% if post.created_at.to_i == post.updated_at.to_i %>
-          <%= t('posts.attributes.created_at') %>: <%= l post.created_at %>
-        <% else %>
-          <%= t('posts.attributes.updated_at') %>: <%= l post.updated_at %>
+  <div class="small-12" id="post-list-container">
+    <!-- Top buttons -->
+    <div class="row">
+      <div class="small-12">
+        <% if can? :manage, Post %>
+          <div class="small-4 columns">
+            <%= link_to t('posts.admin'), admin_posts_path, class: "button small" %>
+          </div>
         <% end %>
-        <% if can? :update, post %>
-          <div id="admin-area">
-            <%= link_to t('common.edit'), edit_admin_post_path(post) %>
-            <% if can? :destroy, post %>
-               | <%= link_to t('common.destroy'), [:admin,post], method: :delete, data: {confirm: t('common.confirm') } %>
+        <% if can? :create, Post %>
+          <div class="small-4 columns">
+            <%= link_to t('posts.index.public.new'), new_admin_post_path, class: "button small" %>
+          </div>
+        <% end %>
+        <% if Setting.author_publish && current_user.author? %>
+          <div class="small-4 columns">
+            <%= form_tag posts_path, method: :get do %>
+              <%= hidden_field_tag params[:unpublish] ? 'publish'.to_sym : 'unpublish'.to_sym %>
+              <%= submit_tag t('posts.unpublished_list'), class: "button small" %>
             <% end %>
           </div>
         <% end %>
-        <hr>
-        <div id="post-content">
-          <%= post.content.html_safe %>
-          <%= link_to t('common.read_more'), post_toggle_read_path(post, more: true), method: :post, remote: true %>
-          </span>
-        </div>
-      <% end %>
-    <% end %>
-    <div class="apple_pagination">
-      <%= will_paginate @posts %>
+      </div>
     </div>
-    <br>
+    <!-- Posts container -->
+    <div class="row">
+      <div class="small-12">
+        <% unless @posts.blank? %>
+          <% @posts.each do |post| %>
+            <div id="post-container-<%= post.id %>">
+              <h3 class="text-center"><%= link_to_if (can? :update, Post), post.title, post %></h3>
+              <p><%= post.created_by.name %></p>
+              <% if post.created_at.to_i == post.updated_at.to_i %>
+                <%= t('posts.attributes.created_at') %>: <%= l post.created_at %>
+              <% else %>
+                <%= t('posts.attributes.updated_at') %>: <%= l post.updated_at %>
+              <% end %>
+              <% if can? :update, post %>
+                <div id="admin-area">
+                  <%= link_to t('common.edit'), edit_admin_post_path(post) %>
+                  <% if can? :destroy, post %>
+                     | <%= link_to t('common.destroy'), [:admin,post], method: :delete, data: {confirm: t('common.confirm') } %>
+                  <% end %>
+                </div>
+              <% end %>
+              <br>
+              <%= link_to post.publish ? t('common.unpublish') : t('common.publish'), post_publish_path(post.id), method: :put, class: "button tiny" + (post.publish ? " alert" : "") %>
+              <hr>
+              <div id="post-content">
+                <%= post.content.html_safe %>
+                <%= link_to t('common.read_more'), post_toggle_read_path(post, more: true), method: :post, remote: true %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="apple_pagination">
+    <%= will_paginate @posts %>
   </div>
 </div>
