@@ -26,3 +26,5 @@ en:
     from_time: From
     to_time: To
     at_time: At
+  emoji:
+    search: Search your emojis here

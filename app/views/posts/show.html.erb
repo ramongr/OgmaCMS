@@ -1,10 +1,10 @@
 <br>
-<div class="row">
+<div id="best-in-place-container" class="row">
   <%= link_to t('posts.name'), posts_path, class: "button small" %>
   <%= link_to t('posts.add_comment'), new_post_comment_path(@post), class: "button small" %>
 
   <div class="small-12">
-    <h3 class="text-center"><%= @post.title %></h3>
+    <h3 class="text-center"><%= best_in_place_if (can? :update, @post), @post, "title_"+I18n.locale.to_s, data: {bip_url: admin_post_path(@post), title: t('common.inline_editing_title')} %></h3>
     <hr>
     <%= @post.created_by.name %><br>
     <%= t('posts.attributes.created_at') %>: <%= l @post.created_at %><br>
@@ -15,7 +15,9 @@
       <% end %>
     <% end %>
     <br><br>
-    <p><%= @post.content.html_safe %></p>
+    <div data-model=<%= @post.class.model_name.plural %> data-id=<%= @post.id%> data-lang=<%= 'content_' + I18n.locale.to_s %> id="editable" contenteditable="true">
+      <p><%= @post.content.html_safe %></p>
+    </div>
     <p class="text-right">
       <small>
         <% if @post.created_at.to_i != @post.updated_at.to_i %>

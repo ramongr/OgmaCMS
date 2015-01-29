@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/galetahub/ckeditor.git
-  revision: 3f7e92e67336a6012a933f2643afb97f2088f474
+  revision: d0bc44a6fc9fa67d4b007877688f89e5a0cbf79f
   specs:
     ckeditor (4.1.1)
       cocaine
@@ -22,7 +22,7 @@ GIT
 
 GIT
   remote: git://github.com/radar/forem.git
-  revision: f04bfe578004f42a639360f13228c413505488fb
+  revision: c3b763b5fb28b531e70c8b952efe0018689fbee9
   branch: rails4
   specs:
     forem (1.0.0.beta1)
@@ -87,6 +87,9 @@ GEM
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.9)
+    best_in_place (3.0.2)
+      actionpack (>= 3.2)
+      railties (>= 3.2)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -357,6 +360,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place (~> 3.0.1)
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bullet (~> 4.14.0)
@@ -389,7 +393,7 @@ DEPENDENCIES
   paperclip (~> 4.2.0)!
   pg (~> 0.17.1)
   pg_search (~> 0.7.8)
-  rails (< 4.2)
+  rails (~> 4.1.8)
   rails-i18n (~> 4.0.3)!
   rails-settings-cached (~> 0.4.1)
   rails_12factor (~> 0.0.3)

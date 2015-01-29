@@ -17,9 +17,14 @@
     <ul class="clearing-thumbs small-block-grid-4 my-grid" data-clearing>
       <% @added_images.each do |image| %>
         <li id="<%= image.id %>">
-          <a href="<%= download_attachment_url(image.attachment)%>">
-            <img alt="default"  src="<%= download_attachment_url(image.attachment)%>">
-          </a> 
+          <div class="img-wrap">
+            <% if can? :manage, @gallery %>
+              <span class="close"><%= link_to content_tag(:i, '', class: "fi-x"), {action: 'remove_photo', controller: 'admin/galleries', photo_id: image.id}, method: :post, class: "close" %></span>
+            <% end %>
+              <a href="<%= download_attachment_url(image.attachment)%>">
+                <img alt="default" src="<%= download_attachment_url(image.attachment)%>">
+              </a>
+          </div> 
         </li>
       <% end %>
     </ul>

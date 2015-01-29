@@ -26,3 +26,5 @@ pt:
     from_time: Das
     to_time: Até às
     at_time: Às
+  emoji:
+    search: Filtre aqui os emojis

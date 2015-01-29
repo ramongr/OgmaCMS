@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '< 4.2'
+gem 'rails', '~> 4.1.8'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.17.1'
@@ -130,6 +130,9 @@ gem 'i18n-timezones'
 
 # Cron job manager
 gem 'rufus-scheduler', '3.0.9'
+
+#Inline Editing
+gem 'best_in_place', '~> 3.0.1'
 
 group :production, :stagin do
   gem 'rails_12factor', '~> 0.0.3'
