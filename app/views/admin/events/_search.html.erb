@@ -21,7 +21,11 @@
 
   </div>
 
-  <div id="advanced_search" style="display: none">
+  <% if params[:start_date].present? || params[:end_date].present? || params[:created_by].present? || params[:updated_by].present? %>
+    <div id="advanced search">
+  <% else %>
+    <div id="advanced_search" style="display: none">
+  <% end %>
     <div class="row collapse">
       <div class="small-2 columns">
         <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'start_date' %>   

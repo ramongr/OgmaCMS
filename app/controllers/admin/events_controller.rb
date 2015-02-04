@@ -12,11 +12,11 @@ class Admin::EventsController < Admin::AdminController
 
     @events = Event.page(params[:page]).per_page(events_per_page)
 
-    @events = @events.send('search_by_' + params[:column], params[:query]) unless params[:query].blank? || !(@searchable_columns.map(&:second).include?(params[:column]))
-    @events = @events.where('start_time >= ?', params[:start_date]) unless params[:start_date].blank?
-    @events = @events.where('end_time <= ? OR end_time IS NULL', params[:end_date]) unless params[:end_date].blank?
-    @events = @events.search_by_created_by(params[:created_by]) unless params[:created_by].blank?
-    @events = @events.search_by_updated_by(params[:updated_by]) unless params[:updated_by].blank?
+    @events = @events.send('search_by_' + params[:column], params[:query]) if params[:query].present? && @searchable_columns.map(&:second).include?(params[:column])
+    @events = @events.where('start_time >= ?', params[:start_date]) if params[:start_date].present?
+    @events = @events.where('end_time <= ? OR end_time IS NULL', params[:end_date]) if params[:end_date].present?
+    @events = @events.search_by_created_by(params[:created_by]) if params[:created_by].present?
+    @events = @events.search_by_updated_by(params[:updated_by]) if params[:updated_by].present?
     @events = @events.reorder(sort_column + ' ' + sort_direction)
   end
 
