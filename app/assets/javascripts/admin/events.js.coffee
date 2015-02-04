@@ -2,15 +2,11 @@ events = ->
   $("#toggle_time[type=checkbox]").change ->
     $('#event-end-time').toggleClass('end-time-hide')
 
-  $("#edpstart").fdatepicker(
-      format: 'dd-mm-yyyy'
-    ).on "changeDate", ->
+  $("#edpstart").fdatepicker(format: 'dd-mm-yyyy').on "changeDate", ->
     $("#start_date").val $("#edpstart").data("date")
     $("#edpstart").fdatepicker "hide"
 
-  $("#edpend").fdatepicker(
-      format: 'dd-mm-yyyy'
-    ).on "changeDate", ->
+  $("#edpend").fdatepicker(format: 'dd-mm-yyyy').on "changeDate", ->
     $("#end_date").val $("#edpend").data("date")
     $("#edpend").fdatepicker "hide"
 
