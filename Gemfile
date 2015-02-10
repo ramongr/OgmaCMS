@@ -7,7 +7,7 @@ gem 'rails', '~> 4.1.8'
 gem 'pg', '~> 0.17.1'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.5'
+gem 'sass-rails', '~> 5.0.1'
 
 # Authentication
 gem 'devise', '~> 3.4.1'
