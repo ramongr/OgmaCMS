@@ -8,8 +8,10 @@ pt:
         body: Descrição
         start_time: Início
         end_time: Fim
-        created_at: Criado em
-        updated_at: Modificado em
+        created_at: Criação
+        updated_at: Última modificação
+        created_by: Criado por
+        updated_by: Última modificação por
 
   events:
     name: Eventos
@@ -19,6 +21,11 @@ pt:
       body: Descrição
       date: Data
       start_time: Início
+      end_time: Fim
+      created_at: Criação
+      updated_at: Última modificação
+      created_by: Criado por
+      updated_by: Última modificação por
       end_time_toggle: Hora de fim?
       notification: Avisar sobre alterações?
 

@@ -1,10 +1,23 @@
 class Admin::EventsController < Admin::AdminController
   load_and_authorize_resource
+  helper_method :sort_column, :sort_direction
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order(:start_time)
+    @searchable_columns = [
+                            [t('events.attributes.title'), 'title'], 
+                            [t('events.attributes.body'), 'body']
+                          ]
+
+    @events = Event.page(params[:page]).per_page(events_per_page)
+
+    @events = @events.send('search_by_' + params[:column], params[:query]) if params[:query].present? && @searchable_columns.map(&:second).include?(params[:column])
+    @events = @events.where('start_time >= ?', params[:start_date]) if params[:start_date].present?
+    @events = @events.where('end_time <= ? OR end_time IS NULL', params[:end_date]) if params[:end_date].present?
+    @events = @events.search_by_created_by(params[:created_by]) if params[:created_by].present?
+    @events = @events.search_by_updated_by(params[:updated_by]) if params[:updated_by].present?
+    @events = @events.reorder(sort_column + ' ' + sort_direction)
   end
 
   # GET /events/1
@@ -13,8 +26,8 @@ class Admin::EventsController < Admin::AdminController
   end
 
   def publish
-    @event = Event.find(params[:event_id])
     @event.update_attributes(publish: !@event.publish)
+    index
 
     respond_to do |format|
       format.js
@@ -106,6 +119,21 @@ class Admin::EventsController < Admin::AdminController
     end
   end
 
+  def update_multiple
+    unless params[:unpublish].nil?
+      Event.where(id: params[:event_ids]).update_all(publish: false)
+    end
+    unless params[:publish].nil?
+      Event.where(id: params[:event_ids]).update_all(publish: true)
+    end
+    unless params[:destroy].nil?
+      Event.destroy_all(id: params[:event_ids])
+    end
+    respond_to do |format|
+        format.js { index; render action: 'index' }
+    end
+  end
+
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
@@ -113,11 +141,37 @@ class Admin::EventsController < Admin::AdminController
     @event.destroy
     respond_to do |format|
       format.html { redirect_to admin_events_url }
+      format.js   { index; render action: 'index' }
       format.json { head :no_content }
     end
   end
 
   private
+
+  def sort_column
+    if Event.column_names.include?(params[:sort])
+      cookies[:events_order] = params[:sort]
+    else
+      Setting.events_order
+    end
+  end
+  
+  def sort_direction
+    if %w(asc desc).include?(params[:direction]) 
+      cookies[:events_direction] = params[:direction]
+    else
+      Setting.events_direction
+    end
+  end
+
+  def events_per_page
+    per_page = params[:per_page].to_i
+    if (1..200000001).include? per_page
+      cookies[:events_pagination] = per_page
+    else
+      Setting.events_pagination
+    end
+  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params

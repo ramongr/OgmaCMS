@@ -1,0 +1,61 @@
+<%= form_tag admin_events_path, method: :get, id: 'events_search' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <div class="row collapse">
+  
+    <div class="small-1 columns">
+      <%= select_tag 'column', options_for_select(@searchable_columns) %>      
+    </div>
+
+    <div class="small-3 columns">
+      <%= text_field_tag :query, params[:query], placeholder: t('common.search'), id: 'search_query' %>
+    </div>
+
+    <div class="small-1 columns">
+      <%= button_tag content_tag(:i, '', class: 'fi-magnifying-glass'), name: nil, class: 'button postfix' %>
+    </div>
+
+    <div class="small-2 small-offset-1 columns end">
+      <span class="button tiny" id='toggle_asearch'><%= t('common.advanced_search') %></span>
+    </div>
+
+  </div>
+
+  <% if params[:start_date].present? || params[:end_date].present? || params[:created_by].present? || params[:updated_by].present? %>
+    <div id="advanced search">
+  <% else %>
+    <div id="advanced_search" style="display: none">
+  <% end %>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <%= text_field_tag :start_date, params[:start_date], placeholder: t('events.attributes.start_time'), id: 'start_date' %>   
+      </div>
+
+      <div class="small-1 columns">
+        <i class="fi-calendar button large postfix" id="edpstart", data-date-language="<%= I18n.locale.to_s %>"></i>
+      </div>
+
+      <div class="small-2 small-offset-1 columns">
+        <%= text_field_tag :end_date, params[:end_date], placeholder: t('events.attributes.end_time'), id: 'end_date' %>
+      </div>
+
+      <div class="small-1 columns end">
+        <i class="fi-calendar button large postfix" id="edpend" data-date-language="<%= I18n.locale.to_s %>"></i>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="small-3 columns">
+        <%= text_field_tag :created_by, params[:created_by], placeholder: t('events.attributes.created_by') %>
+      </div>
+
+      <div class="small-3 columns end">
+        <%= text_field_tag :updated_by, params[:updated_by], placeholder: t('events.attributes.updated_by') %>
+      </div>
+
+    </div>
+
+  </div>
+
+<% end %>

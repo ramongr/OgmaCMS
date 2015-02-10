@@ -1,5 +1,6 @@
-# # Settings default values
+# Settings default values
 Setting.save_default(:backup, true) if ActiveRecord::Base.connection.table_exists? 'settings'
+
 #
 # Site
 #
@@ -18,27 +19,19 @@ Setting.defaults[:selected_languages] = %w(en pt)
 Setting.defaults[:default_time_zone] = 'UTC'
 
 #
-# Email
+# Pagination
 #
 
-Setting.defaults[:confirmation_instructions] =
-  '<p>Welcome *name*!</p>' \
-  '<p>You can confirm your account email through the link below:</p>' \
-  '<p>*confirmation_link*</p>'
+Setting.defaults[:events_pagination] = 30
+Setting.defaults[:events_order] = 'title'
+Setting.defaults[:events_direction] = 'asc'
 
-Setting.defaults[:event_update] =
-  '<h1>Hello, *user_name*</h1>' \
-  '<p>' \
-    'There has been an update in *event_title* we thought we should inform you since you are attending.' \
-  '<p>' \
-      '*event_description*' \
-  '</p>' \
-  '<p>Thanks for reading and have a great day!</p>'
+#
+# Uncategorized
+#
 
 Setting.defaults[:birthday_email_toggle] = true
-
 Setting.defaults[:user_registration] = false
 
 Setting.defaults[:user_delete] = true
-
 Setting.defaults[:days_until_delete] = 10

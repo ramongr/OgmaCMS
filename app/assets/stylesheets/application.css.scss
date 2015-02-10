@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require 'forem/base'
+ *= require 'foundation-datepicker'
  *= require fullcalendar
  *= require foundation_and_overrides
  *= require_tree .
@@ -59,10 +60,18 @@ td {
   text-decoration: underline;
 }
 
-.check{
+.item_published {
   color: #27ae60;
 }
 
-.uncheck{
+.item_unpublished {
   color: #c0392b;
+}
+
+.item_edit {
+  color: #d35400;
+}
+
+.item_delete {
+  color: #2c3e50;
 }

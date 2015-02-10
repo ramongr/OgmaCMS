@@ -36,4 +36,10 @@ en:
     'true': Yes
     'false': No
     translation_missing: There is no translation available
+    per_page: per page
+    published: Published
+    not_published: Not published
+    by: by
+    admin_reserved: Admin reserved
+    advanced_search: Advanced search
     inline_editing_title: Click to edit

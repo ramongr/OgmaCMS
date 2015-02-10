@@ -72,25 +72,25 @@ end
 #####################
 
 if Sidebar.where(type_mask: 0).empty?
-  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Left Sidebar', type_mask: 0, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts']), created_by: super_admin, updated_by: super_admin
   top_sidebar.save!
   puts "\tCreated Left Sidebar"
 end
 
 if Sidebar.where(type_mask: 1).empty?
-  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Right Sidebar', type_mask: 1, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts']), created_by: super_admin, updated_by: super_admin
   top_sidebar.save!
   puts "\tCreated Right Sidebar"
 end
 
 if Sidebar.where(type_mask: 2).empty?
-  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Top Sidebar', type_mask: 2, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts']), created_by: super_admin, updated_by: super_admin
   top_sidebar.save!
   puts "\tCreated Top Sidebar"
 end
 
 if Sidebar.where(type_mask: 3).empty?
-  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts'])
+  top_sidebar = Sidebar.new title: 'Bottom Sidebar', type_mask: 3, links: Link.where(title: ['Login', 'Sign in', 'Visitors Book', 'Forum', 'Public Pages', 'Posts']), created_by: super_admin, updated_by: super_admin
   top_sidebar.save!
   puts "\tCreated Bottom Sidebar"
 end
@@ -120,27 +120,27 @@ Agora que há a Tec-9, uma pistola de baixa qualidade a partir de South Miami. E
 Seus ossos não quebrar, o meu fazer. Isso é claro. Suas células reagem a bactérias e vírus de forma diferente do que o meu. Você não ficar doente, eu faço. Isso também é clara. Mas por alguma razão, você e eu reajo da mesma maneira à água. Nós engoli-lo muito rápido, nós sufocar. Nós temos alguns em nossos pulmões, que se afogar. No entanto irreal que pareça, estamos conectados, você e eu estamos na mesma curva, só em extremos opostos.'
 
 if Page.where(slug: 'test_page').empty?
-  Page.create title: 'Test Page 1', slug: 'test_page', body: test_text
+  Page.new title: 'Test Page 1', slug: 'test_page', body: test_text, created_by: super_admin, updated_by: super_admin
   puts 'Created Test Page'
 end
 
 if Post.where(title: 'Test Post 1').empty?
-  super_admin.posts.create title: 'Test Post 1', content: test_text
+  Post.new title: 'Test Post 1', content: test_text, created_by: super_admin, updated_by: super_admin
   puts 'Created Test Post'
 end
 
 if Post.where(title: 'Test Post 2').empty?
-  super_admin.posts.create title: 'Test Post 2', content: test_text
+  Post.new title: 'Test Post 2', content: test_text, created_by: super_admin, updated_by: super_admin
   puts 'Created Test Post'
 end
 
 if Post.where(title: 'Test Post 3').empty?
-  super_admin.posts.create title: 'Test Post 3', content: test_text
+  Post.new title: 'Test Post 3', content: test_text, created_by: super_admin, updated_by: super_admin
   puts 'Created Test Post'
 end
 
 if Post.where(title: 'Test Post 4').empty?
-  super_admin.posts.create title: 'Test Post 4', content: test_text
+  Post.new title: 'Test Post 4', content: test_text, created_by: super_admin, updated_by: super_admin
   puts 'Created Test Post'
 end
 

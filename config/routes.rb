@@ -15,6 +15,7 @@ OgmaCMS::Application.routes.draw do
     end
 
     get 'static/index'
+
     root 'static#index'
 
     resources :calendar, only: :index    
@@ -48,7 +49,17 @@ OgmaCMS::Application.routes.draw do
     # User roots
     namespace :admin do
       get '/', to: 'dashboard#index'
-      
+
+      resources :events do
+        member do
+          put 'publish'
+        end
+
+        collection do
+          put 'update_multiple'
+        end
+      end
+
       resources :links
       resources :users
       resources :system_mails, except: [:new,:delete]
@@ -59,10 +70,6 @@ OgmaCMS::Application.routes.draw do
         end
       end
 
-      resources :events do
-        put 'publish' => 'events#publish', as: 'publish'
-      end
-
       resources :newsletters do
         member do
           get 'send_newsletter'
@@ -70,8 +77,8 @@ OgmaCMS::Application.routes.draw do
       end
 
       resources :galleries do
-        put 'publish' => 'galleries#publish', as: 'publish'
         member do
+          put 'publish'
           post 'add_photo'
           post 'remove_photo'
           post 'reorder'
@@ -79,25 +86,31 @@ OgmaCMS::Application.routes.draw do
       end
 
       resources :pages do
-        put 'publish' => 'pages#publish', as: 'publish'
+        member do
+          put 'publish'
+        end
       end
 
       resources :posts do
-        put 'publish' => 'posts#publish', as: 'publish'
+        member do
+          put 'publish'
+        end
       end
 
       resources :sidebars do
-        put 'publish' => 'sidebars#publish', as: 'publish'
+        member do
+          put 'publish'
+        end
       end
 
       resources :sliders do
-        put 'publish' => 'sliders#publish', as: 'publish'
         member do
+          put 'publish'
           post 'add_photo'
           post 'remove_photo'
           post 'reorder'
         end
-      end      
+      end
 
       resources :settings, only: [:index]
       put 'settings_update', to: 'settings#update_all'

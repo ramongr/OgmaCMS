@@ -11,9 +11,15 @@ en:
 #
   time:
     formats:
-      full_date: '%A, %e %B %Y at %H:%Mh'
-      date_only: '%A, %e %B %Y'
-      time_only: '%H:%Mh'
+      full_datetime: '%A, %e %B %Y at %H:%M'
+      full_date: '%A, %e %B %Y'
+      full_time: '%H:%M'
+
+      semi_datetime: '%e %B %Y at %H:%M'
+      semi_date: '%e %B %Y'
+
+      mini_datetime: '%e/%m/%Y at %H:%M'
+      mini_date: '%e/%m/%Y'
 
     from_date: From
     to_date: To

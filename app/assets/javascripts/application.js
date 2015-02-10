@@ -17,6 +17,7 @@
 //= require jquery-ui
 //= require best_in_place
 //= require foundation
+//= require foundation-datepicker
 //= require ckeditor/init
 //= require moment
 //= require fullcalendar

@@ -10,6 +10,9 @@ en:
         end_time: End
         created_at: Created at
         updated_at: Updated at
+        created_by: Created by
+        updated_by: Updated by
+
   events:
     name: Events
 
@@ -18,6 +21,11 @@ en:
       body: Description
       date: Date
       start_time: Beginning
+      end_time: End
+      created_at: Created at
+      updated_at: Updated at
+      created_by: Created by
+      updated_by: Updated by
       end_time_toggle: End time?
       notification: Warn about changes?
 

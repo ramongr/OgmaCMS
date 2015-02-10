@@ -5,6 +5,22 @@ class Event < ActiveRecord::Base
 
   before_validation :validate_dates
   validates_presence_of :title, :start_time, :created_by, :updated_by
+  validates_uniqueness_of :title
+
+  include PgSearch
+  pg_search_scope :search_by_title, against: :title,
+                                    using: { tsearch: { prefix: true } },
+                                    ignoring: :accents
+
+  pg_search_scope :search_by_body, against: :body,
+                                    using: { tsearch: { prefix: true } },
+                                    ignoring: :accents
+
+  pg_search_scope :search_by_created_by, associated_against: { created_by: :name },
+                                         using: { tsearch: { prefix: true } }
+
+  pg_search_scope :search_by_updated_by, associated_against: { updated_by: :name },
+                                         using: { tsearch: { prefix: true } }
 
   private
 

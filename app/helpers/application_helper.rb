@@ -29,4 +29,31 @@ module ApplicationHelper
 
     result
   end
+
+  def sortable(column, title = nil)
+    title ||= column.titleize
+
+    if column == sort_column
+      if sort_direction == 'asc'
+        direction = 'desc'
+        direction_css = 'fi-arrow-down'
+      else
+        direction = 'asc'
+        direction_css = 'fi-arrow-up'
+      end
+    else
+      direction_css = ''
+    end
+
+    link_to (title + " " + content_tag(:i, '', class: direction_css)).html_safe, admin_events_path(params.merge(sort: column, direction: direction, page: nil))
+  end
+
+  def cookie_or_setting(thing)
+    if cookies[thing].blank?
+      Setting[thing]
+    else
+      cookies[thing]
+    end
+  end
+
 end

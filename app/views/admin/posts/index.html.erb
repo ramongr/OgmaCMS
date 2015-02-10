@@ -18,10 +18,10 @@
         <tbody>
           <% @posts.each do |post| %>
             <tr>
-              <td><h4 class="text-center"><%= content_tag :i, '', class: (post.publish ?  "fi-check check" : "fi-x uncheck") %></h4></td>
+              <td><h4 class="text-center"><%= content_tag :i, '', class: (post.publish ?  "fi-check check" : "fi-x uncheck"), title: (post.publish ? t('common.published') : t('common.not_published')) %></h4></td>
               <td><%= post.title %></td>
               <td><%= post.created_by.name %></td>
-              <td><%= l post.updated_at %></td>
+              <td><%= l post.updated_at, format: :semi_datetime %></td>
               <td>
                 <%= link_to t('common.show'), [:admin,post], class: "button tiny" %>
                 <%= link_to t('common.edit'), edit_admin_post_path(post), class: "button tiny" %>

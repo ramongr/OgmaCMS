@@ -7,7 +7,7 @@ gem 'rails', '~> 4.1.8'
 gem 'pg', '~> 0.17.1'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.5'
+gem 'sass-rails', '~> 5.0.1'
 
 # Authentication
 gem 'devise', '~> 3.4.1'
@@ -36,7 +36,7 @@ gem 'turbolinks', '~> 2.5.3'
 gem 'jquery-turbolinks', '~> 2.1.0'
 
 # Foundation Official Gem
-gem 'foundation-rails', '~> 5.4.5.0'
+gem 'foundation-rails', '~> 5.5.0.0'
 
 # Foundation icon 3
 gem 'foundation-icons-sass-rails', '~> 3.0.0'
@@ -118,6 +118,9 @@ gem 'pg_search', '~> 0.7.8'
 
 # A gem which helps you detect the users preferred language, as sent by the "Accept-Language" HTTP header.
 gem 'http_accept_language', '~> 2.0.2', git: 'git://github.com/iain/http_accept_language.git'
+
+# Internationalization support for Ruby.
+gem 'i18n'
 
 # Central point to collect locale data for use in Ruby on Rails.
 gem 'rails-i18n', '~> 4.0.3', github: 'svenfuchs/rails-i18n', branch: 'master'
