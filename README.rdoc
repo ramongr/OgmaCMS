@@ -1,1 +1,2 @@
 == OgmaCMS
+{<img src="https://codeclimate.com/github/ramongr/OgmaCMS/badges/gpa.svg" />}[https://codeclimate.com/github/ramongr/OgmaCMS]
